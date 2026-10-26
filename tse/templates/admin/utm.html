@@ -1,0 +1,16 @@
+{% extends 'admin/_layout.html' %}{% block title %}UTM link builder{% endblock %}
+{% block admin %}<h1 style="font-size:1.5rem">Campaign link builder</h1>
+<p class="muted small">Create tracked links for Google Ads, Meta, LinkedIn, WhatsApp and email campaigns. Every sign-up, registration and payment from the link is attributed in Growth & SEO.</p>
+<form class="card" method="get"><div class="row2"><div class="field"><label for="p">Landing page</label><select id="p" name="path">{% for path, label in targets %}<option value="{{ path }}" {% if a.path == path %}selected{% endif %}>{{ label }} ({{ path }})</option>{% endfor %}</select></div>
+<div class="field"><label for="s">Source</label><input id="s" name="utm_source" value="{{ a.utm_source or 'google' }}" placeholder="google, facebook, linkedin, newsletter"></div></div>
+<div class="row2"><div class="field"><label for="m">Medium</label><input id="m" name="utm_medium" value="{{ a.utm_medium or 'cpc' }}" placeholder="cpc, social, email"></div>
+<div class="field"><label for="c">Campaign</label><input id="c" name="utm_campaign" value="{{ a.utm_campaign or '' }}" placeholder="schools-bengaluru-2027"></div></div>
+<div class="row2"><div class="field"><label for="t">Term (keyword)</label><input id="t" name="utm_term" value="{{ a.utm_term or '' }}" placeholder="list my school"></div><div class="field"><label for="ct">Content (ad variant)</label><input id="ct" name="utm_content" value="{{ a.utm_content or '' }}"></div></div>
+<button class="btn btn-primary">Build link</button></form>
+{% if url %}<div class="card"><label class="small muted" for="out">Your tracked link</label><div class="btn-row"><input id="out" readonly value="{{ url }}" style="flex:1"><button class="btn btn-sm btn-primary" data-copy="{{ url }}">Copy</button></div></div>{% endif %}
+<div class="card"><h3>Suggested campaigns</h3><ul class="small"><li><b>Schools</b> — search: “list my school online”, “school admission leads”, “school marketing {city}”; LinkedIn: principals & school owners → /list-your-school/&lt;city&gt;</li>
+<li><b>Vendors</b> — search: “sell to schools India”, “school supplier directory”, “edtech sell to schools” → /become-a-vendor/&lt;category&gt;</li>
+<li><b>Parents</b> — search: “best CBSE schools in {area}”, “schools near me fees” → /school-match and /schools/&lt;city&gt;</li>
+<li><b>Teachers</b> — search: “teacher jobs {city}”, “school teacher vacancy” → /teacher-jobs/&lt;city&gt;</li></ul>
+<p class="small muted">Advertising is never targeted at children. Analytics/ads tags load only after cookie consent.</p></div>
+{% endblock %}

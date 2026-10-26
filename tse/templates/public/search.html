@@ -1,0 +1,18 @@
+{% extends 'base.html' %}{% from '_macros.html' import listing_card, pager, page_head %}
+{% block title %}Search{% if q %}: {{ q }}{% endif %}{% endblock %}
+{% block robots %}noindex,follow{% endblock %}
+{% block body %}
+{{ page_head('Search The School Expert™', 'Schools, tutors, classes, experts, education partners, jobs and products.') }}
+<section class="section-sm"><div class="container">
+  <form class="card flat" style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px">
+    <input name="q" value="{{ q }}" placeholder="Search…" aria-label="Search"><select name="grp" aria-label="Category"><option value="">All categories</option>{% for k, v in [('schools','Schools'),('learning','Tutors & classes'),('vendors','Education partners')] %}<option value="{{ k }}" {% if grp == k %}selected{% endif %}>{{ v }}</option>{% endfor %}</select>
+    <select name="city" aria-label="City"><option value="">Any city</option>{% for c in cities %}<option {% if c == city %}selected{% endif %}>{{ c }}</option>{% endfor %}</select><button class="btn btn-primary">Search</button>
+  </form>
+  {% if q or city or grp %}<p class="muted" style="margin-top:14px">{{ total }} result{{ 's' if total != 1 }}</p>{% endif %}
+  <div class="grid g3">{% for l in rows %}{{ listing_card(l) }}{% endfor %}</div>
+  {{ pager(page, total, 24, {'q': q, 'city': city, 'grp': grp or ''}) }}
+  {% if jobs %}<h2 style="margin-top:30px">Jobs</h2>{% for j in jobs %}<a class="card flat" style="margin-bottom:8px;display:block" href="{{ url_for('teachers.job', slug=j.slug) }}"><b>{{ j.title }}</b> <span class="muted small">— {{ j.org_name }}, {{ j.city }}</span></a>{% endfor %}{% endif %}
+  {% if products %}<h2 style="margin-top:30px">Marketplace</h2><div class="grid g3">{% for p in products %}<a class="card" href="{{ url_for('marketplace.product', slug=p.slug) }}"><b>{{ p.title }}</b><div class="price" style="font-size:1.1rem">{{ inr(p.price_paise) }}</div></a>{% endfor %}</div>{% endif %}
+  {% if (q or city or grp) and not rows and not jobs and not products %}<div class="empty">No matches. Try a different word or city — or <a href="{{ url_for('ask.index') }}">Ask The School Expert</a>.</div>{% endif %}
+</div></section>
+{% endblock %}

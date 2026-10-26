@@ -1,0 +1,45 @@
+{% extends 'dashboard/_layout.html' %}{% from '_macros.html' import status %}
+{% block title %}My Teachers Hub{% endblock %}
+{% block dash %}
+<div class="section-title"><div><h1 style="font-size:1.6rem;margin:0">Hello, {{ current_user.name.split(' ')[0] }} 👋</h1><p class="muted" style="margin:4px 0 0">Your Teachers Hub — learning, network, planning and career in one place.</p></div>
+  <div class="btn-row">{% if hub_unread %}<a class="btn btn-outline" href="{{ url_for('hub.messages') }}">✉️ {{ hub_unread }} new message{{ 's' if hub_unread != 1 }}</a>{% endif %}{% if hub_requests %}<a class="btn btn-outline" href="{{ url_for('hub.connections') }}">🤝 {{ hub_requests }} request{{ 's' if hub_requests != 1 }}</a>{% endif %}</div></div>
+
+<div class="grid g2" style="margin-top:14px">
+  <div class="card hub-hero">
+    {% set goal = hub_member.cpd_goal if hub_member else 50 %}
+    <div class="ring" style="--p:{{ [100, (100 * cpd.total / goal) | round | int] | min }}" role="img" aria-label="{{ cpd.total }} of {{ goal }} CPD hours"><div><b>{{ cpd.total }}</b><small>of {{ goal }} h</small></div></div>
+    <div><h3 style="margin:0">CPD this year</h3><p class="small muted" style="margin:4px 0 8px">{{ cpd.courses }} h from courses · {{ cpd.workshops }} h from workshops</p>
+      <div class="btn-row"><a class="btn btn-sm btn-primary" href="{{ url_for('hub.courses') }}">Browse courses</a><a class="btn btn-sm btn-ghost" href="{{ url_for('hub.certificates') }}">Certificates ({{ hub_stats.completed }})</a></div></div>
+  </div>
+  <div class="card"><h3 style="margin:0">Learning activity</h3><p class="small muted" style="margin:2px 0 0">Lessons completed per week</p>
+    <div class="spark" role="img" aria-label="Lessons completed in each of the last 8 weeks">{% for a in activity %}<i class="{{ 'on' if a.n }}" style="height:{{ (4 + 66 * a.n / peak) | round | int }}px" title="{{ a.label }}: {{ a.n }}"></i>{% endfor %}</div>
+    <div class="spark-labels">{% for a in activity %}<span>{{ a.label.split(' ')[0] if loop.index is odd else '' }}</span>{% endfor %}</div></div>
+</div>
+
+<div class="kpis" style="margin-top:14px">
+  <div class="kpi"><b>{{ hub_stats.enrolled }}</b><span>Courses enrolled</span></div><div class="kpi"><b>{{ hub_stats.connections }}</b><span>Connections</span></div>
+  <div class="kpi"><b>{{ hub_stats.plans }}</b><span>Lesson plans</span></div><div class="kpi"><b>{{ reg.progress if reg else 0 }}%</b><span>Career profile</span></div>
+</div>
+
+<div class="grid g2">
+  <div class="card"><div class="section-title"><h3 style="margin:0">Continue learning</h3><a href="{{ url_for('hub.courses') }}">All →</a></div>
+    {% for c in learning %}<div class="post"><a href="{{ url_for('hub.course', slug=c.slug) }}"><b>{{ c.title }}</b></a><div class="progress" style="margin:6px 0"><span style="width:{{ (100 * c.done / c.total) | round | int if c.total else 0 }}%"></span></div><div class="small muted">{{ c.done }} of {{ c.total }} lessons · {{ c.category }}</div></div>
+    {% else %}<p class="small muted">No course in progress. <a href="{{ url_for('hub.courses') }}">Pick one</a> — most take under two hours.</p>{% endfor %}</div>
+  <div class="card"><div class="section-title"><h3 style="margin:0">Upcoming workshops</h3><a href="{{ url_for('hub.workshops') }}">All →</a></div>
+    {% for e in upcoming %}<div class="post"><a href="{{ url_for('events.detail', slug=e.slug) }}"><b>{{ e.title }}</b></a>{% if e.registered %} <span class="chip ok">Registered</span>{% endif %}<div class="small muted">{{ e.starts_at | dtt }} · {{ e.mode | capitalize }}{% if e.cpd_hours %} · {{ e.cpd_hours }} CPD h{% endif %}</div></div>
+    {% else %}<p class="small muted">No workshops scheduled.</p>{% endfor %}</div>
+  <div class="card"><div class="section-title"><h3 style="margin:0">Next lessons I'm teaching</h3><a href="{{ url_for('hub.planner') }}">Planner →</a></div>
+    {% for p in next_plans %}<div class="post"><a href="{{ url_for('hub.plan_edit', pid=p.id) }}"><b>{{ p.title }}</b></a><div class="small muted">{{ p.plan_date | dt }} · {{ p.subject }}{% if p.grade %} · {{ p.grade }}{% endif %}</div></div>
+    {% else %}<p class="small muted">Nothing planned. <a href="{{ url_for('hub.plan_edit') }}">Plan a lesson</a>.</p>{% endfor %}</div>
+  <div class="card"><div class="section-title"><h3 style="margin:0">From the communities</h3><a href="{{ url_for('hub.communities') }}">All →</a></div>
+    {% for p in discussions %}<div class="post"><a href="{{ url_for('community.thread', slug=p.community, pid=p.id) }}"><b>{{ p.title }}</b></a><div class="small muted">{{ p.community_name }} · {{ p.author }} · {{ p.comment_count }} repl{{ 'y' if p.comment_count == 1 else 'ies' }}</div></div>
+    {% else %}<p class="small muted">Be the first to start a discussion.</p>{% endfor %}</div>
+</div>
+
+<h2 style="margin-top:26px">Career</h2>
+{% if not reg %}<div class="card pad-lg"><h3>Create your teacher profile</h3><p>It powers your AI CV and one-click job applications to verified schools.</p><form method="post" action="{{ url_for('register.start', slug='teacher-registration') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-accent">Start my profile</button></form></div>
+{% else %}<div class="kpis"><div class="kpi"><b>{{ reg.progress }}%</b><span>Profile complete</span></div><div class="kpi"><b>{{ apps | length }}</b><span>Recent applications</span></div><div class="kpi"><b>{{ 'Ready' if profile and profile.cv_json else '—' }}</b><span>AI CV</span></div><div class="kpi"><b>{{ (profile.visibility if profile else 'hidden') | capitalize }}</b><span>Profile visibility</span></div></div>
+<div class="btn-row" style="margin-bottom:18px"><a class="btn btn-primary" href="{{ url_for('register.step', rid=reg.id, si=0) }}">Edit profile</a>{% if reg.status == 'draft' %}<a class="btn btn-accent" href="{{ url_for('register.review', rid=reg.id) }}">Submit profile</a>{% endif %}<a class="btn btn-outline" href="{{ url_for('teachers.cv') }}">AI CV builder</a>{% if profile and profile.slug %}<a class="btn btn-ghost" href="{{ url_for('teachers.profile', slug=profile.slug) }}">View my profile</a>{% endif %}</div>{% endif %}
+<div class="grid g2"><div class="card"><h3>My applications</h3>{% for a in apps %}<div class="post"><a href="{{ url_for('teachers.job', slug=a.slug) }}">{{ a.title }}</a> {{ status(a.status) }}<div class="small muted">{{ a.org_name }} · {{ a.created_at | dt }}</div></div>{% else %}<p class="small muted">No applications yet.</p>{% endfor %}</div>
+<div class="card"><h3>New jobs</h3>{% for j in jobs %}<div class="post"><a href="{{ url_for('teachers.job', slug=j.slug) }}">{{ j.title }}</a><div class="small muted">{{ j.org_name }} · {{ j.city }}</div></div>{% endfor %}</div></div>
+{% endblock %}

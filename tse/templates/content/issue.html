@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}{{ n.title }}{% endblock %}
+{% block body %}
+<section class="section"><div class="container narrow"><a class="small" href="{{ url_for('content.newsworms') if n.kind == 'newsworms' else url_for('content.newsletter') }}">← {{ 'NewsWorms' if n.kind == 'newsworms' else 'Industry Newsletter' }}</a>
+<article class="card pad-lg" style="margin-top:10px"><span class="chip navy">Issue {{ n.issue_no or '' }}{% if n.age_band %} · Ages {{ n.age_band }}{% endif %}</span><h1 style="margin-top:8px">{{ n.title }}</h1><p class="muted">{{ n.published_at | dt }}</p>
+{% if locked %}<p>{{ n.summary }}</p><div class="notice">This issue is for NewsWorms subscribers. <a href="{{ url_for('content.newsworms') }}">Subscribe</a></div>
+{% else %}<div class="prose">{{ n.body | md }}</div>{% if n.pdf_url %}<a class="btn btn-primary" href="{{ n.pdf_url }}" target="_blank">Download PDF</a>{% endif %}{% endif %}</article></div></section>
+{% endblock %}

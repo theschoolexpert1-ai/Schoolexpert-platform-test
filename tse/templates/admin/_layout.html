@@ -1,0 +1,25 @@
+{% extends 'base.html' %}{% block robots %}noindex{% endblock %}
+{% block body %}<div class="container dash"><aside class="side admin-side" aria-label="Team desks">{% set ep = request.endpoint %}
+<div style="padding:8px"><b>The School Expert™ HQ</b><div class="small muted">{{ current_user.name }} · {{ (current_user.staff_role or current_user.account_type) | replace('_',' ') | capitalize }}</div></div>
+{% set LINKS = {
+ 'command': [('Overview', 'admin.index', {})],
+ 'verification': [('Registrations queue', 'admin.registrations', {}), ('Listings', 'admin.listings', {}), ('Organisations (tenants)', 'admin.organisations', {}), ('Registration forms', 'admin.forms_admin', {})],
+ 'billing': [('Subscriptions & plan mix', 'admin.subscriptions', {}), ('Orders & refunds', 'admin.orders', {}), ('Revenue by stream', 'admin.revenue', {}), ('Plans & pricing', 'admin.cms_list', {'table': 'plans'})],
+ 'payouts': [('Seller payouts & referrals', 'admin.payouts', {}), ('Referral codes', 'admin.cms_list', {'table': 'referral_codes'})],
+ 'leads': [('Leads', 'admin.leads', {}), ('Support tickets', 'admin.tickets', {}), ('Contact messages', 'admin.contact', {})],
+ 'parent': [('Ask The School Expert', 'admin.expert_requests', {}), ('Personal Assistance', 'admin.pa_list', {})],
+ 'community': [('Moderation queue', 'admin.moderation', {})],
+ 'content': [('Content manager', 'admin.cms_index', {}), ('Guides (SEO)', 'admin.cms_list', {'table': 'articles'}), ('Podcast questions', 'admin.podcast_questions', {})],
+ 'events': [('Events, passes & sponsors', 'admin.events_desk', {})],
+ 'growth': [('Attribution & funnel', 'admin.growth', {}), ('UTM link builder', 'admin.utm', {}), ('Sponsored placements', 'admin.cms_list', {'table': 'ad_placements'})],
+ 'site': [('Pages & redirects', 'admin.site', {})],
+ 'privacy': [('Security monitoring', 'admin.security_desk', {}), ('Data-principal requests', 'admin.dsr', {}), ('Breach register', 'admin.cms_list', {'table': 'breach_incidents'}), ('Audit log', 'admin.audit_log', {}), ('Users & staff roles', 'admin.users', {})],
+ 'health': [('Platform health', 'admin.health', {}), ('CRM / email outbox', 'admin.outbox', {})],
+} %}
+{% for key, name, icon, roles, landing in desks %}
+<details class="desk" {% if current_desk == key or (not current_desk and loop.first) %}open{% endif %}><summary>{{ icon }} {{ name }}</summary>
+  {% for label, endpoint, args in LINKS.get(key, []) %}<a href="{{ url_for(endpoint, **args) }}" class="{{ 'on' if ep == endpoint and (not args or request.view_args.get('table') == args.get('table')) }}">{{ label }}</a>{% endfor %}
+</details>{% endfor %}
+<a href="{{ url_for('auth.security') }}">🔑 My account security</a>
+<form method="post" action="{{ url_for('auth.logout') }}" style="padding:6px 10px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-ghost btn-sm">Log out</button></form>
+</aside><div>{% block admin %}{% endblock %}</div></div>{% endblock %}

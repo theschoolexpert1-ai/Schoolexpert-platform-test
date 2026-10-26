@@ -1,0 +1,20 @@
+{% extends 'base.html' %}{% from '_macros.html' import listing_card %}
+{% block title %}{% if board %}{{ board }} schools{% else %}Schools{% endif %} in {{ city }} — verified profiles, reviews & admissions{% endblock %}
+{% block meta_description %}Compare {{ counts.total }} verified {% if board %}{{ board }} {% endif %}schools in {{ city }}: boards, grades, facilities and verified parent reviews. Use AI School Match to shortlist the right school for your family.{% endblock %}
+{% block head %}<link rel="canonical" href="{{ cfg.SITE_URL }}{{ request.path }}{% if board %}?board={{ board | urlencode }}{% endif %}">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Schools in {{ city }}","itemListElement":[{% for l in rows[:20] %}{"@type":"ListItem","position":{{ loop.index }},"url":"{{ cfg.SITE_URL }}/l/{{ l.slug }}","name":{{ l.name | tojson }}}{{ ',' if not loop.last }}{% endfor %}]}</script>{% endblock %}
+{% block body %}
+<section class="page-head"><div class="container"><div class="crumbs"><a href="/">Home</a> › <a href="{{ url_for('directory.group', grp='schools') }}">Schools</a> › {{ city }}</div>
+  <h1>{% if board %}{{ board }} schools{% else %}Schools{% endif %} in {{ city }}</h1>
+  <p>{{ counts.total }} verified schools · {{ counts.detailed }} with detailed profiles · {{ counts.reviews }} verified parent reviews</p></div></section>
+<section class="section-sm"><div class="container"><div class="layout right"><div>
+  <div class="chips" style="margin-bottom:12px"><a class="chip {{ 'navy' if not board }}" href="?">All boards</a>{% for b in boards %}<a class="chip {{ 'navy' if board == b.b }}" href="?board={{ b.b | urlencode }}">{{ b.b }} ({{ b.n }})</a>{% endfor %}</div>
+  <div class="grid g2">{% for l in rows %}{{ listing_card(l) }}{% else %}<div class="card"><p>No verified schools listed here yet.</p></div>{% endfor %}</div>
+  {% if total > rows | length %}<p style="margin-top:14px"><a class="btn btn-outline" href="{{ url_for('directory.group', grp='schools', city=city) }}">See all {{ total }} schools</a></p>{% endif %}
+</div><aside>
+  <div class="card advisor"><h3>✨ Not sure where to start?</h3><p class="small">Answer 7 questions and AI School Match shortlists the schools in {{ city }} that fit your family — with the reasons.</p><a class="btn btn-accent btn-block" href="{{ url_for('school_match.index', city=city) }}">Start AI School Match</a></div>
+  <div class="card"><h3>See fees & contacts</h3><p class="small muted">Unlock verified details of up to 10 schools in your locality and contact admissions directly.</p><a class="btn btn-outline btn-sm" href="{{ url_for('ask.schools', city=city) }}">Ask The School Expert</a></div>
+  <div class="card"><h3>Other cities</h3><div class="chips">{% for c in cities if c != city %}<a class="chip" href="{{ url_for('growth.schools_city', city=city_slug(c)) }}">{{ c }}</a>{% endfor %}</div></div>
+  <div class="card"><h3>Run a school in {{ city }}?</h3><a href="{{ url_for('growth.list_school', city=city_slug(city)) }}">List your school →</a></div>
+</aside></div></div></section>
+{% endblock %}

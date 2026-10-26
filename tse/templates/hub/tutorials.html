@@ -1,0 +1,11 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}Tutorials — Teachers Hub{% endblock %}
+{% block dash %}
+<h1 style="font-size:1.6rem">Tutorials</h1>
+<p class="muted">Step-by-step guides you can use tomorrow morning.</p>
+<form method="get" class="btn-row" style="margin:12px 0"><input name="q" value="{{ q }}" placeholder="Search tutorials" aria-label="Search tutorials" style="flex:1">{% if cat %}<input type="hidden" name="category" value="{{ cat }}">{% endif %}<button class="btn btn-primary">Search</button></form>
+<div class="chips" style="margin-bottom:14px"><a class="chip {{ 'navy' if not cat and not saved_only }}" href="{{ url_for('hub.tutorials') }}">All</a><a class="chip {{ 'navy' if saved_only }}" href="{{ url_for('hub.tutorials', saved=1) }}">★ Saved</a>{% for c in cats %}<a class="chip {{ 'navy' if c == cat }}" href="{{ url_for('hub.tutorials', category=c) }}">{{ c }}</a>{% endfor %}</div>
+<div class="grid g3">{% for t in rows %}
+  <a class="card" style="color:inherit" href="{{ url_for('hub.tutorial', slug=t.slug) }}"><div class="icon">{{ icons.get(t.category, '📘') }}</div><b>{{ t.title }}</b>{% if t.saved %} ★{% endif %}<p class="small muted" style="margin:6px 0">{{ t.summary }}</p><div class="small">{{ t.category }} · {{ t.minutes }} min</div></a>
+{% else %}<div class="empty">Nothing found.</div>{% endfor %}</div>
+{% endblock %}

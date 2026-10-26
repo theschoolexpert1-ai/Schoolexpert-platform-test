@@ -1,0 +1,877 @@
+{
+ "slug": "recreation-hobbies-enrichment-provider",
+ "title": "Recreation, Hobbies & Enrichment Provider Registration Form",
+ "intro": [
+  "The School Expert™ is building a connected ecosystem for parents, schools and education partners.",
+  "Register your recreation, hobby, enrichment or extracurricular programme to be considered for inclusion in our growing provider directory and future partnership opportunities.",
+  "Registration does not automatically constitute verification, endorsement or guaranteed leads. Information may be reviewed before publication."
+ ],
+ "sections": [
+  {
+   "title": "Provider Type & Basic Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "what_type_of_provider_are_you",
+     "label": "What type of provider are you?",
+     "type": "radio",
+     "required": true,
+     "help": "If Individual Instructor / Coach → Section 2A All others → Section 2B.",
+     "options": [
+      "Academy / Institute",
+      "Individual Instructor / Coach",
+      "Studio",
+      "Sports Club",
+      "Hobby / Activity Centre",
+      "NGO / Community Organisation",
+      "School-based Provider"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Individual Instructor",
+   "description": "",
+   "fields": [
+    {
+     "key": "full_name",
+     "label": "Full Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "professional_brand_name",
+     "label": "Professional / Brand Name",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "primary_area_of_expertise",
+     "label": "Primary Area of Expertise",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "years_of_experience",
+     "label": "Years of Experience",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Less than 1 year",
+      "1–3 years",
+      "3–5 years",
+      "5–10 years",
+      "10+ years"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "qualifications_certifications",
+     "label": "Qualifications / Certifications",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ],
+   "showIf": {
+    "field": "what_type_of_provider_are_you",
+    "equals": "Individual Instructor / Coach"
+   }
+  },
+  {
+   "title": "Organisation / Centre",
+   "description": "",
+   "fields": [
+    {
+     "key": "organisation_academy_centre_name",
+     "label": "Organisation / Academy / Centre Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "organisation_website",
+     "label": "Organisation Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "social_media_link",
+     "label": "Social Media Link",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "registration_accreditation_details",
+     "label": "Registration / Accreditation Details",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ],
+   "showIf": {
+    "field": "what_type_of_provider_are_you",
+    "notEquals": "Individual Instructor / Coach"
+   }
+  },
+  {
+   "title": "Contact Person",
+   "description": "",
+   "fields": [
+    {
+     "key": "contact_person_name",
+     "label": "Contact Person Name",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "designation_role",
+     "label": "Designation / Role",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "email_address",
+     "label": "Email Address",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "mobile_whatsapp_number",
+     "label": "Mobile / WhatsApp Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "alternative_contact_number",
+     "label": "Alternative Contact Number",
+     "type": "tel",
+     "required": false,
+     "help": "Recommended: Enable Google Form's Collect email addresses.",
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Activities & Programmes",
+   "description": "",
+   "fields": [
+    {
+     "key": "what_type_of_activities_do_you_offer",
+     "label": "What type of activities do you offer?",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Art & Drawing",
+      "Painting & Crafts",
+      "Pottery",
+      "Music – Vocal",
+      "Music – Instrumental",
+      "Dance – Classical",
+      "Dance – Western / Contemporary",
+      "Theatre / Drama",
+      "Storytelling",
+      "Public Speaking",
+      "Creative Writing",
+      "Chess / Strategy Games",
+      "Coding / Robotics",
+      "Animation / Filmmaking",
+      "Yoga / Meditation",
+      "Swimming",
+      "Skating",
+      "Badminton",
+      "Tennis",
+      "Athletics",
+      "Martial Arts / Self-Defence",
+      "Cooking / Baking",
+      "Gardening / Nature Activities",
+      "Language Learning"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "please_specify_other_activities",
+     "label": "Please specify other activities",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "briefly_describe_your_programmes",
+     "label": "Briefly describe your programmes.",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about"
+    },
+    {
+     "key": "what_makes_your_programme_unique",
+     "label": "What makes your programme unique?",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Target Age Groups",
+   "description": "",
+   "fields": [
+    {
+     "key": "which_age_groups_do_you_cater_to",
+     "label": "Which age groups do you cater to?",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "3–5 years",
+      "6–8 years",
+      "9–12 years",
+      "13–15 years",
+      "16–18 years",
+      "18+",
+      "Families / All Ages"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "level_of_instruction",
+     "label": "Level of instruction",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Beginner",
+      "Intermediate",
+      "Advanced",
+      "Competitive / Professional"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Delivery Format",
+   "description": "",
+   "fields": [
+    {
+     "key": "how_are_your_classes_conducted",
+     "label": "How are your classes conducted?",
+     "type": "checkbox",
+     "required": true,
+     "help": "If At our centre → ask centre address. If At student's home → ask areas served. If At school → ask whether school partnerships are currently offered. If Online → ask platform used.",
+     "options": [
+      "At our centre",
+      "At the student's home",
+      "At school",
+      "Online",
+      "Hybrid"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "centre_address",
+     "label": "Centre Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "areas_localities_served",
+     "label": "Areas / Localities Served",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "online_platform",
+     "label": "Online Platform",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Zoom",
+      "Google Meet",
+      "Microsoft Teams"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Location",
+   "description": "",
+   "fields": [
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "pin_code",
+     "label": "PIN Code",
+     "type": "pincode",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "google_maps_location",
+     "label": "Google Maps Location",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_offer_classes_in_multiple_locations",
+     "label": "Do you offer classes in multiple locations?",
+     "type": "radio",
+     "required": true,
+     "help": "List the locations — Paragraph",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "list_the_locations",
+     "label": "List the locations",
+     "type": "textarea",
+     "required": false,
+     "help": "If you offer classes in multiple locations",
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Classes & Schedule",
+   "description": "",
+   "fields": [
+    {
+     "key": "class_format",
+     "label": "Class format",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Individual / One-to-one",
+      "Small Group",
+      "Large Group",
+      "Workshops",
+      "Camps",
+      "Short-term Courses",
+      "Long-term Programmes"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "typical_batch_size",
+     "label": "Typical batch size",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "1 student",
+      "2–5",
+      "6–10",
+      "11–20",
+      "21–30",
+      "30+"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "class_duration",
+     "label": "Class duration",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "30 minutes",
+      "45 minutes",
+      "1 hour",
+      "1.5 hours",
+      "2 hours"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "classes_available_on",
+     "label": "Classes available on",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Monday–Friday",
+      "Saturday",
+      "Sunday",
+      "School holidays",
+      "Flexible / By appointment"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "preferred_class_timings",
+     "label": "Preferred class timings",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Fees",
+   "description": "",
+   "fields": [
+    {
+     "key": "fee_structure",
+     "label": "Fee structure",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Monthly",
+      "Per class",
+      "Per course",
+      "Term-wise",
+      "Annual",
+      "Depends on programme"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "approximate_fee_range",
+     "label": "Approximate fee range",
+     "type": "text",
+     "required": true,
+     "help": "Example: ₹1,500–₹3,000 per month",
+     "visibility": "detailed"
+    },
+    {
+     "key": "is_a_trial_demo_class_available",
+     "label": "Is a trial / demo class available?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes – Free",
+      "Yes – Paid",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "trial_class_fee",
+     "label": "Trial Class Fee",
+     "type": "text",
+     "required": false,
+     "help": "",
+     "visibility": "detailed",
+     "showIf": {
+      "field": "is_a_trial_demo_class_available",
+      "equals": "Yes – Paid"
+     }
+    },
+    {
+     "key": "is_there_an_admission_registration_fee",
+     "label": "Is there an admission / registration fee?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "admission_registration_fee",
+     "label": "Admission / Registration Fee",
+     "type": "text",
+     "required": false,
+     "help": "",
+     "visibility": "detailed",
+     "showIf": {
+      "field": "is_there_an_admission_registration_fee",
+      "equals": "Yes"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Instructor / Faculty Profile",
+   "description": "",
+   "fields": [
+    {
+     "key": "number_of_instructors_coaches",
+     "label": "Number of instructors / coaches",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "please_provide_a_brief_profile_of_your_instructo",
+     "label": "Please provide a brief profile of your instructors / coaches.",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "what_qualifications_or_certifications_do_your_in",
+     "label": "What qualifications or certifications do your instructors hold?",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "average_instructor_experience",
+     "label": "Average instructor experience",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Less than 1 year",
+      "1–3 years",
+      "3–5 years",
+      "5–10 years",
+      "10+ years"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Child Safety & Verification",
+   "description": "This section is particularly important because the directory may involve children's activities.",
+   "fields": [
+    {
+     "key": "do_you_have_child_safety_policies_procedures_in_",
+     "label": "Do you have child-safety policies / procedures in place?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "are_instructors_coaches_background_verified",
+     "label": "Are instructors / coaches background verified?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "No",
+      "In progress",
+      "Not applicable"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "do_you_maintain_emergency_first_aid_procedures",
+     "label": "Do you maintain emergency / first-aid procedures?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_hold_any_relevant_licences_certifications",
+     "label": "Do you hold any relevant licences, certifications or affiliations?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "please_provide_details",
+     "label": "Please provide details.",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "upload_supporting_documents",
+     "label": "Upload supporting documents",
+     "type": "file",
+     "required": false,
+     "visibility": "private",
+     "accept": [
+      "pdf",
+      "jpg",
+      "png"
+     ],
+     "help": "Allowed: PDF, JPG, PNG"
+    }
+   ]
+  },
+  {
+   "title": "Achievements & Credibility",
+   "description": "",
+   "fields": [
+    {
+     "key": "awards_recognitions",
+     "label": "Awards / Recognitions",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "major_achievements_accomplishments",
+     "label": "Major achievements / accomplishments",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "student_achievements_success_stories",
+     "label": "Student achievements / success stories",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "website_portfolio_brochure",
+     "label": "Website / portfolio / brochure",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "photos_of_your_classes_facilities",
+     "label": "Photos of your classes / facilities",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "video_youtube_instagram_link",
+     "label": "Video / YouTube / Instagram link",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "School Partnerships",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_you_currently_work_with_schools",
+     "label": "Do you currently work with schools?",
+     "type": "radio",
+     "required": true,
+     "help": "Please mention the type of schools / programmes you work with. — Paragraph",
+     "options": [
+      "Yes",
+      "No",
+      "Previously worked with schools"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "which_school_programmes_can_you_offer",
+     "label": "Which school programmes can you offer?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Workshops",
+      "After-school programmes",
+      "Holiday camps",
+      "Clubs",
+      "Competitions",
+      "Demonstrations",
+      "Assemblies / Special Events",
+      "Student enrichment programmes",
+      "Teacher programmes"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "would_you_be_interested_in_receiving_school_part",
+     "label": "Would you be interested in receiving school partnership opportunities through The School Expert™?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Parent & Student Enquiries",
+   "description": "",
+   "fields": [
+    {
+     "key": "would_you_like_to_receive_enquiries_from_parents",
+     "label": "Would you like to receive enquiries from parents through The School Expert™?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "which_enquiries_would_you_like_to_receive",
+     "label": "Which enquiries would you like to receive?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "New admissions",
+      "Trial classes",
+      "Workshops",
+      "Holiday camps",
+      "One-to-one classes",
+      "Group classes",
+      "School programmes",
+      "Corporate / community programmes"
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "The School Expert™ Partnership",
+   "description": "",
+   "fields": [
+    {
+     "key": "how_did_you_hear_about_the_school_expert",
+     "label": "How did you hear about The School Expert™?",
+     "type": "select",
+     "required": false,
+     "options": [
+      "Referral",
+      "Social Media",
+      "WhatsApp",
+      "School",
+      "Event",
+      "Search",
+      "Existing Partner"
+     ],
+     "other": true,
+     "visibility": "private"
+    },
+    {
+     "key": "which_opportunities_interest_you",
+     "label": "Which opportunities interest you?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Provider Directory Listing",
+      "Parent Leads",
+      "School Partnerships",
+      "Events & Workshops",
+      "Competitions",
+      "Featured Provider Opportunities",
+      "Collaboration Opportunities"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "would_you_like_to_be_considered_as_a_founding_pa",
+     "label": "Would you like to be considered as a Founding Partner – The School Expert™?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes, please contact me",
+      "I would like more information",
+      "Not at this time"
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Declaration & Consent",
+   "description": "",
+   "fields": [
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm that the information provided in this registration form is accurate to the best of my knowledge. I understand that The School Expert™ may contact me to verify information before publishing or promoting my profile.",
+     "visibility": "private"
+    },
+    {
+     "key": "consent_to_listing",
+     "label": "Consent to listing",
+     "type": "consent",
+     "required": true,
+     "text": "I agree that The School Expert™ may use the information provided for directory listing, communication, partnership opportunities and relevant promotional purposes, subject to its applicable policies.",
+     "visibility": "private"
+    },
+    {
+     "key": "terms",
+     "label": "Terms",
+     "type": "consent",
+     "required": true,
+     "text": "I understand that registration does not constitute endorsement, certification, accreditation or guarantee of leads by The School Expert™.",
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Final Contact Preference",
+   "description": "",
+   "fields": [
+    {
+     "key": "preferred_method_of_communication",
+     "label": "Preferred method of communication",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "WhatsApp",
+      "Phone",
+      "Email"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "best_time_to_contact_you",
+     "label": "Best time to contact you",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Morning",
+      "Afternoon",
+      "Evening",
+      "Anytime"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "additional_information_you_d_like_us_to_know",
+     "label": "Additional information you'd like us to know",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [
+  "Thank you for registering with The School Expert™!",
+  "Your information has been received successfully.",
+  "Our team may contact you if additional information or verification is required.",
+  "We look forward to connecting you with parents, schools and opportunities across India's education ecosystem."
+ ],
+ "category": "learning",
+ "label": "Hobby & Enrichment Classes",
+ "entity": "organisation"
+}

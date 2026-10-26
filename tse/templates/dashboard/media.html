@@ -1,0 +1,7 @@
+{% extends 'dashboard/_layout.html' %}{% block title %}Photos & videos{% endblock %}
+{% block dash %}<h1 style="font-size:1.5rem">Photos & videos — {{ l.name }}</h1>
+<form method="post" enctype="multipart/form-data" class="card" style="margin-bottom:14px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <div class="row2"><div class="field"><label>Upload photos / videos</label><input type="file" name="files" multiple accept="image/*,video/mp4,video/webm"></div><div class="field"><label>…or a YouTube / video link</label><input name="video_url" placeholder="https://"></div></div>
+  <div class="field"><label>Caption</label><input name="caption"></div>
+  <p class="small notice">Please do not upload photos in which students can be identified unless you hold written parental consent. Location data is removed from photos automatically.</p><button class="btn btn-primary">Upload</button></form>
+<div class="gallery">{% for m in items %}<div class="card flat" style="padding:8px">{% if m.kind == 'photo' %}<img src="{{ m.url }}" alt="">{% else %}<a href="{{ m.url }}" target="_blank">▶ {{ m.caption or 'Video' }}</a>{% endif %}<form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="delete" value="{{ m.id }}"><button class="btn btn-ghost btn-sm" data-confirm="Remove this item?">Remove</button></form></div>{% else %}<p class="muted">No photos yet.</p>{% endfor %}</div>{% endblock %}

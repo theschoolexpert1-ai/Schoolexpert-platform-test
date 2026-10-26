@@ -1,0 +1,7 @@
+.env
+.git
+var/
+**/__pycache__
+tests/
+forms_src/original_uploads/
+mobile/node_modules/

@@ -1,0 +1,654 @@
+{
+ "slug": "alternative-school",
+ "title": "Alternative School Registration Form",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Institution Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "institution_name",
+     "label": "Institution Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "institution_logo",
+     "label": "Institution Logo",
+     "type": "file",
+     "required": true,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "tagline_motto",
+     "label": "Tagline / Motto",
+     "type": "text",
+     "required": false,
+     "visibility": "public",
+     "role": "headline"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "organisation_name",
+     "label": "Organisation Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "organisation_type",
+     "label": "Organisation Type",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Trust",
+      "Society",
+      "Section 8 Company",
+      "LLP",
+      "Proprietorship",
+      "Partnership Firm",
+      "NGO"
+     ],
+     "other": true,
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Type of Institution",
+   "description": "",
+   "fields": [
+    {
+     "key": "type_of_institution",
+     "label": "Type of Institution",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Alternative School",
+      "Learning Centre",
+      "Learning Community",
+      "Homeschool Support Centre",
+      "Open Learning Centre",
+      "Nature School",
+      "Forest School",
+      "Gurukul",
+      "Montessori School",
+      "Waldorf / Steiner School",
+      "Reggio Emilia Inspired School",
+      "Democratic School",
+      "Progressive School",
+      "Experiential Learning School",
+      "Skill Development Centre",
+      "Arts-Based Learning Centre",
+      "Community Learning Centre",
+      "Microschool",
+      "Hybrid Learning Centre"
+     ],
+     "other": true,
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Recognition & Registration",
+   "description": "",
+   "fields": [
+    {
+     "key": "recognition_registration",
+     "label": "Recognition & Registration",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "State Government Recognised",
+      "Registered with Department of Education",
+      "NIOS Learning Centre",
+      "CBSE Affiliated",
+      "CISCE Affiliated",
+      "State Board Affiliated",
+      "Cambridge International",
+      "IB World School",
+      "Independent Learning Centre",
+      "Not Affiliated"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "registration_number",
+     "label": "Registration Number",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Age Groups",
+   "description": "",
+   "fields": [
+    {
+     "key": "age_groups",
+     "label": "Age Groups",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Parent & Toddler",
+      "Preschool",
+      "Kindergarten",
+      "Primary",
+      "Upper Primary",
+      "Middle School",
+      "Secondary",
+      "Senior Secondary"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Educational Philosophy",
+   "description": "",
+   "fields": [
+    {
+     "key": "child_development",
+     "label": "Child Development",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Child-Centred Education",
+      "Holistic Education",
+      "Individualised Learning",
+      "Personalized Learning",
+      "Self-Directed Learning",
+      "Multi-Age Learning"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "learning_approaches",
+     "label": "Learning Approaches",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Experiential Learning",
+      "Project-Based Learning",
+      "Inquiry-Based Learning",
+      "Activity-Based Learning",
+      "Play-Based Learning",
+      "Competency-Based Learning",
+      "Design Thinking",
+      "Maker Education",
+      "Outdoor Learning",
+      "Nature-Based Learning",
+      "Community-Based Learning",
+      "Life Skills Education",
+      "Value-Based Education",
+      "Vocational Learning",
+      "Sustainable Living Education",
+      "Indian Knowledge Systems (IKS)"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Teaching Methodology",
+   "description": "",
+   "fields": [
+    {
+     "key": "teaching_methodology",
+     "label": "Teaching Methodology",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Facilitator-led",
+      "Mentor-led",
+      "Student-led",
+      "Collaborative Learning",
+      "Learning by Doing",
+      "Guided Discovery",
+      "Project Work",
+      "Workshops",
+      "Storytelling",
+      "Circle Time",
+      "Field Visits",
+      "Community Immersion",
+      "Reflective Learning",
+      "Portfolio Learning",
+      "Individual Learning Plans"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Curriculum Areas",
+   "description": "",
+   "fields": [
+    {
+     "key": "curriculum_areas",
+     "label": "Curriculum Areas",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "English",
+      "Indian Languages",
+      "Mathematics",
+      "Science",
+      "Environmental Studies",
+      "Social Studies",
+      "Indian Knowledge Systems",
+      "Coding",
+      "Artificial Intelligence",
+      "Robotics",
+      "STEM",
+      "Arts",
+      "Music",
+      "Dance",
+      "Theatre",
+      "Craft",
+      "Pottery",
+      "Carpentry",
+      "Organic Farming",
+      "Gardening",
+      "Cooking",
+      "Entrepreneurship",
+      "Financial Literacy",
+      "Yoga",
+      "Meditation",
+      "Mindfulness",
+      "Sports",
+      "Life Skills"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Assessment Practices",
+   "description": "",
+   "fields": [
+    {
+     "key": "assessment_practices",
+     "label": "Assessment Practices",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Observation-Based Assessment",
+      "Portfolio Assessment",
+      "Narrative Reports",
+      "Competency-Based Assessment",
+      "Continuous Assessment",
+      "Project Evaluation",
+      "Self-Assessment",
+      "Peer Assessment",
+      "Parent Review Meetings",
+      "NIOS Assessment",
+      "Board Examination Preparation",
+      "No Formal Examinations"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Student Support",
+   "description": "",
+   "fields": [
+    {
+     "key": "student_support",
+     "label": "Student Support",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Inclusive Education",
+      "Special Educator",
+      "School Counsellor",
+      "Occupational Therapy",
+      "Speech Therapy",
+      "Learning Support",
+      "Behaviour Support",
+      "Career Guidance",
+      "Parent Counselling",
+      "Parent Coaching"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Campus & Facilities",
+   "description": "",
+   "fields": [
+    {
+     "key": "campus_facilities",
+     "label": "Campus & Facilities",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Nature Campus",
+      "Outdoor Learning Spaces",
+      "Library",
+      "Reading Corner",
+      "Art Studio",
+      "Music Room",
+      "Science Lab",
+      "Computer Lab",
+      "Maker Space",
+      "Organic Garden",
+      "Kitchen Lab",
+      "Amphitheatre",
+      "Indoor Play Area",
+      "Sports Ground",
+      "Transport",
+      "Hostel"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Activities",
+   "description": "",
+   "fields": [
+    {
+     "key": "activities",
+     "label": "Activities",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Nature Walks",
+      "Gardening",
+      "Organic Farming",
+      "Cooking",
+      "Pottery",
+      "Music",
+      "Dance",
+      "Theatre",
+      "Photography",
+      "Community Service",
+      "Cultural Programmes",
+      "Educational Tours",
+      "Heritage Walks",
+      "Village Immersion",
+      "Entrepreneurship Projects"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Parent Partnership",
+   "description": "",
+   "fields": [
+    {
+     "key": "parent_partnership",
+     "label": "Parent Partnership",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Parent Orientation",
+      "Parent Workshops",
+      "Parent Learning Circle",
+      "Parent Volunteering",
+      "Family Learning Events",
+      "Home Learning Support"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Admissions",
+   "description": "",
+   "fields": [
+    {
+     "key": "admissions",
+     "label": "Admissions",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Admissions Open",
+      "Rolling Admissions",
+      "Parent Interaction",
+      "Student Observation",
+      "Trial Class",
+      "Campus Visit",
+      "Online Admission",
+      "Scholarships Available"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Recognitions & Memberships",
+   "description": "",
+   "fields": [
+    {
+     "key": "recognitions_memberships",
+     "label": "Recognitions & Memberships",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Green School Programme",
+      "Eco-Schools",
+      "Fit India School",
+      "Atal Tinkering Lab (ATL)",
+      "British Council International School Award (ISA)",
+      "UNESCO Associated Schools Network (ASPnet)",
+      "Microsoft Showcase School",
+      "Microsoft Showcase Incubator School",
+      "Google Reference School",
+      "Apple Distinguished School",
+      "ISO 21001",
+      "ISO 9001"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Digital Presence",
+   "description": "",
+   "fields": [
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "google_business_profile",
+     "label": "Google Business Profile",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "facebook",
+     "label": "Facebook",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "instagram",
+     "label": "Instagram",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "linkedin",
+     "label": "LinkedIn",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "youtube",
+     "label": "YouTube",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "blog",
+     "label": "Blog",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "virtual_tour",
+     "label": "Virtual Tour",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "gallery",
+     "label": "Gallery",
+     "type": "files",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "prospectus",
+     "label": "Prospectus",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "School Profile",
+   "description": "",
+   "fields": [
+    {
+     "key": "student_strength",
+     "label": "Student Strength",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "student_facilitator_ratio",
+     "label": "Student–Facilitator Ratio",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "maximum_class_size",
+     "label": "Maximum Class Size",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "number_of_facilitators",
+     "label": "Number of Facilitators",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "campus_area",
+     "label": "Campus Area",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "transport_available",
+     "label": "Transport Available",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "meal_programme",
+     "label": "Meal Programme",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "uniform_required",
+     "label": "Uniform Required",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "homework_policy",
+     "label": "Homework Policy",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "screen_time_policy",
+     "label": "Screen Time Policy",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "parent_participation_required",
+     "label": "Parent Participation Required",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "The School Expert™ Services",
+   "description": "",
+   "fields": [
+    {
+     "key": "the_school_expert_services",
+     "label": "The School Expert™ Services",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Basic Listing",
+      "Featured Listing",
+      "Verified Listing",
+      "Admission Enquiries",
+      "Virtual Campus Tour",
+      "Events Listing",
+      "Workshops",
+      "Podcast Feature",
+      "Webinar Participation",
+      "Research Collaboration",
+      "Marketplace",
+      "Founding Partner Programme"
+     ],
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "category": "schools",
+ "label": "Alternative Schools",
+ "entity": "organisation",
+ "outro": []
+}

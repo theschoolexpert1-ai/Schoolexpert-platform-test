@@ -1,0 +1,688 @@
+{
+ "slug": "inclusive-school",
+ "title": "Inclusive School Registration Form",
+ "intro": [],
+ "sections": [
+  {
+   "title": "School Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "school_name",
+     "label": "School Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "management_name",
+     "label": "Management Name",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "school_logo",
+     "label": "School Logo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "school_motto",
+     "label": "School Motto",
+     "type": "text",
+     "required": false,
+     "visibility": "public",
+     "role": "headline"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "school_type",
+     "label": "School Type",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Private",
+      "Government",
+      "Government-Aided",
+      "International",
+      "Trust",
+      "Society"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "affiliated_boards",
+     "label": "Affiliated Boards",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "CBSE",
+      "ICSE",
+      "State Board",
+      "IB",
+      "IGCSE"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "affiliation_number",
+     "label": "Affiliation Number",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "School Statistics",
+   "description": "",
+   "fields": [
+    {
+     "key": "total_students",
+     "label": "Total Students",
+     "type": "number",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "teaching_staff",
+     "label": "Teaching Staff",
+     "type": "number",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "non_teaching_staff",
+     "label": "Non-Teaching Staff",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "campus_area",
+     "label": "Campus Area",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "number_of_campuses",
+     "label": "Number of Campuses",
+     "type": "number",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "annual_fee_range_per_annum",
+     "label": "Annual Fee Range (per annum)",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "admission_fee",
+     "label": "Admission Fee",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "transport_available",
+     "label": "Transport Available",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "hostel_available",
+     "label": "Hostel Available",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "school_timings",
+     "label": "School Timings",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "student_teacher_ratio",
+     "label": "Student–Teacher Ratio",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "co_ed_boys_girls",
+     "label": "Co-educational",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Co-ed",
+      "Boys",
+      "Girls"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "inclusive_education_support",
+     "label": "Inclusive Education Support",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "scholarships_available",
+     "label": "Scholarships Available",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Inclusive Admission",
+   "description": "",
+   "fields": [
+    {
+     "key": "inclusive_admission",
+     "label": "Inclusive Admission",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Inclusive Admissions Policy",
+      "Children with Disabilities Admitted",
+      "Individual Education Plans (IEPs)",
+      "Reasonable Accommodations"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Support Available",
+   "description": "",
+   "fields": [
+    {
+     "key": "support_available",
+     "label": "Support Available",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Resource Room",
+      "Special Educators",
+      "School Counsellor",
+      "Occupational Therapist",
+      "Speech Therapist",
+      "Physiotherapist",
+      "Clinical Psychologist",
+      "Behaviour Therapist",
+      "Shadow Teacher Support",
+      "Learning Support Teacher",
+      "Remedial Education"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Learner Needs Supported",
+   "description": "",
+   "fields": [
+    {
+     "key": "learner_needs_supported",
+     "label": "Learner Needs Supported",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Autism Spectrum Disorder (ASD)",
+      "ADHD",
+      "Dyslexia",
+      "Dysgraphia",
+      "Dyscalculia",
+      "Intellectual Disability",
+      "Down Syndrome",
+      "Cerebral Palsy",
+      "Hearing Impairment",
+      "Visual Impairment",
+      "Speech & Language Disorders",
+      "Gifted Learners",
+      "Multiple Disabilities"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Student Wellbeing",
+   "description": "",
+   "fields": [
+    {
+     "key": "student_wellbeing",
+     "label": "Student Wellbeing",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Mental Health Programme",
+      "Child Protection Policy",
+      "Anti-Bullying Policy",
+      "Health Check-ups",
+      "Career Counselling",
+      "Parent Counselling",
+      "Inclusive Classroom Practices",
+      "Social-Emotional Learning (SEL)"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Academics",
+   "description": "",
+   "fields": [
+    {
+     "key": "curriculum_highlights",
+     "label": "Curriculum Highlights",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed",
+     "role": "about"
+    },
+    {
+     "key": "teaching_methodology",
+     "label": "Teaching Methodology",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "languages_offered_summary",
+     "label": "Languages Offered (summary)",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "foreign_languages_offered",
+     "label": "Foreign Languages Offered",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "stem_programmes",
+     "label": "STEM Programmes",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "coding_ai",
+     "label": "Coding / AI",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "robotics",
+     "label": "Robotics",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "career_guidance",
+     "label": "Career Guidance",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "olympiad_preparation",
+     "label": "Olympiad Preparation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "competitive_exam_support",
+     "label": "Competitive Exam Support",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "grades_offered",
+     "label": "Grades Offered",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Nursery",
+      "LKG",
+      "UKG",
+      "Grade 1–5",
+      "Grade 6–8",
+      "Grade 9–10",
+      "Grade 11–12"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "medium_of_instruction",
+     "label": "Medium of Instruction",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "English",
+      "Kannada",
+      "Hindi",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Gujarati",
+      "Bengali",
+      "Urdu"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "languages_offered",
+     "label": "Languages Offered",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Gujarati",
+      "Punjabi",
+      "Bengali",
+      "Odia",
+      "Assamese",
+      "Urdu",
+      "Sanskrit",
+      "Konkani",
+      "Manipuri",
+      "Kashmiri",
+      "Dogri",
+      "Sindhi",
+      "Nepali",
+      "Bodo",
+      "Santhali",
+      "Maithili"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Facilities, Sports & Activities",
+   "description": "",
+   "fields": [
+    {
+     "key": "facilities",
+     "label": "Facilities",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Smart Classrooms",
+      "Science Labs",
+      "Computer Lab",
+      "Robotics Lab",
+      "AI Lab",
+      "STEM Lab",
+      "Math Lab",
+      "Language Lab",
+      "Library",
+      "Digital Library",
+      "Auditorium",
+      "Cafeteria",
+      "Medical Room",
+      "Counselling Centre",
+      "CCTV",
+      "Wi-Fi",
+      "Transport",
+      "Hostel",
+      "Special Education Support"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "sports_activities",
+     "label": "Sports & Activities",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Cricket",
+      "Football",
+      "Basketball",
+      "Volleyball",
+      "Athletics",
+      "Swimming",
+      "Skating",
+      "Yoga",
+      "Karate",
+      "Chess",
+      "Table Tennis",
+      "Badminton",
+      "Kho-Kho",
+      "Kabaddi",
+      "Tennis",
+      "Archery"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "co_curricular_activities",
+     "label": "Co-Curricular Activities",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Music",
+      "Dance",
+      "Drama",
+      "Art",
+      "Craft",
+      "Debate",
+      "Public Speaking",
+      "MUN",
+      "Quiz",
+      "Science Club",
+      "Eco Club",
+      "Coding Club",
+      "Robotics Club",
+      "Photography",
+      "Entrepreneurship",
+      "Community Service"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "student_support",
+     "label": "Student Support",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "School Counsellor",
+      "Career Counselling",
+      "Special Educator",
+      "Inclusive Education",
+      "Learning Support",
+      "Mental Health Programmes",
+      "Health Check-ups"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Achievements & Recognition",
+   "description": "",
+   "fields": [
+    {
+     "key": "achievements",
+     "label": "Achievements",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "recognition_certifications",
+     "label": "Recognition & Certifications",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Contact Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "address",
+     "label": "Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "district",
+     "label": "District",
+     "type": "text",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "pin_code",
+     "label": "PIN Code",
+     "type": "pincode",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "landmark",
+     "label": "Landmark",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "google_maps_link",
+     "label": "Google Maps Link",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "admissions_email",
+     "label": "Admissions Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "school_email",
+     "label": "School Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "phone_number",
+     "label": "Phone Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "whatsapp_number",
+     "label": "WhatsApp Number",
+     "type": "tel",
+     "required": false,
+     "visibility": "detailed",
+     "role": "whatsapp"
+    }
+   ]
+  },
+  {
+   "title": "The School Expert™ Features",
+   "description": "",
+   "fields": [
+    {
+     "key": "the_school_expert_features_that_you_would_like_t",
+     "label": "The School Expert™ Features that you would like to avail",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "School Listing",
+      "Featured School",
+      "Admission Leads",
+      "Virtual Tour",
+      "Podcasts",
+      "Webinars",
+      "Newsletters",
+      "Principal Roundtables",
+      "Brand Partnerships",
+      "All of the above"
+     ],
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "category": "schools",
+ "label": "Inclusive Schools",
+ "entity": "organisation"
+}

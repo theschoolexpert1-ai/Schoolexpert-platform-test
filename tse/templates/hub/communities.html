@@ -1,0 +1,10 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}Communities — Teachers Hub{% endblock %}
+{% block dash %}
+<h1 style="font-size:1.6rem">Teacher communities</h1>
+<p class="muted">Subject and role circles, visible only to teachers (the main Teachers Community can also be read by verified schools). Posts are checked for personal data and abuse. Never share students' personal information.</p>
+<div class="grid g2">{% for c in rows %}
+  <a class="card" style="color:inherit" href="{{ url_for('community.view', slug=c.slug) }}"><div class="icon">{{ c.icon }}</div><h3 style="margin:0">{{ c.name }}</h3><p class="small muted" style="margin:6px 0">{{ c.description }}</p>
+    <div class="small">{{ c.posts }} discussion{{ 's' if c.posts != 1 }}{% if c.last_post %} · last {{ c.last_post | dt }}{% endif %}</div></a>
+{% endfor %}</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}{{ s.title }} — Parents' Corner{% endblock %}
+{% block body %}
+<section class="section"><div class="container narrow"><a class="small" href="{{ url_for('community.corner') }}">← Parents' Corner</a>
+<article class="card pad-lg" style="margin-top:10px"><span class="chip">{{ s.kind | replace('_', ' ') | capitalize }}</span>{% if s.grade %} <span class="chip navy">{{ s.grade }}</span>{% endif %}
+<h1 style="margin-top:10px">{{ s.title }}</h1>{% if s.media_url %}<img src="{{ s.media_url }}" alt="" style="border-radius:12px;margin-bottom:14px">{% endif %}
+{% if s.materials %}<h3>Materials</h3><div class="prose">{{ s.materials | nl2br }}</div>{% endif %}<h3>Steps</h3><div class="prose">{{ s.steps | nl2br }}</div></article></div></section>
+{% endblock %}

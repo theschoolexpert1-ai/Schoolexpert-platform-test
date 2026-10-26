@@ -1,0 +1,705 @@
+{
+ "slug": "educational-consultant-registration",
+ "title": "Educational Consultant Registration Form",
+ "intro": [
+  "The School Expert™ is building a trusted education ecosystem connecting parents, schools, educators, education professionals, institutions and service providers.",
+  "We invite Educational Consultants to register with The School Expert™ and become part of a growing community focused on helping students, parents and schools make informed educational decisions.",
+  "Please provide accurate and complete information. Submission of this form does not automatically constitute approval, accreditation, endorsement or certification by The School Expert™. Information may be verified before the profile is published or any collaboration is initiated."
+ ],
+ "sections": [
+  {
+   "title": "Personal Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "full_name",
+     "label": "Full Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "gender",
+     "label": "Gender",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Male",
+      "Female",
+      "Prefer not to say"
+     ],
+     "other": true,
+     "visibility": "private"
+    },
+    {
+     "key": "date_of_birth",
+     "label": "Date of Birth",
+     "type": "date",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "private",
+     "role": "phone"
+    },
+    {
+     "key": "whatsapp_number",
+     "label": "WhatsApp Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "private",
+     "role": "whatsapp"
+    },
+    {
+     "key": "email_address",
+     "label": "Email Address",
+     "type": "email",
+     "required": true,
+     "visibility": "private",
+     "role": "email"
+    },
+    {
+     "key": "alternate_email_address",
+     "label": "Alternate Email Address",
+     "type": "email",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Professional Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "name_of_consultancy_organisation",
+     "label": "Name of Consultancy / Organisation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "your_professional_designation",
+     "label": "Your Professional Designation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "type_of_educational_consultant",
+     "label": "Type of Educational Consultant",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "School Admissions Consultant",
+      "Career Counsellor",
+      "Overseas Education Consultant",
+      "Higher Education Consultant",
+      "K–12 Education Consultant",
+      "Academic Consultant",
+      "Curriculum Consultant",
+      "School Establishment Consultant",
+      "School Affiliation Consultant",
+      "School Management Consultant",
+      "Teacher Training Consultant",
+      "EdTech Consultant",
+      "Special Education Consultant",
+      "Education Technology Consultant",
+      "Student Guidance Consultant",
+      "College/University Admissions Consultant",
+      "Vocational Education Consultant",
+      "Skill Development Consultant",
+      "Educational Content Consultant",
+      "Examination/Assessment Consultant"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "years_of_professional_experience",
+     "label": "Years of Professional Experience",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Less than 1 year",
+      "1–3 years",
+      "3–5 years",
+      "5–10 years",
+      "10–15 years",
+      "15+ years"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "current_professional_status",
+     "label": "Current Professional Status",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Independent Consultant",
+      "Consultancy Firm",
+      "Organisation / Institution",
+      "Freelancer",
+      "Part-time Consultant",
+      "Full-time Consultant"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Education & Qualifications",
+   "description": "",
+   "fields": [
+    {
+     "key": "highest_educational_qualification",
+     "label": "Highest Educational Qualification",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Diploma",
+      "Graduate",
+      "Postgraduate",
+      "M.Phil.",
+      "Ph.D.",
+      "Professional Qualification"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "professional_specialised_qualifications",
+     "label": "Professional / Specialised Qualifications",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "relevant_certifications",
+     "label": "Relevant Certifications",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "universities_institutions_attended",
+     "label": "Universities / Institutions attended",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "professional_memberships_associations",
+     "label": "Professional memberships / associations",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Areas of Expertise",
+   "description": "",
+   "fields": [
+    {
+     "key": "please_describe_your_primary_areas_of_expertise",
+     "label": "Please describe your primary areas of expertise.",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about"
+    },
+    {
+     "key": "which_age_groups_do_you_work_with",
+     "label": "Which age groups do you work with?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Early Years / Preschool",
+      "Primary School",
+      "Middle School",
+      "Secondary School",
+      "Senior Secondary",
+      "Undergraduate Students",
+      "Postgraduate Students",
+      "Working Professionals",
+      "Parents",
+      "Schools",
+      "Teachers",
+      "Education Institutions"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "which_education_boards_systems_are_you_familiar_",
+     "label": "Which education boards / systems are you familiar with?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "CBSE",
+      "CISCE / ICSE",
+      "State Boards",
+      "IB",
+      "Cambridge",
+      "NIOS",
+      "International Schools",
+      "Homeschooling",
+      "Vocational Education",
+      "Higher Education"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "geographic_areas_served",
+     "label": "Geographic areas served",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Local / City",
+      "State",
+      "Pan-India",
+      "International"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "states_countries_served",
+     "label": "States / Countries served",
+     "type": "textarea",
+     "required": false,
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Services Offered",
+   "description": "",
+   "fields": [
+    {
+     "key": "what_services_do_you_provide",
+     "label": "What services do you provide?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Educational Counselling",
+      "Career Guidance",
+      "School Selection Guidance",
+      "School Admissions Guidance",
+      "College Selection",
+      "University Admissions",
+      "Overseas Education Guidance",
+      "Course Selection",
+      "Stream Selection",
+      "Subject Selection",
+      "Curriculum Guidance",
+      "Academic Planning",
+      "School Transformation",
+      "School Leadership Advisory",
+      "Teacher Training",
+      "Parent Guidance",
+      "Student Mentoring",
+      "Special Education Guidance",
+      "Learning Support",
+      "Assessment & Evaluation",
+      "Education Technology Advisory",
+      "School ERP / Technology Advisory",
+      "Education Business Consulting",
+      "School Start-up / Establishment Consulting"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "briefly_describe_your_consulting_services",
+     "label": "Briefly describe your consulting services.",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "typical_client_profile",
+     "label": "Typical client profile",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Parents",
+      "Students",
+      "Schools",
+      "Colleges",
+      "Universities",
+      "Educational Institutions",
+      "Teachers",
+      "Education Businesses",
+      "NGOs",
+      "Government / Public Institutions"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Experience & Track Record",
+   "description": "",
+   "fields": [
+    {
+     "key": "please_describe_your_professional_experience_in_",
+     "label": "Please describe your professional experience in education.",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "major_projects_assignments_undertaken",
+     "label": "Major projects / assignments undertaken",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "schools_institutions_organisations_you_have_work",
+     "label": "Schools / institutions / organisations you have worked with",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "number_of_clients_served_approximately",
+     "label": "Number of clients served approximately",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "1–25",
+      "26–50",
+      "51–100",
+      "101–250",
+      "251–500",
+      "500+"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "please_provide_links_to_your_professional_profil",
+     "label": "Please provide links to your professional profile, website or portfolio.",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "linkedin_profile",
+     "label": "LinkedIn Profile",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "professional_website",
+     "label": "Professional Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Professional Verification",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_you_have_a_registered_consultancy_organisatio",
+     "label": "Do you have a registered consultancy / organisation?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "In the process of registration"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "registration_details",
+     "label": "Registration details",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "gst_registration_number",
+     "label": "GST Registration Number",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "pan",
+     "label": "PAN",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "professional_documents_certifications",
+     "label": "Professional documents / certifications",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Organisation registration",
+      "Membership certificates"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Association with The School Expert™",
+   "description": "",
+   "fields": [
+    {
+     "key": "why_would_you_like_to_join_the_school_expert",
+     "label": "Why would you like to join The School Expert™?",
+     "type": "textarea",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "how_would_you_like_to_participate",
+     "label": "How would you like to participate?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Educational Consultant Directory",
+      "Parent Guidance",
+      "Student Guidance",
+      "Career Guidance",
+      "School Advisory",
+      "School Consultancy",
+      "Workshops",
+      "Webinars",
+      "Articles / Knowledge Sharing",
+      "Expert Interviews",
+      "Podcasts",
+      "Community Discussions",
+      "Research / Surveys",
+      "Teacher Development",
+      "Parent Programmes",
+      "School Programmes",
+      "Mentoring",
+      "Become an Expert Contributor",
+      "Become an Ambassador",
+      "Partnership / Collaboration"
+     ],
+     "other": true,
+     "visibility": "private"
+    },
+    {
+     "key": "would_you_be_interested_in_becoming_an_education",
+     "label": "Would you be interested in becoming an Educational Expert at The School Expert™?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Would like to know more"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "would_you_be_willing_to_contribute_educational_c",
+     "label": "Would you be willing to contribute educational content?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Maybe"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "preferred_contribution_formats",
+     "label": "Preferred contribution formats",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Articles",
+      "Videos",
+      "Webinars",
+      "Podcasts",
+      "Expert Q&A",
+      "Workshops",
+      "Research",
+      "Case Studies"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Parent & Student Engagement",
+   "description": "",
+   "fields": [
+    {
+     "key": "are_you_comfortable_interacting_directly_with_pa",
+     "label": "Are you comfortable interacting directly with parents?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Depending on the requirement"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "are_you_comfortable_providing_online_consultatio",
+     "label": "Are you comfortable providing online consultations?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "are_you_available_for_offline_consultations",
+     "label": "Are you available for offline consultations?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Depending on location"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "languages_in_which_you_can_provide_consultation",
+     "label": "Languages in which you can provide consultation",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Bengali"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Professional Conduct & Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_you_agree_to_provide_accurate_information_abo",
+     "label": "Do you agree to provide accurate information about your qualifications, experience and services?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "do_you_agree_to_follow_the_school_expert_profess",
+     "label": "Do you agree to follow The School Expert™ professional and community guidelines?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "do_you_agree_that_the_school_expert_may_verify_t",
+     "label": "Do you agree that The School Expert™ may verify the information submitted by you?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "I hereby declare that the information provided by me in this registration form is true and accurate to the best of my knowledge. I understand that registration with The School Expert™ does not by itself constitute accreditation, certification, endorsement or guarantee of my services. I agree that The School Expert™ may review and verify the information provided and may accept, reject, suspend or modify a registration/profile in accordance with its policies.",
+      "Required checkbox",
+      "I agree to the above declaration."
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Consent & Privacy",
+   "description": "",
+   "fields": [
+    {
+     "key": "consent_to_profile_listing",
+     "label": "Consent to Profile Listing",
+     "type": "radio",
+     "required": true,
+     "visibility": "private",
+     "help": "I consent to The School Expert™ using the professional information provided by me to create and maintain a professional profile/directory listing, subject to applicable policies and permissions. I Agree I Do Not Agree",
+     "options": [
+      "I Agree",
+      "I Do Not Agree"
+     ]
+    },
+    {
+     "key": "consent_to_communication",
+     "label": "Consent to Communication",
+     "type": "radio",
+     "required": true,
+     "visibility": "private",
+     "help": "I consent to being contacted by The School Expert™ regarding registration, verification, professional opportunities, programmes, collaborations and relevant community activities. I Agree I Do Not Agree",
+     "options": [
+      "I Agree",
+      "I Do Not Agree"
+     ]
+    },
+    {
+     "key": "final_confirmation",
+     "label": "Final Confirmation",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm that I have read and understood the information provided above and wish to register as an Educational Consultant with The School Expert™.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [
+  "Thank you for registering with The School Expert™.",
+  "Your registration has been received successfully.",
+  "Our team may review and verify the information provided before your profile is activated or published.",
+  "For queries or collaboration opportunities, contact info@schoolexpert.in."
+ ],
+ "category": "learning",
+ "label": "Education Consultants",
+ "entity": "individual"
+}

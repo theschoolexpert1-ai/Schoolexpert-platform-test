@@ -1,0 +1,48 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}AI School Match — find the right school near you{% endblock %}
+{% block meta_description %}Answer 7 quick questions and The School Expert™ AI School Match shortlists verified schools near you by board, grade, budget, location and what matters to your family. Free for parents.{% endblock %}
+{% block body %}
+{{ page_head('AI School Match', 'Seven quick questions. A neutral, verified shortlist of schools that fit your family — with the reasons.') }}
+<section class="section"><div class="container">
+<div class="layout right">
+<form method="post" class="card pad-lg match-form" novalidate>
+  <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <fieldset><legend><span class="stepno">1</span> Where do you live?</legend>
+    <div class="row2"><div class="field"><label for="city">City <span class="req">*</span></label><input id="city" name="city" list="cities" value="{{ p.city }}" autocomplete="address-level2" placeholder="e.g. Bengaluru">
+      <datalist id="cities">{% for c in cities %}<option>{{ c }}</option>{% endfor %}</datalist></div>
+    <div class="field"><label for="area">Area / locality</label><input id="area" name="area" value="{{ p.area }}" placeholder="e.g. Whitefield"></div></div>
+    <div class="field" style="max-width:220px"><label for="pin">PIN code</label><input id="pin" name="pincode" inputmode="numeric" maxlength="6" value="{{ p.pincode }}" placeholder="560066"></div></fieldset>
+  <fieldset><legend><span class="stepno">2</span> Which grade are you looking for?</legend>
+    <div class="opts inline">{% for gr in M.GRADES %}<label class="opt"><input type="radio" name="grade" value="{{ gr }}" {% if p.grade == gr %}checked{% endif %}> {{ gr }}</label>{% endfor %}</div></fieldset>
+  <fieldset><legend><span class="stepno">3</span> Preferred board(s)</legend>
+    <div class="opts inline">{% for b in M.BOARDS %}<label class="opt"><input type="checkbox" name="boards" value="{{ b }}" {% if b in p.boards %}checked{% endif %}> {{ b }}</label>{% endfor %}</div>
+    <div class="help">Leave blank if you're open to any board.</div></fieldset>
+  <fieldset><legend><span class="stepno">4</span> Annual fee budget</legend>
+    <select name="budget" style="max-width:320px">{% for v, label in M.BUDGETS %}<option value="{{ v }}" {% if p.budget == v %}selected{% endif %}>{{ label }}</option>{% endfor %}</select>
+    <div class="help">Fees are matched against verified school data; we never show amounts until you unlock a school.</div></fieldset>
+  <fieldset><legend><span class="stepno">5</span> Type of school</legend>
+    <div class="row2"><div class="field"><label for="type">School type</label><select id="type" name="type">{% for k, v in M.TYPES.items() %}<option value="{{ k }}">{{ v }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="gender">Co-ed / boys / girls</label><select id="gender" name="gender"><option value="any">No preference</option><option>Co-ed</option><option>Boys</option><option>Girls</option></select></div></div>
+    <div class="field" style="max-width:320px"><label for="medium">Medium of instruction</label><select id="medium" name="medium"><option value="">No preference</option>{% for m in M.MEDIUMS %}<option>{{ m }}</option>{% endfor %}</select></div></fieldset>
+  <fieldset><legend><span class="stepno">6</span> What matters most? <span class="muted small">(up to 5)</span></legend>
+    <div class="opts">{% for k, (label, _) in M.PRIORITIES.items() %}<label class="opt"><input type="checkbox" name="priorities" value="{{ k }}" data-max="5"> {{ label }}</label>{% endfor %}</div></fieldset>
+  <fieldset><legend><span class="stepno">7</span> Your privacy</legend>
+    <p class="small muted" style="margin:0">{% if notice %}<b>{{ notice.title }}.</b> {{ notice.body }} {% endif %}We <b>do not ask for, or collect, any information about your child</b> — no name, age or date of birth. <a href="/privacy-policy" target="_blank">Privacy Policy</a></p></fieldset>
+  <button class="btn btn-accent btn-lg" type="submit">Find my matches →</button>
+</form>
+<aside>
+  <div class="card"><h3>How the match works</h3><ol class="small" style="padding-left:18px;margin:0">
+    <li>We score every <b>verified</b> school near you on location, grade, board, budget, school type and your priorities.</li>
+    <li>Verified parent reviews (only from parents who paid to unlock a school) add trust.</li>
+    <li><b>Payment never changes a school's score.</b> Sponsored schools are shown separately and labelled.</li>
+    <li>Our AI advisor explains the trade-offs and suggests questions for your school visit.</li></ol></div>
+  <div class="card"><h3>Prefer a human?</h3><p class="small muted">Our counsellors research schools for you, or our team visits schools on your behalf.</p>
+    <div class="btn-row"><a class="btn btn-outline btn-sm" href="{{ url_for('ask.index') }}">Ask The School Expert</a><a class="btn btn-outline btn-sm" href="{{ url_for('ask.pa_index') }}">Personal Assistance</a></div></div>
+</aside>
+</div></div></section>
+<script nonce="{{ csp_nonce }}">
+document.querySelectorAll('input[data-max]').forEach(function(cb){cb.addEventListener('change',function(){
+  var all=document.querySelectorAll('input[name="'+cb.name+'"]:checked'); if(all.length>+cb.dataset.max){cb.checked=false;}
+});});
+</script>
+{% endblock %}

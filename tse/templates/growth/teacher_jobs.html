@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{% if city %}Teacher jobs in {{ city }}{% else %}For teachers — free profile, AI CV & school jobs{% endif %}{% endblock %}
+{% block meta_description %}{% if city %}Latest verified school teaching jobs in {{ city }}. {% endif %}Create a free teacher profile, build an AI CV and apply to verified schools on The School Expert™.{% endblock %}
+{% block head %}<link rel="canonical" href="{{ cfg.SITE_URL }}{{ request.path }}">{% endblock %}
+{% block body %}
+<section class="hero"><div class="container"><span class="eyebrow">For teachers</span>
+  <h1>{% if city %}Teaching jobs in {{ city }}{% else %}Your teaching career, in one place.{% endif %}</h1>
+  <p class="lead">Free verified profile · AI CV builder · apply to verified schools in one click · a safe teachers' community.</p>
+  <div class="btn-row"><a class="btn btn-accent btn-lg" href="{{ url_for('register.landing', slug='teacher-registration') }}">Create my free profile</a><a class="btn btn-outline btn-lg" href="{{ url_for('teachers.jobs', city=city) if city else url_for('teachers.jobs') }}">Browse all jobs</a></div></div></section>
+<section class="section"><div class="container"><div class="layout right"><div>
+  <h2>{{ 'Latest jobs in ' ~ city if city else 'Latest jobs' }}</h2>
+  {% for j in jobs %}<a class="card" style="display:block;margin-bottom:10px" href="{{ url_for('teachers.job', slug=j.slug) }}"><b>{{ j.title }}</b>{% if j.featured_until and j.featured_until >= today() %} <span class="chip gold">Featured</span>{% endif %}<div class="small muted">{{ j.org_name }} · {{ j.city }} · {{ (j.employment_type or '') | replace('_',' ') }}</div></a>
+  {% else %}<div class="card"><p>No open jobs here right now — create your profile and we'll alert you when schools post.</p></div>{% endfor %}
+</div><aside><div class="card"><h3>Jobs by city</h3><div class="chips">{% for c in cities %}<a class="chip" href="{{ url_for('growth.teacher_jobs', city=city_slug(c)) }}">{{ c }}</a>{% endfor %}</div></div>
+  <div class="card"><h3>Teacher Premium</h3><p class="small muted">Unlimited AI CV versions, premium badge on applications and early access to new jobs.</p><a href="{{ url_for('teachers.hub') }}">Learn more →</a></div></aside></div></div></section>
+{% if jobs %}<script type="application/ld+json">[{% for j in jobs[:10] %}{"@context":"https://schema.org","@type":"JobPosting","title":{{ j.title | tojson }},"datePosted":"{{ j.published_at.date() if j.published_at else '' }}","hiringOrganization":{"@type":"Organization","name":{{ j.org_name | tojson }}},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":{{ (j.city or '') | tojson }},"addressCountry":"IN"}},"description":{{ (j.description or j.title)[:500] | tojson }},"url":"{{ cfg.SITE_URL }}/jobs/{{ j.slug }}"}{{ ',' if not loop.last }}{% endfor %}]</script>{% endif %}
+{% endblock %}

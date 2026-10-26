@@ -1,0 +1,26 @@
+{% extends 'dashboard/_layout.html' %}{% from 'hub/_person.html' import person_card %}{% from '_macros.html' import status %}
+{% block title %}Mentorship — Teachers Hub{% endblock %}
+{% block dash %}
+<h1 style="font-size:1.6rem">Mentorship</h1>
+<p class="muted">Experienced educators who volunteer to guide fellow teachers. When a mentor accepts, you can message each other privately.
+{% if me and me.mentor_status == 'none' %} Want to mentor? <a href="{{ url_for('hub.profile') }}">Offer to mentor</a>.{% elif me and me.mentor_status == 'pending' %} <span class="chip">Your mentor application is under review</span>{% endif %}</p>
+{% if mine %}<div class="card" style="margin:14px 0"><h3>My mentorships</h3>
+{% for m in mine %}{% set i_mentor = m.mentor_id == current_user.id %}
+  <div class="post"><b>{{ m.topic }}</b> {{ status(m.status) }}<div class="small muted">{{ 'Mentee: ' ~ m.mentee_name if i_mentor else 'Mentor: ' ~ m.mentor_name }} · {{ m.created_at | dt }}</div>
+  {% if i_mentor and m.status == 'requested' %}<p class="small" style="margin:6px 0">{{ m.message }}</p>{% endif %}
+  <div class="btn-row" style="margin-top:6px">
+    {% if i_mentor and m.status == 'requested' %}{% for a, l, c in [('accept','Accept','btn-accent'),('decline','Decline','btn-ghost')] %}<form method="post" action="{{ url_for('hub.mentorship_action', mid=m.id, action=a) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-sm {{ c }}">{{ l }}</button></form>{% endfor %}{% endif %}
+    {% if not i_mentor and m.status == 'requested' %}<form method="post" action="{{ url_for('hub.mentorship_action', mid=m.id, action='withdraw') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-sm btn-ghost">Withdraw</button></form>{% endif %}
+    {% if m.status == 'active' %}<a class="btn btn-sm btn-primary" href="{{ url_for('hub.thread', other=m.mentee_id if i_mentor else m.mentor_id) }}">Message</a><form method="post" action="{{ url_for('hub.mentorship_action', mid=m.id, action='complete') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-sm btn-outline">Mark complete</button></form>{% endif %}
+  </div></div>
+{% endfor %}</div>{% endif %}
+<h2>Find a mentor</h2>
+<div class="grid g2">{% for p in rows %}
+  {% set actions %}<details style="width:100%"><summary class="btn btn-sm btn-primary">Request mentorship</summary>
+    <form method="post" action="{{ url_for('hub.request_mentor', mentor=p.id) }}" style="margin-top:10px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <div class="field"><label for="t{{ p.id }}">Topic</label><input id="t{{ p.id }}" name="topic" maxlength="120" required placeholder="e.g. Managing a Grade 8 class of 45"></div>
+      <div class="field"><label for="m{{ p.id }}">What would you like help with?</label><textarea id="m{{ p.id }}" name="message" maxlength="1500" required minlength="20"></textarea></div>
+      <p class="small muted">Please don't include students' names or personal details.</p><button class="btn btn-sm btn-accent">Send request</button></form></details>{% endset %}
+  {{ person_card(p, actions) }}
+{% else %}<div class="empty">No mentors available right now.</div>{% endfor %}</div>
+{% endblock %}

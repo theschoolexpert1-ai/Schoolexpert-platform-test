@@ -1,0 +1,20 @@
+{% extends 'admin/_layout.html' %}{% block title %}Site Integration Desk{% endblock %}
+{% block admin %}<h1 style="font-size:1.5rem">Site Integration Desk</h1>
+<p class="muted small">Keep every old www.schoolexpert.in address working after the move to this platform: give existing pages their old path, and 301-redirect any old URL to its new home so search rankings carry over.</p>
+<div class="grid g2">
+<div class="card"><h3>Add a redirect</h3><form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="add">
+<div class="field"><label for="f">Old path</label><input id="f" name="from_path" placeholder="/about-us" required></div><div class="field"><label for="t">New URL or path</label><input id="t" name="to_url" placeholder="/about" required></div>
+<div class="field"><label for="c">Type</label><select id="c" name="code"><option value="301">301 — permanent (SEO-safe)</option><option value="302">302 — temporary</option></select></div><button class="btn btn-primary btn-sm">Save redirect</button></form></div>
+<div class="card"><h3>Bulk import</h3><form method="post" enctype="multipart/form-data"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="import">
+<p class="small muted">CSV with columns: <code>from_path,to_url,code</code>. Export your current site's URL list (or sitemap) and map each one.</p><input type="file" name="csv" accept=".csv,text/csv" required> <button class="btn btn-outline btn-sm">Import</button></form>
+<a class="small" href="{{ url_for('admin.redirects_csv') }}">Download current redirects (CSV)</a></div></div>
+<div class="card"><h3>Pages at legacy paths</h3><div class="table-wrap"><table class="t"><tr><th>Page</th><th>Path on the live site</th><th>Footer</th><th></th></tr>
+{% for p in pages %}<tr><form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="page_path"><input type="hidden" name="slug" value="{{ p.slug }}">
+<td>{{ p.title }}<div class="small muted">/p/{{ p.slug }}</div></td><td><input name="path" value="{{ p.path or '' }}" placeholder="/about-us" aria-label="Legacy path for {{ p.title }}"></td><td><input type="checkbox" name="footer" {% if p.show_in_footer %}checked{% endif %} aria-label="Show in footer"></td><td><button class="btn btn-ghost btn-sm">Save</button> <a class="small" href="{{ url_for('admin.cms_edit', table='pages', key=p.slug) }}">Edit content</a></td></form></tr>{% endfor %}</table></div></div>
+<div class="card"><h3>Redirects ({{ redirects | length }})</h3><div class="table-wrap"><table class="t"><tr><th>From</th><th>To</th><th>Code</th><th>Hits</th><th></th></tr>
+{% for r in redirects %}<tr><td class="small">{{ r.from_path }}</td><td class="small">{{ r.to_url }}</td><td>{{ r.code }}</td><td>{{ r.hits }}</td><td><form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="delete"><input type="hidden" name="from_path" value="{{ r.from_path }}"><button class="btn btn-ghost btn-sm">Delete</button></form></td></tr>
+{% else %}<tr><td colspan="5" class="muted">No redirects yet.</td></tr>{% endfor %}</table></div></div>
+<div class="card"><h3>Embed on another site</h3><p class="small muted">While both sites run side by side, paste this on any page of the existing website to show the school search and AI School Match:</p>
+<pre class="small" style="white-space:pre-wrap;background:var(--bg);padding:10px;border-radius:8px">&lt;div data-tse-widget="school-search"&gt;&lt;/div&gt;
+&lt;script async src="{{ cfg.SITE_URL }}/widget.js"&gt;&lt;/script&gt;</pre></div>
+{% endblock %}

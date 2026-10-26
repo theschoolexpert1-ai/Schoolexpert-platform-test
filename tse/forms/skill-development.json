@@ -1,0 +1,335 @@
+{
+ "slug": "skill-development",
+ "title": "K-12 Skill Development Institute Registration",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Organisation Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "organisation_name",
+     "label": "Organisation Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "brand_name",
+     "label": "Brand Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "legal_entity_name",
+     "label": "Legal Entity Name",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "entity_type",
+     "label": "Entity Type",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Proprietorship",
+      "Partnership Firm",
+      "LLP",
+      "Private Limited Company",
+      "Public Limited Company",
+      "Trust",
+      "Society",
+      "Section 8 Company",
+      "NGO"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "logo",
+     "label": "Logo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "about",
+     "label": "About",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about"
+    }
+   ]
+  },
+  {
+   "title": "Contact",
+   "description": "",
+   "fields": [
+    {
+     "key": "contact_person",
+     "label": "Contact Person",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "address",
+     "label": "Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    }
+   ]
+  },
+  {
+   "title": "Accreditation",
+   "description": "",
+   "fields": [
+    {
+     "key": "affiliations",
+     "label": "Affiliations",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "NSDC partner",
+      "Sector Skill Council",
+      "Skill India",
+      "NCVET",
+      "State Skill Mission",
+      "University",
+      "None"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "accreditation_details",
+     "label": "Accreditation Details",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Programmes",
+   "description": "",
+   "fields": [
+    {
+     "key": "skill_areas",
+     "label": "Skill Areas",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Coding & AI",
+      "Robotics & IoT",
+      "Electronics",
+      "Design & 3D printing",
+      "Communication & public speaking",
+      "Financial literacy",
+      "Entrepreneurship",
+      "Digital marketing",
+      "Media & content creation",
+      "Culinary",
+      "Beauty & wellness",
+      "Agriculture",
+      "Tailoring & fashion",
+      "Life skills",
+      "Vocational subjects (NEP)"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "grades_served",
+     "label": "Grades Served",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Grades 6–8",
+      "Grades 9–10",
+      "Grades 11–12",
+      "Out-of-school youth"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "programme_formats",
+     "label": "Programme Formats",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "In-school (curriculum-integrated)",
+      "After-school",
+      "Holiday camp",
+      "Online course",
+      "Internship / apprenticeship"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "certification_provided",
+     "label": "Certification Provided",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes – accredited",
+      "Yes – participation",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "delivery_mode",
+     "label": "Delivery Mode",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Online",
+      "In-person",
+      "At school",
+      "Hybrid"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "languages",
+     "label": "Languages",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Bengali",
+      "Gujarati"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Reach & Pricing",
+   "description": "",
+   "fields": [
+    {
+     "key": "students_trained_approx",
+     "label": "Students Trained (approx.)",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Less than 500",
+      "500–5,000",
+      "5,000–25,000",
+      "25,000+"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "partner_schools",
+     "label": "Partner Schools",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "fee_range",
+     "label": "Fee Range",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Documents & Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "brochure",
+     "label": "Brochure",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "registration_accreditation_certificate",
+     "label": "Registration / Accreditation Certificate",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm the information is accurate and agree to verification by The School Expert™.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "provisional": "Section 1 matches the live form; later sections are provisional until the full form is uploaded.",
+ "category": "learning",
+ "label": "Skill Development Institutes",
+ "entity": "organisation"
+}

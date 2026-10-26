@@ -1,0 +1,96 @@
+{% extends 'base.html' %}{% from '_macros.html' import consent_line %}{% from '_ads.html' import sponsored %}
+{% block title %}{{ l.name }}{% if l.city %}, {{ l.city }}{% endif %} — {{ l.category_label }}{% endblock %}
+{% block meta_description %}{{ l.name }}{% if l.city %} in {{ l.city }}{% endif %}: {{ (l.headline or l.about or l.category_label)[:150] }}{% endblock %}
+{% block og_type %}profile{% endblock %}
+{% block head %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"{{ 'School' if l.grp == 'schools' else ('Person' if l.entity == 'individual' else 'EducationalOrganization') }}","name":{{ l.name | tojson }},"url":"{{ cfg.SITE_URL }}/l/{{ l.slug }}",{% if l.logo_url %}"image":"{{ cfg.SITE_URL }}{{ l.logo_url }}",{% endif %}"address":{"@type":"PostalAddress","addressLocality":{{ (l.city or '') | tojson }},"addressRegion":{{ (l.state or '') | tojson }},"addressCountry":"IN"}{% if l.rating_count %},"aggregateRating":{"@type":"AggregateRating","ratingValue":"{{ '%.1f' % l.rating_avg }}","reviewCount":"{{ l.rating_count }}"}{% endif %}}</script>{% endblock %}
+{% block body %}
+<section class="profile-head"><div class="container">
+  {% if owner and not l.is_published %}<div class="flash info">This is a preview of your listing. It goes live after verification.</div>{% endif %}
+  <div class="top">
+    <div class="avatar lg">{% if l.logo_url %}<img src="{{ l.logo_url }}" alt="{{ l.name }} logo">{% else %}{{ l.name | initials }}{% endif %}</div>
+    <div style="flex:1;min-width:240px">
+      <div class="small muted"><a href="{{ url_for('directory.category', slug=l.category) }}">{{ l.category_label }}</a></div>
+      <h1 style="margin:2px 0 4px">{{ l.name }}</h1>
+      {% if l.headline %}<div style="color:var(--red);font-weight:600">{{ l.headline }}</div>{% endif %}
+      <div class="muted">{{ l.city }}{% if l.district and l.district != l.city %}, {{ l.district }}{% endif %}{% if l.state %}, {{ l.state }}{% endif %}</div>
+      <div class="chips">{% if l.verified %}<span class="chip ok">✔ Verified by The School Expert™</span>{% endif %}{% if org and org.founding_partner %}<span class="chip gold">🏅 Founding Partner</span>{% endif %}
+        {% if l.featured_until and l.featured_until >= today() %}<span class="chip gold">★ Featured</span>{% endif %}{% if l.in_house_panel %}<span class="chip navy">The School Expert™ panel</span>{% endif %}
+        {% if lent and lent.level >= 2 %}<span class="tier-pill t{{ lent.level }}" title="{{ lent.plan_name }}">{{ tier_label(lent.level) }} member</span>{% endif %}
+        {% for b in l.boards[:5] %}<span class="chip">{{ b }}</span>{% endfor %}{% if l.category == 'course-provider' %}<span class="chip">Course ID TSE-C-{{ '%06d' % l.registration_id }}</span>{% endif %}</div>
+      {% if l.rating_count %}<div style="margin-top:6px">{{ l.rating_avg | stars }} <b>{{ '%.1f' % l.rating_avg }}</b> <span class="muted small">· {{ l.rating_count }} verified review{{ 's' if l.rating_count != 1 }}</span></div>{% endif %}
+    </div>
+    <div class="btn-row">
+      {% if owner %}<a class="btn btn-outline" href="{{ url_for('dashboard.profile') }}">Manage listing</a><button class="btn btn-ghost" data-copy="{{ cfg.SITE_URL }}/l/{{ l.slug }}">Copy share link</button>{% endif %}
+      {% if l.grp == 'schools' and current_user and current_user.account_type == 'parent' %}<a class="btn btn-outline" href="{{ url_for('ask.pa_index', school=l.slug) }}">Personal Assistance</a>{% endif %}
+    </div>
+  </div>
+</div></section>
+
+<section class="section-sm"><div class="container"><div class="layout right">
+  <div>
+    {% if l.about %}<div class="card" style="margin-bottom:14px"><h2 style="font-size:1.2rem">About</h2><div>{{ l.about | nl2br }}</div></div>{% endif %}
+    {% for s in public_secs %}<div class="card" style="margin-bottom:14px"><h2 style="font-size:1.15rem">{{ s.title }}</h2><dl class="kv">
+      {% for it in s['items'] %}<dt>{{ it.field.label }}{% if it.field.visibility == 'detailed' %} <span class="dchip" title="Detailed, verified information — shown to parents who unlocked this profile and to Plus/Pro members">🔓</span>{% endif %}</dt><dd>{% if it.files %}{% for f in it.files %}{% if f.url.endswith(('.jpg','.jpeg','.png','.webp','.gif')) %}<img src="{{ f.url }}" alt="" style="max-height:80px;border-radius:8px">{% else %}<a href="{{ f.url }}">{{ f.name }}</a>{% endif %} {% endfor %}{% elif it.value is string %}{{ it.value | nl2br }}{% else %}{% for r in it.value %}<div class="small">• {{ r.values() | select | join(' · ') }}</div>{% endfor %}{% endif %}</dd>{% endfor %}</dl></div>{% endfor %}
+
+    {% if can_detail %}
+      {% for s in detail_secs %}<div class="card" style="margin-bottom:14px"><h2 style="font-size:1.15rem">{{ s.title }}</h2><dl class="kv">
+      {% for it in s['items'] %}<dt>{{ it.field.label }}</dt><dd>{% if it.files %}<div class="gallery">{% for f in it.files %}{% if f.url.endswith(('.jpg','.jpeg','.png','.webp','.gif')) %}<img src="{{ f.url }}" alt="" loading="lazy">{% else %}<a href="{{ f.url }}" target="_blank">📎 {{ f.name }}</a>{% endif %}{% endfor %}</div>{% elif it.value is string %}{{ it.value | nl2br }}{% else %}{% for r in it.value %}<div class="small">• {{ r.values() | select | join(' · ') }}</div>{% endfor %}{% endif %}</dd>{% endfor %}</dl></div>{% endfor %}
+    {% elif teaser %}
+      <div class="locked card" style="margin-bottom:14px"><div class="blur">{% for s in teaser %}<h3>{{ s.title }}</h3><dl class="kv">{% for it in s['items'][:6] %}<dt>{{ it.field.label }}</dt><dd>████████ ██████</dd>{% endfor %}</dl>{% endfor %}</div>
+        <div class="over"><div class="center" style="max-width:420px;padding:20px">
+          {% if l.tier in ('detailed','featured') %}
+            <h3>Detailed, verified profile</h3>
+            {% if pack %}<p class="small">You have {{ pack.quota - pack.used }} unlocks left in {{ pack.city }}.</p>
+              <form method="post" action="{{ url_for('directory.unlock', slug=l.slug) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-accent">Unlock this school</button></form>
+            {% elif current_user and current_user.account_type == 'organisation' %}<p class="small">Detailed profiles are included in paid school and partner plans.</p><a class="btn btn-accent" href="{{ url_for('dashboard.plans') }}">See plans</a>
+            {% else %}<p class="small">Fees, facilities, admissions contacts and more — verified by The School Expert™.</p><a class="btn btn-accent" href="{{ url_for('ask.schools', city=l.city) }}">Ask The School Expert</a>{% endif %}
+          {% else %}<h3>Detailed profile coming soon</h3><p class="small">This organisation has not published a detailed profile yet. <a href="{{ url_for('ask.index') }}">Ask The School Expert</a> for help.</p>{% endif %}
+        </div></div></div>
+    {% endif %}
+
+    {% if media %}<div class="card" style="margin-bottom:14px"><h2 style="font-size:1.15rem">Photos & videos</h2><div class="gallery">{% for m in media %}{% if m.kind == 'photo' %}<img src="{{ m.url }}" alt="{{ m.caption or l.name }}" loading="lazy">{% else %}<a class="media-cover" href="{{ m.url }}" target="_blank" rel="noopener">▶ {{ m.caption or 'Video' }}</a>{% endif %}{% endfor %}</div></div>{% endif %}
+
+    {% if jobs %}<div class="card" style="margin-bottom:14px" id="jobs"><h2 style="font-size:1.15rem">Teaching jobs at {{ l.name }}</h2>{% for j in jobs %}<div class="post"><a href="{{ url_for('teachers.job', slug=j.slug) }}"><b>{{ j.title }}</b></a><div class="small muted">{{ j.employment_type or '' }} · {{ j.city }} · posted {{ j.published_at | dt }}</div></div>{% endfor %}</div>{% endif %}
+
+    {% if campuses %}<div class="card" style="margin-bottom:14px"><h2 style="font-size:1.15rem">Other campuses</h2>{% for c in campuses %}<a href="{{ url_for('directory.listing', slug=c.slug) }}">{{ c.name }} — {{ c.city }}</a><br>{% endfor %}</div>{% endif %}
+
+    <div class="card" id="reviews"><h2 style="font-size:1.15rem">Verified reviews</h2>
+      {% for r in reviews %}<div class="post">{{ r.rating | stars }} <b>{{ r.title or '' }}</b> <span class="chip ok">Verified parent</span><div>{{ r.body | nl2br }}</div><div class="small muted">{{ (r.user_name or 'Parent').split(' ')[0] }} · {{ r.created_at | dt }}</div>
+        {% if r.response %}<div class="comment small"><b>Response from {{ l.name }}:</b> {{ r.response }}</div>{% endif %}</div>
+      {% else %}<p class="muted small">No reviews yet. Only parents who unlock this {{ 'school' if l.grp == 'schools' else 'profile' }} can review it.</p>{% endfor %}
+      {% if can_review %}<form method="post" action="{{ url_for('directory.review', slug=l.slug) }}" style="margin-top:12px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <h3>Write a verified review</h3><div class="row2"><div class="field"><label for="rt">Rating</label><select id="rt" name="rating" required>{% for i in [5,4,3,2,1] %}<option value="{{ i }}">{{ '★' * i }}</option>{% endfor %}</select></div><div class="field"><label for="tt">Title</label><input id="tt" name="title"></div></div>
+        <div class="field"><label for="bd">Your experience</label><textarea id="bd" name="body" placeholder="Please do not mention children's names or personal details."></textarea></div><button class="btn btn-primary">Publish review</button></form>{% endif %}
+    </div>
+  </div>
+
+  <aside>
+    <div class="card sticky">
+      {% if can_detail and contact %}
+        <h3>Contact</h3>
+        {% if contact.phone %}<p>📞 <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></p>{% endif %}
+        {% if contact.whatsapp %}<p>💬 WhatsApp {{ contact.whatsapp }}</p>{% endif %}
+        {% if contact.email %}<p>✉️ <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>{% endif %}
+        {% if contact.website %}<p>🌐 <a href="{{ contact.website }}" target="_blank" rel="noopener nofollow">Website</a></p>{% endif %}
+      {% endif %}
+      {% if can_detail and not owner and current_user and lent and lent.leads %}
+        <form method="post" action="{{ url_for('directory.contact', slug=l.slug) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+          <h3>Send a verified enquiry</h3>
+          <div class="field"><label for="ph">Your phone</label><input id="ph" name="phone" value="{{ current_user.phone or '' }}"></div>
+          <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" required placeholder="e.g. Admission enquiry for Grade 3, 2027–28"></textarea></div>
+          {{ consent_line(n_lead) }}
+          <button class="btn btn-accent btn-block" style="margin-top:10px">Send enquiry</button></form>
+      {% elif can_detail and not owner %}
+        <p class="small muted">This {{ 'school' if l.grp == 'schools' else 'provider' }} receives enquiries through the contact details above.</p>
+      {% elif not owner %}
+        <h3>Want the full profile?</h3>
+        <p class="small muted">Basic details are free. Detailed, verified information and direct contact are available through Ask The School Expert.</p>
+        <a class="btn btn-accent btn-block" href="{{ url_for('ask.schools', city=l.city) if l.grp == 'schools' else url_for('ask.index') }}">Ask The School Expert</a>
+      {% endif %}
+      {% if l.grp == 'schools' and not owner %}<a class="btn btn-outline btn-block" style="margin-top:8px" href="{{ url_for('school_match.index', city=l.city) }}">✨ Similar schools (AI Match)</a>{% endif %}
+      <p class="small muted" style="margin-top:12px">Listing does not constitute an endorsement. Please do your own due diligence. <a href="/disclaimer">Disclaimer</a></p>
+    </div>
+    {{ sponsored('directory', l.city) }}
+  </aside>
+</div></div></section>
+{% endblock %}

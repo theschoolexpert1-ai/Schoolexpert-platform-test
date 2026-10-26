@@ -1,0 +1,2 @@
+{% extends 'dashboard/_layout.html' %}{% block title %}Notifications{% endblock %}
+{% block dash %}<h1 style="font-size:1.5rem">Notifications</h1><div class="card">{% for n in rows %}<div class="post">{% if not n.read_at %}<span class="status new">New</span> {% endif %}<b>{% if n.link %}<a href="{{ n.link }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</b><div class="small">{{ n.body or '' }}</div><div class="small muted">{{ n.created_at | dtt }}</div></div>{% else %}<p class="muted">You're all caught up.</p>{% endfor %}</div>{% endblock %}

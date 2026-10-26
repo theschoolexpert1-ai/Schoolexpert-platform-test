@@ -1,0 +1,19 @@
+{% extends 'base.html' %}{% from '_macros.html' import status %}
+{% block title %}{{ p.title }} — {{ c.name }}{% endblock %}
+{% block robots %}noindex{% endblock %}
+{% block body %}
+<section class="section-sm"><div class="container narrow">
+  <div class="small muted"><a href="{{ url_for('community.view', slug=c.slug) }}">← {{ c.name }}</a></div>
+  <article class="card pad-lg" style="margin-top:10px">{% if p.status != 'published' %}<div class="flash warning">Awaiting moderation{% if p.moderation_reason %}: {{ p.moderation_reason }}{% endif %}</div>{% endif %}
+    <h1 style="font-size:1.5rem">{{ p.title }}</h1><div class="by small muted">{{ p.user_name or 'Member' }} · {{ p.created_at | dtt }}</div>
+    <div class="prose" style="margin-top:12px">{{ p.body | nl2br }}</div>
+    {% if p.attachment_url %}<p><a href="{{ p.attachment_url }}" target="_blank">📎 Attachment</a></p>{% endif %}
+    {% if current_user %}<details class="small" style="margin-top:12px"><summary>Report this post</summary><form method="post" action="{{ url_for('community.report') }}" class="btn-row" style="margin-top:8px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="type" value="post"><input type="hidden" name="id" value="{{ p.id }}">
+      <select name="reason"><option>Shares a child's personal information</option><option>Contact details / solicitation</option><option>Abusive or harassing</option><option>Misinformation</option><option>Other</option></select><button class="btn btn-danger btn-sm">Report</button></form></details>{% endif %}
+  </article>
+  <h3 style="margin-top:20px">{{ comments | length }} repl{{ 'y' if comments|length == 1 else 'ies' }}</h3>
+  {% for cm in comments %}<div class="comment"><b>{{ cm.user_name or 'Member' }}</b> <span class="small muted">{{ cm.created_at | dt }}</span>{% if cm.status != 'published' %} {{ status(cm.status) }}{% endif %}<div>{{ cm.body | nl2br }}</div>
+    {% if current_user %}<form method="post" action="{{ url_for('community.report') }}" style="display:inline"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="type" value="comment"><input type="hidden" name="id" value="{{ cm.id }}"><input type="hidden" name="reason" value="Reported from thread"><button class="btn btn-ghost btn-sm">Report</button></form>{% endif %}</div>{% endfor %}
+  {% if can_post and c.allow_comments %}<form method="post" action="{{ url_for('community.comment', slug=c.slug, pid=p.id) }}" class="card" style="margin-top:12px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><div class="field"><label for="cb">Your reply</label><textarea id="cb" name="body" required></textarea></div><button class="btn btn-primary">Reply</button></form>{% endif %}
+</div></section>
+{% endblock %}

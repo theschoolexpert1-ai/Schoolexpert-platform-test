@@ -1,0 +1,10 @@
+{% macro person_card(p, actions) %}
+<div class="card">
+  <div style="display:flex;gap:12px;align-items:center"><div class="avatar" style="width:46px;height:46px">{{ p.name | initials }}</div>
+    <div><b>{{ p.name }}</b>{% if p.mentor_status == 'approved' %} <span class="chip gold">Mentor</span>{% endif %}<div class="small muted">{{ p.designation or 'Educator' }}{% if p.school %} · {{ p.school }}{% endif %}</div></div></div>
+  <div class="small" style="margin-top:8px">{% if p.subjects %}📚 {{ p.subjects }}{% endif %}{% if p.grades %} · Grades {{ p.grades }}{% endif %}{% if p.board %} · {{ p.board }}{% endif %}</div>
+  <div class="small muted">{% if p.city %}📍 {{ p.city }}{% if p.state %}, {{ p.state }}{% endif %}{% endif %}{% if p.experience_years %} · {{ p.experience_years }} yrs experience{% endif %}</div>
+  {% if p.bio %}<p class="small" style="margin:8px 0 0">{{ p.bio }}</p>{% endif %}
+  <div class="btn-row" style="margin-top:10px">{{ actions }}</div>
+</div>
+{% endmacro %}

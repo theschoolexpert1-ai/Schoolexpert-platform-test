@@ -1,0 +1,24 @@
+# Local / single-server container setup. For AWS/Azure/GCP use the same image with a managed PostgreSQL.
+services:
+  db:
+    image: postgres:16
+    environment: { POSTGRES_DB: schoolexpert, POSTGRES_USER: tse, POSTGRES_PASSWORD: tse_dev_pw }
+    volumes: [pgdata:/var/lib/postgresql/data]
+  web:
+    build: .
+    env_file: .env
+    environment: { DATABASE_URL: "postgresql://tse:tse_dev_pw@db:5432/schoolexpert" }
+    ports: ["127.0.0.1:8000:8000"]          # only nginx on the host can reach the app
+    volumes: [uploads:/app/var]
+    depends_on: [db]
+    read_only: true                          # container filesystem is immutable except the upload volume
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+  worker:
+    build: .
+    env_file: .env
+    environment: { DATABASE_URL: "postgresql://tse:tse_dev_pw@db:5432/schoolexpert", FLASK_APP: wsgi }
+    command: ["flask", "outbox-worker", "--loop"]
+    depends_on: [db]
+volumes: { pgdata: {}, uploads: {} }

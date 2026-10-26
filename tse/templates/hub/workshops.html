@@ -1,0 +1,20 @@
+{% extends 'dashboard/_layout.html' %}{% from '_macros.html' import status %}
+{% block title %}Workshops — Teachers Hub{% endblock %}
+{% block dash %}
+<h1 style="font-size:1.6rem">Workshops & webinars for teachers</h1>
+<p class="muted">Online, in-person and hybrid sessions. Attended sessions count towards your CPD hours. <a href="{{ url_for('dashboard.events') }}">My passes →</a></p>
+<div class="grid g2">
+{% for e in rows %}
+  <div class="card">
+    <div class="small muted">{{ e.category or e.kind | capitalize }} · {{ e.mode | capitalize }}{% if e.city %} · {{ e.city }}{% endif %}</div>
+    <h3 style="margin:6px 0"><a href="{{ url_for('events.detail', slug=e.slug) }}">{{ e.title }}</a></h3>
+    <p class="small">{{ e.summary }}</p>
+    <div class="small muted">📅 {{ e.starts_at | dtt }}{% if e.facilitator %} · {{ e.facilitator }}{% endif %}</div>
+    <div class="chips" style="margin-top:8px">{% if e.cpd_hours %}<span class="chip navy">{{ e.cpd_hours }} CPD h</span>{% endif %}<span class="chip">{{ inr(e.price_paise) if e.price_paise else 'Free' }}</span>
+      {% if e.capacity %}<span class="chip">{{ [0, e.capacity - e.taken] | max }} seats left</span>{% endif %}{% if e.my_status %}{{ status(e.my_status) }}{% endif %}</div>
+    <div class="btn-row" style="margin-top:10px"><a class="btn btn-sm {{ 'btn-outline' if e.my_status else 'btn-primary' }}" href="{{ url_for('events.detail', slug=e.slug) }}">{{ 'View my registration' if e.my_status else 'Details & register' }}</a>
+      <a class="btn btn-sm btn-ghost" href="{{ url_for('events.ics', slug=e.slug) }}">📆 Add to calendar</a></div>
+  </div>
+{% else %}<div class="empty">No upcoming teacher workshops right now — check back soon.</div>{% endfor %}
+</div>
+{% endblock %}

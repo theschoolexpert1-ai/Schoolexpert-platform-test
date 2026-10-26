@@ -1,0 +1,8 @@
+{% extends 'admin/_layout.html' %}{% from '_macros.html' import status %}{% block title %}Events & Sponsorship Desk{% endblock %}
+{% block admin %}<div class="section-title"><h1 style="font-size:1.5rem;margin:0">Events & Sponsorship Desk</h1><a class="btn btn-primary btn-sm" href="{{ url_for('admin.cms_edit', table='events') }}">+ New event</a></div>
+<div class="card"><h3>Events</h3><div class="table-wrap"><table class="t"><tr><th>Event</th><th>Kind</th><th>Date</th><th>Registrations</th><th>Ticket revenue</th><th></th></tr>
+{% for e in events %}<tr><td>{{ e.title }}</td><td class="small">{{ e.kind | replace('_',' ') }}</td><td class="small">{{ e.starts_at | dt }}</td><td>{{ e.regs }}{% if e.capacity %} / {{ e.capacity }}{% endif %}</td><td>{{ inr(e.revenue) }}</td><td><a href="{{ url_for('admin.event', eid=e.id) }}">Passes & attendees</a></td></tr>
+{% else %}<tr><td colspan="6" class="muted">No events.</td></tr>{% endfor %}</table></div></div>
+<div class="card"><div class="section-title" style="margin:0"><h3 style="margin:0">Sponsorships</h3><a class="small" href="{{ url_for('admin.cms_list', table='sponsorships') }}">Manage →</a></div><table class="t"><tr><th>Sponsor</th><th>Tier</th><th>Amount</th><th>Status</th></tr>
+{% for s in sponsors %}<tr><td>{{ s.sponsor_name }}</td><td>{{ s.tier }}</td><td>{{ inr(s.amount_paise or 0) }}</td><td>{{ status(s.status) }}</td></tr>{% else %}<tr><td colspan="4" class="muted">No sponsorship enquiries yet.</td></tr>{% endfor %}</table></div>
+{% endblock %}

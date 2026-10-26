@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Photo Gallery{% endblock %}
+{% block body %}
+{{ page_head('Photo Gallery', 'Moments from The School Expert™ events, roundtables, workshops and meetups.') }}
+<section class="section-sm"><div class="container"><div class="grid g3">{% for a in rows %}<a class="card" href="{{ url_for('content.album', slug=a.slug) }}"><div class="media-cover {{ loop.cycle('', 'gold', 'green') }}">{% if a.cover %}<img src="{{ a.cover }}" alt="" loading="lazy">{% else %}📷{% endif %}</div><h3>{{ a.title }}</h3><p class="small muted">{{ a.n }} photos{% if a.taken_on %} · {{ a.taken_on | dt }}{% endif %}</p></a>{% else %}<div class="empty" style="grid-column:1/-1">Albums coming soon.</div>{% endfor %}</div></div></section>
+{% endblock %}

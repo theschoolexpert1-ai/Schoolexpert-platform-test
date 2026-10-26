@@ -1,0 +1,36 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head, consent_line %}
+{% block title %}AI CV Builder{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}
+{{ page_head('AI CV Builder', 'A professional, truthful CV drafted from your teacher profile.', [('Teachers Hub', url_for('teachers.hub'))]) }}
+<section class="section"><div class="container"><div class="layout right">
+  <div>
+    {% if not reg %}<div class="card pad-lg"><h2>First, your teacher profile</h2><p>The CV builder uses the details in your profile.</p><a class="btn btn-accent" href="{{ url_for('register.landing', slug='teacher-registration') }}">Create my profile</a></div>
+    {% elif profile and profile.cv_json %}{% set c = profile.cv_json %}
+      <div class="card pad-lg">
+        <div class="section-title"><div><h2 style="margin:0">{{ c.name }}</h2><div style="color:var(--red)">{{ c.headline }}</div></div>
+          <div class="btn-row"><a class="btn btn-primary" href="{{ url_for('teachers.cv_pdf') }}" target="_blank">Download PDF</a></div></div>
+        <p class="small muted">Generated {{ profile.cv_generated_at | dtt }} · {{ 'AI-drafted' if c.generated_by == 'ai' else 'Template' }} · Edit your <a href="{{ url_for('register.step', rid=reg.id, si=0) }}">profile</a> and regenerate to change facts.</p>
+        <form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="save_summary">
+          <div class="field"><label for="hl">Headline</label><input id="hl" name="headline" value="{{ c.headline }}"></div>
+          <div class="field"><label for="sm">Profile summary</label><textarea id="sm" name="summary">{{ c.summary }}</textarea></div><button class="btn btn-outline btn-sm">Save wording</button></form>
+        {% if c.skills %}<h3 style="margin-top:18px">Key skills</h3><div class="chips">{% for s in c.skills %}<span class="chip">{{ s }}</span>{% endfor %}</div>{% endif %}
+        {% if c.experience %}<h3 style="margin-top:18px">Experience</h3>{% for x in c.experience %}<div class="post"><b>{{ x.title }}</b> — {{ x.org }} <span class="muted small">({{ x.period }})</span>{% if x.detail %}<div class="small muted">{{ x.detail }}</div>{% endif %}<ul class="small">{% for b in x.bullets %}<li>{{ b }}</li>{% endfor %}</ul></div>{% endfor %}{% endif %}
+        {% if c.education %}<h3>Education</h3><ul>{% for e in c.education %}<li>{{ e.degree }}{% if e.subject %}, {{ e.subject }}{% endif %} — {{ e.institution }} {{ e.year }}</li>{% endfor %}</ul>{% endif %}
+        {% if c.certifications %}<h3>Certifications & eligibility</h3><ul>{% for e in c.certifications %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+      </div>
+    {% else %}<div class="empty">Your profile is ready — generate your CV with the panel on the right.</div>{% endif %}
+  </div>
+  <aside>
+    {% if reg %}<form method="post" class="card" style="margin-bottom:14px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="generate">
+      <h3>{{ 'Regenerate' if profile and profile.cv_json else 'Generate' }} my CV</h3>
+      <div class="field"><label for="tr">Tailor for a role (optional)</label><input id="tr" name="target_role" placeholder="e.g. PGT Physics, CBSE"></div>
+      {{ consent_line(notice, 'consent_ai') }}
+      <button class="btn btn-accent btn-block" style="margin-top:10px">✨ Generate CV</button>
+      <p class="small muted" style="margin-top:8px">Free: 3 versions a month · Premium: unlimited.</p></form>{% endif %}
+    <form method="post" enctype="multipart/form-data" class="card"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="upload">
+      <h3>Upload your own CV</h3>{% if profile and profile.uploaded_cv_url %}<p class="small"><a href="{{ url_for('privacy.private_file', ref=profile.uploaded_cv_url) }}">View current upload</a></p>{% endif %}
+      <input type="file" name="cv" accept=".pdf,.doc,.docx" required><button class="btn btn-outline btn-block" style="margin-top:10px">Upload</button>
+      <p class="small muted">Stored privately; shared only with schools you apply to.</p></form>
+  </aside>
+</div></div></section>
+{% endblock %}

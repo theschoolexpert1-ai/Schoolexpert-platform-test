@@ -1,0 +1,37 @@
+@slug mental-health
+@title K-12 Mental Health Professionals – Registration
+@provisional Section 1 matches the live form; later sections are provisional until the full form is uploaded.
+## Organisation / Practice
+Organisation / Practice Name* | text
+Brand / Trade Name | text
+Legal Entity Name* | text
+Practice Type* | radio | Individual Practitioner; Clinic; Hospital Department; NGO; Online Platform; Other
+Logo / Profile Photo | file
+About* | textarea
+## Contact
+Contact Person* | text
+Mobile Number* | tel
+Email* | email
+Website | url
+Address | textarea
+City* | text
+State* | state
+## Professionals & Credentials
+Professional Categories* | checkbox | Clinical Psychologist (RCI); Counselling Psychologist; Psychiatrist; School Counsellor; Child Psychologist; Psychiatric Social Worker; Art / Play Therapist; Other
+RCI / NMC Registration Numbers | text
+Years of Experience* | radio | $YRS
+## Areas Supported
+Concerns Supported* | checkbox | Anxiety; Exam stress; Low mood; Bullying; Grief; Peer & relationship issues; Self-esteem; Attention & learning concerns; Screen / gaming habits; Adolescent issues; Parent–child relationship; Teacher wellbeing
+Age Groups* | checkbox | 3–6 years; 6–10 years; 11–14 years; 15–18 years; Parents; Teachers
+## Services
+Services for Parents & Students | checkbox | Individual therapy; Family sessions; Assessments; Online counselling; Group programmes
+Services for Schools | checkbox | School counsellor on contract; Wellbeing programmes; SEL curriculum; Teacher training; Crisis response protocol; Parent workshops
+Delivery Mode* | checkbox | In-person; Online; At school
+Languages* | checkbox | $LANG9
+Fee Range | text
+## Ethics & Safeguarding
+Do you follow a written confidentiality and child-protection policy?* | yesno
+Do you have an escalation / referral protocol for emergencies?* | yesno
+## Documents & Declaration
+Registration / Qualification Certificates | files
+Declaration* | consent | | I confirm the information is accurate and agree to verification by The School Expert™. I understand that listing is not an endorsement.

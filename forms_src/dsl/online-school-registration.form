@@ -1,0 +1,40 @@
+@slug online-school-registration
+@title Online School Registration Form
+@provisional Section 1 matches the live form; later sections are provisional until the full form is uploaded.
+## Basic Information
+Name of Online School / Institution* | text
+Legal Entity Name* | text
+Year Established* | year
+Website* | url
+Official Email ID* | email
+Contact Number* | tel
+Country of Operation | text
+States / Countries Served* | text
+School / Institution Logo* | file
+## Recognition
+Board / Curriculum* | checkbox | CBSE; Cambridge International; IB; NIOS; American curriculum; State Board; Other
+Recognition / Accreditation Details* | textarea
+## Academics
+Grades Offered* | checkbox | $GRADES
+Subjects Offered | textarea
+Class Format* | checkbox | Live classes; Recorded lessons; Self-paced; Hybrid with learning centres
+Class Size | text
+Weekly Live Hours | text
+Assessment & Exams | textarea
+## Student Support
+Student Support | checkbox | Academic mentor; Counsellor; Special educator; Doubt-clearing sessions; Parent–teacher meetings; Learning support
+Technology Platform | text
+## Fees
+Annual Fee Range* | text
+Payment Options | checkbox | Annual; Term-wise; Monthly; EMI
+Scholarships | yesno
+## Contact Person
+Contact Person* | text
+Designation | text
+Mobile Number* | tel
+Email* | email
+## Safeguarding & Data
+Child-protection policy* | yesno
+Do you publish a privacy policy for student data?* | yesno
+## Declaration
+Declaration* | consent | | I confirm the information is accurate and agree to verification by The School Expert™.

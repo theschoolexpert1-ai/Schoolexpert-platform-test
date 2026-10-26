@@ -1,0 +1,14 @@
+{# expects: plans, action (url or None), cta #}
+<div class="grid g3">
+{% for p in plans %}<div class="card plan {% if loop.index == 1 %}best{% endif %}">
+  {% if p.grants.get('founding_partner') %}<span class="ribbon">Founding Partner</span>{% elif loop.index == 1 %}<span class="ribbon">Most popular</span>{% endif %}
+  <h3>{{ p.name }}</h3>
+  <div class="price">{{ inr(p.price_paise) }} <small>{{ {'annual':'/ year','monthly':'/ month','one_time':'one-time'}[p.interval] }} + {{ p.gst_rate | int }}% GST</small></div>
+  {% if p.description %}<p class="small muted">{{ p.description }}</p>{% endif %}
+  <ul>{% for f in p.features %}<li>{{ f }}</li>{% endfor %}</ul>
+  {% if action %}<form method="post" action="{{ action }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="plan" value="{{ p.code }}">
+    <button class="btn {{ 'btn-accent' if loop.index == 1 else 'btn-primary' }} btn-block">{{ cta or 'Choose' }}</button></form>
+  {% else %}<a class="btn {{ 'btn-accent' if loop.index == 1 else 'btn-primary' }} btn-block" href="{{ url_for('register.index') }}">Register & choose</a>{% endif %}
+</div>{% endfor %}
+</div>
+<p class="small muted" style="margin-top:12px">Prices are exclusive of GST. Registration does not guarantee leads, admissions or revenue. See <a href="/refund-policy">Refund & Cancellation</a>.</p>

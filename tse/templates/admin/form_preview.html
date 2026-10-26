@@ -1,0 +1,3 @@
+{% extends 'admin/_layout.html' %}{% from '_macros.html' import field %}{% block title %}Preview {{ defn.title }}{% endblock %}
+{% block admin %}<h1 style="font-size:1.5rem">{{ defn.title }}</h1>{% if defn.provisional %}<div class="flash warning">{{ defn.provisional }}</div>{% endif %}{% for p in defn.intro %}<p class="small">{{ p }}</p>{% endfor %}
+{% for s in defn.sections %}<div class="card" style="margin-bottom:12px"><h3>{{ loop.index }}. {{ s.title }}</h3>{% if s.description %}<p class="small muted">{{ s.description | nl2br }}</p>{% endif %}{% for f in s.fields %}{{ field(f, None, None, None, False, states) }}{% endfor %}</div>{% endfor %}{% endblock %}

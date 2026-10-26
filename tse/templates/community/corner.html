@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Parents' Corner — craft projects & model-making tutorials{% endblock %}
+{% block body %}
+{{ page_head("Parents' Corner", 'Craft projects for school and model-making tutorials, submitted by parents for parents. This corner is for submissions only — no discussions.') }}
+<section class="section-sm"><div class="container">
+  <div class="btn-row" style="margin-bottom:16px"><a class="btn {{ 'btn-primary' if not kind else 'btn-outline' }} btn-sm" href="?">All</a><a class="btn {{ 'btn-primary' if kind == 'craft_project' else 'btn-outline' }} btn-sm" href="?kind=craft_project">Craft projects</a><a class="btn {{ 'btn-primary' if kind == 'model_tutorial' else 'btn-outline' }} btn-sm" href="?kind=model_tutorial">Model-making tutorials</a><a class="btn {{ 'btn-primary' if kind == 'activity_idea' else 'btn-outline' }} btn-sm" href="?kind=activity_idea">Activity ideas</a>
+    <a class="btn btn-accent btn-sm" style="margin-left:auto" href="{{ url_for('community.corner_submit') }}">Submit a project</a></div>
+  <div class="grid g3">{% for s in rows %}<a class="card" href="{{ url_for('community.corner_item', sid=s.id) }}"><div class="media-cover {{ loop.cycle('', 'gold', 'green') }}">{% if s.media_url %}<img src="{{ s.media_url }}" alt="">{% else %}✂️{% endif %}</div><h3>{{ s.title }}</h3><p class="small muted">{{ s.kind | replace('_', ' ') | capitalize }}{% if s.grade %} · {{ s.grade }}{% endif %}</p></a>{% else %}<div class="empty" style="grid-column:1/-1">Be the first to share a project!</div>{% endfor %}</div>
+</div></section>
+{% endblock %}

@@ -1,0 +1,4 @@
+{% macro sponsored(placement, city=None, n=1) %}{% for ad in ads(placement, city, n) %}
+<a class="sponsored" href="{{ url_for('public.ad_click', ad_id=ad.id) }}" rel="sponsored noopener">
+  {% if ad.image_url %}<img src="{{ ad.image_url }}" alt="" loading="lazy">{% endif %}
+  <span><small>Sponsored</small><b>{{ ad.title }}</b></span></a>{% endfor %}{% endmacro %}

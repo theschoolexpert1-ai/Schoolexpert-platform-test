@@ -1,0 +1,16 @@
+{
+  "appId": "in.schoolexpert.app",
+  "appName": "The School Expert",
+  "webDir": "www",
+  "server": {
+    "url": "https://www.schoolexpert.in/?source=app",
+    "cleartext": false,
+    "allowNavigation": ["www.schoolexpert.in", "schoolexpert.in", "checkout.razorpay.com", "api.razorpay.com"]
+  },
+  "plugins": {
+    "SplashScreen": { "launchShowDuration": 1200, "backgroundColor": "#0B2A6B", "showSpinner": false },
+    "PushNotifications": { "presentationOptions": ["badge", "sound", "alert"] }
+  },
+  "android": { "allowMixedContent": false },
+  "ios": { "contentInset": "always" }
+}

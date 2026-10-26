@@ -1,0 +1,908 @@
+{
+ "COURSES": [
+  {
+   "title": "NEP 2020 & NCF-SE 2023 for the Classroom",
+   "category": "Policy & Curriculum",
+   "level": "Beginner",
+   "cpd": 4,
+   "instructor": "Dr. Meera Raghavan",
+   "summary": "Turn the National Education Policy and the National Curriculum Framework into everyday classroom decisions — stages, competencies, and holistic assessment.",
+   "lessons": [
+    [
+     "The 5+3+3+4 structure explained",
+     15,
+     "NEP 2020 replaces the 10+2 structure with four stages: Foundational (ages 3–8), Preparatory (8–11), Middle (11–14) and Secondary (14–18). Each stage has its own pedagogy. Foundational is play- and activity-based; Preparatory adds light textbooks and discovery; Middle introduces subject teachers and abstract concepts; Secondary brings depth, choice and critical thinking.\n\nAction: identify which stage your classes sit in and note one pedagogy shift that stage asks of you."
+    ],
+    [
+     "From content to competencies",
+     20,
+     "NCF-SE 2023 frames learning as Curricular Goals → Competencies → Learning Outcomes. Instead of \"finish Chapter 4\", plan for \"students can compare fractions using visual models\".\n\nTry this: pick one upcoming chapter, write the competency it builds, and design one task where students show that competency without recalling textbook lines."
+    ],
+    [
+     "Experiential and art-integrated learning",
+     15,
+     "Experiential learning means students do, reflect and apply. Art-integration uses music, drama, drawing or craft as a route into any subject — a timeline drama in history, a rangoli for symmetry in maths.\n\nKeep it purposeful: every activity should end with a reflection question that links back to the concept."
+    ],
+    [
+     "Holistic Progress Card (HPC)",
+     20,
+     "The HPC replaces marks-only reporting with a 360° view: self-assessment, peer assessment and teacher observation across cognitive, socio-emotional and physical domains.\n\nStart small: add one self-reflection prompt to every unit test (\"What was easiest? What will you practise?\") and keep short anecdotal notes for each learner."
+    ],
+    [
+     "Mother tongue and multilingual classrooms",
+     15,
+     "NEP recommends the home language/mother tongue as the medium of instruction wherever possible, at least till Grade 5. In multilingual classes, allow students to discuss in their strongest language and present in the target language.\n\nTranslanguaging is a bridge, not a crutch — it reduces anxiety and deepens understanding."
+    ]
+   ]
+  },
+  {
+   "title": "Classroom Management that Actually Works",
+   "category": "Classroom Practice",
+   "level": "Beginner",
+   "cpd": 3,
+   "instructor": "Anil Kumar Shetty",
+   "summary": "Routines, relationships and calm responses — practical strategies for classes of 25 to 60 students.",
+   "lessons": [
+    [
+     "The first five minutes",
+     10,
+     "Most disruption starts in transitions. Greet students at the door, have a \"Do Now\" task on the board, and start teaching within two minutes. A predictable opening tells students the class is purposeful."
+    ],
+    [
+     "Routines and procedures",
+     15,
+     "Teach routines like content: explain, model, practise, reinforce. Cover entering, distributing material, asking for help, group work and leaving. Revisit them after holidays — routines decay."
+    ],
+    [
+     "Attention signals for large classes",
+     10,
+     "Choose one non-verbal signal (raised hand, clap pattern, a bell) and use it consistently. Wait for full attention; never talk over noise. Thank the first students who respond."
+    ],
+    [
+     "Responding to misbehaviour calmly",
+     20,
+     "Use the least intrusive response first: proximity, a look, saying the student's name in context, then a quiet private word. Address behaviour, not character. Corporal punishment and humiliation are prohibited under the RTE Act — and they don't work."
+    ],
+    [
+     "Building relationships",
+     15,
+     "Learn every name in the first week. Use the 2×10 strategy: spend 2 minutes a day for 10 days talking with a challenging student about anything but school. Relationships are the foundation of behaviour."
+    ]
+   ]
+  },
+  {
+   "title": "Digital Tools for Teachers",
+   "category": "EdTech",
+   "level": "Beginner",
+   "cpd": 3,
+   "instructor": "Priya Nair",
+   "summary": "Use free tools — Google Workspace, DIKSHA, quiz apps and AI assistants — safely and effectively.",
+   "lessons": [
+    [
+     "Choosing tools with purpose",
+     10,
+     "Start with the learning goal, not the app. Ask: does this tool help students think, practise, create or get feedback faster? If not, a notebook may be better. Check data privacy before asking students to sign up."
+    ],
+    [
+     "Google Classroom & Forms essentials",
+     20,
+     "Create a class, post assignments with rubrics, and use Forms in Quiz mode for instant self-grading checks. Use \"Return\" with private comments for personalised feedback."
+    ],
+    [
+     "DIKSHA and national e-content",
+     15,
+     "DIKSHA hosts QR-linked textbook content, teacher courses (including NISHTHA) and question banks aligned to NCERT. Scan the QR code in any NCERT textbook to reach videos and practice for that chapter."
+    ],
+    [
+     "Using AI assistants responsibly",
+     20,
+     "AI can draft lesson ideas, differentiate worksheets, and generate question variations. Always verify facts, adapt to your learners, and never paste students' personal data into AI tools. Teach students to use AI as a tutor, not a ghost-writer."
+    ]
+   ]
+  },
+  {
+   "title": "Assessment for Learning",
+   "category": "Assessment",
+   "level": "Intermediate",
+   "cpd": 4,
+   "instructor": "Dr. Meera Raghavan",
+   "summary": "Formative assessment, effective feedback, rubrics and competency-based questions.",
+   "lessons": [
+    [
+     "Formative vs summative",
+     10,
+     "Summative assessment measures learning at the end. Formative assessment happens during learning to adjust teaching. Exit tickets, mini-whiteboards and thumbs up/down are quick formative checks."
+    ],
+    [
+     "Feedback that moves learning forward",
+     20,
+     "Good feedback is specific, actionable and timely: \"Your hypothesis is clear; now add a variable you will control.\" Comment-only marking often improves learning more than grades alone."
+    ],
+    [
+     "Designing rubrics",
+     20,
+     "A rubric has criteria (what matters) and levels (what quality looks like). Keep 3–5 criteria, write level descriptors in student-friendly language, and share the rubric before the task."
+    ],
+    [
+     "Competency-based questions",
+     20,
+     "CBSE now asks for competency-based items: case-based, source-based and assertion-reason questions that test application. Write a short real-life context, then ask questions that require reasoning rather than recall."
+    ]
+   ]
+  },
+  {
+   "title": "Inclusive Education & Differentiation",
+   "category": "Inclusion",
+   "level": "Intermediate",
+   "cpd": 4,
+   "instructor": "Fatima Sheikh",
+   "summary": "Support every learner, including children with disabilities and learning differences, in a regular classroom.",
+   "lessons": [
+    [
+     "Understanding learner diversity",
+     15,
+     "Classrooms include learners with different languages, backgrounds, abilities and needs. The RPwD Act 2016 lists 21 disabilities and mandates inclusive education. Inclusion is about removing barriers, not lowering expectations."
+    ],
+    [
+     "Spotting learning difficulties early",
+     20,
+     "Watch for persistent patterns: reversal of letters beyond age 7, difficulty with number sense, poor attention across settings. Observe, document and refer to the school counsellor or special educator — do not label."
+    ],
+    [
+     "Differentiating content, process and product",
+     20,
+     "Differentiate content (what students learn), process (how they learn it) and product (how they show it). Example: same concept, three tiers of worksheet; or choice between a poster, a talk, or a written answer."
+    ],
+    [
+     "Universal Design for Learning",
+     15,
+     "UDL plans for variability from the start: multiple means of engagement, representation and expression. Pair text with visuals, offer audio, and allow different ways to respond."
+    ]
+   ]
+  },
+  {
+   "title": "Foundational Literacy & Numeracy (FLN)",
+   "category": "Foundational Stage",
+   "level": "Beginner",
+   "cpd": 4,
+   "instructor": "Lakshmi Venkatesh",
+   "summary": "NIPUN Bharat-aligned strategies for reading, writing and number sense in Grades 1–3.",
+   "lessons": [
+    [
+     "Why FLN matters",
+     10,
+     "NIPUN Bharat aims for every child to attain foundational literacy and numeracy by the end of Grade 3. Children who cannot read fluently by Grade 3 struggle in every subject afterwards."
+    ],
+    [
+     "Phonics and phonemic awareness",
+     20,
+     "Teach sounds before letter names. Use oral games — rhymes, clapping syllables, \"I spy a word that starts with /m/\". Move to blending (c-a-t → cat) and segmenting."
+    ],
+    [
+     "Building reading fluency",
+     15,
+     "Fluency = accuracy + speed + expression. Use repeated reading, paired reading and read-alouds daily. Track words correct per minute once a month."
+    ],
+    [
+     "Number sense through manipulatives",
+     20,
+     "Use concrete objects (bundles of sticks, beads, bottle caps) before pictures, and pictures before symbols. Bundle tens to teach place value physically."
+    ]
+   ]
+  },
+  {
+   "title": "Teacher Wellbeing & Resilience",
+   "category": "Wellbeing",
+   "level": "Beginner",
+   "cpd": 2,
+   "instructor": "Dr. Kavya Iyer",
+   "summary": "Manage workload, prevent burnout and protect your energy across the school year.",
+   "lessons": [
+    [
+     "Recognising burnout",
+     10,
+     "Burnout shows up as exhaustion, cynicism and a sense of ineffectiveness. It is a workplace problem, not a personal failing. Notice early signs: dread on Sunday evenings, irritability, trouble switching off."
+    ],
+    [
+     "Workload strategies",
+     15,
+     "Batch similar tasks, use marking codes, reuse and share resources with colleagues, and set a daily \"stop time\". Not every piece of work needs detailed written feedback."
+    ],
+    [
+     "Boundaries with parents and messages",
+     15,
+     "Agree communication hours with your school and share them with parents. Use templates for common replies. Turn off notifications after hours."
+    ],
+    [
+     "Finding support",
+     10,
+     "Talk to a trusted colleague or mentor, use your school counsellor, and reach out for professional help if stress affects sleep, health or relationships. The Tele-MANAS helpline (14416) offers free mental health support in India."
+    ]
+   ]
+  },
+  {
+   "title": "CTET & Career Growth Pathways",
+   "category": "Career",
+   "level": "Beginner",
+   "cpd": 2,
+   "instructor": "Rohit Deshpande",
+   "summary": "Eligibility tests, higher qualifications, leadership roles and building a professional portfolio.",
+   "lessons": [
+    [
+     "Eligibility tests: CTET and State TETs",
+     15,
+     "CTET (conducted by CBSE) and State TETs are eligibility requirements for many teaching posts. Paper I covers Classes 1–5, Paper II covers Classes 6–8. Child Development & Pedagogy carries significant weight in both."
+    ],
+    [
+     "Planning your growth",
+     15,
+     "Consider M.Ed., subject specialisations, special-education certification, or school leadership programmes. Map a 3-year plan: one skill to deepen, one to add, one leadership responsibility to try."
+    ],
+    [
+     "Building a teaching portfolio",
+     15,
+     "Keep evidence: sample lesson plans, student work (with permission and no identifying details), feedback received, certificates and reflections. A portfolio strengthens appraisals and job applications."
+    ]
+   ]
+  }
+ ],
+ "TUTORIALS": [
+  [
+   "Write a lesson plan in 15 minutes",
+   "Lesson Planning",
+   "A fast, repeatable structure for daily plans.",
+   6,
+   [
+    [
+     "Start with the outcome",
+     "Write one sentence: \"By the end, students will be able to…\" Use an action verb you can observe (explain, compare, solve, create)."
+    ],
+    [
+     "Plan the hook (5 min)",
+     "A question, image, short story or real object that makes students curious."
+    ],
+    [
+     "Plan the \"I do, we do, you do\"",
+     "Model it, practise together, then students practise alone or in pairs."
+    ],
+    [
+     "Plan the check",
+     "Decide how you will know they learnt it — an exit ticket of 1–3 questions works well."
+    ],
+    [
+     "Note differentiation",
+     "One support for learners who struggle and one extension for those who finish early."
+    ]
+   ]
+  ],
+  [
+   "Create a self-grading quiz in Google Forms",
+   "Digital Tools",
+   "Instant feedback quizzes without manual marking.",
+   5,
+   [
+    [
+     "Create the form",
+     "Open forms.google.com → Blank → name your quiz."
+    ],
+    [
+     "Turn on Quiz mode",
+     "Settings → \"Make this a quiz\". Choose to release marks immediately."
+    ],
+    [
+     "Add questions and answer keys",
+     "Add multiple-choice questions → click \"Answer key\" → mark the correct option and assign points."
+    ],
+    [
+     "Add feedback",
+     "In the answer key, add feedback for wrong answers pointing to the concept to revisit."
+    ],
+    [
+     "Share and review",
+     "Send the link; view the Responses tab for question-wise analysis."
+    ]
+   ]
+  ],
+  [
+   "Run a think-pair-share",
+   "Classroom Strategies",
+   "Get every student thinking, not just the confident few.",
+   3,
+   [
+    [
+     "Pose an open question",
+     "Ask something with more than one possible answer."
+    ],
+    [
+     "Think (1 min)",
+     "Silent individual thinking. Insist on silence — this is the step that helps quieter students."
+    ],
+    [
+     "Pair (2 min)",
+     "Students discuss with a neighbour and refine their answer."
+    ],
+    [
+     "Share",
+     "Call on pairs at random to share. Ask \"What did your partner say?\" to build listening."
+    ]
+   ]
+  ],
+  [
+   "Make an exit ticket",
+   "Assessment",
+   "A 3-minute check at the end of a lesson.",
+   3,
+   [
+    [
+     "Ask 1–3 questions",
+     "One recall question, one application question, and optionally \"What is still confusing?\""
+    ],
+    [
+     "Use slips or a form",
+     "Small paper slips or a quick Google Form."
+    ],
+    [
+     "Sort into three piles",
+     "Got it / almost / not yet. Use the piles to plan tomorrow's grouping."
+    ]
+   ]
+  ],
+  [
+   "Use DIKSHA QR codes in class",
+   "Digital Tools",
+   "Access chapter videos and practice from NCERT textbooks.",
+   4,
+   [
+    [
+     "Install DIKSHA",
+     "Download the DIKSHA app or open diksha.gov.in."
+    ],
+    [
+     "Scan the textbook QR",
+     "Each chapter of NCERT textbooks has a QR code; scan it in the app."
+    ],
+    [
+     "Preview content",
+     "Watch the linked videos yourself before class and pick the most relevant one."
+    ],
+    [
+     "Plan for low connectivity",
+     "Download content in advance for offline use in the classroom."
+    ]
+   ]
+  ],
+  [
+   "Write a competency-based question",
+   "Assessment",
+   "CBSE-style case-based items in four steps.",
+   5,
+   [
+    [
+     "Pick a real-life context",
+     "A news snippet, a data table, a scenario from daily life."
+    ],
+    [
+     "Link to a learning outcome",
+     "Decide exactly which concept the student must apply."
+    ],
+    [
+     "Write 3–4 questions",
+     "Move from understanding to application to analysis."
+    ],
+    [
+     "Check it can't be answered by recall",
+     "If a student can answer by memorising a textbook line, rewrite it."
+    ]
+   ]
+  ],
+  [
+   "Conduct a productive parent-teacher meeting",
+   "Parents & Community",
+   "Structure PTMs so parents leave with clear next steps.",
+   5,
+   [
+    [
+     "Prepare evidence",
+     "Bring 2–3 samples of student work and brief notes."
+    ],
+    [
+     "Start with a strength",
+     "Open with something genuine the child does well."
+    ],
+    [
+     "Share one priority",
+     "Focus on one area to improve, not a list of complaints."
+    ],
+    [
+     "Agree an action",
+     "One thing the school will do and one the family can do at home."
+    ],
+    [
+     "Follow up",
+     "Send a short note after 2–3 weeks on progress."
+    ]
+   ]
+  ],
+  [
+   "Set up group work that works",
+   "Classroom Strategies",
+   "Roles and structure that prevent one student doing everything.",
+   4,
+   [
+    [
+     "Groups of 3–4",
+     "Larger groups let students hide."
+    ],
+    [
+     "Assign roles",
+     "Facilitator, recorder, timekeeper, reporter — rotate weekly."
+    ],
+    [
+     "Give a clear product",
+     "Each group must produce something specific in a set time."
+    ],
+    [
+     "Include individual accountability",
+     "Call on any member to explain the group's answer."
+    ]
+   ]
+  ],
+  [
+   "Build a simple rubric",
+   "Assessment",
+   "Make grading fair and expectations visible.",
+   5,
+   [
+    [
+     "List 3–5 criteria",
+     "e.g., Content accuracy, Organisation, Use of evidence, Presentation."
+    ],
+    [
+     "Choose 3–4 levels",
+     "Beginning, Developing, Proficient, Advanced."
+    ],
+    [
+     "Describe the top and bottom first",
+     "Then fill in the middle levels."
+    ],
+    [
+     "Share it before the task",
+     "Students should know how they will be assessed."
+    ]
+   ]
+  ],
+  [
+   "Use AI safely to prepare lessons",
+   "Digital Tools",
+   "Save time while keeping accuracy and student privacy.",
+   5,
+   [
+    [
+     "Give context",
+     "State grade, subject, board, time available and your learners' needs."
+    ],
+    [
+     "Ask for options, not answers",
+     "\"Give me three hook ideas for…\" works better than \"write my lesson\"."
+    ],
+    [
+     "Verify everything",
+     "Check facts, numbers and references against the textbook."
+    ],
+    [
+     "Protect privacy",
+     "Never enter students' names, marks or personal details."
+    ],
+    [
+     "Adapt",
+     "Edit to fit your class — AI does not know your students."
+    ]
+   ]
+  ],
+  [
+   "Handle a disruptive student calmly",
+   "Classroom Management",
+   "A step-by-step de-escalation routine.",
+   4,
+   [
+    [
+     "Stay calm and close",
+     "Move near the student; lower your voice."
+    ],
+    [
+     "Name the behaviour privately",
+     "\"I need you to put the phone away so you can follow the task.\""
+    ],
+    [
+     "Offer a choice",
+     "\"You can work here or at the front desk.\""
+    ],
+    [
+     "Follow up later",
+     "Talk one-to-one after class; listen for underlying causes."
+    ]
+   ]
+  ],
+  [
+   "Teach in a multilingual classroom",
+   "Inclusion",
+   "Use students' home languages as a resource.",
+   4,
+   [
+    [
+     "Map your class's languages",
+     "A quick survey on day one."
+    ],
+    [
+     "Allow home-language discussion",
+     "Let pairs think in their strongest language."
+    ],
+    [
+     "Build bilingual word walls",
+     "Key terms in the medium of instruction and the home language."
+    ],
+    [
+     "Present in the target language",
+     "Discussion builds understanding; presentation builds language."
+    ]
+   ]
+  ],
+  [
+   "Mark faster with feedback codes",
+   "Wellbeing & Workload",
+   "Cut marking time without cutting quality.",
+   3,
+   [
+    [
+     "Create 6–8 codes",
+     "e.g., E1 = add evidence, S2 = check units, P = punctuation."
+    ],
+    [
+     "Display the code key",
+     "On the board or in notebooks."
+    ],
+    [
+     "Students act on codes",
+     "Give 10 minutes in class for students to correct work using the key."
+    ]
+   ]
+  ],
+  [
+   "Plan a field trip safely",
+   "School Operations",
+   "Checklist for learning-rich, safe excursions.",
+   5,
+   [
+    [
+     "Define the learning purpose",
+     "What will students observe, record or ask?"
+    ],
+    [
+     "Get approvals and consents",
+     "School approval and signed parental consent for every student."
+    ],
+    [
+     "Plan ratios and roles",
+     "Adequate adult-to-student ratio, a first-aid kit, emergency contacts."
+    ],
+    [
+     "Pre-visit task and post-visit reflection",
+     "Link the trip back to the curriculum."
+    ]
+   ]
+  ],
+  [
+   "Maintain a Holistic Progress Card",
+   "Assessment",
+   "Practical routine for 360° reporting under NEP.",
+   5,
+   [
+    [
+     "Keep an observation log",
+     "A notebook page per student; jot 1–2 lines a week."
+    ],
+    [
+     "Add self-assessment",
+     "Short reflection prompts after each unit."
+    ],
+    [
+     "Add peer assessment",
+     "Structured peer feedback using simple rubrics."
+    ],
+    [
+     "Summarise each term",
+     "Combine notes into the HPC domains with specific examples."
+    ]
+   ]
+  ],
+  [
+   "Protect your work-life balance",
+   "Wellbeing & Workload",
+   "Small routines that prevent burnout.",
+   3,
+   [
+    [
+     "Set a stop time",
+     "Decide when your school day ends and protect it."
+    ],
+    [
+     "Batch messages",
+     "Reply to parent messages at set times, not continuously."
+    ],
+    [
+     "Share resources",
+     "Co-plan with colleagues; reuse and adapt instead of starting from scratch."
+    ]
+   ]
+  ]
+ ],
+ "COMMUNITIES": [
+  [
+   "Primary & Foundational",
+   "Play-based learning, FLN, early-years classrooms.",
+   "◐"
+  ],
+  [
+   "Mathematics Teachers",
+   "Problem-solving, manipulatives, competency-based maths.",
+   "∑"
+  ],
+  [
+   "Science & STEM",
+   "Experiments, labs, tinkering and inquiry.",
+   "⚗"
+  ],
+  [
+   "Languages & Literature",
+   "Reading, writing, multilingual classrooms.",
+   "❝"
+  ],
+  [
+   "Social Science",
+   "History, geography, civics and economics.",
+   "⌖"
+  ],
+  [
+   "School Leaders",
+   "Principals, coordinators and HoDs on leading schools.",
+   "◆"
+  ],
+  [
+   "EdTech & AI",
+   "Digital tools, AI in teaching, online learning.",
+   "⌘"
+  ],
+  [
+   "Special Education & Inclusion",
+   "Supporting every learner.",
+   "❖"
+  ]
+ ],
+ "DEMO_EDUCATORS": [
+  [
+   "Lakshmi Venkatesh",
+   "Primary Teacher",
+   "Vidya Niketan School",
+   "EVS, English",
+   "1–3",
+   "CBSE",
+   "Bengaluru",
+   "Karnataka",
+   14,
+   "mentor",
+   "FLN champion. I love phonics games and storytelling."
+  ],
+  [
+   "Anil Kumar Shetty",
+   "TGT Mathematics",
+   "Govt. High School",
+   "Mathematics",
+   "6–8",
+   "State Board",
+   "Mangaluru",
+   "Karnataka",
+   18,
+   "mentor",
+   "Making maths hands-on with low-cost materials."
+  ],
+  [
+   "Priya Nair",
+   "ICT Coordinator",
+   "St. Mary's Convent",
+   "Computer Science",
+   "6–12",
+   "ICSE",
+   "Kochi",
+   "Kerala",
+   10,
+   "mentor",
+   "Helping teachers use technology without the overwhelm."
+  ],
+  [
+   "Fatima Sheikh",
+   "Special Educator",
+   "Sunrise Inclusive School",
+   "Special Education",
+   "1–8",
+   "CBSE",
+   "Hyderabad",
+   "Telangana",
+   12,
+   "mentor",
+   "Inclusion is a mindset. Ask me about IEPs and differentiation."
+  ],
+  [
+   "Rohit Deshpande",
+   "PGT Physics",
+   "Kendriya Vidyalaya",
+   "Physics",
+   "11–12",
+   "CBSE",
+   "Pune",
+   "Maharashtra",
+   9,
+   "educator",
+   "Inquiry-based labs and JEE-foundation physics."
+  ],
+  [
+   "Sneha Gupta",
+   "English Teacher",
+   "Delhi Public School",
+   "English",
+   "9–10",
+   "CBSE",
+   "New Delhi",
+   "Delhi",
+   6,
+   "educator",
+   "Book clubs, creative writing and debate."
+  ],
+  [
+   "Arjun Reddy",
+   "Social Science Teacher",
+   "Narayana School",
+   "History, Geography",
+   "6–10",
+   "State Board",
+   "Vijayawada",
+   "Andhra Pradesh",
+   4,
+   "educator",
+   "Making history come alive with role-plays."
+  ],
+  [
+   "Kavya Iyer",
+   "School Counsellor",
+   "Chinmaya Vidyalaya",
+   "Counselling",
+   "All",
+   "CBSE",
+   "Chennai",
+   "Tamil Nadu",
+   11,
+   "mentor",
+   "Student and teacher wellbeing. Happy to talk."
+  ]
+ ],
+ "JOBS": [
+  [
+   "PGT Chemistry",
+   "Greenwood International School",
+   "Bengaluru",
+   "Full-time",
+   "Chemistry",
+   "M.Sc. Chemistry with B.Ed.; 3+ years teaching Grades 11–12 (CBSE). Lab management experience preferred.",
+   "careers@example.org"
+  ],
+  [
+   "Primary Teacher (Grades 1–2)",
+   "Little Sprouts Academy",
+   "Mysuru",
+   "Full-time",
+   "All subjects",
+   "Graduate with D.El.Ed./B.Ed. and passion for play-based learning. Kannada and English fluency.",
+   "hr@example.org"
+  ],
+  [
+   "Special Educator",
+   "Sunrise Inclusive School",
+   "Hyderabad",
+   "Full-time",
+   "Special Education",
+   "RCI-registered special educator to support learners with diverse needs in inclusive classrooms.",
+   "apply@example.org"
+  ],
+  [
+   "Online Maths Tutor (Grades 6–8)",
+   "LearnBridge",
+   "Remote",
+   "Part-time",
+   "Mathematics",
+   "Evening sessions, 10–15 hrs/week. Strong conceptual teaching and comfort with online whiteboards.",
+   "tutors@example.org"
+  ],
+  [
+   "Academic Coordinator",
+   "Riverdale Public School",
+   "Pune",
+   "Full-time",
+   "Leadership",
+   "8+ years teaching with 2+ years in a coordination role. Experience implementing NEP-aligned assessment.",
+   "jobs@example.org"
+  ]
+ ],
+ "WORKSHOPS": [
+  [
+   "Designing Competency-Based Question Papers",
+   "Hands-on session: convert recall questions into case-based and assertion-reason items aligned with CBSE patterns. Bring a recent question paper.",
+   "Dr. Meera Raghavan",
+   "Assessment",
+   "Online",
+   "Live online — The School Expert Teachers Hub",
+   3,
+   120,
+   100,
+   2
+  ],
+  [
+   "Joyful Phonics for Grades 1–2",
+   "Games, songs and low-cost materials for teaching phonemic awareness and blending. Practical take-home kit.",
+   "Lakshmi Venkatesh",
+   "Foundational Stage",
+   "In-person",
+   "Bengaluru — Jayanagar Teachers' Centre",
+   6,
+   180,
+   40,
+   3
+  ],
+  [
+   "AI in the Classroom: Practical & Responsible",
+   "Use AI assistants to plan, differentiate and create practice — with clear guardrails on accuracy and privacy.",
+   "Priya Nair",
+   "EdTech",
+   "Online",
+   "Live online — The School Expert Teachers Hub",
+   9,
+   90,
+   150,
+   2
+  ],
+  [
+   "Managing Large Classes (40+)",
+   "Routines, signals and grouping strategies that work with big classes and limited space.",
+   "Anil Kumar Shetty",
+   "Classroom Practice",
+   "Hybrid",
+   "Mangaluru + Online",
+   12,
+   120,
+   80,
+   2
+  ],
+  [
+   "Writing IEPs that Work",
+   "Step-by-step Individualised Education Plans for learners with disabilities in mainstream classrooms.",
+   "Fatima Sheikh",
+   "Inclusion",
+   "Online",
+   "Live online — The School Expert Teachers Hub",
+   16,
+   120,
+   60,
+   3
+  ],
+  [
+   "Teacher Wellbeing Circle",
+   "A facilitated, confidential peer-support circle on workload, stress and boundaries.",
+   "Dr. Kavya Iyer",
+   "Wellbeing",
+   "Online",
+   "Live online — The School Expert Teachers Hub",
+   20,
+   60,
+   25,
+   1
+  ]
+ ]
+}

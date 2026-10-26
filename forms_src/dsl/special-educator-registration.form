@@ -1,0 +1,48 @@
+@slug special-educator-registration
+@title Special Educator Registration Form
+## Personal Details
+Full Name* | text
+Gender | radio | Female; Male; Prefer not to say; Other
+Date of Birth | date
+Mobile Number* | tel
+Email Address* | email
+City* | text
+State* | state
+Profile Photograph* | file
+## Professional Details
+Current Designation | text
+Organisation / School | text
+Total Years of Experience | number
+Current Employment Status | radio | School; Special School; Private Practice; NGO; Independent Professional; Other
+## Educational & Professional Qualifications
+Highest Qualification* | text
+Special Education Qualification* | text
+University / Institution | text
+Year of Completion | year
+Is the qualification RCI-recognised? | yesno
+## RCI / CRR Registration
+Do you have RCI registration? | yesno
+CRR Number | text
+Year of Registration | year
+Registration Status / Validity | text
+Area of Specialisation (as registered) | text
+## Areas of Specialisation
+Areas of Specialisation* | checkbox | Intellectual Disability; Specific Learning Disability; Autism Spectrum Disorder; Hearing Impairment; Visual Impairment; Multiple Disabilities; Locomotor Disability; Speech & Language Difficulties; ADHD / Attention Difficulties; Inclusive Education; Early Intervention; Behavioural Support; Other
+## Services Offered
+Services Offered* | checkbox | Assessment; Individualised Education Plans (IEPs); Remedial Education; Learning Support; Behavioural Intervention; Parent Counselling; Teacher Training; Classroom Inclusion Support; Early Intervention; Career / Transition Support; Online Consultation; Other
+## Professional Experience
+Age Groups Worked With | text
+Number of Years as a Special Educator | number
+Schools / Organisations Previously Associated With | textarea
+Key Areas of Expertise | textarea
+Languages Spoken | text
+## Participation with The School Expert™
+Participation with The School Expert™ | checkbox | Register as a Special Educator; Become a Special Educator Ambassador; Offer Services to Parents; Conduct Workshops; Conduct Teacher Training; Contribute Articles / Resources; Participate in Webinars; Collaborate with Schools; Join the Special Education Professional Community
+## Documents
+Qualification Certificate* | file
+RCI / CRR Certificate | file
+Experience Certificate (Optional) | file
+## Declaration
+Accuracy* | consent | | I confirm that the information provided is accurate.
+Verification* | consent | | I agree to The School Expert™ verifying my professional credentials where required.
+Profile display* | consent | | I consent to my professional profile being displayed on The School Expert™, subject to the platform's verification and privacy policies.

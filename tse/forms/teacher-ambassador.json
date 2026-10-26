@@ -1,0 +1,443 @@
+{
+ "slug": "teacher-ambassador",
+ "title": "Teacher Ambassador Registration",
+ "category": "ambassadors",
+ "label": "Teacher Ambassadors",
+ "entity": "individual",
+ "account": "teacher",
+ "intro": [
+  "BE THE VOICE OF TEACHERS. BE PART OF THE CHANGE.",
+  "Teachers are among the most important voices in a child’s educational journey.",
+  "The School Expert™ is building a community that brings together teachers, parents, schools, education experts and organisations to create a stronger ecosystem around every child.",
+  "As a Teacher Ambassador, you can help us connect educators, share experiences, amplify teacher voices and create meaningful conversations around education.",
+  "We are looking for passionate educators who would like to contribute their time, experience, ideas and voice to the community.",
+  "Registration is free.",
+  "Please complete this form to express your interest in becoming a The School Expert™ Teacher Ambassador."
+ ],
+ "outro": [
+  "YOU'RE IN!",
+  "Thank you for expressing your interest in becoming a Teacher Ambassador for The School Expert™.",
+  "We believe teachers should not just participate in conversations about education — teachers should help lead them.",
+  "Our team will review your registration and get in touch with you regarding the next steps.",
+  "Welcome to the movement.",
+  "The School Expert™",
+  "Made in India. For India. By Indians.",
+  "It takes a village to raise a child.",
+  "It takes an entire country to raise The School Expert™ for our children."
+ ],
+ "sections": [
+  {
+   "title": "About You",
+   "description": "",
+   "fields": [
+    {
+     "key": "full_name",
+     "label": "Full Name",
+     "type": "text",
+     "required": true,
+     "visibility": "private",
+     "role": "name"
+    },
+    {
+     "key": "email_address",
+     "label": "Email Address",
+     "type": "email",
+     "required": true,
+     "visibility": "private",
+     "role": "email"
+    },
+    {
+     "key": "mobile_whatsapp_number",
+     "label": "Mobile / WhatsApp Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "private",
+     "role": "phone"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "private",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "private",
+     "role": "state"
+    },
+    {
+     "key": "name_of_school_institution",
+     "label": "Name of School / Institution",
+     "type": "text",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "current_designation",
+     "label": "Current Designation",
+     "type": "radio",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "Teacher",
+      "Senior Teacher",
+      "Coordinator",
+      "Academic Coordinator",
+      "Head of Department",
+      "Vice Principal",
+      "Principal",
+      "Special Educator",
+      "Counsellor"
+     ],
+     "other": true
+    }
+   ]
+  },
+  {
+   "title": "Your Teaching Experience",
+   "description": "",
+   "fields": [
+    {
+     "key": "years_of_experience_in_education",
+     "label": "Years of experience in education",
+     "type": "radio",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "Less than 2 years",
+      "2–5 years",
+      "6–10 years",
+      "11–15 years",
+      "16–20 years",
+      "More than 20 years"
+     ]
+    },
+    {
+     "key": "curriculum_board_you_work_with",
+     "label": "Curriculum / Board you work with",
+     "type": "radio",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "CBSE",
+      "ICSE / CISCE",
+      "IB",
+      "Cambridge",
+      "State Board",
+      "NIOS",
+      "Montessori",
+      "Alternative / Progressive"
+     ],
+     "other": true
+    },
+    {
+     "key": "classes_age_groups_you_work_with",
+     "label": "Classes / age groups you work with",
+     "type": "checkbox",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "Early Years",
+      "Primary",
+      "Middle School",
+      "Secondary",
+      "Senior Secondary",
+      "Special Education"
+     ],
+     "other": true
+    },
+    {
+     "key": "subjects_areas_of_expertise",
+     "label": "Subjects / areas of expertise",
+     "type": "checkbox",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "English",
+      "Mathematics",
+      "Science",
+      "Social Science",
+      "Languages",
+      "Computer Science / Technology",
+      "Art & Design",
+      "Music",
+      "Sports / Physical Education",
+      "Life Skills",
+      "Special Education"
+     ],
+     "other": true
+    }
+   ]
+  },
+  {
+   "title": "Why Do You Want to Be a Teacher Ambassador?",
+   "description": "",
+   "fields": [
+    {
+     "key": "what_motivates_you",
+     "label": "What motivates you to become a Teacher Ambassador for The School Expert™?",
+     "type": "textarea",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "what_teachers_need_most",
+     "label": "What do you believe teachers need most today?",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "change_in_education",
+     "label": "What change would you like to see in education?",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "contribute_to_community",
+     "label": "What would you like to contribute to The School Expert™ Community?",
+     "type": "checkbox",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "My teaching experience",
+      "Ideas and best practices",
+      "Teacher perspectives",
+      "Educational content",
+      "Workshops",
+      "Webinars / panel discussions",
+      "Mentoring",
+      "Research / surveys",
+      "Community building",
+      "Connecting educators",
+      "Connecting schools"
+     ],
+     "other": true
+    }
+   ]
+  },
+  {
+   "title": "How Would You Like to Engage?",
+   "description": "This is the most important section of the form.",
+   "fields": [
+    {
+     "key": "activities_interested_in",
+     "label": "As a Teacher Ambassador, which activities would you be interested in?",
+     "type": "checkbox",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "CONNECT – Introduce other teachers to The School Expert Community",
+      "CONTRIBUTE – Share articles, teaching ideas, resources and experiences",
+      "CONVERSE – Participate in discussions, webinars and panel conversations",
+      "COLLABORATE – Work with schools, educators and education organisations",
+      "MENTOR – Support fellow teachers and educators",
+      "CREATE – Help create educational content for parents, teachers and students",
+      "SPEAK – Participate as a speaker or subject expert",
+      "RESEARCH – Participate in education surveys and research initiatives",
+      "ADVOCATE – Represent and amplify the voice of teachers",
+      "LEAD – Help build the Teacher Ambassador network in my city / region"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Your Availability",
+   "description": "",
+   "fields": [
+    {
+     "key": "time_you_can_contribute",
+     "label": "How much time could you comfortably contribute?",
+     "type": "radio",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "1–2 hours per month",
+      "2–5 hours per month",
+      "5–10 hours per month",
+      "10+ hours per month",
+      "Depends on the activity"
+     ]
+    },
+    {
+     "key": "preferred_participation",
+     "label": "How would you prefer to participate?",
+     "type": "checkbox",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "Online",
+      "Offline",
+      "Both online and offline"
+     ]
+    },
+    {
+     "key": "participation_frequency",
+     "label": "How frequently would you like to participate?",
+     "type": "radio",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "Occasionally",
+      "Once a month",
+      "2–3 times a month",
+      "Weekly",
+      "As opportunities arise"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Your Strengths",
+   "description": "",
+   "fields": [
+    {
+     "key": "strongest_areas",
+     "label": "What are your strongest areas?",
+     "type": "checkbox",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "Public Speaking",
+      "Writing",
+      "Teaching / Training",
+      "Mentoring",
+      "Community Building",
+      "Event Management",
+      "Social Media / Content Creation",
+      "Research",
+      "Leadership",
+      "Technology / EdTech",
+      "Networking"
+     ],
+     "other": true
+    },
+    {
+     "key": "passionate_about",
+     "label": "Please tell us something you are particularly passionate about in education.",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "previous_communities",
+     "label": "Have you previously participated in any teacher communities, educational initiatives or professional networks?",
+     "type": "yesno",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "previous_communities_details",
+     "label": "If yes, please tell us about it.",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private",
+     "showIf": {
+      "field": "previous_communities",
+      "equals": "Yes"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Your Digital Presence",
+   "description": "",
+   "fields": [
+    {
+     "key": "linkedin_profile",
+     "label": "LinkedIn Profile",
+     "type": "url",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "instagram_profile",
+     "label": "Instagram / Professional Social Media Profile",
+     "type": "url",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "website_blog_portfolio",
+     "label": "Website / Blog / Portfolio",
+     "type": "url",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "comfortable_being_featured",
+     "label": "Would you be comfortable being featured as a Teacher Ambassador on The School Expert™ platforms?",
+     "type": "radio",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "Yes",
+      "No",
+      "I'd like to know more"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Ambassador Commitment",
+   "description": "",
+   "fields": [
+    {
+     "key": "what_ambassador_means",
+     "label": "What does being a Teacher Ambassador mean to you?",
+     "type": "textarea",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "represent_values",
+     "label": "Are you willing to represent the values and vision of The School Expert™ in your interactions with teachers, schools, parents and other stakeholders?",
+     "type": "yesno",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "introduce_educators",
+     "label": "Would you be willing to introduce other educators to The School Expert Community?",
+     "type": "radio",
+     "required": false,
+     "visibility": "private",
+     "options": [
+      "Yes",
+      "Maybe",
+      "Not at this time"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Consent",
+   "description": "",
+   "fields": [
+    {
+     "key": "communication_consent",
+     "label": "Communication Consent",
+     "type": "consent",
+     "required": false,
+     "visibility": "private",
+     "text": "I agree to be contacted by The School Expert™ regarding Teacher Ambassador activities, community initiatives, events, opportunities, surveys and collaborations."
+    },
+    {
+     "key": "ambassador_declaration",
+     "label": "Ambassador Declaration",
+     "type": "consent",
+     "required": true,
+     "visibility": "private",
+     "text": "I confirm that the information I have provided is accurate, and I agree to follow The School Expert™ Teacher Ambassador guidelines.",
+     "pending_wording": true
+    }
+   ]
+  }
+ ]
+}

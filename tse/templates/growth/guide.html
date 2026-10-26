@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{{ a.title }}{% endblock %}
+{% block meta_description %}{{ (a.summary or a.title)[:160] }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block head %}<link rel="canonical" href="{{ cfg.SITE_URL }}/guides/{{ a.slug }}">{% if a.keywords %}<meta name="keywords" content="{{ a.keywords }}">{% endif %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ a.title | tojson }},"description":{{ (a.summary or '') | tojson }},"author":{"@type":"Organization","name":{{ (a.author or 'The School Expert™') | tojson }}},"publisher":{"@type":"Organization","name":"The School Expert™"},"datePublished":"{{ a.published_at.isoformat() if a.published_at else '' }}","dateModified":"{{ a.updated_at.isoformat() }}"}</script>{% endblock %}
+{% block body %}
+<section class="page-head"><div class="container narrow"><div class="crumbs"><a href="{{ url_for('growth.guides') }}">Guides</a> › {{ a.audience | capitalize }}</div><h1>{{ a.title }}</h1>{% if a.summary %}<p>{{ a.summary }}</p>{% endif %}<div class="small muted">{{ a.author }} · {{ a.published_at | dt }}</div></div></section>
+<section class="section-sm"><div class="container narrow"><article class="card pad-lg prose">{{ a.body | md }}</article>
+{% if a.audience == 'parents' %}<div class="card advisor"><h3>✨ Find the right school with AI School Match</h3><a class="btn btn-accent" href="{{ url_for('school_match.index') }}">Start now — it's free</a></div>
+{% elif a.audience == 'schools' %}<div class="card"><h3>Get your school in front of parents</h3><a class="btn btn-accent" href="{{ url_for('growth.list_school') }}">List your school</a></div>
+{% elif a.audience == 'vendors' %}<div class="card"><h3>Sell to schools across India</h3><a class="btn btn-accent" href="{{ url_for('growth.become_vendor') }}">Become a vendor</a></div>
+{% else %}<div class="card"><h3>Create your free teacher profile</h3><a class="btn btn-accent" href="{{ url_for('growth.teacher_jobs') }}">Get started</a></div>{% endif %}
+{% if more %}<h2 style="margin-top:24px">More guides</h2><div class="grid g2">{% for m in more %}<a class="card" href="{{ url_for('growth.guide', slug=m.slug) }}"><b>{{ m.title }}</b><p class="small muted">{{ m.summary }}</p></a>{% endfor %}</div>{% endif %}
+</div></section>
+{% endblock %}

@@ -1,0 +1,1302 @@
+{
+ "slug": "k12-curriculum-development-expert-registration",
+ "title": "K–12 Curriculum Development Expert Registration Form",
+ "intro": [
+  "The School Expert is building a professional network of experienced education professionals who can contribute to K–12 curriculum development, curriculum review, academic design, assessment, learning resources, teacher development, educational research, and related projects across India.",
+  "This form is intended for experienced educators, curriculum specialists, subject matter experts, academic leaders, researchers, instructional designers, assessment specialists, teacher educators, authors, and education professionals with relevant K–12 expertise.",
+  "Please provide accurate information and relevant evidence of your professional experience."
+ ],
+ "sections": [
+  {
+   "title": "Personal & Professional Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "full_name",
+     "label": "Full Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "preferred_name",
+     "label": "Preferred Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "professional_title_designation",
+     "label": "Professional Title/Designation",
+     "type": "text",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "current_organization",
+     "label": "Current Organization",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "current_city",
+     "label": "Current City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state_ut",
+     "label": "State/UT",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "private",
+     "role": "phone"
+    },
+    {
+     "key": "email_address",
+     "label": "Email Address",
+     "type": "email",
+     "required": true,
+     "visibility": "private",
+     "role": "email"
+    },
+    {
+     "key": "linkedin_profile",
+     "label": "LinkedIn Profile",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "professional_website_portfolio",
+     "label": "Professional Website/Portfolio",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Professional Profile",
+   "description": "",
+   "fields": [
+    {
+     "key": "current_designation",
+     "label": "Current designation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "organization",
+     "label": "Organization",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "nature_of_organization",
+     "label": "Nature of organization",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "School",
+      "School Group",
+      "Education/EdTech Company",
+      "Publisher",
+      "Assessment Organization",
+      "University/College",
+      "Teacher Education Institution",
+      "Government/Regulatory Institution",
+      "NGO/Non-profit",
+      "Research Organization",
+      "Independent Consultant"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "total_professional_experience_years",
+     "label": "Total professional experience (years)",
+     "type": "number",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "k_12_experience_years",
+     "label": "K–12 experience (years)",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "teaching_experience_years",
+     "label": "Teaching experience (years)",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "curriculum_development_experience_years",
+     "label": "Curriculum development experience (years)",
+     "type": "number",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "assessment_experience_years",
+     "label": "Assessment experience (years)",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "teacher_training_teacher_education_experience_ye",
+     "label": "Teacher training/teacher education experience (years)",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "educational_research_experience_years",
+     "label": "Educational research experience (years)",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "academic_leadership_experience_years",
+     "label": "Academic leadership experience (years)",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Area of Engagement with The School Expert",
+   "description": "",
+   "fields": [
+    {
+     "key": "what_type_of_assignments_would_you_be_interested",
+     "label": "What type of assignments would you be interested in undertaking?",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Curriculum Development",
+      "Curriculum Review",
+      "Curriculum Audit",
+      "Curriculum Mapping",
+      "Syllabus Development",
+      "Subject Framework Development",
+      "Competency Framework Development",
+      "Learning Outcome Development",
+      "Learning Progression Development",
+      "Textbook Development",
+      "Workbook Development",
+      "Teacher Guide Development",
+      "Teaching-Learning Material Development",
+      "Digital Content Development",
+      "Instructional Design",
+      "Assessment Design",
+      "Question Paper Development",
+      "Question Bank Development",
+      "Rubric Development",
+      "Programme Evaluation",
+      "Educational Research",
+      "Teacher Training",
+      "Academic Leadership",
+      "School Academic Review",
+      "School Improvement",
+      "Academic Quality Assurance",
+      "Content Review/Editing",
+      "Expert Review/Panels"
+     ],
+     "other": true,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "K–12 Stage Expertise",
+   "description": "Please select the stages/grades in which you have substantial professional experience.",
+   "fields": [
+    {
+     "key": "foundational_stage",
+     "label": "Foundational Stage",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Early Childhood / Preschool",
+      "Balvatika",
+      "Grade 1",
+      "Grade 2"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "preparatory_stage",
+     "label": "Preparatory Stage",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Grade 3",
+      "Grade 4",
+      "Grade 5"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "middle_stage",
+     "label": "Middle Stage",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Grade 6",
+      "Grade 7",
+      "Grade 8"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "secondary_stage",
+     "label": "Secondary Stage",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Grade 9",
+      "Grade 10"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "senior_secondary_stage",
+     "label": "Senior Secondary Stage",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Grade 11",
+      "Grade 12"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "primary_stage_of_expertise",
+     "label": "Primary stage of expertise",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "secondary_stage_of_expertise",
+     "label": "Secondary stage of expertise",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Subject / Domain Expertise",
+   "description": "",
+   "fields": [
+    {
+     "key": "languages",
+     "label": "Languages",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "English",
+      "Hindi",
+      "Sanskrit",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Bengali",
+      "Gujarati",
+      "Punjabi",
+      "Urdu"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mathematics_sciences",
+     "label": "Mathematics & Sciences",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Mathematics",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "General Science",
+      "Environmental Studies",
+      "Computer Science",
+      "Information Technology",
+      "Artificial Intelligence",
+      "Data Science"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "social_sciences_humanities",
+     "label": "Social Sciences & Humanities",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "History",
+      "Geography",
+      "Political Science/Civics",
+      "Economics",
+      "Sociology",
+      "Psychology",
+      "Philosophy",
+      "Social Studies"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "other_k_12_domains",
+     "label": "Other K–12 Domains",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Art Education",
+      "Music",
+      "Dance",
+      "Theatre",
+      "Physical Education",
+      "Health & Well-being",
+      "Vocational Education",
+      "Entrepreneurship",
+      "Financial Literacy",
+      "Life Skills",
+      "Environmental/Sustainability Education",
+      "Design & Technology"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "primary_subject_domain",
+     "label": "Primary subject/domain",
+     "type": "text",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "secondary_subject_domain",
+     "label": "Secondary subject/domain",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Indian Curriculum Framework Expertise",
+   "description": "",
+   "fields": [
+    {
+     "key": "level_of_experience_with_frameworks",
+     "label": "Level of experience with frameworks",
+     "type": "matrix",
+     "required": false,
+     "rows": [
+      "NEP 2020",
+      "NCF for School Education 2023",
+      "NCF for Foundational Stage 2022",
+      "NIPUN Bharat",
+      "Foundational Literacy & Numeracy",
+      "PARAKH",
+      "National Credit Framework",
+      "NPST",
+      "Holistic Progress Card",
+      "Indian Knowledge Systems",
+      "Experiential Learning",
+      "Competency-Based Education",
+      "Vocational Education"
+     ],
+     "columns": [
+      "Familiarity",
+      "Applied in Work",
+      "Developed/Reviewed"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "please_describe_your_practical_experience_applyi",
+     "label": "Please describe your practical experience applying Indian curriculum frameworks",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "School Board / Curriculum Experience",
+   "description": "",
+   "fields": [
+    {
+     "key": "boards_curricula_with_professional_experience",
+     "label": "Boards/curricula with professional experience",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "CBSE",
+      "CISCE – ICSE/ISC",
+      "NIOS",
+      "Karnataka State Board",
+      "Maharashtra State Board",
+      "Tamil Nadu State Board",
+      "Kerala State Board",
+      "Telangana State Board",
+      "Andhra Pradesh State Board",
+      "Delhi Government School Curriculum",
+      "Gujarat State Board",
+      "Rajasthan State Board",
+      "Uttar Pradesh State Board",
+      "West Bengal State Board"
+     ],
+     "other": true,
+     "visibility": "public",
+     "otherLabel": "Other State/UT Board",
+     "help": "Please select the boards/curricula with which you have professional experience."
+    },
+    {
+     "key": "international_curricula",
+     "label": "International Curricula",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "IB",
+      "Cambridge International"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "for_which_boards_have_you_directly_developed_or_",
+     "label": "For which boards have you directly developed or reviewed curriculum/resources?",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Curriculum Design Expertise",
+   "description": "",
+   "fields": [
+    {
+     "key": "areas_of_demonstrated_experience",
+     "label": "Areas of demonstrated experience",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Curriculum Framework Design",
+      "Curriculum Architecture",
+      "Curriculum Mapping",
+      "Scope & Sequence Development",
+      "Syllabus Design",
+      "Learning Outcome Design",
+      "Competency Mapping",
+      "Learning Progressions",
+      "Grade-wise Progression",
+      "Content Selection and Sequencing",
+      "Pedagogical Design",
+      "Assessment Alignment",
+      "Curriculum-Assessment Alignment",
+      "Curriculum Resource Alignment",
+      "Curriculum Review",
+      "Curriculum Evaluation",
+      "Curriculum Implementation",
+      "Curriculum Quality Assurance"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "describe_your_strongest_curriculum_design_capabi",
+     "label": "Describe your strongest curriculum design capability",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Competency-Based Education",
+   "description": "",
+   "fields": [
+    {
+     "key": "experience_with",
+     "label": "Experience with",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Competency identification",
+      "Competency progression",
+      "Learning outcomes",
+      "Performance indicators",
+      "Achievement standards",
+      "Performance descriptors",
+      "Rubric development",
+      "Competency-based lesson design",
+      "Competency-based assessment",
+      "Competency mapping",
+      "Evidence of learning"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "please_describe_one_competency_based_curriculum_",
+     "label": "Please describe one competency-based curriculum project you have worked on",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Pedagogical Expertise",
+   "description": "",
+   "fields": [
+    {
+     "key": "pedagogical_expertise",
+     "label": "Pedagogical expertise",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Experiential Learning",
+      "Inquiry-Based Learning",
+      "Project-Based Learning",
+      "Problem-Based Learning",
+      "Play-Based Learning",
+      "Activity-Based Learning",
+      "Collaborative Learning",
+      "Constructivist Pedagogy",
+      "Differentiated Instruction",
+      "Universal Design for Learning",
+      "Multilingual Pedagogy",
+      "Contextualized Learning",
+      "Blended Learning",
+      "Digital Pedagogy",
+      "Critical Thinking",
+      "Creativity",
+      "Communication",
+      "Collaboration",
+      "Socio-emotional Learning",
+      "Life Skills",
+      "Values Education",
+      "Environmental Education",
+      "Indian Knowledge Systems"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Assessment Expertise",
+   "description": "",
+   "fields": [
+    {
+     "key": "assessment_expertise",
+     "label": "Assessment expertise",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Formative Assessment",
+      "Summative Assessment",
+      "Diagnostic Assessment",
+      "Competency-Based Assessment",
+      "School-Based Assessment",
+      "Performance Assessment",
+      "Portfolio Assessment",
+      "Project Assessment",
+      "Practical Assessment",
+      "Rubric Design",
+      "Assessment Blueprinting",
+      "Question Paper Design",
+      "Item Writing",
+      "Item Review",
+      "Question Bank Development",
+      "Psychometrics",
+      "Standard Setting",
+      "Assessment Data Analysis",
+      "Board Examination Development",
+      "Large-Scale Assessment"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "describe_your_assessment_development_experience",
+     "label": "Describe your assessment development experience",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Textbook & Learning Resource Development",
+   "description": "",
+   "fields": [
+    {
+     "key": "experience_in",
+     "label": "Experience in",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Textbook Authoring",
+      "Textbook Editing",
+      "Textbook Review",
+      "Workbook Development",
+      "Teacher Handbook Development",
+      "Lesson Plan Development",
+      "Activity Resource Development",
+      "Worksheets",
+      "Question Banks",
+      "Digital Learning Content",
+      "Interactive Learning Resources",
+      "Audio/Visual Learning Resources",
+      "Open Educational Resources",
+      "Assessment Resources"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "number_of_textbooks_resources_developed_or_revie",
+     "label": "Number of textbooks/resources developed or reviewed",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "portfolio_publication_links",
+     "label": "Portfolio/publication links",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Inclusive & Equitable Education",
+   "description": "",
+   "fields": [
+    {
+     "key": "areas_of_expertise_inclusion",
+     "label": "Areas of expertise (inclusion)",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Inclusive Education",
+      "Children with Disabilities",
+      "Special Educational Needs",
+      "Universal Design for Learning",
+      "Accessibility",
+      "Assistive Technology",
+      "Neurodiversity",
+      "Gender Inclusion",
+      "Multilingual Learners",
+      "Rural Education",
+      "Tribal/Adivasi Contexts",
+      "Socio-economically Diverse Learners",
+      "First-Generation Learners",
+      "Differentiated Learning",
+      "Gifted Education",
+      "Remedial Education"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "relevant_experience",
+     "label": "Relevant experience",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Indian Context & Localization",
+   "description": "",
+   "fields": [
+    {
+     "key": "areas_in_which_you_have_developed_curriculum_res",
+     "label": "Areas in which you have developed curriculum/resources",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Indian cultural contexts",
+      "Indian history and heritage",
+      "Indian literature",
+      "Indian languages",
+      "Local knowledge systems",
+      "Indian Knowledge Systems",
+      "Regional contexts",
+      "Rural contexts",
+      "Urban contexts",
+      "Local ecology/environment",
+      "Community-based learning",
+      "Indigenous knowledge",
+      "Local occupations/livelihoods"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "states_regions_for_which_you_have_curriculum_exp",
+     "label": "States/regions for which you have curriculum experience",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Digital Education & AI",
+   "description": "",
+   "fields": [
+    {
+     "key": "areas_of_expertise_digital",
+     "label": "Areas of expertise (digital)",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "EdTech",
+      "Digital Content Development",
+      "Learning Management Systems",
+      "Digital Assessment",
+      "Learning Analytics",
+      "Adaptive Learning",
+      "Artificial Intelligence in Education",
+      "Generative AI",
+      "Computational Thinking",
+      "Coding",
+      "Digital Literacy",
+      "Media Literacy",
+      "Cyber Safety"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "please_describe_your_experience_in_technology_en",
+     "label": "Please describe your experience in technology-enabled curriculum development",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Curriculum Development Projects",
+   "description": "Please provide details of your three to five most significant projects.",
+   "fields": [
+    {
+     "key": "projects",
+     "label": "Projects",
+     "type": "repeat",
+     "required": false,
+     "max": 5,
+     "fields": [
+      {
+       "key": "project_programme_name",
+       "label": "Project/Programme Name",
+       "type": "text"
+      },
+      {
+       "key": "organization_client",
+       "label": "Organization/Client",
+       "type": "text"
+      },
+      {
+       "key": "year",
+       "label": "Year",
+       "type": "text"
+      },
+      {
+       "key": "grades",
+       "label": "Grades",
+       "type": "text"
+      },
+      {
+       "key": "subject_domain",
+       "label": "Subject/Domain",
+       "type": "text"
+      },
+      {
+       "key": "board_curriculum",
+       "label": "Board/Curriculum",
+       "type": "text"
+      },
+      {
+       "key": "your_role",
+       "label": "Your Role",
+       "type": "text"
+      },
+      {
+       "key": "scope_of_work",
+       "label": "Scope of Work",
+       "type": "textarea"
+      },
+      {
+       "key": "key_deliverables",
+       "label": "Key Deliverables",
+       "type": "textarea"
+      },
+      {
+       "key": "portfolio_evidence_link",
+       "label": "Portfolio/Evidence Link",
+       "type": "url"
+      }
+     ],
+     "visibility": "detailed",
+     "help": "Please provide details of your three to five most significant projects."
+    }
+   ]
+  },
+  {
+   "title": "Research & Publications",
+   "description": "",
+   "fields": [
+    {
+     "key": "number_of_peer_reviewed_publications",
+     "label": "Number of peer-reviewed publications",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "number_of_books_book_chapters",
+     "label": "Number of books/book chapters",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "number_of_research_reports",
+     "label": "Number of research reports",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "orcid_google_scholar_profile",
+     "label": "ORCID/Google Scholar/Profile",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "key_publications_research_projects",
+     "label": "Key publications/research projects",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Professional Contributions",
+   "description": "",
+   "fields": [
+    {
+     "key": "conferences_seminars_presented",
+     "label": "Conferences/Seminars Presented",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "workshops_conducted",
+     "label": "Workshops Conducted",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "teacher_training_programmes",
+     "label": "Teacher Training Programmes",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "curriculum_committees_expert_panels",
+     "label": "Curriculum Committees/Expert Panels",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "awards_recognitions",
+     "label": "Awards/Recognitions",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "professional_memberships",
+     "label": "Professional Memberships",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Your Expertise Profile",
+   "description": "",
+   "fields": [
+    {
+     "key": "describe_your_professional_expertise_100_150_wor",
+     "label": "Describe your professional expertise (100–150 words)",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about"
+    },
+    {
+     "key": "strongest_area_of_expertise_1",
+     "label": "Strongest area of expertise 1",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "strongest_area_of_expertise_2",
+     "label": "Strongest area of expertise 2",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "strongest_area_of_expertise_3",
+     "label": "Strongest area of expertise 3",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "what_distinguishes_your_expertise_in_the_indian_",
+     "label": "What distinguishes your expertise in the Indian K–12 context?",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Availability for The School Expert",
+   "description": "",
+   "fields": [
+    {
+     "key": "preferred_engagement_model",
+     "label": "Preferred engagement model",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Project-based",
+      "Consultancy",
+      "Short-term assignment",
+      "Long-term assignment",
+      "Part-time",
+      "Full-time",
+      "Expert review",
+      "Workshop/Training",
+      "Advisory role"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "preferred_mode",
+     "label": "Preferred mode",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Remote",
+      "Hybrid",
+      "In-person"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "preferred_geographic_scope",
+     "label": "Preferred geographic scope",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "National",
+      "State",
+      "Regional",
+      "Local",
+      "International"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "availability",
+     "label": "Availability",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Immediate",
+      "Within 1 month",
+      "Within 1–3 months",
+      "Flexible"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Language Proficiency",
+   "description": "",
+   "fields": [
+    {
+     "key": "languages_in_which_you_can_independently_work",
+     "label": "Languages in which you can independently work",
+     "type": "matrix",
+     "required": false,
+     "rows": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Bengali",
+      "Gujarati",
+      "Other"
+     ],
+     "columns": [
+      "Develop",
+      "Review",
+      "Train/Facilitate"
+     ],
+     "visibility": "detailed",
+     "help": "Please indicate languages in which you can independently: develop curriculum/content (Develop), review academic content (Review), conduct training and facilitate workshops (Train/Facilitate)."
+    }
+   ]
+  },
+  {
+   "title": "Professional References",
+   "description": "",
+   "fields": [
+    {
+     "key": "references",
+     "label": "References",
+     "type": "repeat",
+     "required": false,
+     "max": 2,
+     "fields": [
+      {
+       "key": "name",
+       "label": "Name",
+       "type": "text"
+      },
+      {
+       "key": "designation",
+       "label": "Designation",
+       "type": "text"
+      },
+      {
+       "key": "organization",
+       "label": "Organization",
+       "type": "text"
+      },
+      {
+       "key": "email",
+       "label": "Email",
+       "type": "email"
+      },
+      {
+       "key": "phone",
+       "label": "Phone",
+       "type": "tel"
+      },
+      {
+       "key": "professional_relationship",
+       "label": "Professional relationship",
+       "type": "text"
+      }
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Documents & Portfolio",
+   "description": "",
+   "fields": [
+    {
+     "key": "documents_available",
+     "label": "Documents available",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Updated CV",
+      "Educational Certificates",
+      "Professional Certifications",
+      "Curriculum Development Portfolio",
+      "Sample Curriculum/Syllabus",
+      "Sample Curriculum Map",
+      "Textbook/Resource Samples",
+      "Assessment Samples",
+      "Research Publications",
+      "Training/Workshop Portfolio",
+      "Professional References"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "upload_documents",
+     "label": "Upload documents",
+     "type": "files",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "portfolio_link",
+     "label": "Portfolio Link",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "cv_link",
+     "label": "CV Link",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "accuracy",
+     "label": "Accuracy",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm that the information provided in this registration form is accurate and complete to the best of my knowledge.",
+     "visibility": "private"
+    },
+    {
+     "key": "no_commitment",
+     "label": "No commitment",
+     "type": "consent",
+     "required": true,
+     "text": "I understand that submission of this form does not automatically constitute empanelment, appointment, certification, or a commitment of work by The School Expert.",
+     "visibility": "private"
+    },
+    {
+     "key": "review_authorisation",
+     "label": "Review authorisation",
+     "type": "consent",
+     "required": true,
+     "text": "I authorize The School Expert to review the information and supporting documents provided for the purpose of assessing my professional profile and suitability for relevant education and curriculum development assignments.",
+     "visibility": "private"
+    },
+    {
+     "key": "e_signature",
+     "label": "Signature (type your full name)",
+     "type": "text",
+     "required": true,
+     "visibility": "private",
+     "help": "Your typed name is your electronic signature; the date is recorded automatically."
+    }
+   ]
+  }
+ ],
+ "outro": [
+  "CISCE – ICSE/ISC",
+  "NIOS",
+  "Karnataka State Board",
+  "Maharashtra State Board",
+  "Tamil Nadu State Board",
+  "Kerala State Board",
+  "Telangana State Board",
+  "Andhra Pradesh State Board",
+  "Delhi Government School Curriculum",
+  "Gujarat State Board",
+  "Rajasthan State Board",
+  "Uttar Pradesh State Board",
+  "West Bengal State Board"
+ ],
+ "category": "experts",
+ "label": "Curriculum Development Experts",
+ "entity": "individual",
+ "internal": {
+  "id_label": "Expert Registration ID",
+  "checks": [
+   "CV verified",
+   "Qualifications verified",
+   "Experience verified",
+   "Portfolio reviewed",
+   "References checked",
+   "Interview conducted",
+   "Sample task/review completed"
+  ],
+  "classification": [
+   "Curriculum Specialist",
+   "Subject Matter Expert",
+   "Assessment Specialist",
+   "Pedagogy Specialist",
+   "Instructional Designer",
+   "Textbook/Content Specialist",
+   "Teacher Education Specialist",
+   "Research Specialist",
+   "Academic Reviewer",
+   "Education Consultant",
+   "Other"
+  ],
+  "tags": [
+   "Stage",
+   "Subject",
+   "Board",
+   "State/Region",
+   "Language",
+   "Specialization"
+  ],
+  "statuses": [
+   "Registered",
+   "Under Review",
+   "Verified Expert",
+   "Empanelled",
+   "Project-Specific Expert",
+   "Inactive"
+  ],
+  "fields": [
+   [
+    "reviewer",
+    "Reviewer",
+    null
+   ],
+   [
+    "review_date",
+    "Date",
+    "date"
+   ]
+  ]
+ }
+}

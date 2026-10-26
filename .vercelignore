@@ -1,0 +1,10 @@
+tests/
+mobile/
+var/
+deploy/
+forms_src/original_uploads/
+docs/
+Dockerfile
+docker-compose.yml
+.env
+*.zip

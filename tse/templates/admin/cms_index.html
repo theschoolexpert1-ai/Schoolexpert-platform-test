@@ -1,0 +1,2 @@
+{% extends 'admin/_layout.html' %}{% block title %}Content manager{% endblock %}
+{% block admin %}<h1 style="font-size:1.5rem">Content manager</h1><div class="grid g3">{% for t, (title, fields, order) in cms.items() %}<a class="card" href="{{ url_for('admin.cms_list', table=t) }}"><b>{{ title }}</b><div class="small muted">{{ counts[t] }} items</div></a>{% endfor %}</div>{% endblock %}

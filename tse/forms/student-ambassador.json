@@ -1,0 +1,442 @@
+{
+ "slug": "student-ambassador",
+ "title": "Student Ambassador Registration Form",
+ "intro": [
+  "For students aged 14 to 18 years. This form must be completed by, or with, a parent or lawful guardian, who verifies consent by OTP before submission.",
+  "Become the student voice of The School Expert™. Share what works for students, help us understand areas that can be improved, represent stuwdent perspectives, and take part in meaningful volunteer opportunities within the education ecosystem.",
+  "This is a voluntary student ambassador role. Student Ambassadors are recognised by The School Expert™ for their contribution and may be invited to participate in selected events, student-focused initiatives and feedback activities."
+ ],
+ "sections": [
+  {
+   "title": "Student Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "full_name",
+     "label": "Full name",
+     "type": "text",
+     "required": true,
+     "visibility": "private",
+     "role": "name"
+    },
+    {
+     "key": "age",
+     "label": "Age",
+     "type": "number",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "school_educational_institution",
+     "label": "School / educational institution",
+     "type": "text",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "class_grade",
+     "label": "Class / grade",
+     "type": "text",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "private",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "private",
+     "role": "state"
+    },
+    {
+     "key": "student_email_address",
+     "label": "Student email address",
+     "type": "email",
+     "required": false,
+     "visibility": "private",
+     "role": "email"
+    },
+    {
+     "key": "student_mobile_whatsapp_number_if_applicable",
+     "label": "Student mobile / WhatsApp number (if applicable)",
+     "type": "tel",
+     "required": false,
+     "visibility": "private",
+     "role": "phone"
+    }
+   ]
+  },
+  {
+   "title": "Student Voice & Communication",
+   "description": "",
+   "fields": [
+    {
+     "key": "how_would_you_describe_your_communication_skills",
+     "label": "How would you describe your communication skills?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Excellent",
+      "Very good",
+      "Good",
+      "Developing"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "which_communication_formats_are_you_most_comfort",
+     "label": "Which communication formats are you most comfortable with?",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Speaking in groups",
+      "Presentations",
+      "Writing",
+      "Social media / digital content",
+      "Video / reels",
+      "One-to-one conversations",
+      "Interviews / discussions"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "are_you_comfortable_sharing_your_views_and_exper",
+     "label": "Are you comfortable sharing your views and experiences as a student?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "Sometimes, with guidance",
+      "Not yet"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "what_do_you_think_students_need_more_of_from_sch",
+     "label": "What do you think students need more of from schools, education providers or learning platforms?",
+     "type": "text",
+     "required": true,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "How You Would Like To Contribute",
+   "description": "",
+   "fields": [
+    {
+     "key": "how_you_would_like_to_contribute",
+     "label": "How You Would Like To Contribute",
+     "type": "checkbox",
+     "options": [
+      "Recommend what works best for students",
+      "Share student perspectives and experiences",
+      "Identify areas that could be improved",
+      "Suggest ideas for student-friendly initiatives",
+      "Participate in student discussions / roundtables",
+      "Give feedback on events, programmes or resources",
+      "Support The School Expert™ at selected events",
+      "Help spread awareness among students",
+      "Create or contribute to student-focused content",
+      "Participate in surveys / feedback activities",
+      "Volunteer at suitable The School Expert™ activities"
+     ],
+     "other": true,
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "what_is_one_education_related_issue_you_would_li",
+     "label": "What is one education-related issue you would like The School Expert™ to understand better?",
+     "type": "textarea",
+     "required": true,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Events & Opportunities",
+   "description": "Student Ambassadors may be invited to selected opportunities depending on age, event requirements, suitability, capacity and parent/guardian consent.",
+   "fields": [
+    {
+     "key": "would_you_be_interested_in_volunteering_at_the_s",
+     "label": "Would you be interested in volunteering at The School Expert™ events?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "Maybe",
+      "Not currently"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "would_you_like_early_access_invitations_to_event",
+     "label": "Would you like early access / invitations to events that specifically require student participation?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "Maybe",
+      "No"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "which_types_of_opportunities_interest_you_most",
+     "label": "Which types of opportunities interest you most?",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Student panels",
+      "Youth / student roundtables",
+      "Education events",
+      "Workshops",
+      "Content / media opportunities",
+      "Volunteering",
+      "Research / feedback projects",
+      "Career / skills initiatives"
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Your Ideas & Feedback",
+   "description": "",
+   "fields": [
+    {
+     "key": "tell_us_about_something_that_works_really_well_f",
+     "label": "Tell us about something that works really well for students today.",
+     "type": "textarea",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "tell_us_about_something_you_believe_could_be_imp",
+     "label": "Tell us about something you believe could be improved for students.",
+     "type": "textarea",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "what_would_make_an_education_event_more_useful_o",
+     "label": "What would make an education event more useful or interesting for students?",
+     "type": "textarea",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "what_would_you_like_the_school_expert_to_do_for_",
+     "label": "What would you like The School Expert™ to do for students in the future?",
+     "type": "textarea",
+     "required": true,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Ambassador Recognition",
+   "description": "Student Ambassador recognition: Students selected for the programme will be recognised by The School Expert™ as Student Ambassadors and may receive a digital / formal recognition such as an Ambassador badge, certificate or feature, subject to the programme guidelines.",
+   "fields": [
+    {
+     "key": "recognition_preference",
+     "label": "Recognition preference",
+     "type": "radio",
+     "required": true,
+     "visibility": "private",
+     "options": [
+      "I would be happy to be recognised publicly as a Student Ambassador.",
+      "I would prefer limited / private recognition."
+     ],
+     "help": "Programme note: Student Ambassadors do not act as employees or official spokespersons of The School Expert™ unless separately authorised. They should not make commitments, promises or statements on behalf of the organisation."
+    }
+   ]
+  },
+  {
+   "title": "Role Boundaries, Conduct & Representation",
+   "description": "The Student Ambassador role is a voluntary recognition and participation opportunity. It does not give the Student Ambassador authority to speak on behalf of, represent, bind, or make commitments for The School Expert™ unless the organisation provides separate written authorisation for a specific purpose.\nStudent Ambassadors must follow all role guidelines, communication guidelines, safeguarding requirements and other instructions issued by The School Expert™ from time to time.\nThe School Expert™ reserves the right to suspend or cancel a Student Ambassadorship where a student engages in conduct that is inconsistent with the programme guidelines, materially harms the reputation of The School Expert™, breaches applicable rules, or involves acts that may cause social disharmony.\nA Student Ambassador must not use their position, name, badge, certificate, logo, social media identity or other association with The School Expert™ to organise, promote, endorse or participate in any protest, dharna, political activity, public agitation or similar activity as a Student Ambassador.\nIf a Student Ambassador personally participates in any protest, dharna, political activity, public agitation or other activity in their individual capacity, such participation is personal and shall not be represented as being on behalf of, endorsed by, or connected with The School Expert™. The School Expert™ shall not be held responsible or accountable for such personal participation or statements.",
+   "fields": []
+  },
+  {
+   "title": "Student Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "i_understand_that_the_student_ambassador_0",
+     "label": "Acknowledgement",
+     "type": "consent",
+     "text": "I understand that the Student Ambassador role is voluntary and intended to give students an opportunity to contribute their views, ideas and time to selected The School Expert™ initiatives.",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "i_agree_to_communicate_respectfully_and__1",
+     "label": "Acknowledgement",
+     "type": "consent",
+     "text": "I agree to communicate respectfully and honestly and to provide genuine student feedback.",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "i_understand_that_participation_in_event_2",
+     "label": "Acknowledgement",
+     "type": "consent",
+     "text": "I understand that participation in events and activities is subject to suitability, availability, event requirements and any required parent / guardian consent.",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "i_will_not_share_confidential_informatio_3",
+     "label": "Acknowledgement",
+     "type": "consent",
+     "text": "I will not share confidential information about other students, schools or participants without permission.",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "i_understand_that_being_a_student_ambass_4",
+     "label": "Acknowledgement",
+     "type": "consent",
+     "text": "I understand that being a Student Ambassador does not guarantee participation in every event or activity.",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "i_understand_that_i_do_not_have_the_righ_5",
+     "label": "Acknowledgement",
+     "type": "consent",
+     "text": "I understand that I do not have the right to speak on behalf of The School Expert™ or make statements, promises, commitments or representations for The School Expert™.",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "i_agree_to_follow_the_guidelines_and_ins_6",
+     "label": "Acknowledgement",
+     "type": "consent",
+     "text": "I agree to follow the guidelines and instructions issued by The School Expert™ for Student Ambassadors.",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "i_understand_that_the_school_expert_may__7",
+     "label": "Acknowledgement",
+     "type": "consent",
+     "text": "I understand that The School Expert™ may suspend or cancel my Student Ambassadorship for conduct that breaches programme guidelines or may cause social disharmony.",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "i_will_not_represent_myself_as_a_student_8",
+     "label": "Acknowledgement",
+     "type": "consent",
+     "text": "I will not represent myself as a Student Ambassador while organising, promoting or participating in a protest, dharna, political activity, public agitation or similar activity, and I understand that personal participation in such activities does not represent The School Expert™ and does not make The School Expert™ accountable for my actions.",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "student_e_signature",
+     "label": "Student signature (type full name)",
+     "type": "text",
+     "required": true,
+     "visibility": "private",
+     "help": "Typed name = electronic signature; the date is recorded automatically."
+    }
+   ]
+  },
+  {
+   "title": "Parent / Guardian Consent",
+   "description": "Because this programme is for students aged 14–18, a parent or legal guardian should review and consent to participation before the student takes part in activities or events.",
+   "fields": [
+    {
+     "key": "parent_guardian_full_name",
+     "label": "Parent / Guardian full name",
+     "type": "text",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "relationship_to_student",
+     "label": "Relationship to student",
+     "type": "text",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "parent_guardian_mobile_number",
+     "label": "Parent / Guardian mobile number",
+     "type": "tel",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "parent_guardian_email_address",
+     "label": "Parent / Guardian email address",
+     "type": "email",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "guardian_decl_0",
+     "label": "Consent declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I have read and understood the Student Ambassador programme description and consent to the student participating in the voluntary programme.",
+     "visibility": "private"
+    },
+    {
+     "key": "guardian_decl_1",
+     "label": "Consent declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I understand that specific events or activities may have additional requirements and may require separate consent.",
+     "visibility": "private"
+    },
+    {
+     "key": "guardian_decl_2",
+     "label": "Consent declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I understand that the student may be invited to provide feedback, volunteer at appropriate events, participate in student discussions, or contribute to student-focused content, subject to applicable consent and safeguarding requirements.",
+     "visibility": "private"
+    },
+    {
+     "key": "guardian_decl_3",
+     "label": "Consent declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I understand that participation is voluntary and may be discontinued at any time by the student, parent/guardian or The School Expert™.",
+     "visibility": "private"
+    },
+    {
+     "key": "guardian_consent",
+     "label": "Parent / Guardian consent",
+     "type": "consent",
+     "required": true,
+     "text": "I am the parent / lawful guardian of the student named above. I have read and understood the Student Ambassador programme details, role boundaries and the Privacy Policy, and I give verifiable consent for The School Expert™ to process the information in this form only for the Student Ambassador programme.",
+     "visibility": "private"
+    },
+    {
+     "key": "guardian_e_signature",
+     "label": "Parent / Guardian signature (type full name)",
+     "type": "text",
+     "required": true,
+     "visibility": "private",
+     "help": "Typed name = electronic signature; confirmed by the OTP sent to the parent / guardian mobile."
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "category": "ambassadors",
+ "label": "Student Ambassadors",
+ "entity": "minor"
+}

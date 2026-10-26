@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head, status %}
+{% block title %}Personal Assistance #{{ r.id }}{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}
+{{ page_head('Personal Assistance #' ~ r.id, r.school_name ~ ' · ' ~ r.city, [('Personal Assistance', url_for('ask.pa_index'))]) }}
+<section class="section"><div class="container"><div class="layout right">
+  <div class="card pad-lg"><h2 style="font-size:1.2rem">Progress {{ status(r.status) }}</h2>
+    {% set done_stages = updates | map(attribute='stage') | list %}
+    <ul class="timeline">{% for code, label in stages %}{% if code in done_stages or code in ('requested','paid','assigned','completed') or code in r.services or (code == 'form_collected' and 'collect_form' in r.services) or (code == 'form_filled' and 'fill_form' in r.services) or (code == 'submitted' and 'submit_form' in r.services) or (code == 'tc_collected' and 'collect_tc' in r.services) or (code == 'posted' and 'post_back' in r.services) %}
+      <li class="{{ 'done' if code in done_stages else '' }}"><b>{{ label }}</b>{% for u in updates if u.stage == code %}<div class="small muted">{{ u.created_at | dtt }}{% if u.note %} — {{ u.note }}{% endif %}</div>{% endfor %}</li>{% endif %}{% endfor %}</ul>
+  </div>
+  <aside class="card"><h3>Services</h3><ul class="small">{% for s in r.services %}<li>{{ svc.get(s, s) }}</li>{% endfor %}</ul>
+    <p><b>Total:</b> {{ inr(order.total_paise if order else r.quote_paise) }}</p>
+    {% if order and order.status == 'created' %}<a class="btn btn-accent btn-block" href="{{ url_for('pay.checkout', public_id=order.public_id) }}">Pay to confirm</a>{% endif %}
+    <p class="small muted">Fees are always paid by you directly to the school. Questions? <a href="{{ url_for('dashboard.support', subject='Personal Assistance #' ~ r.id) }}">Contact support</a>.</p></aside>
+</div></div></section>
+{% endblock %}

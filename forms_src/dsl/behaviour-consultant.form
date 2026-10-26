@@ -1,0 +1,43 @@
+@slug behaviour-consultant
+@title K-12 Behaviour Consultant Registration
+@provisional Section 1 matches the live form; later sections are provisional until the full form is uploaded.
+## Organisation / Practice
+Organisation / Practice Name* | text
+Brand / Trade Name | text
+Practice Type* | radio | Individual Practitioner; Clinic / Centre; Group Practice; NGO; Hospital-based; Other
+Year Established | year
+Logo / Profile Photo | file
+About the Practice* | textarea
+## Contact
+Contact Person* | text
+Designation | text
+Mobile Number* | tel
+WhatsApp Number | tel
+Email* | email
+Website | url
+Address | textarea
+City* | text
+State* | state
+PIN Code | pincode
+## Qualifications & Registration
+Lead Practitioner Qualification* | text
+Professional Registration | checkbox | RCI Registered; BCBA / BCaBA; IBA; State Licence; Other; None
+Registration Number(s) | text
+Years of Experience* | radio | $YRS
+## Specialisation
+Concerns Addressed* | checkbox | Autism Spectrum Disorder; ADHD; Anxiety-related behaviour; Aggression / Tantrums; Social skills; School refusal; Emotional regulation; Learning-related behaviour; Screen dependence; Other
+Approaches Used* | checkbox | Applied Behaviour Analysis (ABA); Positive Behaviour Support (PBS); Cognitive Behavioural approaches; Parent training; Social stories; Functional Behaviour Assessment (FBA); Play-based intervention; Other
+Age Groups Served* | checkbox | 0–3 years; 3–6 years; 6–10 years; 11–14 years; 15–18 years
+## Services
+Services for Parents | checkbox | Assessment; Individual sessions; Parent coaching; Home programme; Online consultation
+Services for Schools | checkbox | Classroom behaviour support; Teacher training; Shadow teacher training; Whole-school behaviour policy; Crisis support
+Delivery Mode* | checkbox | In-clinic; Home visits; At school; Online
+Service Areas* | radio | $REACH
+Languages* | checkbox | $LANG9
+Fee Range | text
+## Safeguarding
+Do you have a child-protection policy?* | yesno
+Are all practitioners background verified?* | radio | Yes; No; In progress
+## Documents & Declaration
+Qualification / Registration Certificates | files
+Declaration* | consent | | I confirm the information is accurate and agree to verification by The School Expert™. I understand that listing is not an endorsement.

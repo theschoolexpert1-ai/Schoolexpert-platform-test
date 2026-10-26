@@ -1,0 +1,29 @@
+now required    School / Preschool Name
+now required    Year Established
+now required    School Type
+now required    Management Type
+now required    Address
+now required    City
+now required    District
+now required    State
+now required    PIN Code
+now required    Phone Number
+now required    WhatsApp Number
+now required    Email
+now required    Website
+now required    Principal / Centre Head
+now required    Mobile Number
+now required    Email
+now required    Age Groups
+now required    Programmes Offered
+now required    Curriculum / Learning Approach
+now required    Languages of Instruction
+now required    Facilities
+now required    Activities
+now required    Student Support
+now required    Health & Safety
+now required    Meals
+added choices   Parent Engagement: Live CCTV Access
+now required    Parent Engagement
+added choices   Recognition & Memberships: Registered under State Preschool Guidelines; Other Professional Memberships
+now required    Recognition & Memberships

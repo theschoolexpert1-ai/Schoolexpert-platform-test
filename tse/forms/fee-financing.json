@@ -1,0 +1,184 @@
+{
+ "slug": "fee-financing",
+ "title": "Fee Financing Company Registration",
+ "provisional": "New category referenced in the parent journey; no source form was provided.",
+ "intro": [],
+ "outro": [],
+ "sections": [
+  {
+   "title": "Company",
+   "description": "",
+   "fields": [
+    {
+     "key": "company_name",
+     "label": "Company Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "brand_name",
+     "label": "Brand Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "legal_entity_name",
+     "label": "Legal Entity Name",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "regulatory_status",
+     "label": "Regulatory Status",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "RBI-registered NBFC",
+      "Bank",
+      "Partner of an RBI-regulated lender (LSP)",
+      "Other"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "rbi_registration_number",
+     "label": "RBI Registration / CoR Number",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "logo",
+     "label": "Logo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "about",
+     "label": "About",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about"
+    }
+   ]
+  },
+  {
+   "title": "Contact",
+   "description": "",
+   "fields": [
+    {
+     "key": "contact_person",
+     "label": "Contact Person",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": true,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    }
+   ]
+  },
+  {
+   "title": "Products",
+   "description": "",
+   "fields": [
+    {
+     "key": "products",
+     "label": "Products",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Zero-cost EMI on school fees",
+      "Interest-bearing fee loans",
+      "Fee payment platform for schools",
+      "Scholarship / CSR fee support",
+      "Working-capital finance for schools"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "interest_range",
+     "label": "Interest / APR Range Disclosed to Parents",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "grievance_officer",
+     "label": "Grievance Redressal Officer (name & email)",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "cities_served",
+     "label": "Cities Served",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm the information is accurate, that all lending is by an RBI-regulated entity, and agree to verification by The School Expert™.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "category": "experts",
+ "label": "Fee Financing Companies",
+ "entity": "organisation"
+}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Frequently Asked Questions{% endblock %}
+{% block meta_description %}Answers about The School Expert™, registration, verification, WhatsApp groups, the Founding Partner Programme, privacy, and services for parents, schools and teachers.{% endblock %}
+{% block head %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for r in rows %}{"@type":"Question","name":{{ r.question | tojson }},"acceptedAnswer":{"@type":"Answer","text":{{ r.answer | tojson }}}}{{ ',' if not loop.last }}{% endfor %}]}</script>{% endblock %}
+{% block body %}
+{{ page_head('Frequently Asked Questions', 'The School Expert™') }}
+<section class="section"><div class="container narrow">
+  {% for sec, items in sections.items() %}<h2 style="margin-top:26px">{{ sec }}</h2>
+    {% for r in items %}<details class="faq" {% if loop.first and loop.index == 1 and sec == sections.keys()|first %}open{% endif %}><summary>{{ r.question }}</summary><div class="prose">{{ r.answer | md }}</div></details>{% endfor %}
+  {% endfor %}
+  <div class="card" style="margin-top:28px"><b>Still have a question?</b> Email <a href="mailto:{{ cfg.CONTACT_EMAIL }}">{{ cfg.CONTACT_EMAIL }}</a> or <a href="{{ url_for('public.contact') }}">contact us</a>. Partnerships: <a href="mailto:{{ cfg.PARTNER_EMAIL }}">{{ cfg.PARTNER_EMAIL }}</a>.</div>
+</div></section>
+{% endblock %}

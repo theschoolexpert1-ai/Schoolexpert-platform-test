@@ -1,0 +1,32 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head, consent_line, status %}
+{% block title %}{{ j.title }} — {{ j.org_name }}{% endblock %}
+{% block meta_description %}{{ j.title }} at {{ j.org_name }}, {{ j.city }}. {{ j.description[:120] }}{% endblock %}
+{% block head %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"JobPosting","title":{{ j.title | tojson }},"description":{{ j.description | tojson }},"datePosted":"{{ (j.published_at or j.created_at).date() }}",{% if j.closes_on %}"validThrough":"{{ j.closes_on }}",{% endif %}"employmentType":{{ (j.employment_type or 'FULL_TIME') | tojson }},"hiringOrganization":{"@type":"Organization","name":{{ j.org_name | tojson }}},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":{{ (j.city or '') | tojson }},"addressRegion":{{ (j.state or '') | tojson }},"addressCountry":"IN"}}{% if j.show_salary and j.salary_min %},"baseSalary":{"@type":"MonetaryAmount","currency":"INR","value":{"@type":"QuantitativeValue","minValue":{{ j.salary_min }},"maxValue":{{ j.salary_max or j.salary_min }},"unitText":"MONTH"}}{% endif %}}</script>{% endblock %}
+{% block body %}
+{{ page_head(j.title, j.org_name ~ ' · ' ~ (j.city or ''), [('Jobs', url_for('teachers.jobs'))]) }}
+<section class="section"><div class="container"><div class="layout right">
+  <div class="card pad-lg">
+    <div class="chips" style="margin-bottom:12px">{% if j.employment_type %}<span class="chip navy">{{ j.employment_type }}</span>{% endif %}{% if j.board %}<span class="chip">{{ j.board }}</span>{% endif %}{% for s in j.subjects %}<span class="chip">{{ s }}</span>{% endfor %}{% for gr in j.grades %}<span class="chip">{{ gr }}</span>{% endfor %}</div>
+    <dl class="kv">{% if j.role %}<dt>Role</dt><dd>{{ j.role }}</dd>{% endif %}{% if j.experience %}<dt>Experience</dt><dd>{{ j.experience }}</dd>{% endif %}{% if j.qualifications %}<dt>Qualifications</dt><dd>{{ j.qualifications }}</dd>{% endif %}
+      {% if j.show_salary and j.salary_min %}<dt>Salary</dt><dd>₹{{ '{:,}'.format(j.salary_min) }} – ₹{{ '{:,}'.format(j.salary_max or j.salary_min) }} per month</dd>{% endif %}{% if j.closes_on %}<dt>Apply by</dt><dd>{{ j.closes_on | dt }}</dd>{% endif %}</dl>
+    <h3 style="margin-top:18px">About the role</h3><div class="prose">{{ j.description | nl2br }}</div>
+    {% if j.listing_slug %}<p style="margin-top:16px"><a href="{{ url_for('directory.listing', slug=j.listing_slug) }}">View {{ j.org_name }}'s school page →</a></p>{% endif %}
+  </div>
+  <aside class="card sticky">
+    {% if applied %}<h3>You applied</h3><p>{{ status(applied.status) }} · {{ applied.created_at | dt }}</p><a href="{{ url_for('dashboard.applications') }}">Track applications</a>
+    {% elif current_user and current_user.account_type == 'teacher' %}
+      {% if not profile %}<p>Create your teacher profile to apply.</p><a class="btn btn-accent btn-block" href="{{ url_for('register.landing', slug='teacher-registration') }}">Create profile</a>
+      {% else %}<form method="post" action="{{ url_for('teachers.apply', slug=j.slug) }}" enctype="multipart/form-data"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <h3>Apply</h3>
+        <fieldset><legend>CV to send</legend>
+          <label class="opt"><input type="radio" name="use" value="generated" {% if profile.cv_json %}checked{% else %}disabled{% endif %}> My AI-drafted CV {% if not profile.cv_json %}<a href="{{ url_for('teachers.cv') }}">(generate)</a>{% endif %}</label>
+          <label class="opt"><input type="radio" name="use" value="uploaded" {% if not profile.uploaded_cv_url %}disabled{% elif not profile.cv_json %}checked{% endif %}> My uploaded CV</label>
+          <label class="opt"><input type="radio" name="use" value="new"> Upload a CV for this job</label><input type="file" name="cv" accept=".pdf,.doc,.docx"></fieldset>
+        <div class="field"><label for="cl">Cover note</label><textarea id="cl" name="cover_letter" placeholder="Why you're a great fit (optional)"></textarea></div>
+        {{ consent_line(notice) }}
+        <button class="btn btn-accent btn-block" style="margin-top:10px">Send application</button></form>{% endif %}
+    {% elif current_user %}<p class="small muted">Applications are for teacher accounts.</p>
+    {% else %}<a class="btn btn-accent btn-block" href="{{ url_for('auth.signup', type='teacher', next=request.path) }}">Sign up as a teacher to apply</a><a class="btn btn-outline btn-block" style="margin-top:8px" href="{{ url_for('auth.login', next=request.path) }}">Log in</a>{% endif %}
+  </aside>
+</div></div></section>
+{% endblock %}

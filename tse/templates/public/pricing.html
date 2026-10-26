@@ -1,0 +1,26 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Pricing — School and Vendor plans{% endblock %}
+{% block meta_description %}The School Expert™ plans: School - Basic, Plus and Pro; Vendor - Basic, Plus and Pro. Verified listing, admission leads, featured placement, recruitment, marketplace and more. Upgrade any time.{% endblock %}
+{% block body %}
+{{ page_head('Simple plans. Upgrade any time.', 'Pay for the visibility you need. Every plan includes a verified listing and your own dashboard.') }}
+<section class="section"><div class="container">
+  <div class="seg" role="tablist" aria-label="Plans for">
+    <a role="tab" aria-selected="{{ 'true' if fam == 'school' else 'false' }}" class="{{ 'on' if fam == 'school' }}" href="?for=school">For Schools</a>
+    <a role="tab" aria-selected="{{ 'true' if fam == 'vendor' else 'false' }}" class="{{ 'on' if fam == 'vendor' }}" href="?for=vendor">For Vendors & Education Partners</a></div>
+  {% set tiers = school if fam == 'school' else vendor %}{% set cmp = compare(tiers) %}{% set cta_mode = 'register' %}
+  {% set cta_href = url_for('register.landing', slug='school-registration') if fam == 'school' else url_for('register.index') %}
+  {% include '_tier_table.html' %}
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card"><h3>1. Register free</h3><p class="small muted">Fill in your registration form at your own pace. It saves automatically — pay when you're ready.</p></div>
+    <div class="card"><h3>2. Pay & get verified</h3><p class="small muted">Choose Basic, Plus or Pro. Our team verifies your details; your listing and dashboard go live.</p></div>
+    <div class="card"><h3>3. Upgrade any time</h3><p class="small muted">Basic → Plus → Pro from your dashboard. You pay only the difference — unused days are credited.</p></div>
+  </div>
+  {% for p in founding if p.family == fam %}<div class="card pad-lg founding" style="margin-top:22px"><span class="chip gold">🏅 {{ p.badge }}</span><h2 style="margin:8px 0 4px">{{ p.name }} — {{ inr(p.price_paise) }} one-time</h2>
+    <p class="muted">{{ p.description }}</p><ul class="small">{% for f in p.features %}<li>{{ f }}</li>{% endfor %}</ul><a class="btn btn-primary" href="{{ url_for('public.founding') }}">About the programme</a></div>{% endfor %}
+  <h2 style="margin-top:30px">Add-ons & other plans</h2>
+  <div class="grid g3">{% for p in other if not (fam == 'vendor' and p.code == 'school_recruiter') %}<div class="card"><span class="chip">{{ {'addon':'Add-on','parent':'For parents','teacher':'For teachers'}[p.family] }}</span><h3 style="margin-top:6px">{{ p.name }}</h3>
+    <div class="price" style="font-size:1.2rem;font-weight:700;color:var(--navy)">{{ inr(p.price_paise) }}<small class="muted" style="font-weight:400"> {{ '/ year' if p.interval == 'annual' else 'one-time' }}</small></div>
+    <ul class="small" style="padding-left:18px">{% for f in p.features %}<li>{{ f }}</li>{% endfor %}</ul>{% if p.description %}<p class="small muted">{{ p.description }}</p>{% endif %}</div>{% endfor %}</div>
+  <p class="small muted" style="margin-top:18px">Prices exclude GST unless stated. Plans renew annually; you can cancel renewal any time. Sponsored placements are always labelled and never change rankings in AI School Match or reviews. Questions? <a href="{{ url_for('public.contact') }}">Contact us</a> or write to info@schoolexpert.in.</p>
+</div></section>
+{% endblock %}

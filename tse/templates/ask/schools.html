@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head, listing_card %}
+{% block title %}Ask The School Expert — verified school details{% if city %} in {{ city }}{% endif %}{% endblock %}
+{% block body %}
+{{ page_head('Verified school details' ~ (' in ' ~ city if city else ''), 'Choose your locality. See how many schools have verified, detailed information. Unlock up to 10 of them, contact them directly and rate them.', [('Ask The School Expert', url_for('ask.index'))]) }}
+<section class="section-sm"><div class="container"><div class="layout right">
+  <div>
+    <form class="card flat" style="display:flex;gap:10px;margin-bottom:16px"><select name="city" aria-label="Locality" style="flex:1"><option value="">Choose your city / locality</option>{% for c in cities %}<option value="{{ c.city }}" {% if c.city == city %}selected{% endif %}>{{ c.city }} — {{ c.detailed }} detailed of {{ c.total }}</option>{% endfor %}</select><button class="btn btn-primary">Show</button></form>
+    {% if city %}
+      <h2>{{ rows | length }} school{{ 's' if rows|length != 1 }} in {{ city }} with verified, detailed profiles</h2>
+      <div class="grid g2">{% for l in rows %}<div style="position:relative">{{ listing_card(l) }}{% if l.id in unlocked %}<span class="chip ok" style="position:absolute;top:10px;right:10px">Unlocked</span>{% endif %}</div>{% else %}<div class="empty" style="grid-column:1/-1">No detailed profiles in {{ city }} yet. <a href="{{ url_for('ask.index') }}#request">Ask us</a> — we will find out for you.</div>{% endfor %}</div>
+    {% else %}<div class="grid g3">{% for c in cities %}<a class="card" href="?city={{ c.city }}"><h3>{{ c.city }}</h3><p class="small muted">{{ c.detailed }} verified detailed · {{ c.total }} listed</p></a>{% endfor %}</div>{% endif %}
+  </div>
+  <aside class="card sticky">
+    <h3>{{ plan.name }}</h3><div class="price">{{ inr(plan.price_paise) }} <small>+ GST</small></div>
+    <ul class="small">{% for f in plan.features %}<li>{{ f }}</li>{% endfor %}</ul>
+    {% for p in packs %}<div class="chip ok" style="margin-bottom:6px">{{ p.city }}: {{ p.quota - p.used }} of {{ p.quota }} left · until {{ p.expires_at | dt }}</div>{% endfor %}
+    {% if current_user and current_user.account_type == 'parent' %}
+      <form method="post" action="{{ url_for('ask.buy_pack') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <div class="field"><label for="pc">Locality</label><select id="pc" name="city" required>{% for c in cities %}<option {% if c.city == city %}selected{% endif %}>{{ c.city }}</option>{% endfor %}</select></div>
+        <div class="field"><label for="lc">Area / neighbourhood (optional)</label><input id="lc" name="locality" placeholder="e.g. Jayanagar"></div>
+        <button class="btn btn-accent btn-block">Buy pack</button></form>
+    {% elif current_user %}<p class="small muted">Packs are for parent accounts.</p>
+    {% else %}<a class="btn btn-accent btn-block" href="{{ url_for('auth.signup', type='parent', next=request.full_path) }}">Create a parent account</a>{% endif %}
+    <p class="small muted" style="margin-top:10px">Can't visit schools yourself? <a href="{{ url_for('ask.pa_index') }}">Personal Assistance</a></p>
+  </aside>
+</div></div></section>
+{% endblock %}

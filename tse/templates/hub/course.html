@@ -1,0 +1,35 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}{{ c.title }} — Teachers Hub{% endblock %}
+{% block dash %}
+<p class="small"><a href="{{ url_for('hub.courses') }}">← All courses</a></p>
+<h1 style="font-size:1.6rem;margin-bottom:4px">{{ c.title }}</h1>
+<p class="muted small">{{ c.category }} · {{ c.level }} · {{ c.cpd_hours }} CPD hours · {{ c.instructor }}</p>
+<div class="layout right" style="margin-top:14px">
+  <div class="card pad-lg">
+    <div class="small muted">Lesson {{ cur.position }} of {{ lessons | length }} · {{ cur.minutes }} min</div>
+    <h2 style="margin-top:6px">{{ cur.title }}</h2>
+    {% if locked %}
+      <div class="notice">🔒 Enrol (free) to open every lesson and earn your certificate.</div>
+      <form method="post" action="{{ url_for('hub.enrol', slug=c.slug) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-accent">Enrol in this course</button></form>
+    {% else %}
+      <div class="prose">{{ cur.body | md }}</div>
+      {% if enr %}
+        {% if cur.done %}<p class="chip ok">✓ Lesson complete</p>{% endif %}
+        <div class="btn-row" style="margin-top:14px">
+          {% if not cur.done %}<form method="post" action="{{ url_for('hub.lesson_done', lid=cur.id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-primary">Mark complete & continue →</button></form>
+          {% else %}{% set nxt = lessons | selectattr('position', 'gt', cur.position) | first %}{% if nxt %}<a class="btn btn-primary" href="{{ url_for('hub.course', slug=c.slug, lesson=nxt.position) }}">Next lesson →</a>{% endif %}{% endif %}
+          {% if enr.completed_at %}<a class="btn btn-outline" href="{{ url_for('hub.certificate', code=enr.certificate_code) }}">🎓 View certificate</a>{% endif %}
+        </div>
+      {% else %}
+        <div class="notice" style="margin-top:14px">This first lesson is a free preview. Enrol to continue and earn {{ c.cpd_hours }} CPD hours.</div>
+        <form method="post" action="{{ url_for('hub.enrol', slug=c.slug) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-accent">Enrol — free</button></form>
+      {% endif %}
+    {% endif %}
+  </div>
+  <aside class="card sticky">
+    <h3>Lessons</h3>
+    {% if enr %}<div class="progress" aria-label="{{ done }} of {{ lessons|length }} done"><span style="width:{{ (100 * done / (lessons|length)) | round | int }}%"></span></div><p class="small muted">{{ done }} of {{ lessons | length }} complete</p>{% endif %}
+    <ul class="lesson-list">{% for l in lessons %}<li><a class="{{ 'on' if l.id == cur.id }}" href="{{ url_for('hub.course', slug=c.slug, lesson=l.position) }}"><span class="tick {{ 'done' if l.done }}">{{ '✓' if l.done else l.position }}</span><span>{{ l.title }}<br><span class="small muted">{{ l.minutes }} min{% if not enr and not loop.first %} · 🔒{% endif %}</span></span></a></li>{% endfor %}</ul>
+  </aside>
+</div>
+{% endblock %}

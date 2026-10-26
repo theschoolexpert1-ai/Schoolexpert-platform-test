@@ -1,0 +1,48 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}{% from '_ads.html' import sponsored %}
+{% block title %}Your school matches{% endblock %}
+{% block head %}<meta name="robots" content="noindex">{% endblock %}
+{% block body %}
+{{ page_head('Your school matches', (prefs_text[:1] | upper) ~ prefs_text[1:], [('AI School Match', url_for('school_match.index'))]) }}
+<section class="section"><div class="container">
+<div class="layout right">
+<div>
+  <div class="card advisor"><div class="small muted">{{ '✨ AI advisor' if s.ai_used else '✨ School Expert advisor' }}</div><p style="margin:6px 0 0">{{ s.summary | nl2br }}</p></div>
+  {% if results and g.user and g.user.account_type == 'parent' and not pack %}
+  <div class="upsell" style="margin:14px 0"><b>See fees, facilities, contacts & every reason for up to 10 schools.</b>
+    <p class="small muted" style="margin:4px 0 8px">{{ unlock_plan.name if unlock_plan else 'Unlock pack' }} — {{ inr(unlock_plan.price_paise) if unlock_plan else '' }} incl. GST. Unlocked parents can contact the school's admissions team directly and leave a verified review.</p>
+    <a class="btn btn-sm btn-accent" href="{{ url_for('ask.schools', city=s.prefs.city) }}">Unlock schools</a></div>
+  {% elif results and not g.user %}<div class="flash info" style="margin:14px 0"><a href="{{ url_for('auth.signup', type='parent', next=request.path) }}">Create a free parent account</a> to save this shortlist, compare schools and unlock verified details.</div>{% endif %}
+  <form method="get" action="{{ url_for('school_match.compare') }}" id="cmp">
+  {% for r in results %}
+  <article class="card match">
+    <div class="match-score" aria-label="{{ r.score }} percent match"><b>{{ r.score }}%</b><span>match</span></div>
+    <div style="min-width:0;flex:1">
+      <h3 style="margin:0"><a href="{{ url_for('directory.listing', slug=r.slug) }}">{{ r.name }}</a></h3>
+      <div class="small muted">{{ [r.category_label, [r.locality, r.city] | select | join(', ')] | select | join(' · ') }}{% if r.rating_count %} · {{ '%.1f' % r.rating_avg }}★ ({{ r.rating_count }}){% endif %}</div>
+      <ul class="reasons">{% set locked = [] %}
+        {% for x in r.reasons %}{% if not x.detail or r.id in unlocked %}<li class="{{ 'good' if x.good else 'bad' }}">{{ '✓' if x.good else '•' }} {{ x.text }}</li>{% else %}{% if locked.append(1) %}{% endif %}{% endif %}{% endfor %}
+        {% if locked %}<li class="lock">🔒 {{ locked | length }} more reason{{ 's' if locked | length > 1 }} (fees, facilities, support) — unlock to see</li>{% endif %}
+      </ul>
+      {% if not r.rich %}<div class="small muted">Matched on public information only.</div>{% endif %}
+      <div class="btn-row small" style="margin-top:8px">
+        {% if r.verified %}<span class="chip ok">✔ Verified</span>{% endif %}
+        <label class="opt" style="padding:2px 6px"><input type="checkbox" name="id" value="{{ r.id }}" class="cmpbox"> Compare</label>
+        {% if g.user %}<button class="btn btn-ghost btn-sm" form="sl-{{ r.id }}">{{ '★ Shortlisted' if r.id in shortlisted else '☆ Shortlist' }}</button>{% endif %}
+        <a class="btn btn-outline btn-sm" href="{{ url_for('directory.listing', slug=r.slug) }}">View school</a>
+      </div>
+    </div>
+  </article>
+  {% else %}<div class="card"><p>We couldn't find verified schools for these preferences yet.</p><a class="btn btn-primary" href="{{ url_for('ask.index') }}">Ask our counsellors</a></div>{% endfor %}
+  {% if results | length > 1 %}<div class="sticky-cta"><button class="btn btn-primary" type="submit">Compare selected</button></div>{% endif %}
+  </form>
+  {% if g.user %}{% for r in results %}<form id="sl-{{ r.id }}" method="post" action="{{ url_for('school_match.shortlist') }}" hidden><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="listing_id" value="{{ r.id }}"><input type="hidden" name="next" value="{{ request.path }}">{% if r.id in shortlisted %}<input type="hidden" name="remove" value="1">{% endif %}</form>{% endfor %}{% endif %}
+</div>
+<aside>
+  <div class="card"><h3>Refine</h3><p class="small muted">{{ (prefs_text[:1] | upper) ~ prefs_text[1:] }}</p><a class="btn btn-outline btn-sm" href="{{ url_for('school_match.index', city=s.prefs.city, grade=s.prefs.grade, area=s.prefs.area, pincode=s.prefs.pincode) }}">Change answers</a></div>
+  {{ sponsored('school_match', s.prefs.city, 2) }}
+  <div class="card"><h3>Need help deciding?</h3><p class="small muted">Book a counsellor, or let our staff visit schools, collect forms and submit applications for you.</p>
+    <div class="btn-row"><a class="btn btn-outline btn-sm" href="{{ url_for('ask.index') }}">Ask The School Expert</a><a class="btn btn-outline btn-sm" href="{{ url_for('ask.pa_index') }}">Personal Assistance</a></div></div>
+  <p class="small muted">Rankings are based only on fit and verified reviews. Schools cannot pay to change their score. Sponsored listings are labelled.</p>
+</aside>
+</div></div></section>
+{% endblock %}

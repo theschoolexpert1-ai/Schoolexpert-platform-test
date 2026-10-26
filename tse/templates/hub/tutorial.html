@@ -1,0 +1,13 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}{{ t.title }} — Tutorials{% endblock %}
+{% block dash %}
+<p class="small"><a href="{{ url_for('hub.tutorials') }}">← All tutorials</a></p>
+<div class="layout right"><div class="card pad-lg">
+  <div class="small muted">{{ icons.get(t.category, '📘') }} {{ t.category }} · {{ t.minutes }} min</div>
+  <h1 style="font-size:1.6rem;margin:6px 0">{{ t.title }}</h1><p class="muted">{{ t.summary }}</p>
+  <ol class="steps" style="padding-left:20px">{% for s in t.steps %}<li style="margin-bottom:12px"><b>{{ s.title }}</b><div>{{ s.body }}</div></li>{% endfor %}</ol>
+  <div class="btn-row"><form method="post" action="{{ url_for('hub.tutorial_save', slug=t.slug) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-outline">{{ '★ Saved' if saved else '☆ Save for later' }}</button></form>
+    <a class="btn btn-ghost" href="{{ url_for('hub.plan_edit') }}">Use it in a lesson plan →</a><button class="btn btn-ghost" data-print>Print</button></div>
+</div>
+<aside class="card"><h3>More in {{ t.category }}</h3>{% for m in more %}<div class="post"><a href="{{ url_for('hub.tutorial', slug=m.slug) }}">{{ m.title }}</a><div class="small muted">{{ m.minutes }} min</div></div>{% else %}<p class="small muted">That's all for now.</p>{% endfor %}</aside></div>
+{% endblock %}

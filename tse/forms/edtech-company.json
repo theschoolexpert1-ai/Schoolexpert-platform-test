@@ -1,0 +1,262 @@
+{
+ "slug": "edtech-company",
+ "title": "EdTech Company Registration Form",
+ "intro": [
+  "Connect • Collaborate • Grow"
+ ],
+ "sections": [
+  {
+   "title": "Company Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "company_name",
+     "label": "Company Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "brand_name",
+     "label": "Brand Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "company_logo",
+     "label": "Company Logo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "company_registration_number",
+     "label": "Company Registration Number",
+     "type": "text",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "gst_number_optional",
+     "label": "GST Number",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": true,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "linkedin",
+     "label": "LinkedIn",
+     "type": "url",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "facebook",
+     "label": "Facebook",
+     "type": "url",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "instagram",
+     "label": "Instagram",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Primary Contact",
+   "description": "",
+   "fields": [
+    {
+     "key": "contact_person_name",
+     "label": "Contact Person Name",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "designation",
+     "label": "Designation",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "whatsapp_number",
+     "label": "WhatsApp Number",
+     "type": "tel",
+     "required": false,
+     "visibility": "detailed",
+     "role": "whatsapp"
+    },
+    {
+     "key": "official_email",
+     "label": "Official Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    }
+   ]
+  },
+  {
+   "title": "Registered Office",
+   "description": "",
+   "fields": [
+    {
+     "key": "company_address",
+     "label": "Company Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "pin_code",
+     "label": "PIN Code",
+     "type": "pincode",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "country",
+     "label": "Country",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Business Category",
+   "description": "",
+   "fields": [
+    {
+     "key": "business_category",
+     "label": "Business Category",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "School ERP",
+      "Learning Management System (LMS)",
+      "Student Information System (SIS)",
+      "School CRM",
+      "Admissions Software",
+      "Fee Management",
+      "AI in Education",
+      "Robotics & STEM",
+      "Digital Classroom"
+     ],
+     "other": true,
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Products & Services",
+   "description": "",
+   "fields": [
+    {
+     "key": "brief_description_of_your_solution",
+     "label": "Brief description of your solution",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about"
+    }
+   ]
+  },
+  {
+   "title": "Target Audience",
+   "description": "",
+   "fields": [
+    {
+     "key": "target_audience",
+     "label": "Target Audience",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Preschool",
+      "K-12 Schools",
+      "Colleges",
+      "Universities",
+      "Parents",
+      "Teachers",
+      "Students"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Partnership Interest",
+   "description": "",
+   "fields": [
+    {
+     "key": "partnership_interest",
+     "label": "Partnership Interest",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "School Listings",
+      "Featured Listing",
+      "Premium Partner",
+      "Webinar Partner",
+      "Podcast Partner",
+      "Advertising",
+      "Channel Partnership"
+     ],
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "category": "vendors",
+ "label": "EdTech Companies",
+ "entity": "organisation"
+}

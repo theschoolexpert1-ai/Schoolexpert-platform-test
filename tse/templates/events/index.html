@@ -1,0 +1,12 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Events & Workshops{% endblock %}
+{% block meta_description %}Conferences, Principal Roundtables, workshops, webinars, homeschool meetups and storytelling sessions by The School Expert™.{% endblock %}
+{% block body %}
+{{ page_head('Events & Workshops', 'Conferences, Principal Roundtables India, workshops, webinars, homeschool meetups and storytelling sessions.') }}
+<section class="section-sm"><div class="container">
+  <div class="tabs"><a href="?when=upcoming{% if kind %}&kind={{ kind }}{% endif %}" class="{{ 'on' if when == 'upcoming' }}">Upcoming</a><a href="?when=past{% if kind %}&kind={{ kind }}{% endif %}" class="{{ 'on' if when == 'past' }}">Past</a></div>
+  <div class="chips" style="margin-bottom:16px"><a class="chip {{ 'navy' if not kind }}" href="?when={{ when }}">All</a>{% for k, v in kinds.items() %}<a class="chip {{ 'navy' if kind == k }}" href="?kind={{ k }}&when={{ when }}">{{ v }}</a>{% endfor %}</div>
+  <div class="grid g3">{% for e in rows %}<a class="card" href="{{ url_for('events.detail', slug=e.slug) }}"><div class="media-cover {{ loop.cycle('', 'red', 'gold', 'green') }}">{% if e.cover_url %}<img src="{{ e.cover_url }}" alt="">{% else %}{{ kinds.get(e.kind, e.kind) }}{% endif %}</div>
+    <span class="chip navy">{{ kinds.get(e.kind, e.kind) }}</span><h3 style="margin-top:6px">{{ e.title }}</h3><p class="small muted">{{ e.starts_at | dtt }}<br>{{ e.mode | capitalize }}{% if e.city %} · {{ e.city }}{% endif %} · <b>{{ inr(e.price_paise) if e.price_paise else 'Free' }}</b></p></a>{% else %}<div class="empty" style="grid-column:1/-1">No {{ when }} events here yet.</div>{% endfor %}</div>
+</div></section>
+{% endblock %}

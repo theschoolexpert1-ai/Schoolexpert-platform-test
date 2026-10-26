@@ -1,0 +1,866 @@
+{
+ "slug": "online-tutoring-support-provider-institution-registration",
+ "title": "Online Tutoring Support Provider Registration Form (Institution)",
+ "intro": [
+  "For companies, academies, individual educators, tutoring providers and academic-support organisations",
+  "Purpose: This form is designed to collect information from providers offering online tutoring, academic support, coaching, doubt-solving, remedial education, examination preparation and related learning services."
+ ],
+ "sections": [
+  {
+   "title": "Organisation / Provider Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "name_of_organisation_service_provider",
+     "label": "Name of Organisation / Service Provider",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "brand_platform_name",
+     "label": "Brand / Platform Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "type_of_provider",
+     "label": "Type of Provider",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Online Tutoring Company",
+      "Online Coaching Institute",
+      "Tutoring Academy / Institute",
+      "Individual Tutor / Educator",
+      "Subject Specialist",
+      "Learning Support Provider",
+      "Test Preparation Provider",
+      "Language Learning Provider",
+      "Specialised Academic Support Provider",
+      "EdTech Platform"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": true,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "organisation_email_id",
+     "label": "Organisation Email ID",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "contact_person",
+     "label": "Contact Person",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "designation",
+     "label": "Designation",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    }
+   ]
+  },
+  {
+   "title": "Legal & Business Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "legal_entity_name",
+     "label": "Legal Entity Name",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "type_of_legal_entity",
+     "label": "Type of Legal Entity",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Proprietorship",
+      "Partnership",
+      "LLP",
+      "Private Limited Company",
+      "Public Limited Company",
+      "Trust / Society",
+      "Section 8 Company",
+      "Individual / Freelancer"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "business_registration_number_cin_llpin_if_applic",
+     "label": "Business Registration Number / CIN / LLPIN, if applicable",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "pan",
+     "label": "PAN",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "gstin_if_applicable",
+     "label": "GSTIN, if applicable",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "registered_office_address",
+     "label": "Registered Office Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "pin_code",
+     "label": "PIN Code",
+     "type": "pincode",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "years_of_experience_in_education_tutoring",
+     "label": "Years of Experience in Education / Tutoring",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Less than 1 year",
+      "1–3 years",
+      "3–5 years",
+      "5–10 years",
+      "More than 10 years"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Services Offered",
+   "description": "",
+   "fields": [
+    {
+     "key": "what_type_of_online_tutoring_support_do_you_prov",
+     "label": "What type of online tutoring/support do you provide?",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "One-to-one tutoring",
+      "Small-group tutoring",
+      "Large-group live classes",
+      "Recorded classes",
+      "Doubt-solving",
+      "Homework / Assignment Support",
+      "Remedial Education",
+      "Academic Mentoring",
+      "Exam Preparation",
+      "Olympiad Preparation",
+      "Competitive Examination Preparation",
+      "Language Learning",
+      "Study Skills / Learning Skills",
+      "Project / Research Support",
+      "Specialised Learning Support"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "subjects_areas_offered",
+     "label": "Subjects / Areas Offered",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Mathematics",
+      "Science",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "English",
+      "Languages",
+      "Social Science",
+      "Commerce",
+      "Accountancy",
+      "Computer Science",
+      "Coding",
+      "Economics",
+      "Business Studies"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "curriculum_boards_supported",
+     "label": "Curriculum / Boards Supported",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "CBSE",
+      "ICSE",
+      "IB",
+      "Cambridge",
+      "State Boards",
+      "NIOS",
+      "International Curriculum",
+      "Competitive Examinations"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "classes_age_groups_served",
+     "label": "Classes / Age Groups Served",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Pre-primary",
+      "Primary",
+      "Middle School",
+      "Secondary School",
+      "Senior Secondary",
+      "Undergraduate",
+      "Adult Learners"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "class_grade_range",
+     "label": "Class / Grade Range",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Delivery Model",
+   "description": "",
+   "fields": [
+    {
+     "key": "mode_of_delivery",
+     "label": "Mode of Delivery",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Live Online",
+      "Recorded",
+      "Hybrid",
+      "One-to-One",
+      "Group Classes",
+      "Both One-to-One and Group"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "online_teaching_platform_used",
+     "label": "Online Teaching Platform Used",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Zoom",
+      "Google Meet",
+      "Microsoft Teams",
+      "Proprietary Platform",
+      "LMS"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "languages_of_instruction",
+     "label": "Languages of Instruction",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Bengali"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "geographic_reach",
+     "label": "Geographic Reach",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Local",
+      "State-wide",
+      "Pan-India",
+      "International"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "countries_served_if_applicable",
+     "label": "Countries Served, if applicable",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Faculty / Tutor Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "number_of_tutors_educators_associated_with_your_",
+     "label": "Number of Tutors / Educators Associated with Your Organisation",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "1",
+      "2–5",
+      "6–10",
+      "11–25",
+      "26–50",
+      "51–100",
+      "100+"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "tutor_qualifications",
+     "label": "Tutor Qualifications",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Graduate",
+      "Postgraduate",
+      "B.Ed / M.Ed",
+      "Subject Specialists",
+      "Certified Teachers",
+      "Industry Professionals"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_verify_tutor_credentials",
+     "label": "Do you verify tutor credentials?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "No",
+      "Partially"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "do_you_conduct_background_verification_of_tutors",
+     "label": "Do you conduct background verification of tutors?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Not Applicable"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "do_tutors_receive_training_before_teaching_stude",
+     "label": "Do tutors receive training before teaching students?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Some tutors"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Student Information & Safety",
+   "description": "",
+   "fields": [
+    {
+     "key": "approximate_number_of_students_currently_served",
+     "label": "Approximate Number of Students Currently Served",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Less than 25",
+      "25–100",
+      "101–500",
+      "501–1,000",
+      "1,001–5,000",
+      "More than 5,000"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_provide_services_to_children_below_18_yea",
+     "label": "Do you provide services to children below 18 years?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_have_a_child_safety_safeguarding_policy",
+     "label": "Do you have a child-safety / safeguarding policy?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "No",
+      "Under development"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_have_a_student_grievance_complaint_mechan",
+     "label": "Do you have a student grievance / complaint mechanism?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_have_a_privacy_policy_governing_student_i",
+     "label": "Do you have a privacy policy governing student information?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Pricing & Commercial Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "pricing_model",
+     "label": "Pricing Model",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Per Session",
+      "Monthly Subscription",
+      "Course Fee",
+      "Package-Based",
+      "Annual Subscription",
+      "Free + Paid"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "approximate_fee_range",
+     "label": "Approximate Fee Range",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_offer_scholarships_concessions",
+     "label": "Do you offer scholarships / concessions?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_offer_free_trial_introductory_sessions",
+     "label": "Do you offer free trial / introductory sessions?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Quality & Recognition",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_you_measure_student_learning_outcomes",
+     "label": "Do you measure student learning outcomes?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "how_do_you_assess_student_progress",
+     "label": "How do you assess student progress?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Periodic Tests",
+      "Assessments",
+      "Assignments",
+      "Attendance / Participation",
+      "Parent Feedback",
+      "Teacher Feedback",
+      "Learning Analytics"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "accreditations_certifications_awards",
+     "label": "Accreditations / Certifications / Awards",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "testimonials_student_success_stories_achievement",
+     "label": "Testimonials / Student Success Stories / Achievements",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "links_to_reviews_testimonials_portfolio",
+     "label": "Links to Reviews / Testimonials / Portfolio",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Technology & Accessibility",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_you_provide_a_dedicated_learning_platform_app",
+     "label": "Do you provide a dedicated learning platform / app?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "key_technology_features",
+     "label": "Key Technology Features",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Virtual Classroom",
+      "Digital Whiteboard",
+      "Recorded Classes",
+      "Assessments",
+      "Progress Tracking",
+      "Parent Dashboard",
+      "AI-enabled Learning",
+      "Learning Analytics",
+      "Digital Content"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "accessibility_features_available",
+     "label": "Accessibility Features Available",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Captions",
+      "Recorded Sessions",
+      "Screen Reader Compatibility",
+      "Special Learning Support",
+      "Flexible Timings"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Parent & Student Support",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_parents_receive_regular_progress_updates",
+     "label": "Do parents receive regular progress updates?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "parent_communication_channels",
+     "label": "Parent Communication Channels",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Email",
+      "WhatsApp",
+      "App",
+      "Phone",
+      "Parent Dashboard"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "customer_student_support_available",
+     "label": "Customer / Student Support Available",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Email",
+      "Phone",
+      "WhatsApp",
+      "Chat Support",
+      "Ticket System"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "support_hours",
+     "label": "Support Hours",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "The School Expert™ Partnership",
+   "description": "",
+   "fields": [
+    {
+     "key": "why_would_you_like_to_register_with_the_school_e",
+     "label": "Why would you like to register with The School Expert™?",
+     "type": "textarea",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "what_would_you_like_to_offer_through_the_school_",
+     "label": "What would you like to offer through The School Expert™?",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Online Tutoring",
+      "Academic Support",
+      "Courses",
+      "Workshops",
+      "Exam Preparation",
+      "Learning Resources",
+      "Student Assessments",
+      "Parent Programmes",
+      "Teacher Programmes"
+     ],
+     "other": true,
+     "visibility": "private"
+    },
+    {
+     "key": "are_you_interested_in_becoming_a_verified_online",
+     "label": "Are you interested in becoming a verified Online Tutoring Support Provider?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "are_you_interested_in_becoming_a_partner_of_the_",
+     "label": "Are you interested in becoming a Partner of The School Expert™?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Would like to know more"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "are_you_interested_in_participating_in_school_pa",
+     "label": "Are you interested in participating in school / parent programmes?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "are_you_interested_in_offering_special_benefits_",
+     "label": "Are you interested in offering special benefits to The School Expert™ community?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Maybe"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "partnership_collaboration_proposal",
+     "label": "Partnership / Collaboration Proposal",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Documents & Verification",
+   "description": "",
+   "fields": [
+    {
+     "key": "upload_organisation_profile_brochure",
+     "label": "Upload Organisation Profile / Brochure",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "upload_registration_certificate_if_applicable",
+     "label": "Upload Registration Certificate, if applicable",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "upload_accreditation_certification_documents_if_",
+     "label": "Upload Accreditation / Certification Documents, if applicable",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "upload_other_supporting_documents",
+     "label": "Upload Other Supporting Documents",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Declaration & Consent",
+   "description": "I confirm that the information provided in this registration form is true and accurate to the best of my knowledge. I understand that registration with The School Expert™ does not automatically constitute endorsement, accreditation, certification or approval of the services offered by the applicant. The School Expert™ reserves the right to verify the information submitted and to accept, reject or request additional information as part of its registration and verification process.",
+   "fields": [
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I agree to the above declaration.",
+     "visibility": "private"
+    },
+    {
+     "key": "privacy_consent",
+     "label": "Privacy Consent",
+     "type": "consent",
+     "required": true,
+     "text": "I consent to The School Expert™ storing and using the information submitted through this form for registration, verification, communication and partnership-related purposes, subject to its applicable privacy policy.",
+     "visibility": "private"
+    },
+    {
+     "key": "final_confirmation",
+     "label": "Final Confirmation",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm that I am authorised to submit this registration on behalf of the organisation/provider.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "category": "learning",
+ "label": "Online Tutoring Institutions",
+ "entity": "organisation"
+}

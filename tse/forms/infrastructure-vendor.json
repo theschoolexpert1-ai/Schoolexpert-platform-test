@@ -1,0 +1,353 @@
+{
+ "slug": "infrastructure-vendor",
+ "title": "K-12 School Infrastructure Vendor Registration",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Vendor / Company Name",
+   "description": "",
+   "fields": [
+    {
+     "key": "vendor_company_name",
+     "label": "Vendor / Company Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "legal_entity_name",
+     "label": "Legal Entity Name",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Company Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "brand_name",
+     "label": "Brand Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "entity_type",
+     "label": "Entity Type",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Proprietorship",
+      "Partnership Firm",
+      "LLP",
+      "Private Limited Company",
+      "Public Limited Company",
+      "Trust",
+      "Society",
+      "Section 8 Company",
+      "NGO"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "logo",
+     "label": "Logo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "company_profile",
+     "label": "Company Profile",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about"
+    },
+    {
+     "key": "gstin",
+     "label": "GSTIN",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Contact",
+   "description": "",
+   "fields": [
+    {
+     "key": "contact_person",
+     "label": "Contact Person",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "designation",
+     "label": "Designation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "registered_address",
+     "label": "Registered Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "pin_code",
+     "label": "PIN Code",
+     "type": "pincode",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Product & Service Categories",
+   "description": "",
+   "fields": [
+    {
+     "key": "categories",
+     "label": "Categories",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Classroom furniture",
+      "Laboratory furniture & equipment",
+      "Smart classroom / AV",
+      "Library furniture",
+      "Playground & outdoor play equipment",
+      "Sports infrastructure & flooring",
+      "Swimming pools",
+      "Auditorium & acoustics",
+      "CCTV & security systems",
+      "Fire safety",
+      "Solar & energy",
+      "Water purification",
+      "Washrooms & sanitation",
+      "Construction & civil works",
+      "Interior design",
+      "Kitchen & cafeteria",
+      "Signage & branding",
+      "Networking & Wi-Fi"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "product_service_description",
+     "label": "Product / Service Description",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Capacity & Reach",
+   "description": "",
+   "fields": [
+    {
+     "key": "service_areas",
+     "label": "Service Areas",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Local / City",
+      "District",
+      "State",
+      "Multiple States",
+      "Pan-India",
+      "International"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "installation_after_sales_support",
+     "label": "Installation & After-sales Support",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Installation",
+      "AMC",
+      "Warranty",
+      "On-site training",
+      "24x7 support"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "schools_served_approx",
+     "label": "Schools Served (approx.)",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "1–25",
+      "26–100",
+      "101–500",
+      "500+"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "key_school_clients",
+     "label": "Key School Clients",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Compliance & Certifications",
+   "description": "",
+   "fields": [
+    {
+     "key": "certifications",
+     "label": "Certifications",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "ISO 9001",
+      "ISO 14001",
+      "BIS",
+      "Fire NOC compliant products",
+      "GreenPro / IGBC"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Commercial",
+   "description": "",
+   "fields": [
+    {
+     "key": "pricing_model",
+     "label": "Pricing Model",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Per item",
+      "Project-based",
+      "Rate contract",
+      "Leasing / EMI"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "minimum_order_project_value",
+     "label": "Minimum Order / Project Value",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Media & Documents",
+   "description": "",
+   "fields": [
+    {
+     "key": "product_catalogue",
+     "label": "Product Catalogue",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "project_photos",
+     "label": "Project Photos",
+     "type": "files",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "registration_gst_certificate",
+     "label": "Registration / GST Certificate",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm the information is accurate and agree to verification by The School Expert™.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "provisional": "Section 1 matches the live form; later sections are provisional until the full form is uploaded.",
+ "category": "vendors",
+ "label": "School Infrastructure Vendors",
+ "entity": "organisation"
+}

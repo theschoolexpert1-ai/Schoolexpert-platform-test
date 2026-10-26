@@ -1,0 +1,12 @@
+{% extends 'dashboard/_layout.html' %}{% from '_macros.html' import status %}{% block title %}Sponsored banners{% endblock %}
+{% block dash %}<h1 style="font-size:1.5rem">Sponsored banners</h1>
+<p class="muted">Show a banner on the directory, AI School Match, jobs or resources pages — optionally targeted to a city. Pro plans include banner days; extra 30-day banners cost {{ inr(plan.price_paise) }} + GST.</p>
+<form method="post" action="{{ url_for('dashboard.plans') }}" style="margin-bottom:16px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="addon"><input type="hidden" name="plan" value="sponsored_placement"><button class="btn btn-accent">Buy a 30-day banner</button></form>
+{% for a in ads %}<form method="post" enctype="multipart/form-data" class="card" style="margin-bottom:12px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="id" value="{{ a.id }}">
+  <div class="section-title" style="margin:0 0 8px"><b>Banner #{{ a.id }}</b><span>{{ status(a.status) }} <span class="small muted">{{ a.starts_on | dt }} – {{ a.ends_on | dt }} · {{ a.impressions }} views · {{ a.clicks }} clicks</span></span></div>
+  <div class="row2"><div class="field"><label>Headline</label><input name="title" value="{{ a.title }}" maxlength="120"></div><div class="field"><label>Link (your page or website)</label><input name="link_url" value="{{ a.link_url }}"></div></div>
+  <div class="row3"><div class="field"><label>Where</label><select name="placement">{% for k, v in [('directory','Directory pages'),('school_match','AI School Match results'),('jobs','Jobs board'),('resources','Worksheets & resources'),('home','Homepage')] %}<option value="{{ k }}" {% if a.placement == k %}selected{% endif %}>{{ v }}</option>{% endfor %}</select></div>
+  <div class="field"><label>City (optional)</label><input name="city" value="{{ a.city or '' }}"></div><div class="field"><label>Image (1200×300)</label><input type="file" name="image" accept="image/*"></div></div>
+  {% if a.image_url %}<img src="{{ a.image_url }}" alt="" style="max-height:90px;border-radius:8px">{% endif %}
+  <p class="small muted">Banners must not target children and are labelled "Sponsored".</p><button class="btn btn-primary btn-sm">Submit for review</button></form>
+{% else %}<div class="empty">No banners yet.</div>{% endfor %}{% endblock %}

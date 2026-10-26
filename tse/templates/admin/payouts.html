@@ -1,0 +1,13 @@
+{% extends 'admin/_layout.html' %}{% from '_macros.html' import status %}{% block title %}Payouts Desk{% endblock %}
+{% block admin %}<h1 style="font-size:1.5rem">Payouts Desk</h1>
+<p class="muted small">Marketplace sales are settled to sellers after a 7-day return window, less the platform commission for their tier (Vendor - Basic 15%, Plus 10%, Pro 7%). Total platform commission earned: <b>{{ inr(commission) }}</b>.</p>
+<div class="card"><h3>Sellers awaiting payout</h3><div class="table-wrap"><table class="t"><tr><th>Seller</th><th>Items</th><th>Gross</th><th>Commission</th><th>Net due</th><th>Payable now</th><th></th></tr>
+{% for s in sellers %}<tr><td>{{ s.name }}</td><td>{{ s.n }}</td><td>{{ inr(s.gross) }}</td><td>{{ inr(s.comm) }}</td><td>{{ inr(s.net) }}</td><td><b>{{ inr(s.payable or 0) }}</b></td>
+<td>{% if s.payable %}<form method="post" class="btn-row"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="org_id" value="{{ s.id }}"><input name="ref" placeholder="UTR / ref" size="10" aria-label="Payout reference"><button class="btn btn-sm btn-primary" name="action" value="pay_seller">Mark paid</button></form>{% endif %}</td></tr>
+{% else %}<tr><td colspan="7" class="muted">Nothing due.</td></tr>{% endfor %}</table></div></div>
+<div class="card"><h3>Affiliate & referral commissions</h3><div class="table-wrap"><table class="t"><tr><th>Code</th><th>Owner</th><th>Programme</th><th>Purchase</th><th>Commission</th><th>Status</th><th></th></tr>
+{% for r in refs %}<tr><td>{{ r.code }}</td><td>{{ r.owner_name or '—' }}</td><td>{{ r.kind }}</td><td class="small">{{ (r.order_kind or '') | replace('_',' ') }}</td><td>{{ inr(r.commission_paise) }}</td><td>{{ status(r.status) }}</td>
+<td><form method="post" class="btn-row"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="id" value="{{ r.id }}">{% if r.status == 'pending' %}<button class="btn btn-ghost btn-sm" name="action" value="approve_ref">Approve</button><button class="btn btn-ghost btn-sm" name="action" value="reject_ref">Reject</button>{% elif r.status == 'approved' %}<button class="btn btn-ghost btn-sm" name="action" value="pay_ref">Mark paid</button>{% endif %}</form></td></tr>
+{% else %}<tr><td colspan="7" class="muted">No referral commissions yet.</td></tr>{% endfor %}</table></div></div>
+<div class="card"><h3>Recent payouts</h3><table class="t">{% for p in paid %}<tr><td>{{ p.name }}</td><td>{{ p.payout_ref or '—' }}</td><td>{{ inr(p.net) }}</td><td class="small">{{ p.paid_at | dt }}</td></tr>{% else %}<tr><td class="muted">None yet.</td></tr>{% endfor %}</table></div>
+{% endblock %}

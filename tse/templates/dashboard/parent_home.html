@@ -1,0 +1,16 @@
+{% extends 'dashboard/_layout.html' %}{% from '_macros.html' import status, listing_card %}
+{% block title %}My dashboard{% endblock %}
+{% block dash %}
+<h1 style="font-size:1.6rem">Hello, {{ current_user.name.split(' ')[0] }}</h1>
+<div class="kpis">{% for p in packs %}<div class="kpi"><b>{{ p.quota - p.used }}/{{ p.quota }}</b><span>Unlocks left · {{ p.city }} · until {{ p.expires_at | dt }}</span></div>{% else %}<div class="kpi"><b>0</b><span>Unlock packs — <a href="{{ url_for('ask.schools') }}">buy one</a></span></div>{% endfor %}
+  <div class="kpi"><b>{{ unlocks | length }}</b><span>Schools unlocked</span></div><div class="kpi"><b>{{ pa | length }}</b><span>Personal Assistance requests</span></div></div>
+{% for r in regs if r.status in ('draft','changes_requested') %}<div class="flash info">{{ r.label }} application is {{ r.progress }}% complete. <a href="{{ url_for('register.step', rid=r.id, si=0) }}">Continue →</a></div>{% endfor %}
+<h2 style="font-size:1.2rem">Schools you unlocked</h2>
+<div class="grid g2" style="margin-bottom:20px">{% for l in unlocks %}{{ listing_card(l) }}{% else %}<div class="empty" style="grid-column:1/-1"><a href="{{ url_for('ask.schools') }}">Ask The School Expert</a> to unlock verified school details.</div>{% endfor %}</div>
+<div class="grid g2">
+  <div class="card"><h3>Personal Assistance</h3>{% for r in pa %}<div class="post"><a href="{{ url_for('ask.pa_track', rid=r.id) }}">#{{ r.id }} {{ r.school_name }}</a> {{ status(r.status) }}</div>{% else %}<p class="small muted">We can visit schools for you. <a href="{{ url_for('ask.pa_index') }}">Learn more</a></p>{% endfor %}</div>
+  <div class="card"><h3>Expert requests</h3>{% for r in reqs %}<div class="post">{{ r.topic | replace('-', ' ') | capitalize }} {{ status(r.status) }}</div>{% else %}<p class="small muted"><a href="{{ url_for('ask.index') }}">Ask The School Expert</a> for a counsellor, therapist, special educator and more.</p>{% endfor %}</div>
+  <div class="card"><h3>Upcoming events</h3>{% for e in events %}<div class="post"><a href="{{ url_for('events.detail', slug=e.slug) }}">{{ e.title }}</a> {{ status(e.status) }}<div class="small muted">{{ e.starts_at | dtt }}</div></div>{% else %}<p class="small muted">Storytelling sessions, homeschool meetups and more in <a href="{{ url_for('events.index') }}">Events</a>.</p>{% endfor %}</div>
+  <div class="card"><h3>For your family</h3><div class="btn-row"><a class="btn btn-outline btn-sm" href="{{ url_for('content.bookclub') }}">Book Club</a><a class="btn btn-outline btn-sm" href="{{ url_for('content.newsworms') }}">NewsWorms</a><a class="btn btn-outline btn-sm" href="{{ url_for('content.resources') }}">Worksheets</a><a class="btn btn-outline btn-sm" href="{{ url_for('content.homeschool') }}">Homeschoolers Hub</a><a class="btn btn-outline btn-sm" href="{{ url_for('community.corner') }}">Parents' Corner</a><a class="btn btn-outline btn-sm" href="{{ url_for('marketplace.index') }}">Marketplace</a></div></div>
+</div>
+{% endblock %}

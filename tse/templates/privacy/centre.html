@@ -1,0 +1,35 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head, status %}
+{% block title %}Privacy Centre — your data rights{% endblock %}
+{% block body %}
+{{ page_head('Privacy Centre', 'Your rights under the Digital Personal Data Protection Act, 2023 — manage consent, get a copy of your data, correct it, erase it, nominate someone, or raise a grievance.') }}
+<section class="section"><div class="container"><div class="layout right">
+  <div>
+    {% if current_user %}
+      {% if current_user.status == 'pending_deletion' %}<div class="flash warning">Your account is scheduled for deletion. <form method="post" action="{{ url_for('privacy.cancel_deletion') }}" style="display:inline"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-sm btn-outline">Cancel deletion</button></form></div>{% endif %}
+      <div class="card" style="margin-bottom:16px"><h2 style="font-size:1.25rem">Your consents</h2><p class="small muted">Withdrawing consent is as easy as giving it. Withdrawal does not affect processing already done, and may stop services that need that data.</p>
+        <div class="table-wrap"><table class="t"><tr><th>Purpose</th><th>Status</th><th></th></tr>
+        {% for p, label in purposes.items() if p != 'guardian_student_ambassador' %}{% set s = state.get(p) %}<tr><td><b>{{ label }}</b>{% if notices.get(p) %}<div class="small muted">{{ notices[p].body }}</div>{% endif %}</td>
+          <td>{% if s and s.granted and not s.withdrawn_at %}<span class="status active">Given</span><div class="small muted">{{ s.created_at | dt }} · notice v{{ s.notice_version }}</div>{% elif s %}<span class="status cancelled">Withdrawn</span>{% else %}<span class="status">Not given</span>{% endif %}</td>
+          <td><form method="post" action="{{ url_for('privacy.toggle') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="purpose" value="{{ p }}">
+            {% if s and s.granted and not s.withdrawn_at %}<input type="hidden" name="grant" value="0"><button class="btn btn-sm btn-danger">Withdraw</button>{% elif p in ('marketing', 'analytics_cookies') %}<input type="hidden" name="grant" value="1"><button class="btn btn-sm btn-outline">Give consent</button>{% endif %}</form></td></tr>{% endfor %}</table></div></div>
+      <div class="card" style="margin-bottom:16px"><h2 style="font-size:1.25rem">Get a copy of your data</h2><p class="small">Download a summary of the personal data we process about you, with whom it was shared, and your consent history.</p><a class="btn btn-primary" href="{{ url_for('privacy.export') }}">Download my data (JSON)</a></div>
+    {% else %}<div class="notice" style="margin-bottom:16px"><a href="{{ url_for('auth.login', next=request.path) }}">Log in</a> to manage consents and download your data instantly. You can also send a request below without logging in.</div>{% endif %}
+    <div class="card"><h2 style="font-size:1.25rem">Make a request</h2>
+      <form method="post" action="{{ url_for('privacy.request_right') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <div class="field"><label for="k">Request type</label><select id="k" name="kind" data-toggle-target="nom" data-toggle-value="nomination">
+          <option value="access">Access — summary of my data and who it was shared with</option><option value="correction">Correction / completion / updating of my data</option>
+          <option value="erasure">Erasure — delete my account and data</option><option value="withdraw_consent">Withdraw a consent</option>
+          {% if current_user %}<option value="nomination">Nominate a person to exercise my rights (death / incapacity)</option>{% endif %}<option value="grievance">Grievance / complaint</option></select></div>
+        {% if not current_user %}<div class="field"><label for="em">Your email</label><input id="em" type="email" name="email" required></div>{% endif %}
+        <div id="nom" class="hidden"><div class="row2"><div class="field"><label>Nominee name</label><input name="nominee_name"></div><div class="field"><label>Relationship</label><input name="nominee_relationship"></div></div>
+          <div class="row2"><div class="field"><label>Nominee email</label><input type="email" name="nominee_email"></div><div class="field"><label>Nominee phone</label><input name="nominee_phone"></div></div></div>
+        <div class="field"><label for="d">Details</label><textarea id="d" name="details" placeholder="Tell us what you need. For corrections, say what is wrong and what it should be."></textarea></div>
+        <button class="btn btn-accent">Submit request</button></form></div>
+    {% if reqs %}<div class="card" style="margin-top:16px"><h2 style="font-size:1.25rem">Your requests</h2><div class="table-wrap"><table class="t"><tr><th>#</th><th>Type</th><th>Status</th><th>Respond by</th><th>Response</th></tr>{% for r in reqs %}<tr><td>{{ r.id }}</td><td>{{ r.kind | replace('_',' ') }}</td><td>{{ status(r.status) }}</td><td>{{ r.due_at | dt }}</td><td class="small">{{ r.response or '' }}</td></tr>{% endfor %}</table></div></div>{% endif %}
+  </div>
+  <aside class="card"><h3>Grievance Officer</h3><p>{{ cfg.GRIEVANCE_OFFICER }}<br><a href="mailto:{{ cfg.GRIEVANCE_EMAIL }}">{{ cfg.GRIEVANCE_EMAIL }}</a><br>{{ cfg.LEGAL_ENTITY }}<br><span class="small muted">{{ cfg.REGISTERED_ADDRESS }}</span></p>
+    <p class="small">We acknowledge requests immediately and resolve them as quickly as possible — in any case within the period allowed under the DPDP Rules (up to 90 days). If you are not satisfied, you may approach the <b>Data Protection Board of India</b>.</p>
+    <h4>Our commitments</h4><ul class="small"><li>We collect only what each service needs.</li><li>Accounts are for adults; we do not collect children's data for general use.</li><li>No tracking, profiling or targeted advertising directed at children.</li><li>Private registration fields are encrypted.</li><li>Data is hosted in India.</li><li>Breaches are reported to the Board and to affected people as required.</li></ul>
+    <p class="small"><a href="/privacy-policy">Privacy Policy</a> · <a href="{{ url_for('privacy.cookies') }}">Cookie settings</a></p></aside>
+</div></div></section>
+{% endblock %}

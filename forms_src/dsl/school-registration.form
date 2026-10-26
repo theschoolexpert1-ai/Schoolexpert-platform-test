@@ -1,0 +1,66 @@
+@slug school-registration
+@title School Registration Form
+@intro All fields are mandatory. You can save your progress and come back later before submitting.
+## School Information
+School Name* | text
+Management Name* | text
+School Logo* | file
+School Motto* | text
+Year Established* | year
+School Type* | radio | Private; Government; Government-Aided; International; Trust; Society
+School Category* | checkbox | Pre School; Regular School; Alternate School; Inclusive School; Special School
+Affiliated Boards* | checkbox | CBSE; ICSE; State Board; IB; IGCSE; Other
+Affiliation Number* | text
+## School Statistics
+Total Students* | number
+Teaching Staff* | number
+Non-Teaching Staff* | number
+Campus Area* | text
+Number of Campuses* | number
+If more than 1 campus, do you want to list the other campus/campuses on our platform too?* | yesno
+Annual Fee Range (per annum)* | text
+Admission Fee* | text
+Transport Available* | yesno
+Hostel Available* | yesno
+School Timings* | text
+Student–Teacher Ratio* | text
+Co-ed / Boys / Girls* | radio | Co-ed; Boys; Girls
+Inclusive Education Support* | yesno
+Scholarships Available* | text
+## Academics
+Curriculum Highlights* | textarea
+Teaching Methodology* | textarea
+Languages Offered (summary)* | text
+Foreign Languages Offered* | text
+STEM Programmes* | text
+Coding / AI* | text
+Robotics* | text
+Career Guidance* | text
+Olympiad Preparation* | text
+Competitive Exam Support* | text
+Grades Offered* | checkbox | $GRADES
+Medium of Instruction* | checkbox | $MEDIUM
+Languages Offered* | checkbox | $LANGS23
+## Facilities, Sports & Activities
+Facilities* | checkbox | $SCHOOL_FAC
+Sports & Activities* | checkbox | $SPORTS
+Co-Curricular Activities* | checkbox | $COCURR
+Student Support* | checkbox | $STUSUP
+## Achievements & Recognition
+Achievements* | textarea
+Recognition & Certifications* | textarea
+## Contact Information
+Address* | textarea
+City* | text
+District* | text
+State* | state
+PIN Code* | pincode
+Landmark* | text
+Google Maps Link* | url
+Website* | url
+Admissions Email* | email
+School Email* | email
+Phone Number* | tel
+WhatsApp Number* | tel
+## The School Expert™ Features
+The School Expert™ Features that you would like to avail* | checkbox | School Listing; Featured School; Admission Leads; Podcasts; Webinars; Newsletters; Principal Roundtables; Brand Partnerships; All of the above

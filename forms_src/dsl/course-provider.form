@@ -1,0 +1,71 @@
+@slug course-provider
+@title K-12 Individual Course Providers Registration
+@intro Register your organisation and each course you offer. Each course receives a unique Course ID once approved.
+## Provider Details
+Provider / Organisation Name* | text
+Brand / Trade Name | text
+Legal Entity Name* | text
+Provider Type* | radio | Individual Educator; Academy / Institute; EdTech Company; NGO / Non-profit; School-based Provider; Training Organisation; Other
+Year Established | year
+Head Office / Address* | textarea
+City / State* | text
+Website | url
+Business Email* | email
+Phone / WhatsApp* | tel
+Logo | file | | JPG/PNG
+Provider Description* | textarea | | Max 1,000 characters
+Primary Contact* | text
+Designation* | text
+## Course Details
+Course Name* | text | | Each course gets a unique Course ID
+Course Category* | checkbox | Academic Enrichment; STEM; Coding & AI; Robotics; Languages; Arts; Music; Dance; Sports & Fitness; Life Skills; Financial Literacy; Entrepreneurship; Communication & Public Speaking; Exam Preparation; Olympiad Preparation; Career Readiness; Other
+Course Short Description* | textarea | | Max 500 characters
+Detailed Course Description* | textarea | | Max 2,000 characters
+Learning Objectives* | textarea
+Learning Outcomes* | textarea
+Course Modules / Syllabus* | textarea | | Module / topic / duration
+Course Level* | radio | Beginner; Intermediate; Advanced; Mixed Level
+Prerequisites | textarea
+Target Learners* | checkbox | Preschool; Grades 1–2; Grades 3–5; Grades 6–8; Grades 9–10; Grades 11–12; Teachers; Parents
+Age Range | text | | e.g. 8–12 years
+Suitable School Boards | checkbox | CBSE; CISCE / ICSE; State Boards; IB; Cambridge; NIOS; All Boards; Other
+NEP / Competency Alignment | checkbox | NEP 2020; NCF-SE 2023; Competency-based; 21st Century Skills; Not Applicable
+## Delivery
+Course Duration* | text | | e.g. 12 weeks / 30 hours
+Number of Sessions | number
+Session Duration | radio | 30 min; 45 min; 60 min; 90 min; 2 hours; Custom
+Recommended Batch Size | radio | 1–5; 6–10; 11–20; 21–30; 31–50; 50+
+Delivery Mode* | checkbox | Online; In-person; Hybrid; School-based; Centre-based; Home-based
+Teaching Method* | checkbox | Live Instructor-led; Self-paced; Recorded; Project-based; Activity-based; Blended
+Geographic Availability* | radio | Local; City; State; Multi-State; Pan India; International / Online
+Languages Offered* | checkbox | English; Hindi; Kannada; Tamil; Telugu; Malayalam; Marathi; Bengali; Gujarati; Other
+## Assessment & Certification
+Assessment Methods | checkbox | Quizzes; Assignments; Projects; Practical Assessment; Final Test; Portfolio; None
+Progress Reporting | checkbox | Student Report; Parent Report; School Report; Dashboard; Certificate Only; None
+Certificate Provided | radio | Yes; No; Optional
+Certificate Type | text | | Shown if a certificate is provided
+Accreditation / Affiliation | textarea | | Accrediting or affiliating body, if any
+## Faculty
+Instructor / Faculty Count | radio | 1; 2–5; 6–10; 11–25; 26–50; 50+
+Instructor Qualifications | textarea | | Qualifications, certifications and relevant experience
+Teaching / Industry Experience | textarea
+Instructor-student Ratio | text
+## Schools & Pricing
+School Programme Options | checkbox | In-school programme; After-school programme; Holiday camp; Teacher training; Workshop; Competition
+School Partnership Experience | textarea | | Schools, boards, programme type and years
+Student / Parent Testimonials | textarea | | Non-confidential testimonials
+Pricing Model | radio | Per Student; Per Batch; Per Course; Monthly; Annual; School Contract; Custom
+Indicative Fee | text | | Currency / amount / pricing basis
+Scholarship / Free Access | radio | Yes; No; Limited / Need-based
+## Documents
+Course Brochure | file | | PDF; max 10 MB
+Curriculum / Syllabus Document | file | | PDF/DOCX
+Sample Learning Material | file | | PDF/DOCX/PPT
+Sample Certificate | file | | PDF/JPG/PNG
+Instructor Credentials | file | | PDF/JPG/PNG
+Organisation Registration* | file | | PDF/JPG/PNG
+PAN* | file | | PDF/JPG/PNG
+GST Certificate | file | | PDF/JPG/PNG
+## Partnership & Declaration
+Partnership Interests | checkbox | Directory Listing; Featured Listing; School Partnerships; Parent Leads; Events & Workshops; Founding Partner Programme
+Declaration* | consent | | I confirm that the information provided is accurate and that I am authorised to register this organisation and its courses with The School Expert™.

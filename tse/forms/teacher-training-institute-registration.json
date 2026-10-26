@@ -1,0 +1,909 @@
+{
+ "slug": "teacher-training-institute-registration",
+ "title": "Teacher Training Institute / Teacher Professional Development Provider Registration Form",
+ "intro": [
+  "About The Registration",
+  "Welcome to The School Expert™, an education ecosystem platform connecting schools, educators, parents, education professionals, training organisations and other stakeholders.",
+  "We invite Teacher Training Institutes, Teacher Education Institutions and Teacher Professional Development Providers across India to register with The School Expert™.",
+  "This registration enables organisations to provide information about their institution, programmes, faculty, areas of expertise and services for consideration for inclusion on The School Expert™ platform.",
+  "Please provide accurate, current and complete information."
+ ],
+ "sections": [
+  {
+   "title": "Organisation Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "name_of_organisation_institute",
+     "label": "Name of Organisation / Institute",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "organisation_type",
+     "label": "Organisation Type",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Teacher Education Institution",
+      "Teacher Training Institute",
+      "Teacher Professional Development Provider",
+      "University / College",
+      "EdTech Organisation",
+      "NGO / Non-profit Organisation",
+      "Government Institution",
+      "Independent Training Provider",
+      "Individual Trainer / Consultant"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "registered_office_address",
+     "label": "Registered Office Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state_union_territory",
+     "label": "State / Union Territory",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "pin_code",
+     "label": "PIN Code",
+     "type": "pincode",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "organisation_email",
+     "label": "Organisation Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "organisation_phone_number",
+     "label": "Organisation Phone Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "organisation_institute_logo",
+     "label": "Organisation / Institute Logo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    }
+   ]
+  },
+  {
+   "title": "Primary Contact Person",
+   "description": "",
+   "fields": [
+    {
+     "key": "name_of_contact_person",
+     "label": "Name of Contact Person",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "designation",
+     "label": "Designation",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "email_address",
+     "label": "Email Address",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "preferred_contact_method",
+     "label": "Preferred Contact Method",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Email",
+      "Phone",
+      "WhatsApp"
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Registration, Recognition & Accreditation",
+   "description": "",
+   "fields": [
+    {
+     "key": "does_your_organisation_have_ncte_recognition",
+     "label": "Does your organisation have NCTE recognition?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Applied / Under Process",
+      "Not Applicable"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "ncte_recognition_number",
+     "label": "NCTE Recognition Number",
+     "type": "text",
+     "required": false,
+     "showIf": {
+      "field": "does_your_organisation_have_ncte_recognition",
+      "equals": "Yes"
+     },
+     "visibility": "detailed"
+    },
+    {
+     "key": "ncte_recognised_programme_s",
+     "label": "NCTE Recognised Programme(s)",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "B.Ed.",
+      "D.El.Ed.",
+      "M.Ed.",
+      "ITEP",
+      "Other NCTE-regulated programme"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "ncte_regional_committee",
+     "label": "NCTE Regional Committee",
+     "type": "select",
+     "required": false,
+     "options": [
+      "Northern Regional Committee",
+      "Eastern Regional Committee",
+      "Western Regional Committee",
+      "Southern Regional Committee",
+      "Not Applicable"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "other_recognition_accreditation",
+     "label": "Other Recognition / Accreditation",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "UGC",
+      "University Affiliation",
+      "NCERT",
+      "SCERT",
+      "State Government",
+      "Professional Body",
+      "International Accreditation",
+      "None"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "recognition_accreditation_details",
+     "label": "Recognition / Accreditation Details",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "upload_recognition_accreditation_certificate",
+     "label": "Upload Recognition / Accreditation Certificate",
+     "type": "file",
+     "required": false,
+     "help": "Accepted formats: PDF, JPG, PNG",
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Courses & Training Programmes",
+   "description": "",
+   "fields": [
+    {
+     "key": "what_type_of_training_do_you_provide",
+     "label": "What type of training do you provide?",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Pre-service Teacher Education",
+      "In-service Teacher Training",
+      "Continuing Professional Development (CPD)",
+      "School Leadership Training",
+      "Principal / Head Teacher Training",
+      "Pedagogy Training",
+      "Classroom Management",
+      "Assessment & Evaluation",
+      "Curriculum Development",
+      "Inclusive Education",
+      "Special Education",
+      "Early Childhood Education",
+      "Counselling / Student Wellbeing",
+      "Mental Health Awareness",
+      "EdTech / Digital Teaching",
+      "AI in Education",
+      "STEM Education",
+      "Language Teaching",
+      "Life Skills",
+      "Soft Skills"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "major_training_programmes_offered",
+     "label": "Major Training Programmes Offered",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "programme_description",
+     "label": "Programme Description",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "target_audience",
+     "label": "Target Audience",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Pre-service Teachers",
+      "School Teachers",
+      "Principals",
+      "Vice Principals",
+      "Coordinators",
+      "School Leaders",
+      "Special Educators",
+      "Counsellors",
+      "Academic Administrators",
+      "Early Childhood Educators",
+      "College / University Faculty"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "education_levels_served",
+     "label": "Education Levels Served",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Pre-primary",
+      "Primary",
+      "Middle School",
+      "Secondary",
+      "Senior Secondary",
+      "Higher Education",
+      "All Levels"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Training Delivery",
+   "description": "",
+   "fields": [
+    {
+     "key": "training_mode",
+     "label": "Training Mode",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Classroom / Offline",
+      "Online Live",
+      "Recorded / Self-paced",
+      "Hybrid",
+      "On-site School Training",
+      "Residential",
+      "One-to-one",
+      "Group Training"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "geographic_coverage",
+     "label": "Geographic Coverage",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Local",
+      "District",
+      "State",
+      "Multiple States",
+      "Pan-India",
+      "International"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "languages_offered",
+     "label": "Languages Offered",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Bengali",
+      "Gujarati"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "typical_programme_duration",
+     "label": "Typical Programme Duration",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Less than 1 day",
+      "1 day",
+      "2–3 days",
+      "1 week",
+      "2–4 weeks",
+      "1–3 months",
+      "3–6 months",
+      "6–12 months",
+      "More than 1 year"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Faculty / Trainers",
+   "description": "",
+   "fields": [
+    {
+     "key": "number_of_trainers_faculty",
+     "label": "Number of Trainers / Faculty",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "1",
+      "2–5",
+      "6–10",
+      "11–25",
+      "26–50",
+      "50+"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "trainer_qualifications",
+     "label": "Trainer Qualifications",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "trainer_experience",
+     "label": "Trainer Experience",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "key_trainers_faculty_members",
+     "label": "Key Trainers / Faculty Members",
+     "type": "textarea",
+     "required": false,
+     "help": "Suggested format: Name – Qualification – Experience – Area of Expertise",
+     "visibility": "detailed"
+    },
+    {
+     "key": "upload_faculty_trainer_profiles",
+     "label": "Upload Faculty / Trainer Profiles",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Experience & Impact",
+   "description": "",
+   "fields": [
+    {
+     "key": "number_of_teachers_educators_trained",
+     "label": "Number of Teachers / Educators Trained",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Less than 100",
+      "100–500",
+      "501–1,000",
+      "1,001–5,000",
+      "5,001–10,000",
+      "More than 10,000"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "number_of_schools_served",
+     "label": "Number of Schools Served",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "1–10",
+      "11–25",
+      "26–50",
+      "51–100",
+      "101–500",
+      "More than 500"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "years_of_teacher_training_experience",
+     "label": "Years of Teacher Training Experience",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Less than 1 year",
+      "1–3 years",
+      "4–5 years",
+      "6–10 years",
+      "11–20 years",
+      "More than 20 years"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "major_schools_institutions_served",
+     "label": "Major Schools / Institutions Served",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "key_achievements_impact",
+     "label": "Key Achievements / Impact",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "testimonials_references",
+     "label": "Testimonials / References",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "upload_organisation_brochure_profile",
+     "label": "Upload Organisation Brochure / Profile",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Programme Fees",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_you_charge_for_your_training_programmes",
+     "label": "Do you charge for your training programmes?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Some programmes are free",
+      "Depends on programme"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "typical_fee_range",
+     "label": "Typical Fee Range",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Free",
+      "Below ₹1,000",
+      "₹1,000–₹5,000",
+      "₹5,001–₹10,000",
+      "₹10,001–₹25,000",
+      "₹25,001–₹50,000",
+      "Above ₹50,000",
+      "Custom Pricing"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_offer_customised_training_for_schools",
+     "label": "Do you offer customised training for schools?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_offer_institutional_bulk_pricing",
+     "label": "Do you offer institutional / bulk pricing?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Certification",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_participants_receive_a_certificate",
+     "label": "Do participants receive a certificate?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Depends on programme"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "type_of_certificate",
+     "label": "Type of Certificate",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Certificate of Participation",
+      "Certificate of Completion",
+      "Professional Development Certificate",
+      "University Certificate",
+      "Accredited Certificate"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "is_the_certificate_linked_to_a_recognised_accred",
+     "label": "Is the certificate linked to a recognised / accredited qualification?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Not Applicable"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "upload_sample_certificate",
+     "label": "Upload Sample Certificate",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Interest In The School Expert™",
+   "description": "",
+   "fields": [
+    {
+     "key": "why_would_you_like_to_register_with_the_school_e",
+     "label": "Why would you like to register with The School Expert™?",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Showcase our organisation",
+      "Reach schools",
+      "Reach teachers",
+      "Increase visibility",
+      "Generate leads",
+      "Promote training programmes",
+      "Connect with school principals",
+      "Connect with educators",
+      "Participate in The School Expert™ Community",
+      "Explore partnership opportunities"
+     ],
+     "other": true,
+     "visibility": "private"
+    },
+    {
+     "key": "what_type_of_collaboration_are_you_interested_in",
+     "label": "What type of collaboration are you interested in?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Teacher Training",
+      "School Training",
+      "Workshops",
+      "Webinars",
+      "Professional Development",
+      "Content Collaboration",
+      "Knowledge Partnership",
+      "Research",
+      "Events",
+      "Community Programmes"
+     ],
+     "other": true,
+     "visibility": "private"
+    },
+    {
+     "key": "would_you_like_the_school_expert_to_contact_you_",
+     "label": "Would you like The School Expert™ to contact you regarding partnership opportunities?",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Online Presence",
+   "description": "",
+   "fields": [
+    {
+     "key": "linkedin_page",
+     "label": "LinkedIn Page",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "youtube_channel",
+     "label": "YouTube Channel",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "instagram",
+     "label": "Instagram",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "facebook_page",
+     "label": "Facebook Page",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "other_professional_online_profile",
+     "label": "Other Professional / Online Profile",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Documents & Verification",
+   "description": "",
+   "fields": [
+    {
+     "key": "upload_organisation_registration_certificate",
+     "label": "Upload Organisation Registration Certificate",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "upload_recognition_accreditation_documents",
+     "label": "Upload Recognition / Accreditation Documents",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "upload_programme_brochure",
+     "label": "Upload Programme Brochure",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "upload_organisation_profile",
+     "label": "Upload Organisation Profile",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "other_supporting_documents",
+     "label": "Other Supporting Documents",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Declaration & Disclaimer",
+   "description": "",
+   "fields": [
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I declare that the information provided in this registration form is true, accurate and complete to the best of my knowledge. I understand that The School Expert™ may verify the information and documents submitted and may request additional information or clarification where necessary.",
+     "visibility": "private"
+    },
+    {
+     "key": "authorisation_to_contact",
+     "label": "Authorisation to Contact",
+     "type": "consent",
+     "required": true,
+     "text": "I authorise The School Expert™ to contact the organisation using the contact details provided in this form for verification, registration-related communication, partnership discussions and relevant platform-related communication.",
+     "visibility": "private"
+    },
+    {
+     "key": "consent_for_profile_publication",
+     "label": "Consent for Profile Publication",
+     "type": "consent",
+     "required": true,
+     "text": "I understand and agree that, subject to verification and acceptance by The School Expert™, information about the organisation, its programmes, services, website and publicly shareable professional information may be displayed on The School Expert™ platform.",
+     "visibility": "private"
+    },
+    {
+     "key": "disclaimer_acknowledgement",
+     "label": "Disclaimer Acknowledgement",
+     "type": "consent",
+     "required": true,
+     "text": "I acknowledge that registration with The School Expert™ does not, by itself, constitute accreditation, recognition, certification, endorsement, approval or affiliation by The School Expert™, Poornaphala Media and Infotech Services LLP, or any government, statutory, regulatory or educational authority. Any recognition, accreditation or certification claimed by the organisation must be independently established through appropriate documentation or official records.",
+     "visibility": "private"
+    },
+    {
+     "key": "responsibility_for_information",
+     "label": "Responsibility for Information",
+     "type": "consent",
+     "required": true,
+     "text": "I understand that the organisation is solely responsible for the accuracy, legality and authenticity of the information, claims, qualifications, certifications, programmes and documents submitted by it.",
+     "visibility": "private"
+    },
+    {
+     "key": "changes_withdrawal",
+     "label": "Changes / Withdrawal",
+     "type": "consent",
+     "required": false,
+     "text": "I agree to inform The School Expert™ if any material information submitted during registration changes, including recognition status, programme information, contact details or other information displayed on the platform.",
+     "visibility": "private"
+    },
+    {
+     "key": "terms_privacy",
+     "label": "Terms & Privacy",
+     "type": "consent",
+     "required": false,
+     "text": "I have read and agree to the applicable Terms of Use, Privacy Policy and registration guidelines of The School Expert™.",
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Final Submission",
+   "description": "",
+   "fields": [
+    {
+     "key": "name_of_authorised_person",
+     "label": "Name of Authorised Person",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "designation_2",
+     "label": "Designation",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "additional_comments",
+     "label": "Additional Comments",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "how_did_you_hear_about_the_school_expert",
+     "label": "How did you hear about The School Expert™?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Website",
+      "Google Search",
+      "LinkedIn",
+      "Social Media",
+      "School / Institution",
+      "Referral",
+      "Event",
+      "The School Expert™ Community"
+     ],
+     "other": true,
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [
+  "Thank you for registering with The School Expert™.",
+  "Your registration has been successfully submitted.",
+  "Our team may review the information and documents provided and contact you if additional information or verification is required.",
+  "Registration does not automatically constitute accreditation, certification, endorsement or approval by The School Expert™.",
+  "The School Expert™",
+  "Website: www.schoolexpert.in",
+  "Email: info@schoolexpert.in"
+ ],
+ "category": "learning",
+ "label": "Teacher Training Institutes",
+ "entity": "organisation"
+}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}For Education Partners & Professionals{% endblock %}
+{% block body %}
+{{ page_head('For Education Partners & Professionals', 'EdTech companies, publishers, vendors, institutes, tutors, consultants and specialists — reach schools and parents across India.') }}
+<section class="section"><div class="container">
+  <div class="grid g4" style="margin-bottom:28px">
+    <div class="card"><h3>Directory & leads</h3><p class="small muted">Verified profile for schools and parents; verified enquiries routed to your dashboard and CRM.</p></div>
+    <div class="card"><h3>Marketplace</h3><p class="small muted">Sell books, stationery, bags, shoes, learning materials and kits to parents and schools (bulk pricing supported).</p></div>
+    <div class="card"><h3>Events & sponsorships</h3><p class="small muted">Workshops, webinars, podcasts, Principal Roundtables and sponsorships.</p></div>
+    <div class="card"><h3>Founding Partner Programme</h3><p class="small muted">One-time fee, three-year renewal waiver, lifetime badge. <a href="{{ url_for('public.founding') }}">Learn more</a></p></div>
+  </div>
+  {% set cmp = compare(tiers) %}{% set cta_mode = 'register' %}{% set cta_href = url_for('register.index') %}{% include '_tier_table.html' %}
+  <p class="small muted" style="margin-top:10px">Upgrade any time from your dashboard: Basic → Plus → Pro. You pay only the difference — unused days on your current plan are credited. <a href="{{ url_for('public.pricing', for='vendor') }}">Full pricing, add-ons & Founding Partner →</a></p>
+  <div class="btn-row" style="margin-top:20px"><a class="btn btn-accent btn-lg" href="{{ url_for('register.index') }}">Choose your registration form</a></div>
+</div></section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'admin/_layout.html' %}{% from '_macros.html' import status %}{% block title %}Admin{% endblock %}
+{% block admin %}<h1 style="font-size:1.6rem">Command Centre</h1>
+<div class="grid g2" style="margin-bottom:14px">
+  <div class="card"><div class="section-title" style="margin:0"><h3 style="margin:0">Paid plan mix</h3><a class="small" href="{{ url_for('admin.subscriptions') }}">Billing desk →</a></div>
+    <table class="t"><tr><th></th><th>Basic</th><th>Plus</th><th>Pro</th></tr>
+    {% for fam, label in [('school','Schools'),('vendor','Vendors & partners')] %}<tr><th scope="row">{{ label }}</th>{% for l in (1,2,3) %}<td><a href="{{ url_for('admin.subscriptions', family=fam, level=l) }}">{{ tiers[fam][l] }}</a></td>{% endfor %}</tr>{% endfor %}</table>
+    <div class="small muted">Annual recurring revenue (list price): <b>{{ inr(k.arr) }}</b> · Renewals due in 30 days: <b>{{ k.expiring }}</b> · Registered but not paid: <b>{{ k.unpaid_orgs }}</b></div></div>
+  <div class="card"><h3>Needs attention</h3><div class="btn-row">
+    <a class="btn btn-outline btn-sm" href="{{ url_for('admin.growth') }}#ads">Banners to approve ({{ k.ads_pending }})</a>
+    <a class="btn btn-outline btn-sm" href="{{ url_for('admin.payouts') }}">Seller payouts due ({{ inr(k.payouts_due) }})</a>
+    <a class="btn btn-outline btn-sm" href="{{ url_for('admin.subscriptions', status='active') }}">Renewals ({{ k.expiring }})</a>
+    <a class="btn btn-outline btn-sm" href="{{ url_for('admin.growth') }}">AI School Match runs, 30 days ({{ k.matches }})</a></div></div>
+</div>
+<div class="kpis"><a class="kpi" href="{{ url_for('admin.registrations') }}"><b>{{ k.pending }}</b><span>Registrations to review</span></a><div class="kpi"><b>{{ k.verified }}</b><span>Verified registrations</span></div><div class="kpi"><b>{{ k.users }}</b><span>Active users</span></div>
+<div class="kpi"><b>{{ inr(k.revenue30) }}</b><span>Revenue, last 30 days</span></div><div class="kpi"><b>{{ inr(k.revenue) }}</b><span>Revenue, all time</span></div><div class="kpi"><b>{{ k.leads }}</b><span>Leads, 30 days</span></div>
+<a class="kpi" href="{{ url_for('admin.expert_requests') }}"><b>{{ k.expert }}</b><span>Expert requests open</span></a><a class="kpi" href="{{ url_for('admin.pa_list') }}"><b>{{ k.pa }}</b><span>Personal Assistance active</span></a><a class="kpi" href="{{ url_for('admin.moderation') }}"><b>{{ k.moderation }}</b><span>Moderation queue</span></a>
+<a class="kpi" href="{{ url_for('admin.dsr') }}"><b>{{ k.dsr }}</b><span>DPDP requests open{% if k.dsr_overdue %} · <b style="color:var(--red);font-size:.85rem;display:inline">{{ k.dsr_overdue }} due ≤15 days</b>{% endif %}</span></a><a class="kpi" href="{{ url_for('admin.tickets') }}"><b>{{ k.tickets }}</b><span>Support tickets</span></a><a class="kpi" href="{{ url_for('admin.outbox') }}"><b>{{ k.outbox_failed }}</b><span>Failed CRM/email deliveries</span></a></div>
+<div class="grid g2"><div class="card"><h3>Revenue by stream</h3><table class="t">{% for s in streams %}<tr><td>{{ s.kind | replace('_',' ') | capitalize }}</td><td>{{ s.n }}</td><td style="text-align:right">{{ inr(s.amt) }}</td></tr>{% else %}<tr><td class="muted">No paid orders yet.</td></tr>{% endfor %}</table><a href="{{ url_for('admin.revenue') }}">Details →</a></div>
+<div class="card"><h3>Recent registrations</h3>{% for r in recent %}<div class="post"><a href="{{ url_for('admin.registration', rid=r.id) }}">#{{ r.id }} {{ r.label }}</a> {{ status(r.status) }}<div class="small muted">{{ r.updated_at | dtt }}</div></div>{% endfor %}</div></div>{% endblock %}

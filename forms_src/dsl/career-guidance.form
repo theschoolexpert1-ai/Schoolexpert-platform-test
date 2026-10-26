@@ -1,0 +1,31 @@
+@slug career-guidance
+@title K-12 Career Guidance & Counselling Provider – Public Listing Profile
+@provisional Section 1 matches the live form; later sections are provisional until the full form is uploaded.
+## Provider Profile
+Provider name* | text
+Logo | file
+Tagline | text
+Website | url
+Provider Type* | radio | Individual Counsellor; Counselling Firm; EdTech Platform; School-based Programme; Other
+About* | textarea
+## Contact
+Contact Person* | text
+Mobile Number* | tel
+Email* | email
+City* | text
+State* | state
+## Credentials
+Qualifications* | textarea
+Certifications | checkbox | GCDF; ICF; Psychometric assessment certification; UCLA Certificate in College Counseling; NCDA; Other
+Years of Experience* | radio | $YRS
+## Services
+Services* | checkbox | Stream selection (Class 10); Career assessment / psychometric tests; Course & college selection (India); Study abroad guidance; Profile building; Entrance exam guidance; Parent counselling; School career-day workshops; Career lab setup for schools
+Grades Served* | checkbox | Grade 8; Grade 9; Grade 10; Grade 11; Grade 12; Gap year / Graduates
+Delivery Mode* | checkbox | Online; In-person; At school
+Languages | checkbox | $LANG9
+## Pricing & Reach
+Fee Range | text
+Students Counselled (approx.) | radio | Less than 100; 100–500; 501–2,000; 2,000+
+Partner Schools | textarea
+## Declaration
+Declaration* | consent | | I confirm the information is accurate and agree to verification by The School Expert™.

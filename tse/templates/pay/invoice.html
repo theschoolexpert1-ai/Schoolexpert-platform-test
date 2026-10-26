@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Invoice {{ o.invoice_no }}</title><link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}"></head>
+<body style="background:#fff"><div class="container narrow" style="padding:30px 20px">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px"><div><img src="{{ url_for('static', filename='img/logo-mark.svg') }}" alt="" style="height:50px"><h2 style="color:var(--red);margin:6px 0 0">THE SCHOOL EXPERT™</h2>
+<div class="small">{{ cfg.LEGAL_ENTITY }}<br>{{ cfg.REGISTERED_ADDRESS }}<br>{{ cfg.CONTACT_EMAIL }} · {{ cfg.CONTACT_PHONE }}{% if cfg.GSTIN %}<br>GSTIN: {{ cfg.GSTIN }}{% endif %}</div></div>
+<div style="text-align:right"><h1 style="margin:0">Tax Invoice</h1><div>No. <b>{{ o.invoice_no }}</b><br>Date: {{ o.paid_at | dt }}<br>Order: {{ o.public_id }}</div></div></div>
+<hr><p><b>Billed to:</b> {{ org.name if org else u.name }}<br>{{ u.email }}{% if u.phone %} · {{ u.phone }}{% endif %}{% if org and org.gstin %}<br>GSTIN: {{ org.gstin }}{% endif %}{% if o.address %}<br>{{ o.address.line1 }}, {{ o.address.line2 or '' }} {{ o.address.city }} {{ o.address.state }} {{ o.address.pincode }}{% endif %}</p>
+<table class="t"><tr><th>Description</th><th>Qty</th><th>Rate</th><th style="text-align:right">Amount</th></tr>
+{% for it in items %}<tr><td>{{ it.title }}</td><td>{{ it.qty }}</td><td>{{ inr(it.unit_paise, True) }}</td><td style="text-align:right">{{ inr(it.unit_paise * it.qty, True) }}</td></tr>{% endfor %}
+<tr><td colspan="3">Taxable value</td><td style="text-align:right">{{ inr(o.subtotal_paise, True) }}</td></tr>
+<tr><td colspan="3">GST (CGST/SGST or IGST as applicable)</td><td style="text-align:right">{{ inr(o.gst_paise, True) }}</td></tr>
+{% if o.shipping_paise %}<tr><td colspan="3">Shipping</td><td style="text-align:right">{{ inr(o.shipping_paise, True) }}</td></tr>{% endif %}
+<tr><td colspan="3"><b>Total</b></td><td style="text-align:right"><b>{{ inr(o.total_paise, True) }}</b></td></tr></table>
+<p class="small muted" style="margin-top:20px">Payment reference: {{ o.gateway_payment_id }} · This is a computer-generated invoice.</p>
+<button class="btn btn-primary no-print" data-print>Print / Save as PDF</button></div></body></html>

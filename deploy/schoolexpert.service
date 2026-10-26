@@ -1,0 +1,42 @@
+[Unit]
+Description=The School Expert web app (gunicorn)
+After=network.target postgresql.service
+
+[Service]
+User=schoolexpert
+Group=www-data
+WorkingDirectory=/var/www/schoolexpert
+EnvironmentFile=/var/www/schoolexpert/.env
+ExecStart=/var/www/schoolexpert/venv/bin/gunicorn -c deploy/gunicorn.conf.py --bind 127.0.0.1:8000 wsgi:app
+Restart=always
+RestartSec=5
+# ---- sandboxing: the app can only write its upload folders, cannot gain privileges or see other users' files ----
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/www/schoolexpert/var
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictSUIDSGID=yes
+RestrictRealtime=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+CapabilityBoundingSet=
+AmbientCapabilities=
+UMask=0027
+MemoryMax=2G
+TasksMax=512
+
+[Install]
+WantedBy=multi-user.target

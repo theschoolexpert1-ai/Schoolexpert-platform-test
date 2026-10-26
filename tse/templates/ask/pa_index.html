@@ -1,0 +1,34 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head, consent_line, status %}
+{% block title %}Personal Assistance — we visit schools for you{% endblock %}
+{% block body %}
+{{ page_head('The School Expert™ Personal Assistance', "If you can't visit schools yourself, our own team does it for you — never an outside agency, for your safety.") }}
+<section class="section"><div class="container"><div class="layout right">
+  <div>
+    <div class="card" style="margin-bottom:16px"><h2 style="font-size:1.2rem">Services</h2>
+      <div class="table-wrap"><table class="t"><tr><th>Service</th><th>What we do</th><th>Fee</th></tr>{% for s in services %}<tr><td><b>{{ s.name }}</b></td><td class="small">{{ s.description }}</td><td>{{ inr(s.price_paise) }}</td></tr>{% endfor %}</table></div>
+      <p class="small muted" style="margin-top:8px">+ location charge depending on the school's distance (multiple trips may be needed) · + GST. <b>We coordinate fee payment but never pay on your behalf</b> — you always pay the school directly online.</p>
+      <p class="small"><b>Available in:</b> {{ cities | map(attribute='city') | join(', ') }}.</p>
+    </div>
+    {% if mine %}<div class="card"><h3>Your requests</h3><div class="table-wrap"><table class="t">{% for r in mine %}<tr><td>#{{ r.id }}</td><td>{{ r.school_name }}</td><td>{{ status(r.status) }}</td><td><a href="{{ url_for('ask.pa_track', rid=r.id) }}">Track</a></td></tr>{% endfor %}</table></div></div>{% endif %}
+  </div>
+  <aside class="card">
+    <h3>Request assistance</h3>
+    {% if current_user and current_user.account_type == 'parent' %}
+    <form method="post" action="{{ url_for('ask.pa_request') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      {% if school %}<input type="hidden" name="listing_id" value="{{ school.id }}"><p><b>School:</b> {{ school.name }}</p>{% else %}
+      <div class="field"><label for="sn">School name</label><input id="sn" name="school_name" required></div>{% endif %}
+      <div class="row2"><div class="field"><label for="pc">City</label><select id="pc" name="city">{% for c in cities %}<option {% if school and school.city == c.city %}selected{% endif %}>{{ c.city }}</option>{% endfor %}</select></div>
+      <div class="field"><label for="dk">Approx. distance from city centre (km)</label><input id="dk" name="distance_km" inputmode="decimal" value="10"></div></div>
+      <fieldset><legend>Services</legend>{% for s in services if s.code != 'standard' %}<label class="opt"><input type="checkbox" name="services" value="{{ s.code }}"> {{ s.name }} ({{ inr(s.price_paise) }})</label>{% endfor %}
+        <div class="help">The standard coordination fee ({{ inr((services|selectattr('code','equalto','standard')|first).price_paise) }}) is always included.</div></fieldset>
+      <details><summary class="small"><b>Postal address</b> (only if we should post documents to you)</summary>
+        <div class="field"><label>Name</label><input name="addr_name" value="{{ current_user.name }}"></div><div class="field"><label>Phone</label><input name="addr_phone" value="{{ current_user.phone or '' }}"></div>
+        <div class="field"><label>Address line 1</label><input name="addr_line1"></div><div class="field"><label>Address line 2</label><input name="addr_line2"></div>
+        <div class="row2"><div class="field"><label>City</label><input name="addr_city"></div><div class="field"><label>PIN code</label><input name="addr_pincode" maxlength="6"></div></div></details>
+      <div class="field"><label for="nt">Notes for our team</label><textarea id="nt" name="notes" placeholder="Grade applying for, preferred visit dates…"></textarea></div>
+      {{ consent_line(notice) }}
+      <button class="btn btn-accent btn-block" style="margin-top:10px">See quote & pay</button></form>
+    {% else %}<p class="small muted">Personal Assistance is for parent accounts.</p><a class="btn btn-accent btn-block" href="{{ url_for('auth.signup', type='parent', next=request.path) }}">Create a parent account</a>{% endif %}
+  </aside>
+</div></div></section>
+{% endblock %}

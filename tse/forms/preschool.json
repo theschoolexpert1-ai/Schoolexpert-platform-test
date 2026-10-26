@@ -1,0 +1,799 @@
+{
+ "slug": "preschool",
+ "title": "Nursery / Preschool Registration Form",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Basic Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "school_preschool_name",
+     "label": "School / Preschool Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "brand_chain_name_if_applicable",
+     "label": "Brand / Chain Name (if applicable)",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "school_type",
+     "label": "School Type",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Nursery",
+      "Preschool",
+      "Playschool",
+      "Montessori School",
+      "Kindergarten",
+      "Early Learning Centre",
+      "Daycare with Preschool",
+      "Waldorf School",
+      "Reggio Emilia Preschool",
+      "Forest School"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "management_type",
+     "label": "Management Type",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Private",
+      "Franchise",
+      "Trust",
+      "Society",
+      "NGO"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Contact Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "address",
+     "label": "Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "district",
+     "label": "District",
+     "type": "text",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "pin_code",
+     "label": "PIN Code",
+     "type": "pincode",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "landmark",
+     "label": "Landmark",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "google_maps_link",
+     "label": "Google Maps Link",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "phone_number",
+     "label": "Phone Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "whatsapp_number",
+     "label": "WhatsApp Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "whatsapp"
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": true,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "social_media_links",
+     "label": "Social Media Links",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Contact Person",
+   "description": "",
+   "fields": [
+    {
+     "key": "principal_centre_head",
+     "label": "Principal / Centre Head",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "designation",
+     "label": "Designation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "email_2",
+     "label": "Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Age Groups & Programmes",
+   "description": "",
+   "fields": [
+    {
+     "key": "age_groups",
+     "label": "Age Groups",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "6–18 Months",
+      "18–24 Months",
+      "2–3 Years",
+      "3–4 Years",
+      "4–5 Years",
+      "5–6 Years"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "programmes_offered",
+     "label": "Programmes Offered",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Infant Programme",
+      "Toddler Programme",
+      "Playgroup",
+      "Nursery",
+      "Junior KG (LKG)",
+      "Senior KG (UKG)",
+      "Kindergarten",
+      "School Readiness Programme",
+      "After-school Programme",
+      "Holiday Camp"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Curriculum / Learning Approach",
+   "description": "",
+   "fields": [
+    {
+     "key": "curriculum_learning_approach",
+     "label": "Curriculum / Learning Approach",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Montessori",
+      "Play-way",
+      "Reggio Emilia",
+      "Waldorf / Steiner",
+      "HighScope",
+      "Multiple Intelligences",
+      "Inquiry-based Learning",
+      "Theme-based Learning",
+      "Experiential Learning",
+      "Integrated Curriculum",
+      "Proprietary Curriculum"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Languages of Instruction",
+   "description": "",
+   "fields": [
+    {
+     "key": "languages_of_instruction",
+     "label": "Languages of Instruction",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Gujarati",
+      "Bengali"
+     ],
+     "other": true,
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "School Timings",
+   "description": "",
+   "fields": [
+    {
+     "key": "half_day",
+     "label": "Half Day",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "full_day",
+     "label": "Full Day",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "flexible_timings",
+     "label": "Flexible Timings",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "extended_care",
+     "label": "Extended Care",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "daycare_timings",
+     "label": "Daycare Timings",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Daycare Facilities",
+   "description": "",
+   "fields": [
+    {
+     "key": "daycare_facilities",
+     "label": "Daycare Available",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "minimum_age_accepted",
+     "label": "Minimum Age Accepted",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed",
+     "showIf": {
+      "field": "daycare_facilities",
+      "equals": "Yes"
+     }
+    },
+    {
+     "key": "operating_hours",
+     "label": "Operating Hours",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed",
+     "showIf": {
+      "field": "daycare_facilities",
+      "equals": "Yes"
+     }
+    },
+    {
+     "key": "weekend_care",
+     "label": "Weekend Care",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed",
+     "showIf": {
+      "field": "daycare_facilities",
+      "equals": "Yes"
+     }
+    },
+    {
+     "key": "emergency_daycare",
+     "label": "Emergency Daycare",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed",
+     "showIf": {
+      "field": "daycare_facilities",
+      "equals": "Yes"
+     }
+    },
+    {
+     "key": "meal_facility",
+     "label": "Meal Facility",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed",
+     "showIf": {
+      "field": "daycare_facilities",
+      "equals": "Yes"
+     }
+    },
+    {
+     "key": "nap_room",
+     "label": "Nap Room",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed",
+     "showIf": {
+      "field": "daycare_facilities",
+      "equals": "Yes"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Teacher Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "number_of_teachers",
+     "label": "Number of Teachers",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "teacher_child_ratio",
+     "label": "Teacher–Child Ratio",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "ecce_trained_teachers",
+     "label": "ECCE Trained Teachers",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "montessori_trained_teachers",
+     "label": "Montessori Trained Teachers",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "first_aid_trained_staff",
+     "label": "First Aid Trained Staff",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Facilities",
+   "description": "",
+   "fields": [
+    {
+     "key": "facilities",
+     "label": "Facilities",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Air-conditioned Classrooms",
+      "CCTV",
+      "Child-safe Furniture",
+      "Indoor Play Area",
+      "Outdoor Play Area",
+      "Sand Pit",
+      "Splash Pool / Water Play",
+      "Activity Room",
+      "Reading Corner",
+      "Library",
+      "STEM Corner",
+      "Music Room",
+      "Dance Room",
+      "Art & Craft Room",
+      "Smart Classrooms",
+      "Garden / Nature Area",
+      "Kitchen",
+      "Sleeping Area",
+      "Child-friendly Washrooms",
+      "Drinking Water",
+      "Transport"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Activities",
+   "description": "",
+   "fields": [
+    {
+     "key": "activities",
+     "label": "Activities",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Storytelling",
+      "Music & Movement",
+      "Dance",
+      "Art & Craft",
+      "Yoga",
+      "Phonics",
+      "STEM Activities",
+      "Nature Walks",
+      "Gardening",
+      "Puppet Shows",
+      "Field Trips",
+      "Festival Celebrations",
+      "Show & Tell",
+      "Cooking Without Fire"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Student Support",
+   "description": "",
+   "fields": [
+    {
+     "key": "student_support",
+     "label": "Student Support",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Child Counselling",
+      "Developmental Screening",
+      "Inclusive Education Support",
+      "Special Educator",
+      "Speech Therapy Referral",
+      "Occupational Therapy Referral",
+      "Parent Counselling"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Health & Safety",
+   "description": "",
+   "fields": [
+    {
+     "key": "health_safety",
+     "label": "Health & Safety",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "CCTV Monitoring",
+      "Biometric Entry",
+      "Visitor Management",
+      "Child-safe Campus",
+      "Fire Safety Equipment",
+      "First Aid Room",
+      "Trained Nurse",
+      "Child Protection Policy",
+      "Background Verified Staff",
+      "Emergency Evacuation Plan"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Meals",
+   "description": "",
+   "fields": [
+    {
+     "key": "meals",
+     "label": "Meals",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Breakfast",
+      "Lunch",
+      "Snacks",
+      "Nutritionist-designed Menu",
+      "Allergy-aware Meals"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Admissions",
+   "description": "",
+   "fields": [
+    {
+     "key": "rolling_admissions",
+     "label": "Rolling Admissions",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "assessment_required",
+     "label": "Assessment Required",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "parent_interaction",
+     "label": "Parent Interaction",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "trial_class_available",
+     "label": "Trial Class Available",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Parent Engagement",
+   "description": "",
+   "fields": [
+    {
+     "key": "parent_engagement",
+     "label": "Parent Engagement",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Parent Orientation",
+      "Parent Workshops",
+      "PTMs",
+      "Parent App",
+      "Daily Activity Updates",
+      "Live CCTV Access (if offered)",
+      "Digital Progress Reports",
+      "Live CCTV Access"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Recognition & Memberships",
+   "description": "",
+   "fields": [
+    {
+     "key": "recognition_memberships",
+     "label": "Recognition & Memberships",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Registered under State Preschool Guidelines (where applicable)",
+      "Montessori Association Member",
+      "Early Childhood Association (ECA)",
+      "Indian Montessori Centre (IMC)",
+      "Association for Preparatory Education and Research (APER)",
+      "ISO Certified",
+      "Registered under State Preschool Guidelines",
+      "Other Professional Memberships"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Awards & Achievements",
+   "description": "",
+   "fields": [
+    {
+     "key": "awards",
+     "label": "Awards",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "certifications",
+     "label": "Certifications",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "media_coverage",
+     "label": "Media Coverage",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "parent_choice_awards",
+     "label": "Parent Choice Awards",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Fee Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "registration_fee",
+     "label": "Registration Fee",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "annual_fee",
+     "label": "Annual Fee",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "tuition_fee_range",
+     "label": "Tuition Fee Range",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "daycare_charges",
+     "label": "Daycare Charges",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "transport_fee",
+     "label": "Transport Fee",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "meal_charges",
+     "label": "Meal Charges",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Media Uploads",
+   "description": "",
+   "fields": [
+    {
+     "key": "school_logo",
+     "label": "School Logo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "campus_photos",
+     "label": "Campus Photos",
+     "type": "files",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "classroom_photos",
+     "label": "Classroom Photos",
+     "type": "files",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "activity_photos",
+     "label": "Activity Photos",
+     "type": "files",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "video_tour",
+     "label": "Video Tour",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "prospectus_pdf",
+     "label": "Prospectus (PDF)",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  }
+ ],
+ "category": "schools",
+ "label": "Nursery / Preschools",
+ "entity": "organisation",
+ "outro": []
+}

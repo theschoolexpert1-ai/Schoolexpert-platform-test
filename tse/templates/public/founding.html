@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Founding Partner Programme{% endblock %}
+{% block body %}
+{{ page_head('The School Expert™ Founding Partner Programme', 'For eligible registered vendors, institutions, businesses and organisations that wish to build a stronger presence within India’s education ecosystem and contribute to its growth.') }}
+<section class="section"><div class="container narrow">
+  {% for f in faqs %}<details class="faq" {% if loop.index <= 2 %}open{% endif %}><summary>{{ f.question }}</summary><div class="prose">{{ f.answer | md }}</div></details>{% endfor %}
+  <h2 style="margin-top:28px">Founding Partner fees</h2>
+  {% set action = None %}{% include '_plan_cards.html' %}
+  <div class="notice" style="margin-top:20px"><b>Apply:</b> email your organisation's profile, services and a brief proposal to <a href="mailto:{{ cfg.PARTNER_EMAIL }}?subject=Founding%20Partner%20Application">{{ cfg.PARTNER_EMAIL }}</a> with the subject line <b>Founding Partner Application</b> (or <b>Exclusive Founding Partners Application</b> for category exclusivity). Applications are subject to review and mutually agreed terms.</div>
+</div></section>
+{% endblock %}

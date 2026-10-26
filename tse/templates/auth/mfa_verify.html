@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block title %}Two-step verification{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}<section class="section"><div class="container xnarrow"><div class="card pad-lg">
+<h1 style="font-size:1.5rem">Two-step verification</h1>
+<p class="muted">Enter the 6-digit code from your authenticator app. Lost your phone? Use one of your recovery codes.</p>
+<form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+<div class="field"><label for="code">Code</label><input id="code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="20" required autofocus></div>
+<button class="btn btn-primary btn-block btn-lg">Verify</button></form>
+<p class="small muted" style="margin-top:12px">Codes expire every 30 seconds. If it keeps failing, check that your phone's clock is set automatically.</p>
+</div></div></section>{% endblock %}

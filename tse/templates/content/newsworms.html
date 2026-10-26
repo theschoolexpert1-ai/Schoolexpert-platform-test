@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}NewsWorms — the newspaper for curious kids{% endblock %}
+{% block meta_description %}NewsWorms is The School Expert™ children's newspaper — current affairs, science, puzzles and stories in age-banded editions, for parents to download.{% endblock %}
+{% block body %}
+<section class="hero" style="padding:46px 0;background:linear-gradient(135deg,#0D5A2C,#2E9D5A)"><div class="container"><span class="eyebrow">A The School Expert™ initiative</span><h1>🐛 NewsWorms</h1><p class="lead">The newspaper for curious kids — current affairs explained simply, science you can try at home, puzzles, and stories. Age-banded editions, delivered to parents.</p></div></section>
+<section class="section"><div class="container"><div class="layout right">
+  <div><h2>Issues</h2>{% for n in rows %}<a class="card" style="display:block;margin-bottom:10px" href="{{ url_for('content.issue', slug=n.slug) }}"><span class="chip {{ 'ok' if n.access == 'free' else 'gold' }}">{{ 'Free sample' if n.access == 'free' else 'Subscribers' }}</span>{% if n.age_band %} <span class="chip">Ages {{ n.age_band }}</span>{% endif %}<h3 style="margin-top:6px">{{ n.title }}</h3><p class="small muted">{{ n.summary or '' }}</p></a>{% else %}<div class="empty">The first edition is on its way.</div>{% endfor %}
+    <p class="small muted">Free grade-wise worksheets are in <a href="{{ url_for('content.resources') }}">Resources</a>.</p></div>
+  <aside class="card sticky">{% if active %}<h3>You're subscribed 🎉</h3><p class="small">All issues are unlocked.</p>{% else %}
+    <h3>{{ plan.name }}</h3><div class="price">{{ inr(plan.price_paise) }} <small>/ year + GST</small></div><ul class="small">{% for f in plan.features %}<li>{{ f }}</li>{% endfor %}</ul>
+    {% if current_user %}<form method="post" action="{{ url_for('content.buy_subscription', code=plan.code) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-accent btn-block">Subscribe</button></form>
+    {% else %}<a class="btn btn-accent btn-block" href="{{ url_for('auth.signup', type='parent', next=request.path) }}">Create a parent account</a>{% endif %}
+    <p class="small muted" style="margin-top:8px">Subscriptions are managed by parents. We never collect children's details.</p>{% endif %}</aside>
+</div></div></section>
+{% endblock %}

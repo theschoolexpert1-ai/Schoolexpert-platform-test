@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>The School Expert™</title><link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}?v=3">
+<style>body{background:transparent;margin:0}.embed{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.embed h2{font-size:1.1rem}</style></head>
+<body><div class="embed">
+{% if kind == 'school-card' %}
+  <a href="{{ cfg.SITE_URL }}/l/{{ l.slug }}?utm_source=widget&utm_medium=embed&utm_campaign=school-card" target="_blank" rel="noopener" style="display:flex;gap:12px;align-items:center;color:inherit;text-decoration:none">
+  <div class="avatar">{% if l.logo_url %}<img src="{{ l.logo_url }}" alt="">{% else %}{{ l.name | initials }}{% endif %}</div>
+  <div><b>{{ l.name }}</b>{% if l.verified %}<div><span class="chip ok">✔ Verified by The School Expert™</span></div>{% endif %}{% if l.rating_count %}<div class="small">{{ l.rating_avg | stars }} {{ '%.1f' % l.rating_avg }} · {{ l.rating_count }} verified reviews</div>{% endif %}</div></a>
+{% else %}
+  <h2>✨ Find the right school</h2>
+  <form action="{{ cfg.SITE_URL }}/school-match" method="get" target="_blank">
+    <input type="hidden" name="utm_source" value="widget"><input type="hidden" name="utm_medium" value="embed"><input type="hidden" name="utm_campaign" value="{{ kind }}">
+    <div class="row2"><div class="field"><label for="c">City</label><input id="c" name="city" list="cs" placeholder="Bengaluru"><datalist id="cs">{% for c in cities %}<option>{{ c }}</option>{% endfor %}</datalist></div>
+    <div class="field"><label for="g">Grade</label><select id="g" name="grade"><option value="">Any</option>{% for gr in M.GRADES %}<option>{{ gr }}</option>{% endfor %}</select></div></div>
+    <div class="opts inline">{% for b in M.BOARDS %}<label class="opt"><input type="checkbox" name="boards" value="{{ b }}"> {{ b }}</label>{% endfor %}</div>
+    <button class="btn btn-accent btn-block" style="margin-top:10px">Find my matches →</button></form>
+  <p class="small muted" style="margin:8px 0 0">Powered by <a href="{{ cfg.SITE_URL }}/?utm_source=widget&utm_medium=embed" target="_blank" rel="noopener">The School Expert™</a></p>
+{% endif %}
+</div></body></html>

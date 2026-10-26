@@ -1,0 +1,715 @@
+{
+ "slug": "teacher-registration",
+ "title": "Teacher Registration Form",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Personal Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "full_name",
+     "label": "Full Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "gender",
+     "label": "Gender",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Female",
+      "Male",
+      "Prefer not to say"
+     ],
+     "other": true,
+     "visibility": "private"
+    },
+    {
+     "key": "date_of_birth",
+     "label": "Date of Birth",
+     "type": "date",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "profile_photograph",
+     "label": "Profile Photograph",
+     "type": "file",
+     "required": true,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "private",
+     "role": "phone"
+    },
+    {
+     "key": "whatsapp_number",
+     "label": "WhatsApp Number",
+     "type": "tel",
+     "required": false,
+     "visibility": "private",
+     "role": "whatsapp"
+    },
+    {
+     "key": "email_address",
+     "label": "Email Address",
+     "type": "email",
+     "required": true,
+     "visibility": "private",
+     "role": "email"
+    },
+    {
+     "key": "current_city",
+     "label": "Current City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "current_district",
+     "label": "Current District",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "pin_code",
+     "label": "PIN Code",
+     "type": "pincode",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Professional Summary",
+   "description": "",
+   "fields": [
+    {
+     "key": "professional_headline",
+     "label": "Professional Headline",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "headline",
+     "help": "e.g. CBSE Mathematics Teacher, Grades 6–10"
+    },
+    {
+     "key": "about_me",
+     "label": "About Me",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about",
+     "help": "80–150 words about your teaching philosophy and strengths"
+    },
+    {
+     "key": "total_teaching_experience",
+     "label": "Total Teaching Experience",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Fresher",
+      "Less than 1 year",
+      "1–3 years",
+      "3–5 years",
+      "5–10 years",
+      "10–20 years",
+      "More than 20 years"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "current_employment_status",
+     "label": "Current Employment Status",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Employed (school)",
+      "Employed (other education organisation)",
+      "Freelance / Tutor",
+      "Looking for opportunities",
+      "Career break",
+      "Retired"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "current_designation",
+     "label": "Current Designation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "current_school_organisation",
+     "label": "Current School / Organisation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Educational Qualifications",
+   "description": "",
+   "fields": [
+    {
+     "key": "highest_qualification",
+     "label": "Highest Qualification",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Diploma",
+      "Graduate",
+      "Postgraduate",
+      "M.Phil.",
+      "Ph.D."
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "qualifications",
+     "label": "Qualifications",
+     "type": "repeat",
+     "required": false,
+     "max": 5,
+     "fields": [
+      {
+       "key": "degree_qualification",
+       "label": "Degree / Qualification",
+       "type": "text"
+      },
+      {
+       "key": "subject_specialisation",
+       "label": "Subject / Specialisation",
+       "type": "text"
+      },
+      {
+       "key": "university_institution",
+       "label": "University / Institution",
+       "type": "text"
+      },
+      {
+       "key": "year_of_completion",
+       "label": "Year of Completion",
+       "type": "year"
+      }
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Teaching Qualifications & Eligibility",
+   "description": "",
+   "fields": [
+    {
+     "key": "teaching_qualifications",
+     "label": "Teaching Qualifications",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "B.Ed.",
+      "M.Ed.",
+      "D.El.Ed.",
+      "NTT / ECCE",
+      "Montessori Training",
+      "B.P.Ed. / M.P.Ed.",
+      "Special Education (RCI)",
+      "None"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "teacher_eligibility_tests_cleared",
+     "label": "Teacher Eligibility Tests Cleared",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "CTET",
+      "State TET",
+      "None"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "tet_ctet_details",
+     "label": "TET / CTET Details",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed",
+     "help": "Paper, year and score (optional)"
+    }
+   ]
+  },
+  {
+   "title": "Teaching Profile",
+   "description": "",
+   "fields": [
+    {
+     "key": "subjects_you_teach",
+     "label": "Subjects You Teach",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Mathematics",
+      "Science",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Sanskrit",
+      "French",
+      "German",
+      "Social Science",
+      "History",
+      "Geography",
+      "Economics",
+      "Accountancy",
+      "Business Studies",
+      "Computer Science",
+      "Coding / AI",
+      "EVS",
+      "General Knowledge",
+      "Art & Craft",
+      "Music",
+      "Dance",
+      "Physical Education",
+      "Yoga",
+      "Life Skills"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "grades_levels_taught",
+     "label": "Grades / Levels Taught",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Pre-primary",
+      "Primary (1–5)",
+      "Middle (6–8)",
+      "Secondary (9–10)",
+      "Senior Secondary (11–12)"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "boards_curricula_experience",
+     "label": "Boards / Curricula Experience",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "CBSE",
+      "CISCE / ICSE",
+      "State Board",
+      "IB",
+      "Cambridge / IGCSE",
+      "NIOS"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "languages_you_can_teach_in",
+     "label": "Languages You Can Teach In",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Bengali",
+      "Gujarati"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "teaching_methods",
+     "label": "Teaching Methods",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Activity-based learning",
+      "Experiential learning",
+      "Project-based learning",
+      "Inquiry-based learning",
+      "Flipped classroom",
+      "Differentiated instruction",
+      "Blended / digital teaching",
+      "Inclusive classroom practices"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Work Experience",
+   "description": "",
+   "fields": [
+    {
+     "key": "work_experience",
+     "label": "Work Experience",
+     "type": "repeat",
+     "required": false,
+     "max": 8,
+     "fields": [
+      {
+       "key": "school_organisation",
+       "label": "School / Organisation",
+       "type": "text"
+      },
+      {
+       "key": "designation",
+       "label": "Designation",
+       "type": "text"
+      },
+      {
+       "key": "board",
+       "label": "Board",
+       "type": "text"
+      },
+      {
+       "key": "from_year",
+       "label": "From (year)",
+       "type": "year"
+      },
+      {
+       "key": "to_year_or_present",
+       "label": "To (year or Present)",
+       "type": "text"
+      },
+      {
+       "key": "subjects_grades",
+       "label": "Subjects & Grades",
+       "type": "text"
+      },
+      {
+       "key": "key_responsibilities_achievements",
+       "label": "Key Responsibilities & Achievements",
+       "type": "textarea"
+      }
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Skills & Certifications",
+   "description": "",
+   "fields": [
+    {
+     "key": "digital_skills",
+     "label": "Digital Skills",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Google Workspace / Classroom",
+      "Microsoft 365 / Teams",
+      "Smart board",
+      "LMS platforms",
+      "Canva / content creation",
+      "AI tools for teaching",
+      "Online assessment tools",
+      "Video lessons"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "additional_responsibilities_handled",
+     "label": "Additional Responsibilities Handled",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Class teacher",
+      "Subject coordinator",
+      "Exam coordinator",
+      "Olympiad / competition mentor",
+      "Club in-charge",
+      "House master / mistress",
+      "Admissions support",
+      "Parent communication",
+      "Event management",
+      "Mentoring new teachers"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "certifications_trainings",
+     "label": "Certifications & Trainings",
+     "type": "repeat",
+     "required": false,
+     "max": 8,
+     "fields": [
+      {
+       "key": "certification_training",
+       "label": "Certification / Training",
+       "type": "text"
+      },
+      {
+       "key": "issuing_body",
+       "label": "Issuing Body",
+       "type": "text"
+      },
+      {
+       "key": "year",
+       "label": "Year",
+       "type": "year"
+      }
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Achievements",
+   "description": "",
+   "fields": [
+    {
+     "key": "awards_recognition",
+     "label": "Awards & Recognition",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "student_outcomes_results",
+     "label": "Student Outcomes / Results",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "publications_workshops_or_talks",
+     "label": "Publications, Workshops or Talks",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Job Preferences",
+   "description": "",
+   "fields": [
+    {
+     "key": "open_to_new_opportunities",
+     "label": "Open to New Opportunities",
+     "type": "yesno",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "preferred_roles",
+     "label": "Preferred Roles",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Pre-primary Teacher",
+      "Primary Teacher (PRT)",
+      "Trained Graduate Teacher (TGT)",
+      "Post Graduate Teacher (PGT)",
+      "Special Educator",
+      "Counsellor",
+      "Coordinator",
+      "Vice Principal",
+      "Principal",
+      "Online Tutor",
+      "Curriculum Developer",
+      "Teacher Trainer"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "preferred_job_type",
+     "label": "Preferred Job Type",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Full-time",
+      "Part-time",
+      "Contract",
+      "Online / Remote",
+      "Substitute / Visiting"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "preferred_locations",
+     "label": "Preferred Locations",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "willing_to_relocate",
+     "label": "Willing to Relocate",
+     "type": "yesno",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "expected_salary_per_month",
+     "label": "Expected Salary (per month)",
+     "type": "text",
+     "required": false,
+     "visibility": "private",
+     "help": "Kept private, shared only with schools you apply to"
+    },
+    {
+     "key": "notice_period",
+     "label": "Notice Period",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Immediate",
+      "15 days",
+      "1 month",
+      "2 months",
+      "3 months"
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Online Presence & Documents",
+   "description": "",
+   "fields": [
+    {
+     "key": "linkedin_profile",
+     "label": "LinkedIn Profile",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "portfolio_demo_lesson_link",
+     "label": "Portfolio / Demo Lesson Link",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "upload_cv_optional",
+     "label": "Upload CV",
+     "type": "file",
+     "required": false,
+     "visibility": "private",
+     "help": "You can also generate a CV with AI from your profile"
+    },
+    {
+     "key": "qualification_certificates",
+     "label": "Qualification Certificates",
+     "type": "files",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "experience_letters",
+     "label": "Experience Letters",
+     "type": "files",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Safeguarding & Verification",
+   "description": "",
+   "fields": [
+    {
+     "key": "are_you_willing_to_undergo_background_verificati",
+     "label": "Are you willing to undergo background verification by schools you apply to?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "have_you_completed_child_safeguarding_pocso_awar",
+     "label": "Have you completed child-safeguarding / POCSO awareness training?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Willing to complete"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Declaration & Consent",
+   "description": "",
+   "fields": [
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm that the information provided is true and accurate, and I understand that The School Expert™ may verify the details and documents submitted.",
+     "visibility": "private"
+    },
+    {
+     "key": "profile_visibility",
+     "label": "Profile visibility",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Visible to verified schools only",
+      "Visible on the public teacher directory (name, headline, subjects, city)",
+      "Hidden (I will apply to jobs myself)"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "community_guidelines",
+     "label": "Community guidelines",
+     "type": "consent",
+     "required": true,
+     "text": "I agree to follow The School Expert™ Teachers Community guidelines, including respectful conduct and never sharing student personal information.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "provisional": "Section 1 matches the live form; sections 2–12 are provisional until the full form is uploaded.",
+ "category": "teachers",
+ "label": "Teachers",
+ "entity": "individual"
+}

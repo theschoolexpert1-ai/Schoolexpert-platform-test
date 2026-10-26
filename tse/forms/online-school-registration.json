@@ -1,0 +1,307 @@
+{
+ "slug": "online-school-registration",
+ "title": "Online School Registration Form",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Basic Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "name_of_online_school_institution",
+     "label": "Name of Online School / Institution",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "legal_entity_name",
+     "label": "Legal Entity Name",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": true,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "official_email_id",
+     "label": "Official Email ID",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "contact_number",
+     "label": "Contact Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "country_of_operation",
+     "label": "Country of Operation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "states_countries_served",
+     "label": "States / Countries Served",
+     "type": "text",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "school_institution_logo",
+     "label": "School / Institution Logo",
+     "type": "file",
+     "required": true,
+     "visibility": "public",
+     "role": "logo"
+    }
+   ]
+  },
+  {
+   "title": "Recognition",
+   "description": "",
+   "fields": [
+    {
+     "key": "board_curriculum",
+     "label": "Board / Curriculum",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "CBSE",
+      "Cambridge International",
+      "IB",
+      "NIOS",
+      "American curriculum",
+      "State Board"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "recognition_accreditation_details",
+     "label": "Recognition / Accreditation Details",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Academics",
+   "description": "",
+   "fields": [
+    {
+     "key": "grades_offered",
+     "label": "Grades Offered",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Nursery",
+      "LKG",
+      "UKG",
+      "Grade 1–5",
+      "Grade 6–8",
+      "Grade 9–10",
+      "Grade 11–12"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "subjects_offered",
+     "label": "Subjects Offered",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "class_format",
+     "label": "Class Format",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Live classes",
+      "Recorded lessons",
+      "Self-paced",
+      "Hybrid with learning centres"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "class_size",
+     "label": "Class Size",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "weekly_live_hours",
+     "label": "Weekly Live Hours",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "assessment_exams",
+     "label": "Assessment & Exams",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Student Support",
+   "description": "",
+   "fields": [
+    {
+     "key": "student_support",
+     "label": "Student Support",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Academic mentor",
+      "Counsellor",
+      "Special educator",
+      "Doubt-clearing sessions",
+      "Parent–teacher meetings",
+      "Learning support"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "technology_platform",
+     "label": "Technology Platform",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Fees",
+   "description": "",
+   "fields": [
+    {
+     "key": "annual_fee_range",
+     "label": "Annual Fee Range",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "payment_options",
+     "label": "Payment Options",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Annual",
+      "Term-wise",
+      "Monthly",
+      "EMI"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "scholarships",
+     "label": "Scholarships",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Contact Person",
+   "description": "",
+   "fields": [
+    {
+     "key": "contact_person",
+     "label": "Contact Person",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "designation",
+     "label": "Designation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Safeguarding & Data",
+   "description": "",
+   "fields": [
+    {
+     "key": "child_protection_policy",
+     "label": "Child-protection policy",
+     "type": "yesno",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_publish_a_privacy_policy_for_student_data",
+     "label": "Do you publish a privacy policy for student data?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm the information is accurate and agree to verification by The School Expert™.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "provisional": "Section 1 matches the live form; later sections are provisional until the full form is uploaded.",
+ "category": "schools",
+ "label": "Online Schools",
+ "entity": "organisation"
+}

@@ -1,0 +1,25 @@
+{% extends 'admin/_layout.html' %}{% from '_macros.html' import status %}{% block title %}Growth & SEO Desk{% endblock %}
+{% block admin %}<div class="section-title"><h1 style="font-size:1.5rem;margin:0">Growth & SEO Desk</h1>
+<div class="seg">{% for d in (7, 30, 90) %}<a class="{{ 'on' if days == d }}" href="?days={{ d }}">{{ d }} days</a>{% endfor %}</div></div>
+<div class="card"><h3>Funnel</h3><div class="funnel">
+<div><b>{{ funnel.visitors_matched }}</b>AI School Match runs</div><div><b>{{ funnel.signups }}</b>Sign-ups</div><div><b>{{ funnel.regs_started }}</b>Registrations started</div>
+<div><b>{{ funnel.regs_submitted }}</b>Registrations submitted</div><div><b>{{ funnel.paid_orgs }}</b>Schools/vendors paid</div><div><b>{{ funnel.unlocks }}</b>Parent unlocks</div></div></div>
+<div class="grid g2">
+{% for title, rows, money in [('Sign-ups by source', signups, false), ('Organisations by source', orgs, false), ('Paid orders by source', orders, true)] %}
+<div class="card"><h3>{{ title }}</h3><table class="t"><tr><th>Source / medium</th><th>Campaign</th><th>#</th>{% if money %}<th>Revenue</th>{% endif %}</tr>
+{% for r in rows %}<tr><td>{{ r.src }}{% if r.med %} / {{ r.med }}{% endif %}</td><td class="small">{{ r.camp or '—' }}</td><td>{{ r.n }}</td>{% if money %}<td>{{ inr(r.amt or 0) }}</td>{% endif %}</tr>{% else %}<tr><td colspan="4" class="muted">No data yet.</td></tr>{% endfor %}</table></div>{% endfor %}
+<div class="card"><h3>Top landing pages (sign-ups)</h3><table class="t">{% for r in landing %}<tr><td class="small">{{ r.page }}</td><td>{{ r.n }}</td></tr>{% else %}<tr><td class="muted">No data yet.</td></tr>{% endfor %}</table>
+<a class="btn btn-outline btn-sm" href="{{ url_for('admin.utm') }}">Build a campaign link</a></div>
+<div class="card"><h3>AI School Match demand</h3><p class="small muted">{{ match.runs }} runs · {{ match.ai }} with AI summary. Use this to plan city campaigns and school sales outreach.</p>
+<div class="grid g2"><table class="t"><tr><th>City</th><th>Runs</th></tr>{% for c in match.cities %}<tr><td>{{ c.city }}</td><td>{{ c.n }}</td></tr>{% endfor %}</table>
+<table class="t"><tr><th>Grade</th><th>Runs</th></tr>{% for c in match.grades %}<tr><td>{{ c.grade }}</td><td>{{ c.n }}</td></tr>{% endfor %}</table></div></div>
+</div>
+<div class="card" id="ads"><h3>Sponsored banners</h3><p class="small muted">Approve banners before they go live. Banners are always labelled “Sponsored” and never affect rankings.</p>
+<div class="table-wrap"><table class="t"><tr><th>Banner</th><th>Advertiser</th><th>Placement</th><th>Dates</th><th>Impr. / clicks</th><th>Status</th><th></th></tr>
+{% for a in ads %}<tr><td>{% if a.image_url %}<img src="{{ a.image_url }}" alt="" style="width:60px;border-radius:6px;vertical-align:middle"> {% endif %}{{ a.title }}<div class="small muted">{{ a.link_url }}</div></td><td>{{ a.org_name or 'TSE' }}</td><td class="small">{{ a.placement }}{% if a.city %} · {{ a.city }}{% endif %}</td>
+<td class="small">{{ a.starts_on | dt }} – {{ a.ends_on | dt }}</td><td>{{ a.impressions }} / {{ a.clicks }}</td><td>{{ status(a.status) }}{% if not a.active %} <span class="chip">paused</span>{% endif %}</td>
+<td><form method="post" action="{{ url_for('admin.ads') }}" class="btn-row"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="id" value="{{ a.id }}">
+{% if a.status != 'approved' %}<button class="btn btn-ghost btn-sm" name="action" value="approve">Approve</button>{% endif %}{% if a.status != 'rejected' %}<input name="reason" placeholder="Reason" size="10" aria-label="Rejection reason"><button class="btn btn-ghost btn-sm" name="action" value="reject">Reject</button>{% endif %}
+<button class="btn btn-ghost btn-sm" name="action" value="pause">{{ 'Resume' if not a.active else 'Pause' }}</button></form></td></tr>
+{% else %}<tr><td colspan="7" class="muted">No banners.</td></tr>{% endfor %}</table></div></div>
+{% endblock %}

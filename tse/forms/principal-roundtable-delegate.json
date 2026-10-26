@@ -1,0 +1,179 @@
+{
+ "slug": "principal-roundtable-delegate",
+ "title": "Principal Roundtables India — Delegate Registration",
+ "intro": [
+  "The School Expert invites you to a candid virtual conversation with fellow Principals — a space to share experiences, exchange ideas, and learn from peers navigating similar challenges."
+ ],
+ "sections": [
+  {
+   "title": "Personal & School Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "full_name",
+     "label": "Full Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "designation",
+     "label": "Designation",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed",
+     "help": "e.g. Principal / Vice Principal / Parent"
+    },
+    {
+     "key": "school_name",
+     "label": "School Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public"
+    },
+    {
+     "key": "school_address",
+     "label": "School Address",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "board_affiliation",
+     "label": "Board Affiliation",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "CBSE",
+      "ICSE",
+      "State Board",
+      "IB"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "total_years_of_experience",
+     "label": "Total Years of Experience",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Contact Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "private",
+     "role": "phone"
+    },
+    {
+     "key": "whatsapp_number_if_different",
+     "label": "WhatsApp Number (if different)",
+     "type": "tel",
+     "required": false,
+     "visibility": "private",
+     "role": "whatsapp"
+    },
+    {
+     "key": "email_address",
+     "label": "Email Address",
+     "type": "email",
+     "required": true,
+     "visibility": "private",
+     "role": "email"
+    }
+   ]
+  },
+  {
+   "title": "Roundtable Preferences",
+   "description": "",
+   "fields": [
+    {
+     "key": "topics_you_would_most_like_to_discuss_select_up_",
+     "label": "Topics you would most like to discuss (select up to 3)",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "School Leadership & Governance",
+      "EdTech & Digital Transformation",
+      "Curriculum & Pedagogy Innovation",
+      "Student Mental Health & Wellbeing",
+      "Admissions & Parent Engagement",
+      "Staff Recruitment & Retention",
+      "Compliance & Regulatory Updates",
+      "Infrastructure & Financial Planning",
+      "Fee Management & Financial Sustainability",
+      "Extracurricular & Co-Scholastic Programs",
+      "Safety, Security & Child Protection",
+      "Inclusive Education & Special Needs Support",
+      "Career Guidance & University Counselling",
+      "Alumni Engagement & School Branding",
+      "Sustainability & Green Campus Initiatives",
+      "Assessment Reform & Report Card Design",
+      "Screen Time & Healthy Technology Use",
+      "Exam Stress & Academic Pressure",
+      "Parent-Teacher Communication & Transparency",
+      "Bullying Prevention & Peer Relationships",
+      "Balancing Academics with Sports & Arts",
+      "Homework Load & Study Habits",
+      "Value for Money: Fees vs. Outcomes",
+      "Preparing Children for the Future (AI, Careers, Life Skills)"
+     ],
+     "maxSelect": 3,
+     "visibility": "detailed"
+    },
+    {
+     "key": "any_specific_challenge_you_d_like_the_group_to_h",
+     "label": "Any specific challenge you'd like the group to help solve",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Confirmation",
+   "description": "",
+   "fields": [
+    {
+     "key": "confirmation",
+     "label": "Confirmation",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm that the details provided above are accurate and I would like to register for this virtual Principal Roundtables India session. The meeting link will be shared to the email address provided.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [
+  "The session link and calendar invite will be sent to your registered email before the session."
+ ],
+ "category": "events",
+ "label": "Principal Roundtables – Delegate",
+ "entity": "individual"
+}

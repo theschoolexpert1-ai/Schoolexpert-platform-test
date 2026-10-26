@@ -1,0 +1,15 @@
+{% extends 'admin/_layout.html' %}{% block title %}Teachers Hub Desk{% endblock %}
+{% block admin %}
+<div class="section-title"><h1 style="font-size:1.5rem;margin:0">Teachers Hub Desk</h1>
+  <div class="btn-row"><a class="btn btn-sm btn-primary" href="{{ url_for('admin.cms_edit', table='courses') }}">+ Course</a><a class="btn btn-sm btn-outline" href="{{ url_for('admin.cms_list', table='course_lessons') }}">Lessons</a><a class="btn btn-sm btn-outline" href="{{ url_for('admin.cms_list', table='tutorials') }}">Tutorials</a><a class="btn btn-sm btn-outline" href="{{ url_for('admin.events_desk') }}">Workshops (events)</a></div></div>
+<div class="kpis">{% for k, l in [('members','Hub members'),('visible','In directory'),('mentors','Approved mentors'),('enrolments','Course enrolments'),('certificates','Certificates issued'),('cpd_hours','CPD hours earned'),('connections','Connections'),('messages_7d','Messages (7 days)'),('mentorships','Active mentorships'),('plans','Lesson plans')] %}<div class="kpi"><b>{{ stats[k] }}</b><span>{{ l }}</span></div>{% endfor %}</div>
+<div class="card"><h3>Mentor applications</h3><p class="small muted">Check the teacher's profile and experience before approving. Approved mentors are listed to all teachers.</p>
+<div class="table-wrap"><table class="t"><tr><th>Teacher</th><th>Role & school</th><th>Experience</th><th>Bio</th><th></th></tr>
+{% for m in pending %}<tr><td><b>{{ m.name }}</b><div class="small muted">{{ m.email }} · {{ m.city or '' }}</div>{% if m.profile_slug %}<a class="small" href="{{ url_for('teachers.profile', slug=m.profile_slug) }}">Career profile</a>{% endif %}</td>
+<td class="small">{{ m.designation }}<br>{{ m.school }}</td><td>{{ m.experience_years }} yrs</td><td class="small">{{ m.bio }}</td>
+<td><form method="post" action="{{ url_for('admin.teachers_hub_mentor', uid=m.user_id) }}" class="btn-row"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-sm btn-accent" name="decision" value="approve">Approve</button><button class="btn btn-sm btn-ghost" name="decision" value="reject">Reject</button></form></td></tr>
+{% else %}<tr><td colspan="5" class="muted">No pending applications.</td></tr>{% endfor %}</table></div></div>
+<div class="card"><h3>Courses</h3><div class="table-wrap"><table class="t"><tr><th>Course</th><th>Lessons</th><th>CPD h</th><th>Learners</th><th>Completed</th><th>Status</th><th></th></tr>
+{% for c in courses %}<tr><td>{{ c.title }}<div class="small muted">{{ c.category }} · {{ c.level }}</div></td><td>{{ c.lessons }}</td><td>{{ c.cpd_hours }}</td><td>{{ c.learners }}</td><td>{{ c.completed }}</td><td>{{ 'Published' if c.published else 'Hidden' }}</td><td><a href="{{ url_for('admin.cms_edit', table='courses', key=c.id) }}">Edit</a></td></tr>{% endfor %}</table></div>
+<p class="small muted">Add lessons in <a href="{{ url_for('admin.cms_list', table='course_lessons') }}">Course lessons</a> using the course ID. Private messages are encrypted and are not shown to staff.</p></div>
+{% endblock %}

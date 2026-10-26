@@ -1,0 +1,26 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Contact Us{% endblock %}
+{% block body %}
+{{ page_head('Contact Us', 'The School Expert™ — ' ~ cfg.LEGAL_ENTITY) }}
+<section class="section"><div class="container"><div class="layout right">
+  <form method="post" class="card pad-lg">
+    <input type="hidden" name="_csrf" value="{{ csrf_token() }}"><div class="hp" aria-hidden="true"><label>Leave this empty<input name="hp_website" tabindex="-1" autocomplete="off"></label></div>
+    <div style="position:absolute;left:-9999px" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+    <div class="row2"><div class="field"><label for="n">Your name <span class="req">*</span></label><input id="n" name="name" value="{{ form.name or '' }}" required></div>
+    <div class="field"><label for="e">Email <span class="req">*</span></label><input id="e" type="email" name="email" value="{{ form.email or '' }}" required></div></div>
+    <div class="row2"><div class="field"><label for="p">Phone</label><input id="p" type="tel" name="phone" value="{{ form.phone or '' }}"></div>
+    <div class="field"><label for="t">Topic</label><select id="t" name="topic">{% for t in ['General enquiry','Registration help','Ask The School Expert','Personal Assistance','Partnerships / Founding Partner','Sponsorship / Advertising','Marketplace order','Media / Podcast','Privacy request'] %}<option>{{ t }}</option>{% endfor %}</select></div></div>
+    <div class="field"><label for="m">Message <span class="req">*</span></label><textarea id="m" name="message" required>{{ form.message or '' }}</textarea></div>
+    <label class="consent-box"><input type="checkbox" name="consent" required><span>I agree that The School Expert™ may use these details to respond to my message, as described in the <a href="/privacy-policy" target="_blank">Privacy Policy</a>.</span></label>
+    <button class="btn btn-primary" style="margin-top:14px">Send message</button>
+  </form>
+  <aside class="card">
+    <h3>The School Expert™</h3><p>{{ cfg.LEGAL_ENTITY }}<br><span class="small muted">{{ cfg.REGISTERED_ADDRESS }}</span></p>
+    <p><b>Website</b><br><a href="https://www.schoolexpert.in">www.schoolexpert.in</a></p>
+    <p><b>Email</b><br><a href="mailto:{{ cfg.CONTACT_EMAIL }}">{{ cfg.CONTACT_EMAIL }}</a></p>
+    <p><b>Business number</b><br><a href="tel:+91{{ cfg.CONTACT_PHONE }}">{{ cfg.CONTACT_PHONE }}</a></p>
+    <p><b>Partnerships & Founding Partners</b><br><a href="mailto:{{ cfg.PARTNER_EMAIL }}">{{ cfg.PARTNER_EMAIL }}</a></p>
+    <p class="small muted">Privacy & grievances: <a href="{{ url_for('privacy.centre') }}">Privacy Centre</a></p>
+  </aside>
+</div></div></section>
+{% endblock %}

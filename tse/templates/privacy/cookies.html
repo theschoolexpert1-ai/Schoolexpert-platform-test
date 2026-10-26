@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Cookie settings{% endblock %}
+{% block body %}
+{{ page_head('Cookie settings') }}
+<section class="section"><div class="container xnarrow"><form method="post" class="card pad-lg"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <p>Current choice: <b>{{ {'all':'All cookies','essential':'Essential only'}.get(cookie_choice, 'Not chosen yet') }}</b></p>
+  <label class="opt"><input type="radio" name="choice" value="essential" {% if cookie_choice != 'all' %}checked{% endif %}> <span><b>Essential only</b> — login, security and your cookie choice.</span></label>
+  <label class="opt"><input type="radio" name="choice" value="all" {% if cookie_choice == 'all' %}checked{% endif %}> <span><b>All cookies</b> — also analytics & advertising measurement (Google Analytics / Ads).</span></label>
+  <button class="btn btn-primary" style="margin-top:12px">Save</button></form></div></section>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ b.title }} — Book Club{% endblock %}
+{% block meta_description %}{{ b.title }} by {{ b.author }} — reviews and ratings from families on The EverHungry Bookworms Bookclub.{% endblock %}
+{% block body %}
+<section class="section"><div class="container"><a class="small" href="{{ url_for('content.bookclub') }}">← Book Club</a><div class="layout right" style="margin-top:10px">
+  <div class="card pad-lg"><h1>{{ b.title }}</h1><p class="muted">{{ b.author }}{% if b.age_band %} · Ages {{ b.age_band }}{% endif %}{% if b.language %} · {{ b.language }}{% endif %}</p>{% if b.rating_count %}<p>{{ b.rating_avg | stars }} {{ '%.1f' % b.rating_avg }} ({{ b.rating_count }} reviews)</p>{% endif %}<p>{{ b.summary or '' }}</p>
+    {% if product %}<a class="btn btn-accent" href="{{ url_for('marketplace.product', slug=product.slug) }}">Buy on our Marketplace — {{ inr(product.price_paise) }}</a>{% endif %}
+    <h2 style="margin-top:20px">Reviews</h2>{% for r in reviews %}<div class="post">{{ r.rating | stars }}<div>{{ r.body | nl2br }}</div><div class="small muted">{{ (r.user_name or 'Reader').split(' ')[0] }} · {{ r.created_at | dt }}</div></div>{% else %}<p class="muted">No reviews yet.</p>{% endfor %}</div>
+  <aside class="card">{% if current_user and current_user.account_type in ('parent','teacher') %}<form method="post" action="{{ url_for('content.book_review', slug=b.slug) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><h3>{{ 'Update your' if mine else 'Add a' }} review</h3>
+    <div class="field"><label for="r">Rating</label><select id="r" name="rating">{% for i in [5,4,3,2,1] %}<option value="{{ i }}" {% if mine and mine.rating == i %}selected{% endif %}>{{ '★' * i }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="bd">Review</label><textarea id="bd" name="body" placeholder="What did your family think? (No children's names please)">{{ mine.body if mine else '' }}</textarea></div><button class="btn btn-primary btn-block">Submit</button></form>
+    {% else %}<p class="small muted">Log in as a parent or teacher to review.</p>{% endif %}</aside>
+</div></div></section>
+{% endblock %}

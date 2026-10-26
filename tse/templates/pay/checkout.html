@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Checkout{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}
+<section class="section"><div class="container xnarrow" style="max-width:620px">
+  <div class="card pad-lg">
+    <h1 style="font-size:1.5rem">Checkout</h1><p class="muted">{{ o.description }}</p>
+    <table class="t">{% for it in items %}<tr><td>{{ it.title }}{% if it.qty > 1 %} × {{ it.qty }}{% endif %}</td><td style="text-align:right">{{ inr(it.unit_paise * it.qty, True) }}</td></tr>{% endfor %}
+      <tr><td>Subtotal</td><td style="text-align:right">{{ inr(o.subtotal_paise, True) }}</td></tr>
+      <tr><td>GST</td><td style="text-align:right">{{ inr(o.gst_paise, True) }}</td></tr>
+      {% if o.shipping_paise %}<tr><td>Shipping</td><td style="text-align:right">{{ inr(o.shipping_paise, True) }}</td></tr>{% endif %}
+      <tr><td><b>Total</b></td><td style="text-align:right"><b class="price" style="font-size:1.3rem">{{ inr(o.total_paise, True) }}</b></td></tr></table>
+    {% if o.kind == 'marketplace' %}<p class="small muted">Prices include GST.</p>{% endif %}
+    {% if gw.gateway == 'razorpay' %}
+      <button id="rzp" class="btn btn-accent btn-block btn-lg" style="margin-top:16px">Pay securely</button>
+      <form id="rzpf" method="post" action="{{ url_for('pay.razorpay_callback', public_id=o.public_id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="razorpay_payment_id"><input type="hidden" name="razorpay_order_id"><input type="hidden" name="razorpay_signature"></form>
+      <p class="small muted center">UPI · Cards · Netbanking · Wallets — processed by Razorpay. We never see your card details.</p>
+    {% else %}
+      <div class="notice" style="margin-top:16px"><b>Test mode.</b> No real payment is taken. Configure Razorpay keys in production.</div>
+      <div class="btn-row" style="margin-top:12px">
+        <form method="post" action="{{ url_for('pay.mock', public_id=o.public_id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="result" value="success"><button class="btn btn-accent btn-lg">Simulate successful payment</button></form>
+        <form method="post" action="{{ url_for('pay.mock', public_id=o.public_id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="result" value="fail"><button class="btn btn-outline">Simulate failure</button></form></div>
+    {% endif %}
+  </div>
+</div></section>
+{% endblock %}
+{% block scripts %}{% if gw.gateway == 'razorpay' %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script nonce="{{ csp_nonce }}">
+document.getElementById('rzp').onclick = function(e){ e.preventDefault();
+  new Razorpay({key: "{{ gw.key }}", amount: "{{ o.total_paise }}", currency: "INR", name: "The School Expert™", description: {{ o.description | tojson }}, order_id: "{{ gw.gateway_order_id }}",
+    prefill: {name: {{ current_user.name | tojson }}, email: {{ current_user.email | tojson }}, contact: {{ (current_user.phone or '') | tojson }}}, theme: {color: "#0B2A6B"},
+    handler: function(r){ const f = document.getElementById('rzpf'); f.razorpay_payment_id.value = r.razorpay_payment_id; f.razorpay_order_id.value = r.razorpay_order_id; f.razorpay_signature.value = r.razorpay_signature; f.submit(); }
+  }).open(); };
+</script>{% endif %}{% endblock %}

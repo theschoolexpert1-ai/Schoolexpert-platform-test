@@ -1,0 +1,13 @@
+{% extends 'admin/_layout.html' %}{% block title %}Security monitoring{% endblock %}
+{% block admin %}<h1 style="font-size:1.5rem">Security monitoring</h1>
+<div class="kpis"><div class="kpi"><b>{{ failed_24h }}</b><span>Failed sign-ins, 24 h</span></div><div class="kpi"><b>{{ locked | length }}</b><span>Accounts locked now</span></div>
+<div class="kpi"><b>{{ staff | selectattr('mfa_enabled', 'false') | list | length }}</b><span>Staff without 2-step</span></div></div>
+<div class="grid g2">
+<div class="card"><h3>Staff accounts</h3><table class="t"><tr><th>Name</th><th>Role</th><th>2-step</th><th>Last sign-in</th></tr>
+{% for s in staff %}<tr><td>{{ s.name }}<div class="small muted">{{ s.email }}</div></td><td class="small">{{ s.staff_role or s.account_type }}</td><td>{% if s.mfa_enabled %}<span class="chip ok">On</span>{% else %}<span class="status rejected">Off</span>{% endif %}</td><td class="small">{{ s.last_login_at | dtt }}<div class="muted">{{ s.last_login_ip or '' }}</div></td></tr>{% endfor %}</table></div>
+<div class="card"><h3>Locked accounts</h3><table class="t">{% for u in locked %}<tr><td>{{ u.email }}</td><td class="small">until {{ u.locked_until | dtt }}</td><td><form method="post" action="{{ url_for('admin.security_unlock') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="id" value="{{ u.id }}"><button class="btn btn-ghost btn-sm">Unlock</button></form></td></tr>{% else %}<tr><td class="muted">None.</td></tr>{% endfor %}</table>
+<h3 style="margin-top:14px">Most failed sign-ins by address (24 h)</h3><table class="t">{% for r in top_ips %}<tr><td>{{ r.ip }}</td><td>{{ r.n }}</td></tr>{% else %}<tr><td class="muted">None.</td></tr>{% endfor %}</table></div></div>
+<div class="card"><h3>Security events</h3><div class="table-wrap"><table class="t"><tr><th>When</th><th>Event</th><th>Who</th><th>Address</th><th>Detail</th></tr>
+{% for e in events %}<tr><td class="small">{{ e.created_at | dtt }}</td><td class="small">{{ e.action }}</td><td class="small">{{ e.email or e.actor_type }}</td><td class="small">{{ e.ip or '' }}</td><td class="small">{{ e.entity or '' }} {{ e.entity_id or '' }}</td></tr>{% endfor %}</table></div>
+<p class="small muted">The audit log is append-only and hash-chained; it is verified every night (<code>flask verify-audit</code>). A personal-data breach must be reported to the Data Protection Board and affected people — use the Breach register.</p></div>
+{% endblock %}

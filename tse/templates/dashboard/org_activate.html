@@ -1,0 +1,19 @@
+{% extends 'dashboard/_layout.html' %}{% from '_macros.html' import status %}
+{% block title %}Activate your {{ 'School' if fam == 'school' else 'Vendor' }} account{% endblock %}
+{% block dash %}
+<div class="card pad-lg" style="margin-bottom:16px;background:linear-gradient(135deg,#0B2A6B,#1E4BB0);color:#fff;border:0">
+  <h1 style="color:#fff;font-size:1.6rem;margin-bottom:6px">Activate your {{ 'School' if fam == 'school' else 'Vendor' }} Dashboard</h1>
+  <p style="color:#D6E1FA;margin:0">Your plan decides how you appear to {{ 'parents' if fam == 'school' else 'schools and parents' }}: Basic gets you verified and listed, Plus adds a detailed profile and verified leads, Pro puts you at the top.</p>
+</div>
+{% if expired %}<div class="flash warning">Your <b>{{ expired.sub.name }}</b> plan has expired, so your listing is hidden. {% if expired.waived %}Renewal is free under your Founding Partner waiver.{% endif %}
+  <form method="post" action="{{ url_for('dashboard.plans') }}" style="display:inline"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="renew"><button class="btn btn-sm btn-accent">Renew {{ inr(expired.price) if expired.price else 'free' }}</button></form></div>{% endif %}
+<div class="card" style="margin-bottom:16px"><h3>Your onboarding</h3>
+  <ul class="timeline">
+    <li class="done"><b>Account created</b></li>
+    {% for r in regs %}<li class="{{ 'done' if r.status not in ('draft','changes_requested') else 'now' }}"><b>{{ r.label }} registration</b> {{ status(r.status) }} <span class="small muted">{{ r.progress }}%</span>{% if r.status in ('draft','changes_requested') %} — <a href="{{ url_for('register.step', rid=r.id, si=0) }}">continue</a>{% endif %}</li>{% else %}<li class="now"><b>Complete your registration form</b> — <a href="{{ url_for('register.index') }}">choose a form</a></li>{% endfor %}
+    <li class="now"><b>Choose a plan & pay</b> — unlocks your dashboard immediately</li>
+    <li><b>Verification by The School Expert™</b> — then your listing goes live</li>
+  </ul></div>
+{% set tiers = plans %}{% set cmp = compare(plans) %}{% set action = url_for('dashboard.plans') %}{% set cta_mode = 'activate' %}{% include '_tier_table.html' %}
+{% if founding %}<p class="small muted" style="margin-top:12px">🏅 Prefer the Founding Partner Programme ({{ inr(founding[0].price_paise) }} one-time, Pro benefits, 3-year renewal waiver)? <a href="{{ url_for('public.founding') }}">Learn more</a>.</p>{% endif %}
+{% endblock %}

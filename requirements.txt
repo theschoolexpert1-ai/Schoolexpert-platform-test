@@ -1,0 +1,12 @@
+# The School Expert™ — Python 3.11+
+Flask>=3.0,<4
+Werkzeug>=3.0
+Jinja2>=3.1
+cryptography>=42
+reportlab>=4.0
+Markdown>=3.5
+requests>=2.31
+Pillow>=10.0
+python-dotenv>=1.0
+gunicorn>=22.0
+# The PostgreSQL client is bundled (tse/db/pgwire.py) — no compiled driver required.

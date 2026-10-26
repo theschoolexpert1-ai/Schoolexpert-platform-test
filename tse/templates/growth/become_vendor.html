@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{% if cat %}{{ cat.label }} — sell to schools & parents{% else %}Become a vendor — sell to schools & parents across India{% endif %}{% endblock %}
+{% block meta_description %}Reach schools and parents across India on The School Expert™: verified vendor profile, enquiries from schools, marketplace with bulk pricing, webinars and sponsorships. Vendor - Basic, Plus and Pro plans.{% endblock %}
+{% block head %}<link rel="canonical" href="{{ cfg.SITE_URL }}{{ request.path }}">{% endblock %}
+{% block body %}
+<section class="hero"><div class="container">
+  <span class="eyebrow">For education partners & vendors</span>
+  <h1>{% if cat %}{{ cat.label }}: get in front of schools that are buying.{% else %}Sell to schools and parents across India.{% endif %}</h1>
+  <p class="lead">A verified vendor profile, enquiries from schools, a marketplace with bulk pricing, and webinar & event sponsorships — all managed from your Vendor Dashboard.</p>
+  <div class="btn-row"><a class="btn btn-accent btn-lg" href="{{ url_for('register.landing', slug=cat.slug) if cat else url_for('register.index') }}">Register as a vendor</a><a class="btn btn-outline btn-lg" href="{{ url_for('public.pricing', for='vendor') }}">See plans</a></div>
+</div></section>
+<section class="section"><div class="container">
+  <div class="kpis"><div class="kpi"><b>{{ stats.schools }}</b><span>verified schools on the platform</span></div><div class="kpi"><b>{{ stats.parents }}</b><span>registered parents</span></div><div class="kpi"><b>{{ stats.products }}</b><span>marketplace products</span></div></div>
+  <div class="grid g3">
+    <div class="card"><div class="icon">🏫</div><h3>Schools as customers</h3><p class="small muted">Schools browse vendors by location and category, and send verified enquiries straight to your dashboard and CRM.</p></div>
+    <div class="card"><div class="icon">🛒</div><h3>Marketplace</h3><p class="small muted">Sell books, kits, uniforms, bags and more to parents and schools with bulk pricing. Lower commission on higher plans (15% → 10% → 7%).</p></div>
+    <div class="card"><div class="icon">🎙️</div><h3>Webinars & sponsorships</h3><p class="small muted">Pro vendors get a webinar partner slot, podcast feature and sponsored banners in front of principals and parents.</p></div>
+  </div>
+  <h2 style="margin-top:30px">Vendor plans</h2>
+  {% set cmp = compare(tiers) %}{% set cta_mode = 'register' %}{% set cta_href = url_for('register.landing', slug=cat.slug) if cat else url_for('register.index') %}{% include '_tier_table.html' %}
+  <h2 style="margin-top:30px">Categories</h2><div class="chips">{% for c in cats %}<a class="chip {{ 'navy' if cat and c.slug == cat.slug }}" href="{{ url_for('growth.become_vendor', cat=c.slug) }}">{{ c.label }}</a>{% endfor %}</div>
+</div></section>
+{% endblock %}

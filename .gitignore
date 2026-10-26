@@ -1,0 +1,22 @@
+# secrets and local data — never commit
+.env
+.env.*
+!.env.example
+.jetro/daemon/credentials.json
+var/
+*.pem
+*.key
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+# tooling
+.vercel/
+node_modules/
+mobile/android/
+mobile/ios/
+*.zip
+.DS_Store
+Thumbs.db

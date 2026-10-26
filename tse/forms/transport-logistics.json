@@ -1,0 +1,290 @@
+{
+ "slug": "transport-logistics",
+ "title": "K-12 Transportation & Logistics Providers – Registration",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Company",
+   "description": "",
+   "fields": [
+    {
+     "key": "company_name",
+     "label": "Company Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "brand_trade_name",
+     "label": "Brand / Trade Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "legal_entity_name",
+     "label": "Legal Entity Name",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "entity_type",
+     "label": "Entity Type",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Proprietorship",
+      "Partnership Firm",
+      "LLP",
+      "Private Limited Company",
+      "Public Limited Company",
+      "Trust",
+      "Society",
+      "Section 8 Company",
+      "NGO"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "logo",
+     "label": "Logo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "about",
+     "label": "About",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about"
+    }
+   ]
+  },
+  {
+   "title": "Contact",
+   "description": "",
+   "fields": [
+    {
+     "key": "contact_person",
+     "label": "Contact Person",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "address",
+     "label": "Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    }
+   ]
+  },
+  {
+   "title": "Services",
+   "description": "",
+   "fields": [
+    {
+     "key": "services",
+     "label": "Services",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "School bus operations",
+      "Van / cab services",
+      "Fleet leasing to schools",
+      "GPS & student-tracking systems",
+      "Route planning software",
+      "Driver & attendant staffing",
+      "Field-trip transport",
+      "Logistics for books & uniforms"
+     ],
+     "other": true,
+     "visibility": "private"
+    },
+    {
+     "key": "fleet_size",
+     "label": "Fleet Size",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "1–10",
+      "11–50",
+      "51–200",
+      "200+"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "vehicle_types",
+     "label": "Vehicle Types",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Buses (40+ seats)",
+      "Mini buses",
+      "Vans",
+      "Cars / cabs",
+      "EV fleet"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "cities_served",
+     "label": "Cities Served",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Safety & Compliance",
+   "description": "",
+   "fields": [
+    {
+     "key": "safety_features",
+     "label": "Safety Features",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "GPS tracking",
+      "CCTV in vehicles",
+      "Speed governors",
+      "Female attendants",
+      "First-aid kits",
+      "Fire extinguishers",
+      "Panic buttons",
+      "Parent app alerts"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_comply_with_school_bus_safety_norms_of_th",
+     "label": "Do you comply with school bus safety norms of the State / Supreme Court guidelines?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "driver_verification",
+     "label": "Driver Verification",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Police verification",
+      "Licence verification",
+      "Medical fitness",
+      "Regular training"
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Commercial",
+   "description": "",
+   "fields": [
+    {
+     "key": "pricing_model",
+     "label": "Pricing Model",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Per student per month",
+      "Per vehicle per month",
+      "Per trip",
+      "Contract"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "key_school_clients",
+     "label": "Key School Clients",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Documents & Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "permits_fitness_certificates",
+     "label": "Permits / Fitness Certificates",
+     "type": "files",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm the information is accurate and agree to verification by The School Expert™.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "provisional": "Section 1 matches the live form; later sections are provisional until the full form is uploaded.",
+ "category": "vendors",
+ "label": "Transportation & Logistics",
+ "entity": "organisation"
+}

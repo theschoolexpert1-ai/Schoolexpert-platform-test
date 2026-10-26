@@ -1,0 +1,332 @@
+{
+ "slug": "mental-health",
+ "title": "K-12 Mental Health Professionals – Registration",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Organisation / Practice",
+   "description": "",
+   "fields": [
+    {
+     "key": "organisation_practice_name",
+     "label": "Organisation / Practice Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "brand_trade_name",
+     "label": "Brand / Trade Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "legal_entity_name",
+     "label": "Legal Entity Name",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "practice_type",
+     "label": "Practice Type",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Individual Practitioner",
+      "Clinic",
+      "Hospital Department",
+      "NGO",
+      "Online Platform"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "logo_profile_photo",
+     "label": "Logo / Profile Photo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "about",
+     "label": "About",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about"
+    }
+   ]
+  },
+  {
+   "title": "Contact",
+   "description": "",
+   "fields": [
+    {
+     "key": "contact_person",
+     "label": "Contact Person",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "address",
+     "label": "Address",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    }
+   ]
+  },
+  {
+   "title": "Professionals & Credentials",
+   "description": "",
+   "fields": [
+    {
+     "key": "professional_categories",
+     "label": "Professional Categories",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Clinical Psychologist (RCI)",
+      "Counselling Psychologist",
+      "Psychiatrist",
+      "School Counsellor",
+      "Child Psychologist",
+      "Psychiatric Social Worker",
+      "Art / Play Therapist"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "rci_nmc_registration_numbers",
+     "label": "RCI / NMC Registration Numbers",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "years_of_experience",
+     "label": "Years of Experience",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Less than 1 year",
+      "1–3 years",
+      "3–5 years",
+      "5–10 years",
+      "10–20 years",
+      "More than 20 years"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Areas Supported",
+   "description": "",
+   "fields": [
+    {
+     "key": "concerns_supported",
+     "label": "Concerns Supported",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Anxiety",
+      "Exam stress",
+      "Low mood",
+      "Bullying",
+      "Grief",
+      "Peer & relationship issues",
+      "Self-esteem",
+      "Attention & learning concerns",
+      "Screen / gaming habits",
+      "Adolescent issues",
+      "Parent–child relationship",
+      "Teacher wellbeing"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "age_groups",
+     "label": "Age Groups",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "3–6 years",
+      "6–10 years",
+      "11–14 years",
+      "15–18 years",
+      "Parents",
+      "Teachers"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Services",
+   "description": "",
+   "fields": [
+    {
+     "key": "services_for_parents_students",
+     "label": "Services for Parents & Students",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Individual therapy",
+      "Family sessions",
+      "Assessments",
+      "Online counselling",
+      "Group programmes"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "services_for_schools",
+     "label": "Services for Schools",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "School counsellor on contract",
+      "Wellbeing programmes",
+      "SEL curriculum",
+      "Teacher training",
+      "Crisis response protocol",
+      "Parent workshops"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "delivery_mode",
+     "label": "Delivery Mode",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "In-person",
+      "Online",
+      "At school"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "languages",
+     "label": "Languages",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Bengali",
+      "Gujarati"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "fee_range",
+     "label": "Fee Range",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Ethics & Safeguarding",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_you_follow_a_written_confidentiality_and_chil",
+     "label": "Do you follow a written confidentiality and child-protection policy?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_have_an_escalation_referral_protocol_for_",
+     "label": "Do you have an escalation / referral protocol for emergencies?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Documents & Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "registration_qualification_certificates",
+     "label": "Registration / Qualification Certificates",
+     "type": "files",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm the information is accurate and agree to verification by The School Expert™. I understand that listing is not an endorsement.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "provisional": "Section 1 matches the live form; later sections are provisional until the full form is uploaded.",
+ "category": "experts",
+ "label": "Mental Health Professionals",
+ "entity": "organisation"
+}

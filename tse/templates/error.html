@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Error {{ code }}{% endblock %}
+{% block robots %}noindex{% endblock %}
+{% block body %}
+<section class="section"><div class="container xnarrow center">
+  <div class="card pad-lg"><h1 style="font-size:3rem;margin:0">{{ code }}</h1><p class="muted">{{ message }}</p>
+  <div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="/">Go home</a><a class="btn btn-outline" href="/contact">Contact us</a></div></div>
+</div></section>
+{% endblock %}

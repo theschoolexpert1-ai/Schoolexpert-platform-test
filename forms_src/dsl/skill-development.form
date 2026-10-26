@@ -1,0 +1,37 @@
+@slug skill-development
+@title K-12 Skill Development Institute Registration
+@provisional Section 1 matches the live form; later sections are provisional until the full form is uploaded.
+## Organisation Details
+Organisation Name* | text
+Brand Name | text
+Legal Entity Name* | text
+Entity Type* | radio | $ENTITY
+Year Established | year
+Logo | file
+About* | textarea
+## Contact
+Contact Person* | text
+Mobile Number* | tel
+Email* | email
+Website | url
+Address* | textarea
+City* | text
+State* | state
+## Accreditation
+Affiliations | checkbox | NSDC partner; Sector Skill Council; Skill India; NCVET; State Skill Mission; University; Other; None
+Accreditation Details | textarea
+## Programmes
+Skill Areas* | checkbox | Coding & AI; Robotics & IoT; Electronics; Design & 3D printing; Communication & public speaking; Financial literacy; Entrepreneurship; Digital marketing; Media & content creation; Culinary; Beauty & wellness; Agriculture; Tailoring & fashion; Life skills; Vocational subjects (NEP); Other
+Grades Served* | checkbox | Grades 6–8; Grades 9–10; Grades 11–12; Out-of-school youth
+Programme Formats | checkbox | In-school (curriculum-integrated); After-school; Holiday camp; Online course; Internship / apprenticeship
+Certification Provided | radio | Yes – accredited; Yes – participation; No
+Delivery Mode* | checkbox | Online; In-person; At school; Hybrid
+Languages | checkbox | $LANG9
+## Reach & Pricing
+Students Trained (approx.) | radio | Less than 500; 500–5,000; 5,000–25,000; 25,000+
+Partner Schools | textarea
+Fee Range | text
+## Documents & Declaration
+Brochure | file
+Registration / Accreditation Certificate | file
+Declaration* | consent | | I confirm the information is accurate and agree to verification by The School Expert™.

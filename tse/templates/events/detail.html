@@ -1,0 +1,35 @@
+{% extends 'base.html' %}{% from '_macros.html' import field, status %}
+{% block title %}{{ e.title }}{% endblock %}
+{% block meta_description %}{{ (e.summary or e.title)[:155] }}{% endblock %}
+{% block head %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":{{ e.title | tojson }},"startDate":"{{ e.starts_at.isoformat() }}",{% if e.ends_at %}"endDate":"{{ e.ends_at.isoformat() }}",{% endif %}"eventAttendanceMode":"https://schema.org/{{ 'OnlineEventAttendanceMode' if e.mode == 'online' else ('MixedEventAttendanceMode' if e.mode == 'hybrid' else 'OfflineEventAttendanceMode') }}","location":{% if e.mode == 'online' %}{"@type":"VirtualLocation","url":"{{ cfg.SITE_URL }}/events/{{ e.slug }}"}{% else %}{"@type":"Place","name":{{ (e.venue or e.city or '') | tojson }},"address":{{ (e.city or '') | tojson }}}{% endif %},"organizer":{"@type":"Organization","name":"The School Expert™","url":"{{ cfg.SITE_URL }}"},"offers":{"@type":"Offer","price":"{{ '%.2f' % (e.price_paise / 100) }}","priceCurrency":"INR","url":"{{ cfg.SITE_URL }}/events/{{ e.slug }}"}}</script>{% endblock %}
+{% block body %}
+<section class="profile-head"><div class="container"><span class="chip navy">{{ kinds.get(e.kind, e.kind) }}</span><h1 style="margin-top:8px">{{ e.title }}</h1>
+<p class="muted">📅 {{ e.starts_at | dtt }}{% if e.ends_at %} – {{ e.ends_at | dt('%I:%M %p') }}{% endif %} · {{ e.mode | capitalize }}{% if e.venue %} · {{ e.venue }}{% endif %}{% if e.city %}, {{ e.city }}{% endif %}</p>
+<div class="chips">{% if e.cpd_hours %}<span class="chip gold">🎓 {{ e.cpd_hours }} CPD hours</span>{% endif %}{% if e.facilitator %}<span class="chip">Facilitator: {{ e.facilitator }}</span>{% endif %}<a class="chip" href="{{ url_for('events.ics', slug=e.slug) }}">📆 Add to calendar</a></div></div></section>
+<section class="section-sm"><div class="container"><div class="layout right">
+  <div>
+    {% if e.summary %}<p style="font-size:1.08rem">{{ e.summary }}</p>{% endif %}
+    {% if e.body %}<div class="card prose">{{ e.body | md }}</div>{% endif %}
+    {% if sponsors %}<div class="card" style="margin-top:14px"><h3>Sponsors & partners</h3><div class="chips">{% for s in sponsors %}<span class="chip gold">{{ s.tier }}: {{ s.sponsor_name }}</span>{% endfor %}</div></div>{% endif %}
+    {% if album %}<p style="margin-top:14px"><a class="btn btn-outline" href="{{ url_for('content.album', slug=album.slug) }}">📷 View photos</a></p>{% endif %}
+    <details class="card" style="margin-top:14px"><summary><b>Sponsor or partner with this event</b></summary><form method="post" action="{{ url_for('events.sponsor', slug=e.slug) }}" style="margin-top:10px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <div class="row2"><div class="field"><label>Organisation</label><input name="sponsor_name" required value="{{ current_org.name if current_org else '' }}"></div><div class="field"><label>Email</label><input type="email" name="contact_email" required value="{{ current_user.email if current_user else '' }}"></div></div>
+      <div class="field"><label>Interest</label><select name="tier"><option>Title sponsor</option><option>Gold sponsor</option><option>Silver sponsor</option><option>Knowledge partner</option><option>Stall / exhibitor</option></select></div>
+      <div class="field"><label>Message</label><textarea name="message"></textarea></div><button class="btn btn-primary">Send enquiry</button></form></details>
+  </div>
+  <aside class="card sticky">
+    <div class="price">{{ inr(price) if price else 'Free' }} {% if price %}<small>per pass + GST</small>{% endif %}</div>
+    {% if e.member_price_paise is not none and e.member_price_paise != e.price_paise %}<p class="small muted">Book Club members: {{ inr(e.member_price_paise) }}</p>{% endif %}
+    {% if left is not none %}<p class="small muted">{{ left }} place{{ 's' if left != 1 }} left</p>{% endif %}
+    {% for r in mine %}<div class="chip {{ 'ok' if r.status == 'confirmed' else '' }}" style="margin-bottom:6px">Your registration: {{ r.status }}{% if r.pass_code %} · {{ r.pass_code }}{% endif %}</div>{% endfor %}
+    {% if e.status == 'published' and e.starts_at > now %}
+      {% if current_user %}<form method="post" action="{{ url_for('events.register', slug=e.slug) }}" enctype="multipart/form-data"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        {% if current_user.account_type == 'organisation' or e.kind in ('meetup','homeschool_meetup','storytelling') %}<div class="field"><label for="at">{{ 'Number of passes' if current_user.account_type == 'organisation' else 'Number of seats' }}</label><input id="at" type="number" name="attendees" value="1" min="1" max="{{ 20 if current_user.account_type == 'organisation' else 4 }}"></div>{% endif %}
+        {% if e.kind == 'storytelling' %}<p class="small muted">Sessions are booked by the parent. We do not need your child's details.</p>{% endif %}
+        {% if defn %}{% for s in defn.sections %}<h4 style="margin-top:14px">{{ s.title }}</h4>{% for f in s.fields %}{{ field(f, None, None, None, False, states) }}{% endfor %}{% endfor %}{% endif %}
+        <button class="btn btn-accent btn-block">{{ 'Request passes' if current_user.account_type == 'organisation' else ('Book & pay' if price else 'Register') }}</button></form>
+      {% else %}<a class="btn btn-accent btn-block" href="{{ url_for('auth.login', next=request.path) }}">Log in to register</a>{% endif %}
+    {% else %}<p class="muted">Registrations closed.</p>{% endif %}
+  </aside>
+</div></div></section>
+{% endblock %}

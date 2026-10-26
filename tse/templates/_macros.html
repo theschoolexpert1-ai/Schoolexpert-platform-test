@@ -1,0 +1,106 @@
+{# ---------- dynamic form field renderer ---------- #}
+{% macro field(f, value=None, files=None, error=None, locked=False, states=[]) %}
+{% set k = f.key %}{% set t = f.type %}
+<div class="field{% if error %} error{% endif %}" {% if f.showIf %}data-show-if='{{ f.showIf | json }}'{% endif %} id="f-{{ k }}">
+  {% if t == 'heading' %}
+    <h4 style="margin-top:8px">{{ f.label }}</h4>
+  {% elif t in ('consent', 'boolean') %}
+    <label class="consent-box"><input type="checkbox" name="{{ k }}" {% if value %}checked{% endif %} {% if locked %}disabled{% endif %}>
+      <span>{% if f.text and f.text != f.label %}<b>{{ f.label }}</b>{% if f.required %} <span class="req">*</span>{% endif %}<br>{{ f.text }}{% else %}{{ f.label }}{% if f.required %} <span class="req">*</span>{% endif %}{% endif %}</span></label>
+  {% else %}
+    <label for="i-{{ k }}">{{ f.label }}{% if f.required %} <span class="req" aria-label="required">*</span>{% endif %}
+      {% if f.visibility == 'private' %}<span class="chip" title="Visible only to you and our verification team">🔒 Private</span>{% elif f.visibility == 'public' %}<span class="chip navy" title="Shown on your free public listing">Public</span>{% endif %}</label>
+    {% if t in ('text', 'email', 'tel', 'url', 'number', 'year', 'pincode', 'date') %}
+      <input id="i-{{ k }}" name="{{ k }}" value="{{ value or '' }}" {% if locked %}readonly{% endif %}
+        type="{{ {'email':'email','tel':'tel','url':'url','number':'text','year':'text','pincode':'text','date':'date'}.get(t, 'text') }}"
+        {% if t in ('number','year','pincode') %}inputmode="numeric"{% endif %} {% if t == 'year' %}maxlength="4" placeholder="YYYY"{% endif %}{% if t == 'pincode' %}maxlength="6"{% endif %}
+        {% if t == 'tel' %}autocomplete="tel"{% elif t == 'email' %}autocomplete="email"{% endif %}>
+    {% elif t == 'textarea' %}
+      <textarea id="i-{{ k }}" name="{{ k }}" {% if locked %}readonly{% endif %} {% if f.maxLength %}data-maxlength="{{ f.maxLength }}"{% endif %}>{{ value or '' }}</textarea>
+    {% elif t == 'state' %}
+      <select id="i-{{ k }}" name="{{ k }}" {% if locked %}disabled{% endif %}><option value="">Select state / UT</option>
+        {% for s in states %}<option {% if value == s %}selected{% endif %}>{{ s }}</option>{% endfor %}</select>
+    {% elif t == 'yesno' %}
+      <div class="opts inline">{% for o in ['Yes', 'No'] %}<label class="opt"><input type="radio" name="{{ k }}" value="{{ o }}" {% if value == o %}checked{% endif %} {% if locked %}disabled{% endif %}> {{ o }}</label>{% endfor %}</div>
+    {% elif t in ('radio', 'select') %}
+      {% set is_other = value and value.startswith('Other: ') %}
+      {% if t == 'select' or (f.options|length) > 12 %}
+        <select id="i-{{ k }}" name="{{ k }}" {% if locked %}disabled{% endif %}><option value="">Select…</option>
+          {% for o in f.options %}<option {% if value == o %}selected{% endif %}>{{ o }}</option>{% endfor %}
+          {% if f.other %}<option value="__other" {% if is_other %}selected{% endif %}>Other</option>{% endif %}</select>
+      {% else %}
+        <div class="opts {% if (f.options|length) <= 4 %}inline{% endif %}">{% for o in f.options %}<label class="opt"><input type="radio" name="{{ k }}" value="{{ o }}" {% if value == o %}checked{% endif %} {% if locked %}disabled{% endif %}> {{ o }}</label>{% endfor %}
+          {% if f.other %}<label class="opt"><input type="radio" name="{{ k }}" value="__other" {% if is_other %}checked{% endif %}> Other</label>{% endif %}</div>
+      {% endif %}
+      {% if f.other %}<input class="hidden" style="margin-top:8px" data-other-for="{{ k }}" name="{{ k }}__other" placeholder="Please specify" value="{{ value[7:] if is_other else '' }}">{% endif %}
+    {% elif t == 'checkbox' %}
+      {% set vals = value or [] %}{% set ns = namespace(v='') %}{% for x in vals %}{% if x is string and x.startswith('Other: ') %}{% set ns.v = x %}{% endif %}{% endfor %}{% set other_val = ns.v %}
+      <div class="opts" {% if f.maxSelect %}data-max="{{ f.maxSelect }}"{% endif %}>{% for o in f.options %}<label class="opt"><input type="checkbox" name="{{ k }}" value="{{ o }}" {% if o in vals %}checked{% endif %} {% if locked %}disabled{% endif %}> {{ o }}</label>{% endfor %}
+        {% if f.other %}<label class="opt"><input type="checkbox" name="{{ k }}__otherbox" data-is-other="1" value="1" {% if other_val %}checked{% endif %} > Other</label>{% endif %}</div>
+      {% if f.maxSelect %}<div class="help">Select up to {{ f.maxSelect }}.</div>{% endif %}
+      {% if f.other %}<input class="{{ '' if other_val else 'hidden' }}" style="margin-top:8px" data-other-for="{{ k }}__otherbox" name="{{ k }}__other" placeholder="{{ (f.otherLabel or 'Other') }} — please specify" value="{{ other_val[7:] }}">{% endif %}
+    {% elif t == 'matrix' %}
+      <div class="table-wrap"><table class="matrix"><thead><tr><th></th>{% for c in f.columns %}<th>{{ c }}</th>{% endfor %}</tr></thead><tbody>
+        {% for r in f.rows %}{% set ri = loop.index0 %}<tr><td>{{ r }}</td>{% for c in f.columns %}<td><input type="checkbox" aria-label="{{ r }} — {{ c }}" name="{{ k }}__{{ ri }}" value="{{ c }}" {% if value and c in (value.get(r) or []) %}checked{% endif %}></td>{% endfor %}</tr>{% endfor %}
+      </tbody></table></div>
+    {% elif t == 'repeat' %}
+      {% set items = value or [] %}
+      <div data-repeat>{% for i in range(f.max or 5) %}{% set it = items[i] if i < (items|length) else {} %}
+        <div class="repeat-item"><h5>{{ f.label }} {{ i + 1 }}</h5><div class="row2">
+        {% for sf in f.fields %}<div class="field" {% if sf.type == 'textarea' %}style="grid-column:1/-1"{% endif %}><label for="i-{{ k }}-{{ i }}-{{ sf.key }}">{{ sf.label }}</label>
+          {% if sf.type == 'textarea' %}<textarea id="i-{{ k }}-{{ i }}-{{ sf.key }}" name="{{ k }}__{{ i }}__{{ sf.key }}">{{ it.get(sf.key, '') }}</textarea>
+          {% else %}<input id="i-{{ k }}-{{ i }}-{{ sf.key }}" name="{{ k }}__{{ i }}__{{ sf.key }}" value="{{ it.get(sf.key, '') }}" {% if sf.type == 'year' %}inputmode="numeric" maxlength="4"{% endif %} type="{{ 'email' if sf.type == 'email' else 'tel' if sf.type == 'tel' else 'url' if sf.type == 'url' else 'text' }}">{% endif %}</div>{% endfor %}
+        </div></div>{% endfor %}
+        <button class="btn btn-outline btn-sm add-item">+ Add another</button></div>
+    {% elif t in ('file', 'files') %}
+      {% set fl = files or [] %}
+      {% if fl %}<ul class="file-list">{% for x in fl %}<li>{% if x.private %}🔒{% else %}📎{% endif %} {% if not x.private %}<a href="{{ x.url }}" target="_blank" rel="noopener">{{ x.name }}</a>{% else %}{{ x.name }}{% endif %}
+        {% if not locked %}<label class="opt" style="margin-left:auto"><input type="checkbox" name="{{ k }}__remove" value="{{ x.url }}"> Remove</label>{% endif %}</li>{% endfor %}</ul>{% endif %}
+      {% if not locked %}<input id="i-{{ k }}" type="file" name="{{ k }}" {% if t == 'files' %}multiple{% endif %} accept="{% if f.accept %}{% for x in f.accept %}.{{ x }}{{ ',' if not loop.last }}{% endfor %}{% else %}{{ 'video/*,' if 'video' in f.label.lower() else '' }}image/*,.pdf,.doc,.docx,.ppt,.pptx{% endif %}">{% if f.accept %}<div class="help">Allowed: {{ f.accept | join(', ') | upper }}</div>{% endif %}{% endif %}
+    {% endif %}
+    {% if f.help %}<div class="help">{{ f.help }}</div>{% endif %}
+    {% if locked %}<div class="lock-note">🔒 Locked after verification — <a href="#support">request a change</a></div>{% endif %}
+  {% endif %}
+  {% if error %}<div class="err" role="alert">{{ error }}</div>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro listing_card(l, show_cat=True) %}
+<a class="card" href="{{ url_for('directory.listing', slug=l.slug) }}">
+  <div class="lcard">
+    <div class="avatar">{% if l.logo_url %}<img src="{{ l.logo_url }}" alt="" loading="lazy">{% else %}{{ l.name | initials }}{% endif %}</div>
+    <div style="min-width:0">
+      <h3 style="margin:0 0 2px;font-size:1.02rem">{{ l.name }}</h3>
+      <div class="meta">{% if show_cat %}{{ l.category_label }} · {% endif %}{{ l.city }}{% if l.state %}, {{ l.state }}{% endif %}</div>
+      {% if l.rating_count %}<div class="small">{{ l.rating_avg | stars }} <span class="muted">({{ l.rating_count }})</span></div>{% endif %}
+      <div class="chips">
+        {% if l.verified %}<span class="chip ok">✔ Verified</span>{% endif %}
+        {% if l.featured_until and l.featured_until >= today() %}<span class="chip gold">★ Featured</span>{% endif %}
+        {% if l.tier in ('detailed','featured') %}<span class="chip navy">Detailed profile</span>{% endif %}
+        {% for b in (l.boards or [])[:3] %}<span class="chip">{{ b }}</span>{% endfor %}
+      </div>
+    </div>
+  </div>
+</a>
+{% endmacro %}
+
+{% macro pager(page, total, per, args={}) %}
+{% set pages = ((total + per - 1) // per) %}
+{% if pages > 1 %}<nav class="pagination" aria-label="Pages">
+  {% for p in range(1, pages + 1) %}{% if p == page %}<span class="cur">{{ p }}</span>{% elif p <= 2 or p > pages - 2 or (p - page)|abs <= 2 %}<a href="?{{ args | urlencode }}{{ '&' if args else '' }}page={{ p }}">{{ p }}</a>{% elif (p - page)|abs == 3 %}<span>…</span>{% endif %}{% endfor %}
+</nav>{% endif %}
+{% endmacro %}
+
+{% macro status(s) %}<span class="status {{ s }}">{{ (s or '') | replace('_', ' ') | capitalize }}</span>{% endmacro %}
+
+{% macro page_head(title, sub=None, crumbs=[]) %}
+<section class="page-head"><div class="container">
+  {% if crumbs %}<div class="crumbs">{% for label, href in crumbs %}<a href="{{ href }}">{{ label }}</a> › {% endfor %}{{ title }}</div>{% endif %}
+  <h1>{{ title }}</h1>{% if sub %}<p>{{ sub }}</p>{% endif %}
+</div></section>
+{% endmacro %}
+
+{% macro consent_line(notice, name='consent', required=True) %}
+<label class="consent-box"><input type="checkbox" name="{{ name }}" {% if required %}required{% endif %}>
+<span><b>{{ notice.title }}.</b> {{ notice.body }} <span class="muted">Data: {{ notice.data_items }}. Kept: {{ notice.retention }}.</span> <a href="/privacy-policy" target="_blank">Privacy Policy</a> · You can withdraw any time in the <a href="/privacy-centre" target="_blank">Privacy Centre</a>.</span></label>
+{% endmacro %}

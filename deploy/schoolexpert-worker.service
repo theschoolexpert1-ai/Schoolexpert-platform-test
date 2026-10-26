@@ -1,0 +1,15 @@
+[Unit]
+Description=The School Expert CRM/email outbox worker
+After=network.target postgresql.service
+
+[Service]
+User=schoolexpert
+WorkingDirectory=/var/www/schoolexpert
+EnvironmentFile=/var/www/schoolexpert/.env
+Environment=FLASK_APP=wsgi
+ExecStart=/var/www/schoolexpert/venv/bin/flask outbox-worker --loop
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

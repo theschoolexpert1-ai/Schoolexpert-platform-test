@@ -1,0 +1,15 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}{{ p.title or 'New lesson plan' }} — Lesson planner{% endblock %}
+{% block dash %}
+<p class="small"><a href="{{ url_for('hub.planner') }}">← Lesson planner</a></p>
+<h1 style="font-size:1.6rem">{{ p.title or 'New lesson plan' }}</h1>
+<form method="post" class="card pad-lg"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <div class="field"><label for="title">Lesson title <span class="req">*</span></label><input id="title" name="title" maxlength="160" required value="{{ p.title or '' }}"></div>
+  <div class="row2"><div class="field"><label for="subject">Subject</label><input id="subject" name="subject" maxlength="80" value="{{ p.subject or '' }}"></div><div class="field"><label for="grade">Grade / class</label><input id="grade" name="grade" maxlength="40" value="{{ p.grade or '' }}"></div></div>
+  <div class="row2"><div class="field"><label for="plan_date">Date</label><input id="plan_date" type="date" name="plan_date" value="{{ p.plan_date or '' }}"></div><div class="field"><label for="duration_min">Duration (minutes)</label><input id="duration_min" name="duration_min" inputmode="numeric" value="{{ p.duration_min or 40 }}"></div></div>
+  {% for k, l, h in [('objectives','Learning outcomes','What will students know or be able to do? Write competencies, not chapters.'),('materials','Materials',''),('activities','Activities & timing','Do Now → teach → practise → check → close. Add minutes for each step.'),('assessment','Assessment','Exit ticket, questions, observation…'),('reflection','Reflection (after the lesson)','What worked? What will you change?')] %}
+  <div class="field"><label for="{{ k }}">{{ l }}</label>{% if h %}<div class="help">{{ h }}</div>{% endif %}<textarea id="{{ k }}" name="{{ k }}" rows="{{ 6 if k == 'activities' else 3 }}">{{ p[k] or '' }}</textarea></div>{% endfor %}
+  <p class="small muted">Please don't record students' names or personal details in plans.</p>
+  <div class="btn-row"><button class="btn btn-primary">Save plan</button>{% if p.id %}<a class="btn btn-outline" href="{{ url_for('hub.plan_print', pid=p.id) }}">Print</a><button class="btn btn-ghost" name="delete" value="1" data-confirm="Delete this lesson plan?">Delete</button>{% endif %}</div>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}Learn & CPD — Teachers Hub{% endblock %}
+{% block dash %}
+<div class="section-title"><div><h1 style="font-size:1.6rem;margin:0">Learn & earn CPD hours</h1><p class="muted" style="margin:4px 0 0">Short, practical courses. Finish every lesson to get a certificate with a public verification code.</p></div>
+  <a class="btn btn-outline" href="{{ url_for('hub.certificates') }}">🎓 My certificates ({{ cpd.total }} h this year)</a></div>
+<div class="chips" style="margin:14px 0"><a class="chip {{ 'navy' if not cat }}" href="{{ url_for('hub.courses') }}">All</a>{% for c in cats %}<a class="chip {{ 'navy' if c == cat }}" href="{{ url_for('hub.courses', category=c) }}">{{ c }}</a>{% endfor %}</div>
+<div class="grid g2">
+{% for c in rows %}
+  <div class="card">
+    <div class="small muted">{{ c.category }} · {{ c.level }}</div>
+    <h3 style="margin:6px 0"><a href="{{ url_for('hub.course', slug=c.slug) }}">{{ c.title }}</a></h3>
+    <p class="small">{{ c.summary }}</p>
+    <div class="small muted">{{ c.lessons }} lessons · {{ c.minutes }} min · <b>{{ c.cpd_hours }} CPD hours</b> · {{ c.instructor }}</div>
+    {% if c.enrolled_at %}<div class="progress" style="margin-top:10px" aria-label="{{ c.done }} of {{ c.lessons }} lessons done"><span style="width:{{ (100 * c.done / c.lessons) | round | int if c.lessons else 0 }}%"></span></div>{% endif %}
+    <div class="btn-row" style="margin-top:12px">
+      {% if c.completed_at %}<span class="chip ok">✓ Completed</span><a class="btn btn-sm btn-outline" href="{{ url_for('hub.course', slug=c.slug) }}">Review</a>
+      {% elif c.enrolled_at %}<a class="btn btn-sm btn-primary" href="{{ url_for('hub.course', slug=c.slug) }}">Continue ({{ c.done }}/{{ c.lessons }})</a>
+      {% else %}<form method="post" action="{{ url_for('hub.enrol', slug=c.slug) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-sm btn-accent">Enrol — free</button></form><a class="btn btn-sm btn-ghost" href="{{ url_for('hub.course', slug=c.slug) }}">Preview</a>{% endif %}
+    </div>
+  </div>
+{% else %}<div class="empty">No courses in this category yet.</div>{% endfor %}
+</div>
+{% endblock %}

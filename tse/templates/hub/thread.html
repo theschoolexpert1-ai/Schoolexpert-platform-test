@@ -1,0 +1,11 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}{{ person.name }} — Messages{% endblock %}
+{% block dash %}
+<p class="small"><a href="{{ url_for('hub.messages') }}">← All messages</a></p>
+<h1 style="font-size:1.4rem;margin-bottom:2px">{{ person.name }}</h1><p class="small muted">{{ person.designation or 'Educator' }}{% if person.school %} · {{ person.school }}{% endif %}</p>
+<div class="card"><div class="msgs">
+{% for m in msgs %}<div class="msg {{ 'me' if m.sender_id == current_user.id }}">{{ m.body }}<small>{{ m.created_at | dtt }}</small></div>{% else %}<p class="muted small">Say hello 👋</p>{% endfor %}<span id="end"></span></div>
+{% if allowed %}<form method="post" style="margin-top:12px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><div class="field"><label for="body" class="small muted">Message</label><textarea id="body" name="body" maxlength="2000" required placeholder="Write a message…"></textarea></div><button class="btn btn-primary">Send</button></form>
+{% else %}<div class="notice" style="margin-top:12px">You're no longer connected, so you can't send new messages.</div>{% endif %}
+</div>
+{% endblock %}

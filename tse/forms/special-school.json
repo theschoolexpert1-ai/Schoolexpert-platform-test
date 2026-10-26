@@ -1,0 +1,559 @@
+{
+ "slug": "special-school",
+ "title": "Special School Registration Form",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Institution Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "school_centre_name",
+     "label": "School / Centre Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "type_of_institution",
+     "label": "Type of Institution",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Special School",
+      "Inclusive School",
+      "Early Intervention Centre",
+      "Therapy Centre",
+      "Vocational Training Centre",
+      "Rehabilitation Centre"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "management",
+     "label": "Management",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Private",
+      "Trust",
+      "Society",
+      "NGO",
+      "Government",
+      "CSR Initiative"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "registration_number",
+     "label": "Registration Number",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "udise_code_if_applicable",
+     "label": "UDISE+ Code (if applicable)",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Disability Categories Served",
+   "description": "Aligned with the Rights of Persons with Disabilities (RPwD) Act, 2016",
+   "fields": [
+    {
+     "key": "disability_categories_served",
+     "label": "Disability Categories Served",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Autism Spectrum Disorder (ASD)",
+      "Intellectual Disability",
+      "Specific Learning Disability (Dyslexia, Dysgraphia, Dyscalculia)",
+      "ADHD",
+      "Cerebral Palsy",
+      "Multiple Disabilities",
+      "Hearing Impairment",
+      "Visual Impairment",
+      "Deafblindness",
+      "Speech & Language Disorder",
+      "Locomotor Disability",
+      "Neurological Disorders",
+      "Muscular Dystrophy",
+      "Down Syndrome",
+      "Thalassemia",
+      "Haemophilia",
+      "Sickle Cell Disease",
+      "Rare Diseases"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Age Groups",
+   "description": "",
+   "fields": [
+    {
+     "key": "age_groups",
+     "label": "Age Groups",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Birth–3 Years",
+      "3–6 Years",
+      "6–10 Years",
+      "11–14 Years",
+      "15–18 Years",
+      "18+ Years"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Academic Programmes",
+   "description": "",
+   "fields": [
+    {
+     "key": "academic_programmes",
+     "label": "Academic Programmes",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Early Intervention",
+      "Preschool",
+      "Primary Education",
+      "Secondary Education",
+      "Functional Academics",
+      "NIOS",
+      "Open Schooling",
+      "Bridge Programme",
+      "Inclusive Education Support",
+      "Home-based Education"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Therapies Offered",
+   "description": "",
+   "fields": [
+    {
+     "key": "therapies_offered",
+     "label": "Therapies Offered",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Speech Therapy",
+      "Occupational Therapy",
+      "Physiotherapy",
+      "Behaviour Therapy",
+      "ABA Therapy",
+      "Sensory Integration",
+      "Play Therapy",
+      "Special Education",
+      "Counselling",
+      "Clinical Psychology",
+      "Music Therapy",
+      "Art Therapy",
+      "Yoga Therapy",
+      "Vocational Therapy"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Specialists Available",
+   "description": "",
+   "fields": [
+    {
+     "key": "specialists_available",
+     "label": "Specialists Available",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "RCI Registered Special Educators",
+      "Speech Language Pathologist",
+      "Occupational Therapist",
+      "Physiotherapist",
+      "Clinical Psychologist",
+      "Child Psychologist",
+      "Behaviour Therapist",
+      "Counsellor",
+      "Social Worker",
+      "Vocational Trainer"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Curriculum Followed",
+   "description": "",
+   "fields": [
+    {
+     "key": "curriculum_followed",
+     "label": "Curriculum Followed",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Individualised Education Plan (IEP)",
+      "Functional Curriculum",
+      "NIOS",
+      "NCERT-based Adapted Curriculum",
+      "State Board Adapted Curriculum",
+      "Montessori",
+      "Play-based Learning",
+      "TEACCH",
+      "ABA",
+      "Life Skills Programme"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Vocational Training",
+   "description": "",
+   "fields": [
+    {
+     "key": "vocational_training",
+     "label": "Vocational Training",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Computer Skills",
+      "Tailoring",
+      "Bakery",
+      "Crafts",
+      "Gardening",
+      "Retail Skills",
+      "Hospitality",
+      "Office Skills",
+      "Digital Literacy",
+      "Entrepreneurship"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Facilities",
+   "description": "",
+   "fields": [
+    {
+     "key": "facilities",
+     "label": "Facilities",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Barrier-free Campus",
+      "Wheelchair Accessibility",
+      "Ramps",
+      "Lift",
+      "Accessible Toilets",
+      "Therapy Rooms",
+      "Sensory Room",
+      "OT Room",
+      "Speech Therapy Room",
+      "Physiotherapy Unit",
+      "Medical Room",
+      "Playground",
+      "Adaptive Sports",
+      "School Transport",
+      "Wheelchair Accessible Vehicle"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Student Support",
+   "description": "",
+   "fields": [
+    {
+     "key": "student_support",
+     "label": "Student Support",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Individual Education Plan (IEP)",
+      "Parent Counselling",
+      "Parent Training",
+      "Behaviour Management",
+      "Transition Planning",
+      "Mainstream School Integration",
+      "Career Guidance",
+      "Placement Support"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Admissions",
+   "description": "",
+   "fields": [
+    {
+     "key": "assessment_required",
+     "label": "Assessment Required",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mid_year_admissions",
+     "label": "Mid-Year Admissions",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "trial_sessions_available",
+     "label": "Trial Sessions Available",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Languages Offered",
+   "description": "",
+   "fields": [
+    {
+     "key": "languages_offered",
+     "label": "Languages Offered",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Gujarati",
+      "Bengali"
+     ],
+     "other": true,
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Safety",
+   "description": "",
+   "fields": [
+    {
+     "key": "safety",
+     "label": "Safety",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "CCTV",
+      "Fire Safety",
+      "Medical Emergency Support",
+      "Child Protection Policy",
+      "Staff Background Verification"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Recognition & Compliance",
+   "description": "",
+   "fields": [
+    {
+     "key": "recognition_compliance",
+     "label": "Recognition & Compliance",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Registered under RPwD Act",
+      "Registered Trust / Society / NGO",
+      "RCI Registered Professionals",
+      "Samagra Shiksha Partner",
+      "National Trust Affiliated",
+      "State Department for Empowerment of Persons with Disabilities Registered",
+      "ISO Certified"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Parent Services",
+   "description": "",
+   "fields": [
+    {
+     "key": "parent_services",
+     "label": "Parent Services",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Parent Workshops",
+      "Home Programme",
+      "Online Consultation",
+      "Parent Support Groups",
+      "Monthly Progress Reports",
+      "Teletherapy"
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Contact Information",
+   "description": "",
+   "fields": [
+    {
+     "key": "address",
+     "label": "Address",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": false,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "district",
+     "label": "District",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": false,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "pin_code",
+     "label": "PIN Code",
+     "type": "pincode",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "google_maps_link",
+     "label": "Google Maps Link",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "type": "email",
+     "required": false,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "phone",
+     "label": "Phone",
+     "type": "tel",
+     "required": false,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "whatsapp",
+     "label": "WhatsApp",
+     "type": "tel",
+     "required": false,
+     "visibility": "detailed",
+     "role": "whatsapp"
+    }
+   ]
+  },
+  {
+   "title": "Media Uploads",
+   "description": "",
+   "fields": [
+    {
+     "key": "school_logo",
+     "label": "School Logo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "campus_photos",
+     "label": "Campus Photos",
+     "type": "files",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "classroom_photos",
+     "label": "Classroom Photos",
+     "type": "files",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "therapy_room_photos",
+     "label": "Therapy Room Photos",
+     "type": "files",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "videos",
+     "label": "Videos",
+     "type": "files",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "prospectus_pdf",
+     "label": "Prospectus (PDF)",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  }
+ ],
+ "category": "schools",
+ "label": "Special Schools",
+ "entity": "organisation",
+ "outro": []
+}

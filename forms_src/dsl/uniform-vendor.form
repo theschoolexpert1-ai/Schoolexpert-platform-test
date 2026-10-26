@@ -1,0 +1,35 @@
+@slug uniform-vendor
+@title K-12 Uniform, Badge, Bag & Stationery Vendor Registration
+@provisional Section 1 matches the live form; later sections are provisional until the full form is uploaded.
+## Company
+Vendor / Company Name* | text
+Brand Name | text
+Legal Entity Name* | text
+Entity Type* | radio | $ENTITY
+Year Established | year
+Logo | file
+About* | textarea
+## Contact
+Contact Person* | text
+Mobile Number* | tel
+Email* | email
+Website | url
+Address* | textarea
+City* | text
+State* | state
+## Products
+Product Categories* | checkbox | School uniforms; Sports uniforms; Shoes & socks; Ties, belts & badges; ID cards & lanyards; School bags; Water bottles & lunch boxes; Notebooks & stationery; Art & craft supplies; Lab coats; Raincoats & winter wear; Customised merchandise
+Customisation Offered | checkbox | School logo embroidery; Printing; Custom colours; Custom sizes
+Fabric / Material Standards | text
+## Capacity
+Production Capacity (units per month) | text
+Minimum Order Quantity | text
+Lead Time | text
+Supply Model | checkbox | Direct to school; School store / counter; Online store for parents; Home delivery
+Cities / States Served* | text
+## Marketplace
+Would you like to sell on The School Expert™ Marketplace?* | yesno
+## Documents & Declaration
+Product Catalogue | file
+GST Certificate | file
+Declaration* | consent | | I confirm the information is accurate and agree to verification by The School Expert™.

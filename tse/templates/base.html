@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% set page_title = (self.title() | trim) %}
+<title>{% if page_title %}{{ page_title }} | {% endif %}The School Expert™ — India's K-12 Education Ecosystem</title>
+<meta name="description" content="{% block meta_description %}The School Expert™ connects parents, schools, teachers, education experts and education partners across India. Find verified schools, tutors, experts and vendors; jobs for teachers; events, podcasts and more.{% endblock %}">
+<link rel="canonical" href="{{ cfg.SITE_URL }}{% block canonical %}{{ request.path }}{% endblock %}">
+<meta name="robots" content="{% block robots %}index,follow{% endblock %}">
+<meta property="og:site_name" content="The School Expert™">
+<meta property="og:title" content="{{ page_title or 'The School Expert™' }}">
+<meta property="og:description" content="{{ self.meta_description() | trim }}">
+<meta property="og:type" content="{% block og_type %}website{% endblock %}">
+<meta property="og:url" content="{{ cfg.SITE_URL }}{{ request.path }}">
+<meta property="og:image" content="{% block og_image %}{{ cfg.SITE_URL }}{{ url_for('static', filename='img/logo-mark.svg') }}{% endblock %}">
+<meta name="twitter:card" content="summary_large_image">
+{% if cfg.GOOGLE_SITE_VERIFICATION %}<meta name="google-site-verification" content="{{ cfg.GOOGLE_SITE_VERIFICATION }}">{% endif %}
+<link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+<link rel="manifest" href="{{ url_for('growth.manifest') }}"><meta name="theme-color" content="#0B2A6B">
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="School Expert">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}?v=3">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"The School Expert™","legalName":"Poornaphala Media and Infotech Services LLP","url":"{{ cfg.SITE_URL }}","logo":"{{ cfg.SITE_URL }}/static/img/logo-mark.svg","email":"info@schoolexpert.in","telephone":"+91-9972915700","slogan":"Celebrating Concepts Online","address":{"@type":"PostalAddress","streetAddress":"#559, Sanjeevini, 26th Cross, Kirloskar Layout","addressLocality":"Bengaluru","postalCode":"560073","addressRegion":"Karnataka","addressCountry":"IN"}}</script>
+{% block head %}{% endblock %}
+{% if cookie_choice == 'all' and cfg.GA4_ID %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ cfg.GA4_ID }}"></script>
+<script nonce="{{ csp_nonce }}">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ cfg.GA4_ID }}',{anonymize_ip:true});{% if cfg.GOOGLE_ADS_ID %}gtag('config','{{ cfg.GOOGLE_ADS_ID }}');{% endif %}
+{% for ev in pop_conversions() %}gtag('event',{{ ev.name | tojson }},{{ ev.params | tojson }});{% if cfg.GOOGLE_ADS_ID and ev.ads_label %}gtag('event','conversion',{send_to:'{{ cfg.GOOGLE_ADS_ID }}/'+{{ ev.ads_label | tojson }},value:{{ ev.params.get('value', 0) }},currency:'INR'});{% endif %}{% endfor %}</script>
+{% endif %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+{% if config.ENV == 'staging' %}<div class="announce" style="background:#7a1f1f;color:#fff">Team prototype — demo data only, not the live site. Payments are simulated.</div>{% endif %}
+{% set site_settings = site_settings if site_settings is defined else none %}
+<div class="announce">Admissions 2027–28: try <a href="{{ url_for('school_match.index') }}">✨ AI School Match</a> — a free, verified shortlist of schools near you.</div>
+<header class="site">
+  <div class="container nav">
+    <a class="brand" href="{{ url_for('public.home') }}" aria-label="The School Expert home">
+      <img src="{{ url_for('static', filename='img/logo-mark.svg') }}" alt="" width="37" height="46">
+      <span><span class="wm">THE SCHOOL EXPERT™</span><span class="tag">Celebrating Concepts Online</span></span>
+    </a>
+    <button class="icon-btn burger" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="menu" role="menubar">
+      <li><button>Find</button>
+        <ul>
+          <li><a href="{{ url_for('school_match.index') }}">✨ AI School Match<small>Answer 7 questions, get a verified shortlist</small></a></li>
+          <li><a href="{{ url_for('directory.group', grp='schools') }}">Schools<small>Regular, preschool, alternative, inclusive, special, online</small></a></li>
+          <li><a href="{{ url_for('directory.group', grp='learning') }}">Tutors, Courses & Classes<small>Online tutoring, hobby classes, consultants, training</small></a></li>
+          <li><a href="{{ url_for('ask.index') }}">Experts — Ask The School Expert<small>Mental health, behaviour, special educators, careers, fee financing</small></a></li>
+          <li><a href="{{ url_for('directory.group', grp='vendors') }}">Education Partners & Vendors<small>EdTech, publishers, infrastructure, transport, uniforms</small></a></li>
+        </ul></li>
+      <li><button>Parents</button>
+        <ul>
+          <li><a href="{{ url_for('school_match.index') }}">✨ AI School Match<small>Free, neutral school shortlist</small></a></li>
+          <li><a href="{{ url_for('ask.schools') }}">Ask The School Expert<small>Unlock verified details of 10 schools</small></a></li>
+          <li><a href="{{ url_for('ask.pa_index') }}">Personal Assistance<small>We visit schools for you</small></a></li>
+          <li><a href="{{ url_for('community.view', slug='parents') }}">Parents Community</a></li>
+          <li><a href="{{ url_for('community.corner') }}">Parents' Corner</a></li>
+          <li><a href="{{ url_for('content.homeschool') }}">Homeschoolers Hub</a></li>
+          <li><a href="{{ url_for('content.bookclub') }}">The EverHungry Bookworms Bookclub</a></li>
+          <li><a href="{{ url_for('content.newsworms') }}">NewsWorms — kids newspaper</a></li>
+          <li><a href="{{ url_for('content.resources') }}">Free worksheets & downloads</a></li>
+        </ul></li>
+      <li><button>Teachers</button>
+        <ul>
+          <li><a href="{{ url_for('teachers.hub') }}">Teachers Hub<small>Profile, AI CV, community</small></a></li>
+          <li><a href="{{ url_for('teachers.jobs') }}">Teaching Jobs</a></li>
+          <li><a href="{{ url_for('community.view', slug='teachers') }}">Teachers Community</a></li>
+          <li><a href="{{ url_for('teachers.cv') }}">AI CV Builder</a></li>
+        </ul></li>
+      <li><button>For Schools</button>
+        <ul>
+          <li><a href="{{ url_for('public.for_schools') }}">For Schools<small>School - Basic, Plus & Pro</small></a></li>
+          <li><a href="{{ url_for('public.for_partners') }}">For Vendors & Education Partners<small>Vendor - Basic, Plus & Pro</small></a></li>
+          <li><a href="{{ url_for('public.pricing') }}">Pricing<small>Compare plans & add-ons</small></a></li>
+          <li><a href="{{ url_for('public.founding') }}">Founding Partner Programme</a></li>
+          <li><a href="{{ url_for('register.index') }}">Register / Get listed</a></li>
+          <li><a href="{{ url_for('community.view', slug='principals') }}">Principals Circle</a></li>
+        </ul></li>
+      <li><button>Events</button>
+        <ul>
+          <li><a href="{{ url_for('events.index') }}">Events & Workshops</a></li>
+          <li><a href="{{ url_for('content.podcasts') }}">Podcasts & Webinars</a></li>
+          <li><a href="{{ url_for('content.gallery') }}">Photo Gallery</a></li>
+          <li><a href="{{ url_for('content.newsletter') }}">Industry Newsletter</a></li>
+        </ul></li>
+      <li><a href="{{ url_for('marketplace.index') }}">Marketplace</a></li>
+      <li><a href="{{ url_for('public.initiatives') }}">Initiatives</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="icon-btn hide-m" href="{{ url_for('public.search') }}" aria-label="Search">🔍</a>
+      <a class="icon-btn" href="{{ url_for('marketplace.cart') }}" aria-label="Cart">🛒{% if cart_count %}<span class="badge-dot">{{ cart_count }}</span>{% endif %}</a>
+      {% if current_user %}
+        <a class="icon-btn hide-m" href="{{ url_for('dashboard.notifications') }}" aria-label="Notifications">🔔{% if unread_count %}<span class="badge-dot">{{ unread_count }}</span>{% endif %}</a>
+        <a class="btn btn-primary btn-sm" href="{{ url_for('admin.index') if is_staff else url_for('dashboard.home') }}">{{ 'Admin' if is_staff else 'Dashboard' }}</a>
+      {% else %}
+        <a class="btn btn-ghost btn-sm hide-m" href="{{ url_for('auth.login') }}">Log in</a>
+        <a class="btn btn-accent btn-sm" href="{{ url_for('auth.signup') }}">Join free</a>
+      {% endif %}
+    </div>
+  </div>
+</header>
+<main id="main">
+  {% with msgs = get_flashed_messages(with_categories=true) %}{% if msgs %}<div class="container">{% for c, m in msgs %}<div class="flash {{ c if c in ('success','error','info','warning') else 'info' }}" role="status">{{ m }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+  {% block body %}{% endblock %}
+</main>
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="color:#fff"><img src="{{ url_for('static', filename='img/logo-mark.svg') }}" alt="" width="30" height="38" style="height:38px;background:#fff;border-radius:6px;padding:3px"><span><span class="wm">THE SCHOOL EXPERT™</span><span class="tag" style="color:#FFD873">Celebrating Concepts Online</span></span></div>
+        <p style="margin-top:14px">Parents | Schools | Educators | Experts | Education Partners — <b style="color:#fff">Stronger Together</b>.</p>
+        <p class="small">A unit of {{ cfg.LEGAL_ENTITY }}<br>{{ cfg.REGISTERED_ADDRESS }}<br>
+        <a href="mailto:{{ cfg.CONTACT_EMAIL }}">{{ cfg.CONTACT_EMAIL }}</a> · <a href="tel:+91{{ cfg.CONTACT_PHONE }}">{{ cfg.CONTACT_PHONE }}</a></p>
+      </div>
+      <div><h4>Discover</h4><ul>
+        <li><a href="{{ url_for('directory.group', grp='schools') }}">Schools</a></li><li><a href="{{ url_for('directory.group', grp='learning') }}">Tutors & classes</a></li>
+        <li><a href="{{ url_for('ask.index') }}">Ask The School Expert</a></li><li><a href="{{ url_for('directory.group', grp='vendors') }}">Education partners</a></li>
+        <li><a href="{{ url_for('marketplace.index') }}">Marketplace</a></li><li><a href="{{ url_for('public.search') }}">Search</a></li></ul></div>
+      <div><h4>Community</h4><ul>
+        <li><a href="{{ url_for('teachers.hub') }}">Teachers Hub</a></li><li><a href="{{ url_for('teachers.jobs') }}">Teaching jobs</a></li>
+        <li><a href="{{ url_for('content.homeschool') }}">Homeschoolers Hub</a></li><li><a href="{{ url_for('content.bookclub') }}">Book Club</a></li>
+        <li><a href="{{ url_for('content.newsworms') }}">NewsWorms</a></li><li><a href="{{ url_for('public.initiatives') }}">Our initiatives</a></li></ul></div>
+      <div><h4>Company</h4><ul>
+        <li><a href="{{ url_for('public.page', slug='about') }}">About us</a></li><li><a href="{{ url_for('public.faq') }}">FAQs</a></li>
+        <li><a href="{{ url_for('public.contact') }}">Contact us</a></li><li><a href="{{ url_for('register.index') }}">Register</a></li>
+        <li><a href="{{ url_for('events.index') }}">Events</a></li><li><a href="{{ url_for('content.podcasts') }}">Podcasts</a></li>
+        <li><a href="{{ url_for('public.pricing') }}">Pricing</a></li><li><a href="{{ url_for('growth.guides') }}">Guides</a></li>
+        <li><a href="{{ url_for('growth.list_school') }}">List your school</a></li><li><a href="{{ url_for('growth.become_vendor') }}">Become a vendor</a></li>
+        {% for fp in footer_pages() %}<li><a href="{{ fp.path }}">{{ fp.title }}</a></li>{% endfor %}</ul></div>
+      <div><h4>Legal & privacy</h4><ul>
+        <li><a href="{{ url_for('public.page', slug='privacy-policy') }}">Privacy Policy</a></li><li><a href="{{ url_for('privacy.centre') }}">Privacy Centre (your data rights)</a></li>
+        <li><a href="{{ url_for('public.page', slug='terms') }}">Terms of Use</a></li><li><a href="{{ url_for('public.page', slug='refund-policy') }}">Refund & Cancellation</a></li>
+        <li><a href="{{ url_for('public.page', slug='shipping-policy') }}">Shipping & Delivery</a></li><li><a href="{{ url_for('public.page', slug='community-guidelines') }}">Community Guidelines</a></li>
+        <li><a href="{{ url_for('public.page', slug='cookie-policy') }}">Cookie Policy</a> · <a href="{{ url_for('privacy.cookies') }}">Cookie settings</a></li><li><a href="{{ url_for('public.page', slug='disclaimer') }}">Disclaimer</a></li><li><a href="/p/security">Security</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© {{ now.year if now else 2026 }} The School Expert™ · {{ cfg.LEGAL_ENTITY }}. All rights reserved.</span>
+      <span>Grievance Officer: <a href="mailto:{{ cfg.GRIEVANCE_EMAIL }}">{{ cfg.GRIEVANCE_EMAIL }}</a> · <a href="{{ url_for('privacy.centre') }}">Raise a privacy request</a></span></div>
+  </div>
+</footer>
+{% if not cookie_choice %}
+<div class="cookie" id="cookie" data-csrf="{{ csrf_token() }}" role="dialog" aria-label="Cookie choices">
+  <p>We use essential cookies to run this site. With your permission we'd also like to use analytics and advertising cookies to improve it. <a href="{{ url_for('public.page', slug='cookie-policy') }}">Cookie Policy</a></p>
+  <div class="btn-row"><button class="btn btn-outline btn-sm" data-cookie="essential">Essential only</button><button class="btn btn-primary btn-sm" data-cookie="all">Accept all</button></div>
+</div>
+{% endif %}
+<nav class="bottom-nav" aria-label="App navigation">{% set ep = request.endpoint or '' %}
+  <a href="{{ url_for('public.home') }}" class="{{ 'on' if ep == 'public.home' }}"><span aria-hidden="true">🏠</span>Home</a>
+  <a href="{{ url_for('school_match.index') }}" class="{{ 'on' if ep.startswith('school_match') }}"><span aria-hidden="true">✨</span>Match</a>
+  <a href="{{ url_for('public.search') }}" class="{{ 'on' if ep in ('public.search','directory.group','directory.category','directory.listing') }}"><span aria-hidden="true">🔍</span>Find</a>
+  <a href="{{ url_for('teachers.jobs') }}" class="{{ 'on' if ep.startswith('teachers') }}"><span aria-hidden="true">💼</span>Jobs</a>
+  <a href="{{ (url_for('admin.index') if is_staff else url_for('dashboard.home')) if current_user else url_for('auth.login') }}" class="{{ 'on' if ep.startswith('dashboard') or ep.startswith('admin') }}"><span aria-hidden="true">👤</span>{{ 'Account' if current_user else 'Log in' }}</a>
+</nav>
+<script src="{{ url_for('static', filename='js/site.js') }}?v=3" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

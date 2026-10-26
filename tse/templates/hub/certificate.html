@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Certificate {{ r.certificate_code }} — The School Expert™ Teachers Hub{% endblock %}
+{% block robots %}noindex{% endblock %}
+{% block body %}
+<section class="section"><div class="container">
+  <div class="btn-row no-print" style="justify-content:center;margin-bottom:16px">{% if own %}<a class="btn btn-outline" href="{{ url_for('hub.certificates') }}">← My certificates</a>{% endif %}<button class="btn btn-primary" data-print>Print / save as PDF</button></div>
+  <div class="cert">
+    <div style="letter-spacing:.2em;color:var(--gold);font-weight:700;font-size:.8rem">THE SCHOOL EXPERT™ · TEACHERS HUB</div>
+    <h1>Certificate of Completion</h1>
+    <p class="muted">This certifies that</p>
+    <div class="name">{{ r.name }}</div>
+    <p style="margin-top:18px">has successfully completed the professional development course</p>
+    <h2 style="margin:6px 0">{{ r.title }}</h2>
+    <p>Continuing Professional Development: <b>{{ r.cpd_hours }} hours</b> · Course lead: {{ r.instructor }}</p>
+    <p class="muted">Completed on {{ r.completed_at | dt('%d %B %Y') }}</p>
+    <p class="small muted" style="margin-top:28px">Verification code <b>{{ r.certificate_code }}</b> — verify at {{ cfg.SITE_URL | replace('https://','') }}/teachers/certificates/verify?code={{ r.certificate_code }}</p>
+    <p class="small muted">© Poornaphala Media and Infotech Services LLP</p>
+  </div>
+</div></section>
+{% endblock %}

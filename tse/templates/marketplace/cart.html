@@ -1,0 +1,23 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Your cart{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}
+{{ page_head('Your cart') }}
+<section class="section-sm"><div class="container">
+{% if not items %}<div class="empty">Your cart is empty. <a href="{{ url_for('marketplace.index') }}">Browse the marketplace</a></div>{% else %}
+<div class="layout right"><form method="post" action="{{ url_for('marketplace.update') }}" class="card"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <table class="t">{% for it in items %}<tr><td><a href="{{ url_for('marketplace.product', slug=it.slug) }}">{{ it.title }}</a>{% if it.unit < it.price_paise %}<div class="small" style="color:var(--ok)">Bulk price applied</div>{% endif %}</td>
+    <td><input type="number" name="qty_{{ it.id }}" value="{{ it.qty }}" min="0" style="width:80px" aria-label="Quantity"></td><td>{{ inr(it.unit) }}</td><td style="text-align:right"><b>{{ inr(it.line) }}</b></td></tr>{% endfor %}</table>
+  <div class="btn-row" style="margin-top:10px"><button class="btn btn-outline btn-sm">Update cart</button><span class="small muted">Set quantity to 0 to remove.</span></div></form>
+<form method="post" action="{{ url_for('marketplace.checkout') }}" class="card"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <h3>Order summary</h3><p>Items: <b>{{ inr(total) }}</b><br>Shipping: <b>{{ inr(shipping) if shipping else 'Free' }}</b>{% if shipping %}<br><span class="small muted">Free shipping above ₹999</span>{% endif %}</p>
+  {% if physical %}<h4>Deliver to{% if current_org %} (school address){% endif %}</h4>
+    {% for a in addresses %}<label class="opt"><input type="radio" name="address_id" value="{{ a.id }}" {% if loop.first %}checked{% endif %}><span class="small">{{ a.name }}, {{ a.line1 }}, {{ a.city }} {{ a.pincode }} · {{ a.phone }}</span></label>{% endfor %}
+    <details {% if not addresses %}open{% endif %}><summary class="small">Add a new address</summary>
+      <div class="field"><label>Name</label><input name="name" value="{{ current_org.name if current_org else current_user.name }}"></div><div class="field"><label>Phone</label><input name="phone" value="{{ current_user.phone or '' }}"></div>
+      <div class="field"><label>Address line 1</label><input name="line1"></div><div class="field"><label>Address line 2</label><input name="line2"></div>
+      <div class="row2"><div class="field"><label>City</label><input name="city"></div><div class="field"><label>PIN code</label><input name="pincode" maxlength="6"></div></div>
+      <div class="field"><label>State</label><input name="state"></div></details>{% endif %}
+  <button class="btn btn-accent btn-block btn-lg" style="margin-top:12px">Pay {{ inr(total + shipping) }}</button>
+  <p class="small muted">Prices include GST. <a href="/shipping-policy">Shipping</a> · <a href="/refund-policy">Returns</a></p></form></div>{% endif %}
+</div></section>
+{% endblock %}

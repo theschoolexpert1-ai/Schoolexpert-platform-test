@@ -1,0 +1,15 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}Wellbeing — Teachers Hub{% endblock %}
+{% block dash %}
+<h1 style="font-size:1.6rem">Teacher wellbeing</h1>
+<p class="muted">Teaching is demanding. Looking after yourself is part of looking after your students.</p>
+<div class="grid g2">
+  <div class="card"><div class="icon">📞</div><h3>Talk to someone now</h3>
+    <p><b>Tele-MANAS: 14416</b> or 1-800-891-4416 — the Government of India's free, 24×7 mental-health helpline, in many Indian languages.</p>
+    <p class="small muted">In an emergency, call <b>112</b>.</p></div>
+  <div class="card"><div class="icon">🤝</div><h3>Peer support</h3><p>Join a <a href="{{ url_for('hub.workshops') }}">wellbeing circle</a>, ask a <a href="{{ url_for('hub.mentors') }}">mentor</a>, or talk it through in the <a href="{{ url_for('community.view', slug='teachers') }}">Teachers Community</a>.</p>
+    <p class="small muted">Need help with your account or the platform? <a href="{{ url_for('dashboard.support') }}">Raise a support ticket</a>.</p></div>
+  <div class="card"><div class="icon">🌿</div><h3>Short guides</h3>{% for t in tutorials %}<div class="post"><a href="{{ url_for('hub.tutorial', slug=t.slug) }}">{{ t.title }}</a> <span class="small muted">· {{ t.minutes }} min</span></div>{% else %}<p class="small muted">Coming soon.</p>{% endfor %}</div>
+  {% if course %}<div class="card"><div class="icon">🎓</div><h3>Course</h3><p><a href="{{ url_for('hub.course', slug=course.slug) }}">{{ course.title }}</a></p><p class="small muted">Practical strategies for stress, workload and boundaries — with CPD hours.</p></div>{% endif %}
+</div>
+{% endblock %}

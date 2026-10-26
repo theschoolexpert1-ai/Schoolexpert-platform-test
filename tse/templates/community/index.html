@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Communities{% endblock %}
+{% block body %}
+{{ page_head('Communities', 'Safe, moderated spaces — personal data, abuse and solicitation are filtered before anything is published.') }}
+<section class="section"><div class="container"><div class="grid g3">
+{% for c in rows %}<a class="card" href="{{ url_for('community.view', slug=c.slug) }}"><h3>{{ c.name }}</h3><p class="small muted">{{ c.description }}</p><span class="small">{{ c.n }} discussions {% if role not in c.view_roles and role not in ('admin','staff') %}· <span class="chip">Members only</span>{% endif %}</span></a>{% endfor %}
+<a class="card" href="{{ url_for('community.corner') }}"><h3>Parents' Corner</h3><p class="small muted">Craft projects and model-making tutorials shared by parents (submissions only — no discussions).</p></a>
+</div><p class="small muted" style="margin-top:16px">Read the <a href="/community-guidelines">Community Guidelines</a>.</p></div></section>
+{% endblock %}

@@ -1,0 +1,34 @@
+@slug transport-logistics
+@title K-12 Transportation & Logistics Providers – Registration
+@provisional Section 1 matches the live form; later sections are provisional until the full form is uploaded.
+## Company
+Company Name* | text
+Brand / Trade Name | text
+Legal Entity Name* | text
+Entity Type* | radio | $ENTITY
+Year Established | year
+Logo | file
+About* | textarea
+## Contact
+Contact Person* | text
+Mobile Number* | tel
+Email* | email
+Website | url
+Address* | textarea
+City* | text
+State* | state
+## Services
+Services* | checkbox | School bus operations; Van / cab services; Fleet leasing to schools; GPS & student-tracking systems; Route planning software; Driver & attendant staffing; Field-trip transport; Logistics for books & uniforms; Other
+Fleet Size | radio | 1–10; 11–50; 51–200; 200+
+Vehicle Types | checkbox | Buses (40+ seats); Mini buses; Vans; Cars / cabs; EV fleet
+Cities Served* | text
+## Safety & Compliance
+Safety Features | checkbox | GPS tracking; CCTV in vehicles; Speed governors; Female attendants; First-aid kits; Fire extinguishers; Panic buttons; Parent app alerts
+Do you comply with school bus safety norms of the State / Supreme Court guidelines?* | yesno
+Driver Verification | checkbox | Police verification; Licence verification; Medical fitness; Regular training
+## Commercial
+Pricing Model | checkbox | Per student per month; Per vehicle per month; Per trip; Contract
+Key School Clients | textarea
+## Documents & Declaration
+Permits / Fitness Certificates | files
+Declaration* | consent | | I confirm the information is accurate and agree to verification by The School Expert™.

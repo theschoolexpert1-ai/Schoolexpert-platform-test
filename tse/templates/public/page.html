@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}{{ p.title }}{% endblock %}
+{% block meta_description %}{{ p.meta_description or p.title ~ ' — The School Expert™' }}{% endblock %}
+{% block body %}
+{{ page_head(p.title, None, [('Home', '/')]) }}
+<section class="section"><div class="container narrow"><article class="card pad-lg prose">{{ p.body | md }}</article>
+{% if p.slug == 'privacy-policy' %}<div class="notice" style="margin-top:16px">Exercise your rights — access, correction, erasure, consent withdrawal, nomination and grievances — in the <a href="{{ url_for('privacy.centre') }}">Privacy Centre</a>. Grievance Officer: <a href="mailto:{{ cfg.GRIEVANCE_EMAIL }}">{{ cfg.GRIEVANCE_EMAIL }}</a>.</div>{% endif %}
+</div></section>
+{% endblock %}

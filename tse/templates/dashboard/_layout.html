@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block robots %}noindex{% endblock %}
+{% block body %}
+<div class="container dash">
+  <aside class="side" aria-label="Dashboard menu">
+    <div style="padding:8px"><b>{{ current_user.name }}</b><div class="small muted">{{ {'parent':'Parent','teacher':'Teacher','organisation':'Organisation'}.get(current_user.account_type) }}{% if current_org %} · {{ current_org.name }}{% endif %}</div>
+      {% if user_orgs|length > 1 %}<form method="post" action="{{ url_for('auth.switch_org', org_id=0) }}" id="sw" style="margin-top:6px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><select aria-label="Switch organisation" data-switch-org>{% for o in user_orgs %}<option value="{{ o.id }}" {% if current_org and o.id == current_org.id %}selected{% endif %}>{{ o.name }}</option>{% endfor %}</select></form>{% endif %}
+      {% if not current_user.email_verified_at %}<form method="post" action="{{ url_for('auth.resend_verification') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-sm btn-outline" style="margin-top:6px">Verify email</button></form>{% endif %}</div>
+    {% set ep = request.endpoint %}
+    <a href="{{ url_for('dashboard.home') }}" class="{{ 'on' if ep == 'dashboard.home' }}">Overview</a>
+    {% if current_user.account_type == 'organisation' %}
+      <h6>My listing</h6>
+      <a href="{{ url_for('dashboard.profile') }}" class="{{ 'on' if ep in ('dashboard.profile','dashboard.media') }}">Profile, photos & campuses</a>
+      <a href="{{ url_for('dashboard.leads') }}" class="{{ 'on' if ep == 'dashboard.leads' }}">Leads</a>
+      <a href="{{ url_for('dashboard.reviews') }}" class="{{ 'on' if ep == 'dashboard.reviews' }}">Reviews</a>
+      <a href="{{ url_for('dashboard.plans') }}" class="{{ 'on' if ep == 'dashboard.plans' }}">Plan & upgrade</a>
+      <a href="{{ url_for('dashboard.promote') }}" class="{{ 'on' if ep == 'dashboard.promote' }}">Sponsored banners</a>
+      <a href="{{ url_for('dashboard.referrals') }}" class="{{ 'on' if ep == 'dashboard.referrals' }}">Refer & earn</a>
+      <h6>Recruitment</h6>
+      <a href="{{ url_for('dashboard.jobs') }}" class="{{ 'on' if ep in ('dashboard.jobs','dashboard.job_edit','dashboard.job_apps') }}">Job listings</a>
+      <a href="{{ url_for('teachers.directory') }}">Teacher directory</a>
+      <h6>Marketplace</h6>
+      <a href="{{ url_for('dashboard.products') }}" class="{{ 'on' if ep in ('dashboard.products','dashboard.product_edit') }}">My products</a>
+      <a href="{{ url_for('dashboard.sales') }}" class="{{ 'on' if ep == 'dashboard.sales' }}">Sales & dispatch</a>
+      <h6>Organisation</h6>
+      <a href="{{ url_for('dashboard.team') }}" class="{{ 'on' if ep == 'dashboard.team' }}">Team members</a>
+    {% elif current_user.account_type == 'teacher' %}
+      <h6>Teachers Hub</h6>
+      <a href="{{ url_for('hub.courses') }}" class="{{ 'on' if ep in ('hub.courses','hub.course') }}">Learn & CPD</a>
+      <a href="{{ url_for('hub.certificates') }}" class="{{ 'on' if ep in ('hub.certificates',) }}">My certificates</a>
+      <a href="{{ url_for('hub.workshops') }}" class="{{ 'on' if ep == 'hub.workshops' }}">Workshops</a>
+      <a href="{{ url_for('hub.tutorials') }}" class="{{ 'on' if ep in ('hub.tutorials','hub.tutorial') }}">Tutorials</a>
+      <a href="{{ url_for('hub.planner') }}" class="{{ 'on' if ep in ('hub.planner','hub.plan_edit') }}">Lesson planner</a>
+      <a href="{{ url_for('hub.network') }}" class="{{ 'on' if ep in ('hub.network','hub.connections') }}">Educator network {% if hub_requests %}<span class="status new">{{ hub_requests }}</span>{% endif %}</a>
+      <a href="{{ url_for('hub.messages') }}" class="{{ 'on' if ep in ('hub.messages','hub.thread') }}">Messages {% if hub_unread %}<span class="status new">{{ hub_unread }}</span>{% endif %}</a>
+      <a href="{{ url_for('hub.communities') }}" class="{{ 'on' if ep == 'hub.communities' }}">Communities</a>
+      <a href="{{ url_for('hub.mentors') }}" class="{{ 'on' if ep == 'hub.mentors' }}">Mentorship</a>
+      <a href="{{ url_for('hub.wellbeing') }}" class="{{ 'on' if ep == 'hub.wellbeing' }}">Wellbeing</a>
+      <a href="{{ url_for('hub.profile') }}" class="{{ 'on' if ep == 'hub.profile' }}">Hub profile & privacy</a>
+      <h6>Career</h6>
+      <a href="{{ url_for('teachers.cv') }}">AI CV builder</a>
+      <a href="{{ url_for('dashboard.applications') }}" class="{{ 'on' if ep == 'dashboard.applications' }}">My applications</a>
+      <a href="{{ url_for('teachers.jobs') }}">Find jobs</a>
+      <a href="{{ url_for('dashboard.referrals') }}" class="{{ 'on' if ep == 'dashboard.referrals' }}">Refer & earn</a>
+    {% else %}
+      <h6>Schools & services</h6>
+      <a href="{{ url_for('ask.schools') }}">Ask The School Expert</a>
+      <a href="{{ url_for('dashboard.requests') }}" class="{{ 'on' if ep == 'dashboard.requests' }}">Expert requests</a>
+      <a href="{{ url_for('dashboard.pa') }}" class="{{ 'on' if ep == 'dashboard.pa' }}">Personal Assistance</a>
+      <a href="{{ url_for('school_match.index') }}">AI School Match</a>
+      <a href="{{ url_for('school_match.shortlist') }}">My shortlist</a>
+      <a href="{{ url_for('dashboard.referrals') }}" class="{{ 'on' if ep == 'dashboard.referrals' }}">Refer & earn</a>
+      <a href="{{ url_for('community.view', slug='parents') }}">Parents Community</a>
+    {% endif %}
+    <h6>Account</h6>
+    <a href="{{ url_for('dashboard.events') }}" class="{{ 'on' if ep == 'dashboard.events' }}">Events & passes</a>
+    <a href="{{ url_for('dashboard.orders') }}" class="{{ 'on' if ep == 'dashboard.orders' }}">Orders & invoices</a>
+    <a href="{{ url_for('dashboard.subscriptions') }}" class="{{ 'on' if ep == 'dashboard.subscriptions' }}">Subscriptions</a>
+    <a href="{{ url_for('dashboard.notifications') }}" class="{{ 'on' if ep == 'dashboard.notifications' }}">Notifications {% if unread_count %}<span class="status new">{{ unread_count }}</span>{% endif %}</a>
+    <a href="{{ url_for('dashboard.support') }}" class="{{ 'on' if ep in ('dashboard.support','dashboard.ticket') }}">Support</a>
+    <a href="{{ url_for('auth.security') }}" class="{{ 'on' if ep == 'auth.security' }}">Account security</a>
+      <a href="{{ url_for('dashboard.settings') }}" class="{{ 'on' if ep == 'dashboard.settings' }}">Settings</a>
+    <a href="{{ url_for('privacy.centre') }}">Privacy Centre</a>
+    <form method="post" action="{{ url_for('auth.logout') }}" style="padding:6px 10px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-ghost btn-sm">Log out</button></form>
+  </aside>
+  <div>{% block dash %}{% endblock %}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{ p.title }} — Marketplace{% endblock %}
+{% block meta_description %}{{ (p.summary or p.title)[:155] }}{% endblock %}
+{% block head %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":{{ p.title | tojson }},"description":{{ (p.summary or p.title) | tojson }},{% if p.images %}"image":"{{ cfg.SITE_URL }}{{ p.images[0] }}",{% endif %}"brand":{"@type":"Brand","name":{{ (p.brand or p.seller_name or 'The School Expert') | tojson }}},"offers":{"@type":"Offer","priceCurrency":"INR","price":"{{ '%.2f' % (p.price_paise / 100) }}","availability":"https://schema.org/{{ 'InStock' if p.stock > 0 or p.is_digital else 'OutOfStock' }}"}}</script>{% endblock %}
+{% block body %}
+<section class="section"><div class="container"><div class="grid g2">
+  <div>{% if p.images %}<img src="{{ p.images[0] }}" alt="{{ p.title }}" style="border-radius:14px;width:100%"><div class="gallery" style="margin-top:10px">{% for im in p.images[1:] %}<img src="{{ im }}" alt="">{% endfor %}</div>{% else %}<div class="media-cover" style="aspect-ratio:1">{{ p.category }}</div>{% endif %}</div>
+  <div>
+    <div class="small muted"><a href="{{ url_for('marketplace.index', cat=p.category) }}">{{ p.category }}</a></div>
+    <h1>{{ p.title }}</h1>{% if p.is_tse %}<span class="chip red">The School Expert™ product</span>{% endif %}
+    <p class="muted">{{ p.summary or '' }}</p>
+    <div><span class="price">{{ inr(p.price_paise) }}</span> {% if p.mrp_paise and p.mrp_paise > p.price_paise %}<s class="muted">MRP {{ inr(p.mrp_paise) }}</s>{% endif %} <span class="small muted">incl. GST</span></div>
+    {% if p.bulk_tiers %}<div class="card flat" style="margin:12px 0"><b>Bulk pricing for schools</b>{% for t in p.bulk_tiers %}<div class="small">{{ t.min_qty }}+ units: {{ inr(t.price_paise) }} each</div>{% endfor %}</div>{% endif %}
+    <p class="small">{{ 'Digital download' if p.is_digital else ('In stock' if p.stock > 0 else 'Out of stock') }} · Sold by {% if p.seller_slug %}<a href="{{ url_for('directory.listing', slug=p.seller_slug) }}">{{ p.seller_name }}</a>{% else %}{{ p.seller_name or 'The School Expert™' }}{% endif %}</p>
+    {% if p.stock > 0 or p.is_digital %}<form method="post" action="{{ url_for('marketplace.add') }}" class="btn-row"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="product_id" value="{{ p.id }}">
+      <input type="number" name="qty" value="1" min="1" max="5000" style="width:100px" aria-label="Quantity"><button class="btn btn-accent btn-lg">Add to cart</button></form>{% endif %}
+    {% if not current_user %}<p class="small muted">You'll need to register and add your address & phone number to buy.</p>{% endif %}
+    {% if p.description %}<div class="prose" style="margin-top:20px">{{ p.description | md }}</div>{% endif %}
+  </div>
+</div>
+{% if related %}<h2 style="margin-top:30px">You may also like</h2><div class="grid g4">{% for r in related %}<a class="card" href="{{ url_for('marketplace.product', slug=r.slug) }}"><b>{{ r.title }}</b><div class="price" style="font-size:1rem">{{ inr(r.price_paise) }}</div></a>{% endfor %}</div>{% endif %}
+</div></section>
+{% endblock %}

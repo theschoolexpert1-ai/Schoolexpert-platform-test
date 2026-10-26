@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}{{ p.name }} — Teacher{% endblock %}
+{% block robots %}{{ 'index,follow' if p.visibility == 'public' else 'noindex' }}{% endblock %}
+{% block body %}
+<section class="profile-head"><div class="container"><div class="top"><div class="avatar lg round">{{ p.name | initials }}</div>
+  <div><h1 style="margin:0">{{ p.name }}</h1><div style="color:var(--red);font-weight:600">{{ a.professional_headline or p.headline or '' }}</div><div class="muted">{{ a.current_city or '' }}{% if a.state %}, {{ a.state }}{% endif %}{% if a.total_teaching_experience %} · {{ a.total_teaching_experience }}{% endif %}</div>
+  {% if p.open_to_work %}<span class="chip ok">Open to opportunities</span>{% endif %}</div></div></div></section>
+<section class="section-sm"><div class="container narrow">{% for s in secs %}<div class="card" style="margin-bottom:12px"><h2 style="font-size:1.1rem">{{ s.title }}</h2><dl class="kv">{% for it in s['items'] %}<dt>{{ it.field.label }}</dt><dd>{% if it.files %}{% for f in it.files %}<a href="{{ f.url }}">{{ f.name }}</a> {% endfor %}{% elif it.value is string %}{{ it.value | nl2br }}{% else %}{% for r in it.value %}<div class="small">• {{ r.values() | select | join(' · ') }}</div>{% endfor %}{% endif %}</dd>{% endfor %}</dl></div>{% endfor %}</div></section>
+{% endblock %}

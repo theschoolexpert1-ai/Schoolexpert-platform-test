@@ -1,0 +1,21 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}Hub profile & privacy — Teachers Hub{% endblock %}
+{% block dash %}
+<h1 style="font-size:1.6rem">Hub profile & privacy</h1>
+<p class="muted">This is what other teachers see in the network and mentor lists — only if you switch the directory on. Your recruitment profile and CV (seen by schools) are managed separately in <a href="{{ url_for('dashboard.home') }}">your teacher profile</a>.</p>
+<form method="post" class="card pad-lg"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <div class="row2"><div class="field"><label for="designation">Designation</label><input id="designation" name="designation" maxlength="120" value="{{ m.designation }}" placeholder="e.g. TGT Mathematics"></div>
+    <div class="field"><label for="school">School / organisation</label><input id="school" name="school" maxlength="160" value="{{ m.school }}"></div></div>
+  <div class="row2"><div class="field"><label for="subjects">Subjects</label><input id="subjects" name="subjects" maxlength="200" value="{{ m.subjects }}"></div>
+    <div class="field"><label for="grades">Grades</label><input id="grades" name="grades" maxlength="120" value="{{ m.grades }}" placeholder="e.g. 6–8"></div></div>
+  <div class="row2"><div class="field"><label for="board">Board</label><input id="board" name="board" maxlength="120" value="{{ m.board }}"></div>
+    <div class="field"><label for="experience_years">Years of experience</label><input id="experience_years" name="experience_years" inputmode="numeric" value="{{ m.experience_years }}"></div></div>
+  <div class="field"><label for="bio">Short bio</label><textarea id="bio" name="bio" maxlength="600" rows="3">{{ m.bio }}</textarea></div>
+  <div class="field"><label for="cpd_goal">Annual CPD goal (hours)</label><input id="cpd_goal" name="cpd_goal" inputmode="numeric" value="{{ m.cpd_goal }}"></div>
+  <h3 style="margin-top:18px">Privacy</h3>
+  <label class="consent-box"><input type="checkbox" name="directory_visible" {% if m.directory_visible %}checked{% endif %}><span><b>Show me in the educator directory.</b> Signed-in teachers can see the details above, your name and city, and send you a connection request. Never your email or phone. You can switch this off at any time.</span></label>
+  <label class="consent-box"><input type="checkbox" name="open_to_mentor" {% if m.open_to_mentor %}checked{% endif %}><span><b>I'd like to mentor other teachers.</b> {% if m.mentor_status == 'approved' %}<span class="chip ok">Approved mentor</span>{% elif m.mentor_status == 'pending' %}<span class="chip">Under review</span>{% elif m.mentor_status == 'rejected' %}<span class="chip">Not approved yet — you can apply again</span>{% else %}Our team does a quick check before you appear in the mentor list.{% endif %}</span></label>
+  <button class="btn btn-primary" style="margin-top:12px">Save</button>
+</form>
+<p class="small muted" style="margin-top:12px">Download or delete everything we hold about you, including your Hub data, in the <a href="{{ url_for('privacy.centre') }}">Privacy Centre</a>.</p>
+{% endblock %}

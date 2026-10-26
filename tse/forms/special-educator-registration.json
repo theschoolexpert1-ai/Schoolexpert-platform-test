@@ -1,0 +1,386 @@
+{
+ "slug": "special-educator-registration",
+ "title": "Special Educator Registration Form",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Personal Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "full_name",
+     "label": "Full Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "gender",
+     "label": "Gender",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Female",
+      "Male",
+      "Prefer not to say"
+     ],
+     "other": true,
+     "visibility": "private"
+    },
+    {
+     "key": "date_of_birth",
+     "label": "Date of Birth",
+     "type": "date",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "private",
+     "role": "phone"
+    },
+    {
+     "key": "email_address",
+     "label": "Email Address",
+     "type": "email",
+     "required": true,
+     "visibility": "private",
+     "role": "email"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "profile_photograph",
+     "label": "Profile Photograph",
+     "type": "file",
+     "required": true,
+     "visibility": "public",
+     "role": "logo"
+    }
+   ]
+  },
+  {
+   "title": "Professional Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "current_designation",
+     "label": "Current Designation",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "organisation_school",
+     "label": "Organisation / School",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "total_years_of_experience",
+     "label": "Total Years of Experience",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "current_employment_status",
+     "label": "Current Employment Status",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "School",
+      "Special School",
+      "Private Practice",
+      "NGO",
+      "Independent Professional"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Educational & Professional Qualifications",
+   "description": "",
+   "fields": [
+    {
+     "key": "highest_qualification",
+     "label": "Highest Qualification",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "special_education_qualification",
+     "label": "Special Education Qualification",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "university_institution",
+     "label": "University / Institution",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "year_of_completion",
+     "label": "Year of Completion",
+     "type": "year",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "is_the_qualification_rci_recognised",
+     "label": "Is the qualification RCI-recognised?",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "RCI / CRR Registration",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_you_have_rci_registration",
+     "label": "Do you have RCI registration?",
+     "type": "yesno",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "crr_number",
+     "label": "CRR Number",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "year_of_registration",
+     "label": "Year of Registration",
+     "type": "year",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "registration_status_validity",
+     "label": "Registration Status / Validity",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "area_of_specialisation_as_registered",
+     "label": "Area of Specialisation (as registered)",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Areas of Specialisation",
+   "description": "",
+   "fields": [
+    {
+     "key": "areas_of_specialisation",
+     "label": "Areas of Specialisation",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Intellectual Disability",
+      "Specific Learning Disability",
+      "Autism Spectrum Disorder",
+      "Hearing Impairment",
+      "Visual Impairment",
+      "Multiple Disabilities",
+      "Locomotor Disability",
+      "Speech & Language Difficulties",
+      "ADHD / Attention Difficulties",
+      "Inclusive Education",
+      "Early Intervention",
+      "Behavioural Support"
+     ],
+     "other": true,
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Services Offered",
+   "description": "",
+   "fields": [
+    {
+     "key": "services_offered",
+     "label": "Services Offered",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Assessment",
+      "Individualised Education Plans (IEPs)",
+      "Remedial Education",
+      "Learning Support",
+      "Behavioural Intervention",
+      "Parent Counselling",
+      "Teacher Training",
+      "Classroom Inclusion Support",
+      "Early Intervention",
+      "Career / Transition Support",
+      "Online Consultation"
+     ],
+     "other": true,
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Professional Experience",
+   "description": "",
+   "fields": [
+    {
+     "key": "age_groups_worked_with",
+     "label": "Age Groups Worked With",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "number_of_years_as_a_special_educator",
+     "label": "Number of Years as a Special Educator",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "schools_organisations_previously_associated_with",
+     "label": "Schools / Organisations Previously Associated With",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "key_areas_of_expertise",
+     "label": "Key Areas of Expertise",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "languages_spoken",
+     "label": "Languages Spoken",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Participation with The School Expert™",
+   "description": "",
+   "fields": [
+    {
+     "key": "participation_with_the_school_expert",
+     "label": "Participation with The School Expert™",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Register as a Special Educator",
+      "Become a Special Educator Ambassador",
+      "Offer Services to Parents",
+      "Conduct Workshops",
+      "Conduct Teacher Training",
+      "Contribute Articles / Resources",
+      "Participate in Webinars",
+      "Collaborate with Schools",
+      "Join the Special Education Professional Community"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Documents",
+   "description": "",
+   "fields": [
+    {
+     "key": "qualification_certificate",
+     "label": "Qualification Certificate",
+     "type": "file",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "rci_crr_certificate",
+     "label": "RCI / CRR Certificate",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "experience_certificate_optional",
+     "label": "Experience Certificate",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "accuracy",
+     "label": "Accuracy",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm that the information provided is accurate.",
+     "visibility": "private"
+    },
+    {
+     "key": "verification",
+     "label": "Verification",
+     "type": "consent",
+     "required": true,
+     "text": "I agree to The School Expert™ verifying my professional credentials where required.",
+     "visibility": "private"
+    },
+    {
+     "key": "profile_display",
+     "label": "Profile display",
+     "type": "consent",
+     "required": true,
+     "text": "I consent to my professional profile being displayed on The School Expert™, subject to the platform's verification and privacy policies.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "category": "experts",
+ "label": "Special Educators",
+ "entity": "individual"
+}

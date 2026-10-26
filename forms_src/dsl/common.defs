@@ -1,0 +1,14 @@
+@def LANGS23 = English; Hindi; Kannada; Tamil; Telugu; Malayalam; Marathi; Gujarati; Punjabi; Bengali; Odia; Assamese; Urdu; Sanskrit; Konkani; Manipuri; Kashmiri; Dogri; Sindhi; Nepali; Bodo; Santhali; Maithili
+@def MEDIUM = English; Kannada; Hindi; Tamil; Telugu; Malayalam; Marathi; Gujarati; Bengali; Urdu; Other
+@def LANG9 = English; Hindi; Kannada; Tamil; Telugu; Malayalam; Marathi; Bengali; Gujarati; Other
+@def GRADES = Nursery; LKG; UKG; Grade 1–5; Grade 6–8; Grade 9–10; Grade 11–12
+@def BOARDS = CBSE; CISCE / ICSE; State Board; IB; Cambridge / IGCSE; NIOS; Other
+@def SCHOOL_FAC = Smart Classrooms; Science Labs; Computer Lab; Robotics Lab; AI Lab; STEM Lab; Math Lab; Language Lab; Library; Digital Library; Auditorium; Cafeteria; Medical Room; Counselling Centre; CCTV; Wi-Fi; Transport; Hostel; Special Education Support; Any other (please specify)
+@def SPORTS = Cricket; Football; Basketball; Volleyball; Athletics; Swimming; Skating; Yoga; Karate; Chess; Table Tennis; Badminton; Kho-Kho; Kabaddi; Tennis; Archery; Any other (please specify)
+@def COCURR = Music; Dance; Drama; Art; Craft; Debate; Public Speaking; MUN; Quiz; Science Club; Eco Club; Coding Club; Robotics Club; Photography; Entrepreneurship; Community Service; Any other (please specify)
+@def STUSUP = School Counsellor; Career Counselling; Special Educator; Inclusive Education; Learning Support; Mental Health Programmes; Health Check-ups; Any other (please specify)
+@def ENTITY = Proprietorship; Partnership Firm; LLP; Private Limited Company; Public Limited Company; Trust; Society; Section 8 Company; NGO; Other
+@def YRS = Less than 1 year; 1–3 years; 3–5 years; 5–10 years; 10–20 years; More than 20 years
+@def LEVELS = Pre-primary; Primary; Middle School; Secondary; Senior Secondary
+@def REACH = Local / City; District; State; Multiple States; Pan-India; International
+@def HEARD = Website; Google Search; LinkedIn; Instagram / Facebook; WhatsApp; School / Institution; Referral; Event; The School Expert™ Community; Other

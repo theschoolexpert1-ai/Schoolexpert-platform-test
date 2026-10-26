@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}{{ c.name }}{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}
+{{ page_head(c.name, c.description, [('Communities', url_for('community.index'))]) }}
+<section class="section"><div class="container xnarrow center"><div class="card pad-lg">
+  <h2>Members only</h2><p class="muted">This community is open to {{ c.view_roles | reject('in', ['admin','staff']) | map('replace', 'organisation', 'schools') | map('replace','parent','parents') | map('replace','teacher','teachers') | join(', ') }}.</p>
+  {% if not current_user %}<a class="btn btn-accent" href="{{ url_for('auth.signup', next=request.path) }}">Join free</a> <a class="btn btn-outline" href="{{ url_for('auth.login', next=request.path) }}">Log in</a>
+  {% elif c.slug == 'teachers' %}<p>To participate, register as a teacher.</p>{% endif %}
+</div></div></section>
+{% endblock %}

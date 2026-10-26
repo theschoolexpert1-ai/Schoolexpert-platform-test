@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Teachers Hub — for teachers only{% endblock %}
+{% block robots %}noindex{% endblock %}
+{% block body %}
+<section class="section"><div class="container" style="max-width:640px"><div class="card pad-lg">
+  <div class="icon">🧑‍🏫</div><h1 style="font-size:1.6rem">The Teachers Hub is for teachers</h1>
+  <p>Courses with CPD certificates, workshops, the educator network, private messages, mentorship, tutorials and the lesson planner are available to teacher accounts on The School Expert™.</p>
+  <p class="muted small">You are signed in as a {{ current_user.account_type }} account. Schools can still post jobs and search verified teacher profiles from their dashboard.</p>
+  <div class="btn-row"><a class="btn btn-primary" href="{{ url_for('teachers.hub') }}">About the Teachers Hub</a><a class="btn btn-outline" href="{{ url_for('dashboard.home') }}">My dashboard</a></div>
+</div></div></section>
+{% endblock %}

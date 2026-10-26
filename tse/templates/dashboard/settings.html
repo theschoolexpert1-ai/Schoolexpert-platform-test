@@ -1,0 +1,11 @@
+{% extends 'dashboard/_layout.html' %}{% block title %}Settings{% endblock %}
+{% block dash %}<h1 style="font-size:1.5rem">Settings</h1>
+<div class="grid g2"><form method="post" class="card"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><h3>Profile</h3>
+  <div class="field"><label>Name</label><input name="name" value="{{ current_user.name }}"></div><div class="field"><label>Email</label><input value="{{ current_user.email }}" disabled><div class="help">{{ 'Verified' if current_user.email_verified_at else 'Not verified' }}. Contact support to change your email.</div></div>
+  <div class="field"><label>Mobile</label><input name="phone" value="{{ current_user.phone or '' }}"></div>
+  <div class="row2"><div class="field"><label>City</label><input name="city" value="{{ current_user.city or '' }}"></div><div class="field"><label>PIN code</label><input name="pincode" value="{{ current_user.pincode or '' }}" maxlength="6"></div></div>
+  <div class="field"><label>State</label><select name="state"><option value="">—</option>{% for s in states %}<option {% if s == current_user.state %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></div><button class="btn btn-primary">Save</button></form>
+<form method="post" class="card"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="password"><h3>Change password</h3>
+  <div class="field"><label>Current password</label><input type="password" name="current" autocomplete="current-password"></div><div class="field"><label>New password</label><input type="password" name="new" minlength="10" autocomplete="new-password"></div><button class="btn btn-primary">Update password</button>
+  <h3 style="margin-top:20px">Saved addresses</h3>{% for a in addresses %}<p class="small">{{ a.name }}, {{ a.line1 }}, {{ a.city }} {{ a.pincode }}</p>{% else %}<p class="small muted">Addresses you add at checkout appear here.</p>{% endfor %}
+  <p class="small"><a href="{{ url_for('privacy.centre') }}">Privacy Centre</a> — consents, download your data, delete your account.</p></form></div>{% endblock %}

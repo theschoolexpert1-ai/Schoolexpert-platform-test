@@ -1,0 +1,53 @@
+@slug educational-publisher
+@title Educational Publisher Registration
+## Organisation Details
+Publisher / Organisation Name* | text
+Brand Name | text
+Legal Entity Name | text
+Organisation Type* | radio | Private Limited Company; LLP; Partnership; Proprietorship; Trust / Society; Other
+Year Established* | year
+Head Office Address* | textarea
+State* | state
+City* | text
+District | text
+PIN Code | pincode
+Branch / Regional Offices | textarea
+Website | url
+Company Email* | email
+Customer Support Email | email
+Primary Phone Number* | tel
+WhatsApp Number | tel
+Company Logo | file
+Company Profile / About Us* | textarea
+## Publishing Categories
+What do you publish?* | checkbox | School Textbooks; Pre-Primary / Early Years Books; Primary School Books; Middle School Books; Secondary School Books; Senior Secondary Books; Workbooks; Activity Books; Practice Books; Question Banks; Sample Papers; Reference Books; Olympiad / Competitive Exam Books; Children's Literature; Story Books; Fiction; Non-Fiction; Teacher Resource Books; Teacher Manuals; Assessment Resources; Special Education Resources; Skill Development Books; Vocational Education; Higher Education; General Knowledge; Dictionaries / Encyclopaedias; Foreign Language Books; Regional Language Books; Other
+## Classes / Age Groups Served
+Classes / Age Groups Served | checkbox | Pre-Nursery; Nursery; LKG; UKG; Grade 1–2; Grade 3–5; Grade 6–8; Grade 9–10; Grade 11–12
+## Curriculum / Boards
+Curriculum / Boards | checkbox | CBSE; CISCE / ICSE / ISC; State Boards; NIOS; IB; Cambridge; IGCSE; Montessori; Waldorf / Steiner; International Curriculum; NEP 2020 aligned; NCF-SE aligned; Other
+## Subjects Published
+Subjects Published | checkbox | English; Hindi; Kannada; Mathematics; Science; Physics; Chemistry; Biology; EVS; Social Science; History; Geography; Civics / Political Science; Economics; Accountancy; Business Studies; Computer Science; Artificial Intelligence; Coding; Robotics; General Knowledge; Environmental Studies; Art & Craft; Music; Physical Education; Life Skills; Value Education; Moral Education; Languages; Vocational / Skill Education; Other
+## Languages Available
+Languages Available | checkbox | English; Hindi; Kannada; Tamil; Telugu; Malayalam; Marathi; Bengali; Gujarati; Punjabi; Urdu; Odia; Assamese; Sanskrit; Other Indian languages; Foreign languages
+Do you publish bilingual / multilingual resources? | yesno
+## Format of Publications
+Print | checkbox | Hardbound; Paperback; Student Textbooks; Workbooks; Teacher Manuals; Activity Books
+Digital | checkbox | E-books; Interactive E-books; Digital Textbooks; Videos; Animations; Interactive Exercises; Online Assessments; Digital Worksheets; Learning Platform / LMS; Mobile App; QR-enabled Content
+## Teacher Support
+Do you provide support to schools/teachers? | checkbox | Teacher Training; Orientation Programmes; Workshops; Demonstration Classes; Lesson Plans; Teacher Manuals; Teaching Resources; Assessment Support; Academic Counselling; Curriculum Planning; Digital Training; School Implementation Support; Dedicated Academic Team; None
+## Digital Capabilities
+Do you have a digital learning platform? | yesno
+Website / Platform URL | url
+Apps available | checkbox | Android App; iOS App
+## School Reach
+Number of schools served | radio | 1–50; 51–100; 101–500; 501–1,000; 1,001–5,000; 5,000+
+States served | text
+Countries served | text
+Urban / Rural / Both | radio | Urban; Rural; Both
+Types of schools served | checkbox | Government Schools; Private Schools; International Schools; CBSE Schools; ICSE Schools; State Board Schools
+## Distribution Network
+Distribution Network | checkbox | Direct School Sales; Distributors; Dealers; Bookstores; Online Sales; E-commerce; School Supply Partners; Regional Distributors; Pan-India Distribution; International Distribution
+## Recognition & Credentials
+Recognition & Credentials | checkbox | ISBN available for publications; Copyright ownership; Registered trademark; Government / institutional empanelment; Board / curriculum approvals where applicable; Industry association membership; Awards / recognitions; Certifications; Other credentials
+ISBN Registration / Publisher Details | textarea
+Credential details | textarea

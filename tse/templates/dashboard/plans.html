@@ -1,0 +1,29 @@
+{% extends 'dashboard/_layout.html' %}{% from '_macros.html' import status %}
+{% block title %}Plan & upgrade{% endblock %}
+{% block dash %}
+<div class="section-title"><h1 style="font-size:1.6rem;margin:0">Plan & upgrade</h1>{% if current %}<span class="tier-pill t{{ current.level }}">{{ current.name }}</span>{% endif %}</div>
+{% if org.founding_partner %}<div class="notice" style="margin-bottom:12px">🏅 Founding Partner since {{ org.founding_partner_since | dt }} — renewal fees waived until {{ org.renewal_waived_until | dt }}.</div>{% endif %}
+<div class="grid g2" style="margin-bottom:18px">
+  <div class="card">
+    <h3>Current plan</h3>
+    {% if current %}<p><b>{{ current.name }}</b>{% if current.ends_at %} · renews {{ current.ends_at | dt }} <span class="small muted">({{ (current.ends_at - today()).days }} days left)</span>{% endif %}</p>
+      {% if renewal %}<form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="renew"><button class="btn btn-outline btn-sm">Renew for another year — {{ inr(renewal.price) if renewal.price else 'free (waiver)' }}</button></form>{% endif %}
+    {% else %}<p class="muted">No active plan.</p>{% endif %}
+  </div>
+  <div class="card" id="upgrade">
+    {% if quote and current %}<h3>Upgrade to {{ quote.plan.name }}</h3>
+      <table class="t small"><tr><td>{{ quote.plan.name }} (1 year)</td><td style="text-align:right">{{ inr(quote.plan.price_paise) }}</td></tr>
+        <tr><td>Credit for unused {{ current.name }}</td><td style="text-align:right">− {{ inr(quote.credit) }}</td></tr>
+        <tr><td><b>You pay today</b> (+ GST)</td><td style="text-align:right"><b>{{ inr(quote.price) }}</b></td></tr></table>
+      <form method="post" style="margin-top:10px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="upgrade"><button class="btn btn-accent">Upgrade now</button></form>
+      <p class="small muted">Your new plan runs for a full year from today.</p>
+    {% elif current %}<h3>You're on the top plan 🎉</h3><p class="small muted">{{ current.name }} includes every feature. Thank you!</p>
+    {% else %}<h3>Activate a plan</h3><p class="small muted">Choose a plan below.</p>{% endif %}
+  </div>
+</div>
+{% set tiers = ladder %}{% set cmp = compare(ladder) %}{% set current_level = current.level if current else 0 %}{% set action = url_for('dashboard.plans') %}{% set cta_mode = 'upgrade' if current else 'activate' %}{% include '_tier_table.html' %}
+{% if addons %}<h2 style="margin-top:26px;font-size:1.2rem">Add-ons</h2><div class="grid g2">{% for a in addons if not (a.code == 'school_recruiter' and (fam != 'school' or ent.level != 2)) %}<div class="card"><h3>{{ a.name }}</h3><div class="price" style="font-size:1.2rem">{{ inr(a.price_paise) }} <small>+ GST</small></div><p class="small muted">{{ a.features | join(' · ') }}{% if a.description %} — {{ a.description }}{% endif %}</p>
+  <form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="addon"><input type="hidden" name="plan" value="{{ a.code }}"><button class="btn btn-outline btn-sm" {% if a.code == 'school_recruiter' and (not current or current.level < 2) %}disabled title="Available on School - Plus"{% endif %}>Buy</button></form></div>{% endfor %}</div>{% endif %}
+<h2 style="margin-top:26px;font-size:1.2rem">History</h2>
+<div class="table-wrap"><table class="t"><tr><th>Plan</th><th>Status</th><th>From</th><th>Until</th></tr>{% for s in subs %}<tr><td>{{ s.name }}</td><td>{{ status(s.status) }}</td><td>{{ s.starts_at | dt }}</td><td>{{ s.ends_at | dt if s.ends_at else '—' }}</td></tr>{% endfor %}</table></div>
+{% endblock %}

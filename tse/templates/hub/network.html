@@ -1,0 +1,18 @@
+{% extends 'dashboard/_layout.html' %}{% from 'hub/_person.html' import person_card %}
+{% block title %}Educator network — Teachers Hub{% endblock %}
+{% block dash %}
+<div class="section-title"><h1 style="font-size:1.6rem;margin:0">Educator network</h1><a class="btn btn-outline" href="{{ url_for('hub.connections') }}">My connections{% if hub_requests %} · {{ hub_requests }} new{% endif %}</a></div>
+{% if me and not me.directory_visible %}<div class="notice" style="margin:12px 0">You are <b>hidden</b> from the directory, so other teachers can't find you or send requests. <a href="{{ url_for('hub.profile') }}">Appear in the directory</a> (you choose what to show; never your email or phone).</div>{% endif %}
+<form method="get" class="btn-row" style="margin:14px 0"><input name="q" value="{{ q }}" placeholder="Search by name, subject, city, school or role" aria-label="Search educators" style="flex:1"><button class="btn btn-primary">Search</button></form>
+<div class="grid g2">
+{% for p in rows %}
+  {% set actions %}
+    {% if p.conn_status == 'accepted' %}<a class="btn btn-sm btn-primary" href="{{ url_for('hub.thread', other=p.id) }}">Message</a>
+    {% elif p.conn_status == 'pending' and p.direction == 'in' %}<form method="post" action="{{ url_for('hub.connect', other=p.id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-sm btn-accent">Accept request</button></form>
+    {% elif p.conn_status in ('pending', 'declined') %}<span class="chip">Request sent</span>
+    {% else %}<form method="post" action="{{ url_for('hub.connect', other=p.id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-sm btn-outline">Connect</button></form>{% endif %}
+  {% endset %}
+  {{ person_card(p, actions) }}
+{% else %}<div class="empty">No educators match “{{ q }}”.</div>{% endfor %}
+</div>
+{% endblock %}

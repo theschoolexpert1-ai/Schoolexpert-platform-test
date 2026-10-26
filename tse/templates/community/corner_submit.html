@@ -1,0 +1,14 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Submit to Parents' Corner{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}
+{{ page_head("Submit to Parents' Corner", 'Share a craft project or model-making tutorial. Submissions are reviewed before publishing.') }}
+<section class="section-sm"><div class="container narrow"><form method="post" enctype="multipart/form-data" class="card pad-lg"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <div class="row2"><div class="field"><label for="k">Type</label><select id="k" name="kind"><option value="craft_project">Craft project</option><option value="model_tutorial">Model-making tutorial</option><option value="activity_idea">Activity idea</option></select></div>
+  <div class="field"><label for="gr">Suitable for (grade)</label><input id="gr" name="grade" value="{{ f.grade or '' }}" placeholder="e.g. Grade 3–5"></div></div>
+  <div class="field"><label for="ti">Title</label><input id="ti" name="title" value="{{ f.title or '' }}" required></div>
+  <div class="field"><label for="ma">Materials needed</label><textarea id="ma" name="materials">{{ f.materials or '' }}</textarea></div>
+  <div class="field"><label for="st">Step-by-step instructions</label><textarea id="st" name="steps" required style="min-height:180px">{{ f.steps or '' }}</textarea></div>
+  <div class="field"><label for="md">Photo of the finished project</label><input id="md" type="file" name="media" accept="image/*"></div>
+  <label class="consent-box"><input type="checkbox" name="no_child" required><span>The photo and text do not show a child's face or name any child. (We remove location data from photos automatically.)</span></label>
+  <button class="btn btn-accent" style="margin-top:12px">Submit for review</button></form></div></section>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'dashboard/_layout.html' %}{% from '_macros.html' import status %}{% block title %}Expert requests{% endblock %}
+{% block dash %}<h1 style="font-size:1.5rem">Ask The School Expert — my requests</h1>
+{% for r in rows %}<div class="card" style="margin-bottom:10px"><div class="section-title" style="margin:0"><b>{{ topics.get(r.topic, r.topic) }}</b>{{ status(r.status) }}</div><p class="small">{{ r.message }}</p>
+  {% if r.status == 'quoted' %}<div class="notice">Our team suggests: <b>{{ 'In-house panel' if r.panel == 'in_house' else 'Referral partner' }}</b> — {{ inr(r.quote_paise) }} + GST.{% if r.staff_notes %} <span class="small">{{ r.staff_notes }}</span>{% endif %}
+    <form method="post" action="{{ url_for('ask.pay_request', rid=r.id) }}" style="margin-top:8px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-accent btn-sm">Accept & pay</button></form></div>{% endif %}
+  {% if r.matched_listing_id %}<p class="small">Matched — see <a href="{{ url_for('dashboard.home') }}">your unlocked profiles</a>.</p>{% endif %}
+  <div class="small muted">{{ r.created_at | dtt }}</div></div>{% else %}<div class="empty"><a href="{{ url_for('ask.index') }}">Ask The School Expert</a></div>{% endfor %}{% endblock %}

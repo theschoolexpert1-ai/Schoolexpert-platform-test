@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Guides for parents, schools & teachers{% endblock %}
+{% block meta_description %}Practical guides from The School Expert™: choosing a school, admissions, boards compared, homeschooling, school marketing and teacher careers.{% endblock %}
+{% block body %}
+{{ page_head('Guides', 'Practical, expert-reviewed guides for parents, schools, teachers and education partners.') }}
+<section class="section"><div class="container">
+<div class="seg" style="margin-bottom:16px">{% for k, v in [(None,'All'),('parents','Parents'),('schools','Schools'),('teachers','Teachers'),('vendors','Vendors')] %}<a class="{{ 'on' if aud == k }}" href="{{ url_for('growth.guides', **({'for': k} if k else {})) }}">{{ v }}</a>{% endfor %}</div>
+<div class="grid g3">{% for a in rows %}<a class="card" href="{{ url_for('growth.guide', slug=a.slug) }}">{% if a.cover_url %}<img src="{{ a.cover_url }}" alt="" loading="lazy" style="border-radius:10px;margin-bottom:8px">{% endif %}<span class="chip">{{ a.audience | capitalize }}</span><h3 style="margin-top:6px">{{ a.title }}</h3><p class="small muted">{{ a.summary }}</p></a>
+{% else %}<p class="muted">Guides are coming soon.</p>{% endfor %}</div></div></section>
+{% endblock %}

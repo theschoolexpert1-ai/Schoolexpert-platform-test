@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Verify a Teachers Hub certificate — The School Expert™{% endblock %}
+{% block meta_description %}Check that a professional-development certificate issued by The School Expert™ Teachers Hub is genuine.{% endblock %}
+{% block body %}
+<section class="section"><div class="container" style="max-width:620px"><div class="card pad-lg">
+  <h1 style="font-size:1.6rem">Verify a certificate</h1>
+  <p class="muted">Enter the code printed on a Teachers Hub certificate.</p>
+  <form method="get" class="btn-row"><input name="code" value="{{ code }}" placeholder="TSE-C-XXXXXXXXXX" maxlength="24" aria-label="Certificate code" style="flex:1" required><button class="btn btn-primary">Verify</button></form>
+  {% if code %}{% if r %}
+    <div class="notice" style="margin-top:16px;background:#EAF7EF;border-color:#BFE3CC">✅ <b>Valid certificate.</b> {{ r.name }} completed “{{ r.title }}” ({{ r.cpd_hours }} CPD hours) on {{ r.completed_at | dt('%d %B %Y') }}.</div>
+  {% else %}<div class="notice" style="margin-top:16px">❌ No certificate found with that code. Check for typos (codes look like TSE-C-1A2B3C4D5E).</div>{% endif %}{% endif %}
+</div></div></section>
+{% endblock %}

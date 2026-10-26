@@ -1,0 +1,7 @@
+# crontab -u schoolexpert -e   (except backup lines: root crontab)
+* * * * *   cd /var/www/schoolexpert && venv/bin/flask --app wsgi outbox-worker >> var/log/outbox.log 2>&1
+15 2 * * *  cd /var/www/schoolexpert && venv/bin/flask --app wsgi housekeeping >> var/log/housekeeping.log 2>&1
+30 2 * * *  cd /var/www/schoolexpert && venv/bin/flask --app wsgi verify-audit >> var/log/audit-verify.log 2>&1 || echo "AUDIT CHAIN BROKEN" | mail -s "TSE security alert" security@schoolexpert.in
+# root:
+0 3 * * *   /var/www/schoolexpert/deploy/backup.sh >> /var/log/tse-backup.log 2>&1
+0 4 1 * *   /var/www/schoolexpert/deploy/restore-test.sh >> /var/log/tse-restore-test.log 2>&1

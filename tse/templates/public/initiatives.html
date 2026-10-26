@@ -1,0 +1,14 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}The School Expert™ Initiatives{% endblock %}
+{% block meta_description %}NewsWorms, The EverHungry Bookworms Bookclub, Homeschoolers Hub, Principal Roundtables India, Parents' Corner, ambassador programmes and more.{% endblock %}
+{% block body %}
+{{ page_head('The School Expert™ Initiatives', 'Programmes that connect, empower and simplify life for parents, schools, educators and education partners.') }}
+<section class="section"><div class="container"><div class="grid g2">
+{% for i in rows %}<div class="card pad-lg" id="{{ i.slug }}">
+  <div class="tile"><div class="ic">{{ {'newspaper':'📰','book':'📖','home':'🏡','roundtable':'🎙️','craft':'✂️','teacher':'🧑‍🏫','ambassador':'🤝','student':'🎓','badge':'🏅','mic':'🎧','mail':'✉️'}.get(i.icon, '★') }}</div>
+  <div><h2 style="font-size:1.3rem;margin-bottom:2px">{{ i.title }}</h2><p class="small" style="color:var(--gold);font-weight:700">{{ i.tagline }}</p></div></div>
+  <p>{{ i.summary }}</p>{% if i.body %}<div class="prose small">{{ i.body | md }}</div>{% endif %}
+  {% if i.cta_url %}<a class="btn btn-primary btn-sm" href="{{ i.cta_url }}">{{ i.cta_label or 'Learn more' }}</a>{% endif %}
+</div>{% endfor %}
+</div></div></section>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Free worksheets & downloads{% endblock %}
+{% block meta_description %}Free grade-wise worksheets and downloads for parents and teachers from The School Expert™.{% endblock %}
+{% block body %}
+{{ page_head('Worksheets & downloads', 'Grade-wise worksheets are free. NewsWorms subscribers also get the kids newspaper.') }}
+<section class="section-sm"><div class="container">
+  <div class="chips" style="margin-bottom:14px"><a class="chip {{ 'navy' if not kind }}" href="?">All</a>{% for k, v in [('worksheet','Worksheets'),('kids_newspaper','Kids newspaper'),('teacher_resource','For teachers'),('guide','Guides')] %}<a class="chip {{ 'navy' if kind == k }}" href="?kind={{ k }}">{{ v }}</a>{% endfor %}
+    {% for gr in grades %}<a class="chip {{ 'gold' if grade == gr else '' }}" href="?grade={{ gr }}{% if kind %}&kind={{ kind }}{% endif %}">{{ gr }}</a>{% endfor %}</div>
+  <div class="table-wrap"><table class="t"><tr><th>Title</th><th>Grade</th><th>Subject</th><th></th></tr>{% for r in rows %}<tr><td><b>{{ r.title }}</b><div class="small muted">{{ r.summary or '' }}</div></td><td>{{ r.grade or '' }}</td><td>{{ r.subject or '' }}</td><td><a class="btn btn-sm {{ 'btn-outline' if r.is_free else 'btn-accent' }}" href="{{ url_for('content.download', slug=r.slug) }}">{{ 'Download' if r.is_free else 'Subscribers' }}</a></td></tr>{% else %}<tr><td colspan="4" class="muted">Nothing here yet.</td></tr>{% endfor %}</table></div>
+</div></section>
+{% endblock %}

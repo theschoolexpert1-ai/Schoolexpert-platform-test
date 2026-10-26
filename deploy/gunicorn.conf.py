@@ -1,0 +1,9 @@
+bind = '127.0.0.1:8000'
+workers = 3            # (2 x CPU cores) + 1 is a good start; each worker has its own DB pool
+threads = 4
+worker_class = 'gthread'
+timeout = 60
+accesslog = '-'
+errorlog = '-'
+forwarded_allow_ips = '127.0.0.1'
+limit_request_line = 8190

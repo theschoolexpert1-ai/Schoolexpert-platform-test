@@ -1,0 +1,49 @@
+{% extends 'dashboard/_layout.html' %}{% from '_macros.html' import status %}
+{% block title %}{{ 'School' if current_org.category == 'schools' else 'Vendor' }} Dashboard — {{ current_org.name }}{% endblock %}
+{% block dash %}
+<div class="section-title" style="margin-bottom:12px"><div><div class="small muted">{{ 'School' if current_org.category == 'schools' else 'Vendor' }} Dashboard</div>
+  <h1 style="font-size:1.6rem;margin:0">{{ current_org.name }}{% if current_org.founding_partner %} <span class="chip gold">🏅 Founding Partner</span>{% endif %}</h1></div>
+  <a class="tier-pill t{{ ent.level }}" href="{{ url_for('dashboard.plans') }}">{{ ent.plan_name }}{% if ent.ends_at %} · until {{ ent.ends_at | dt }}{% endif %}</a></div>
+{% for r in regs if r.status in ('draft','changes_requested') %}<div class="flash info">{{ r.label }} registration is {{ r.progress }}% complete{% if r.status == 'changes_requested' %} — changes requested: {{ r.review_notes }}{% endif %}. <a href="{{ url_for('register.step', rid=r.id, si=0) }}">Continue →</a></div>{% endfor %}
+{% for r in regs if r.status == 'under_review' %}<div class="flash info">Payment received — our team is verifying your <b>{{ r.label }}</b> registration. Your listing goes live once verified.</div>{% endfor %}
+{% if ent.ends_at and (ent.ends_at - today()).days < 30 %}<div class="flash warning">Your plan renews on {{ ent.ends_at | dt }}. <a href="{{ url_for('dashboard.plans') }}">Renew now</a> to stay visible.</div>{% endif %}
+<div class="kpis">
+  <div class="kpi"><b>{{ stats | sum(attribute='views') }}</b><span>Profile views · 30 days</span></div>
+  <a class="kpi" href="{{ url_for('dashboard.leads') }}"><b>{{ stats | sum(attribute='leads') }}</b><span>Verified leads · 30 days{% if not ent.leads %} 🔒{% endif %}</span></a>
+  {% if current_org.category == 'schools' %}<div class="kpi"><b>{{ stats | sum(attribute='unlocks') }}</b><span>Parents unlocked you · 30 days</span></div>
+  <div class="kpi"><b>{{ stats | sum(attribute='matches') }}</b><span>AI School Match appearances</span></div>{% endif %}
+  <div class="kpi"><b>{{ '%.1f' % (kpi.rating.r or 0) }}★</b><span>{{ kpi.rating.n or 0 }} verified reviews</span></div>
+  {% if earnings.due or earnings.paid %}<a class="kpi" href="{{ url_for('dashboard.sales') }}"><b>{{ inr(earnings.due) }}</b><span>Marketplace earnings due</span></a>{% endif %}
+</div>
+<div class="grid g2" style="margin-bottom:18px">
+  <div class="card"><div class="section-title" style="margin:0"><h3 style="margin:0">Last 30 days</h3><div class="legend"><span><i style="background:var(--navy)"></i>Views</span><span><i style="background:var(--red)"></i>Leads</span></div></div>
+    {% if ent.analytics in ('standard','advanced') %}{% set mx = [stats | map(attribute='views') | max, 1] | max %}
+      <div class="bars" role="img" aria-label="Daily profile views and leads for the last 30 days">{% for d in stats %}<span title="{{ d.day | dt }}: {{ d.views }} views, {{ d.leads }} leads" style="height:{{ (d.views / mx * 100) | round }}%"></span>{% endfor %}</div>
+      <div class="bars" style="height:40px">{% set ml = [stats | map(attribute='leads') | max, 1] | max %}{% for d in stats %}<span class="lead" style="height:{{ (d.leads / ml * 100) | round }}%"></span>{% endfor %}</div>
+      <div class="small muted" style="display:flex;justify-content:space-between"><span>{{ stats[0].day | dt('%d %b') }}</span><span>Today</span></div>
+    {% else %}<div class="upsell"><b>See daily views, unlocks and leads.</b><p class="small muted" style="margin:4px 0 8px">30-day analytics come with Plus; source breakdown and AI Match insights with Pro.</p><a class="btn btn-sm btn-accent" href="{{ url_for('dashboard.plans') }}#upgrade">Upgrade</a></div>{% endif %}
+  </div>
+  <div class="card"><h3>Your plan usage</h3>
+    {% for label, used, lim in [('Active job posts', jobs_used, ent.jobs_limit), ('Marketplace products', products_used, ent.products_limit)] %}{% if lim != 0 %}
+      <div class="small" style="display:flex;justify-content:space-between"><span>{{ label }}</span><span>{{ used }} / {{ 'Unlimited' if lim is none else lim }}</span></div>
+      <div class="meter" style="margin:4px 0 10px"><span style="width:{{ 8 if lim is none else [100, (used / lim * 100) | round] | min }}%"></span></div>{% endif %}{% endfor %}
+    <div class="chips">{% for k in ['detailed_profile','leads','featured','teacher_search','directory_access','review_reply','ai_match','account_manager'] %}{% if not (k == 'teacher_search' and current_org.category != 'schools') %}<span class="chip {{ 'ok' if ent.get(k) else '' }}">{{ '✓' if ent.get(k) else '🔒' }} {{ feature_labels[k].split(' (')[0] }}</span>{% endif %}{% endfor %}</div>
+    {% if quote %}<div class="upsell" style="margin-top:12px"><b>Upgrade to {{ quote.plan.name }}</b> — {{ quote.plan.description }}<div class="small muted">{{ inr(quote.price) }} + GST today{% if quote.credit %} after {{ inr(quote.credit) }} credit{% endif %}.</div><a class="btn btn-sm btn-accent" style="margin-top:8px" href="{{ url_for('dashboard.plans') }}#upgrade">Upgrade</a></div>{% endif %}
+  </div>
+</div>
+<div class="grid g2">
+  <div class="card"><h3>Your listings</h3>{% for r in regs %}<div class="post"><b>{{ r.label }}</b> {{ status(r.status) }}{% if r.is_published %} <span class="chip ok">Live</span>{% endif %}
+    <div class="btn-row small" style="margin-top:6px"><a href="{{ url_for('register.step', rid=r.id, si=0) }}">Edit</a>{% if r.listing_slug %}<a href="{{ url_for('directory.listing', slug=r.listing_slug) }}">View page</a><button class="btn btn-ghost btn-sm" data-copy="{{ cfg.SITE_URL }}/l/{{ r.listing_slug }}">Copy link for {{ 'parents' if r.grp == 'schools' else 'customers' }}</button>{% endif %}
+      {% set mr = multi.get(r.form_slug) %}{% if mr and r.status != 'draft' %}<form method="post" action="{{ url_for('register.add_record', rid=r.id) }}" style="display:inline"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-outline btn-sm">+ Add another {{ mr.record_label }}</button></form>{% endif %}</div>
+      {% if mr %}<div class="small muted">{{ mr.record_label | capitalize }} ID: {{ mr.id_prefix }}-{{ '%06d' % r.id }}</div>{% endif %}</div>{% endfor %}
+    <a class="btn btn-outline btn-sm" href="{{ url_for('register.index') }}">+ Register another category</a></div>
+  <div class="card"><h3>Recent leads</h3>{% if ent.leads %}{% for l in recent_leads %}<div class="post"><b>{{ l.name }}</b> {{ status(l.status) }}<div class="small muted">{{ l.source | replace('_',' ') }} · {{ l.created_at | dt }}</div></div>{% else %}<p class="muted small">Leads from {{ 'parents' if current_org.category == 'schools' else 'schools and parents' }} appear here.</p>{% endfor %}<a href="{{ url_for('dashboard.leads') }}">All leads →</a>
+    {% else %}<div class="upsell"><b>🔒 Verified leads are a Plus feature.</b><p class="small muted" style="margin:4px 0 8px">With Plus, {{ 'parents who unlock your profile can contact your admissions team directly' if current_org.category == 'schools' else 'schools and parents can send you enquiries directly' }}.</p><a class="btn btn-sm btn-accent" href="{{ url_for('dashboard.plans') }}#upgrade">Upgrade</a></div>{% endif %}</div>
+  <div class="card"><h3>Quick actions</h3><div class="btn-row"><a class="btn btn-outline btn-sm" href="{{ url_for('dashboard.job_edit') }}">Post a job</a><a class="btn btn-outline btn-sm" href="{{ url_for('dashboard.promote') }}">Sponsored banner</a><a class="btn btn-outline btn-sm" href="{{ url_for('events.index') }}">Request event passes</a>{% if current_org.category != 'schools' %}<a class="btn btn-outline btn-sm" href="{{ url_for('dashboard.products') }}">Sell a product</a>{% endif %}<a class="btn btn-outline btn-sm" href="{{ url_for('ask.index') }}">Ask The School Expert</a><a class="btn btn-outline btn-sm" href="{{ url_for('dashboard.support') }}">{{ 'Account manager' if ent.account_manager else 'Get support' }}</a><a class="btn btn-outline btn-sm" href="{{ url_for('marketplace.index') }}">Order supplies</a></div></div>
+  <div class="card"><h3>Grow with The School Expert™</h3><ul class="small" style="padding-left:18px;margin:0">
+    <li>Share your page link with {{ 'parents' if current_org.category == 'schools' else 'customers' }} — it's ready to use.</li>
+    <li>{% if ent.podcast_feature %}Your plan includes a podcast/webinar feature — <a href="{{ url_for('dashboard.support', subject='Podcast feature booking') }}">book a slot</a>.{% else %}Pro plans include a podcast/webinar feature.{% endif %}</li>
+    <li>Sponsor an event or the newsletter — <a href="{{ url_for('events.index') }}">see events</a>.</li>
+    <li>Refer another {{ 'school' if current_org.category == 'schools' else 'business' }}: <a href="{{ url_for('dashboard.referrals') }}">your referral link</a>.</li></ul></div>
+</div>
+{% endblock %}

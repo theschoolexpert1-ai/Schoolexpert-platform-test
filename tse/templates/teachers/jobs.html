@@ -1,0 +1,19 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Teaching jobs{% if a.city %} in {{ a.city }}{% endif %}{% endblock %}
+{% block meta_description %}Teaching jobs posted by verified schools across India — PRT, TGT, PGT, special educators, coordinators and more.{% endblock %}
+{% block body %}
+{{ page_head('Teaching jobs', 'Posted by schools on The School Expert™. Apply with your profile and AI-drafted CV.') }}
+<section class="section-sm"><div class="container"><div class="layout">
+  <aside><form class="card filters"><div class="field"><label for="q">Keyword</label><input id="q" name="q" value="{{ a.q or '' }}"></div>
+    <div class="field"><label for="c">City</label><select id="c" name="city"><option value="">Any</option>{% for c in cities %}<option {% if c == a.city %}selected{% endif %}>{{ c }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="s">Subject</label><select id="s" name="subject"><option value="">Any</option>{% for s in subjects %}<option {% if s == a.subject %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="t">Type</label><select id="t" name="type"><option value="">Any</option>{% for t in ['Full-time','Part-time','Contract','Online / Remote','Substitute / Visiting'] %}<option {% if t == a.type %}selected{% endif %}>{{ t }}</option>{% endfor %}</select></div>
+    <button class="btn btn-primary btn-block">Filter</button></form></aside>
+  <div>{% for j in rows %}<a class="card" style="display:block;margin-bottom:10px" href="{{ url_for('teachers.job', slug=j.slug) }}"><div class="lcard">
+      <div class="avatar">{% if j.logo_url %}<img src="{{ j.logo_url }}" alt="">{% else %}{{ j.org_name | initials }}{% endif %}</div>
+      <div><h3 style="margin:0">{{ j.title }}{% if j.featured_until and j.featured_until >= today() %} <span class="chip gold">Featured</span>{% endif %}</h3>
+        <div class="meta">{{ j.org_name }} · {{ j.city }}{% if j.employment_type %} · {{ j.employment_type }}{% endif %}{% if j.show_salary and j.salary_min %} · ₹{{ '{:,}'.format(j.salary_min) }}–{{ '{:,}'.format(j.salary_max or j.salary_min) }}/month{% endif %}</div>
+        <div class="chips">{% for s in j.subjects[:4] %}<span class="chip">{{ s }}</span>{% endfor %}{% for gr in j.grades[:3] %}<span class="chip navy">{{ gr }}</span>{% endfor %}</div></div></div></a>
+    {% else %}<div class="empty">No jobs match. Try removing a filter.</div>{% endfor %}</div>
+</div></div></section>
+{% endblock %}

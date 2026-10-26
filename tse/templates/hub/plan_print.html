@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ p.title }} — lesson plan{% endblock %}
+{% block robots %}noindex{% endblock %}
+{% block body %}
+<section class="section"><div class="container" style="max-width:820px">
+  <div class="btn-row no-print" style="margin-bottom:12px"><a class="btn btn-outline" href="{{ url_for('hub.plan_edit', pid=p.id) }}">← Edit</a><button class="btn btn-primary" data-print>Print / save as PDF</button></div>
+  <div class="card pad-lg plan-sheet">
+    <div class="small muted">Lesson plan · The School Expert™ Teachers Hub</div>
+    <h1 style="font-size:1.7rem;margin:6px 0">{{ p.title }}</h1>
+    <p class="muted">{{ p.subject }}{% if p.grade %} · {{ p.grade }}{% endif %}{% if p.plan_date %} · {{ p.plan_date | dt }}{% endif %} · {{ p.duration_min }} minutes</p>
+    {% for k, l in [('objectives','Learning outcomes'),('materials','Materials'),('activities','Activities & timing'),('assessment','Assessment'),('reflection','Reflection')] %}{% if p[k] %}<h3>{{ l }}</h3><div class="prewrap">{{ p[k] }}</div>{% endif %}{% endfor %}
+  </div>
+</div></section>
+{% endblock %}

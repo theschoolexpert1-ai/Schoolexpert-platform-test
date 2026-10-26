@@ -1,0 +1,66 @@
+@slug teacher-registration
+@title Teacher Registration Form
+@provisional Section 1 matches the live form; sections 2–12 are provisional until the full form is uploaded.
+## Personal Details
+Full Name* | text
+Gender | radio | Female; Male; Prefer not to say; Other
+Date of Birth | date
+Profile Photograph* | file
+Mobile Number* | tel
+WhatsApp Number | tel
+Email Address* | email
+Current City* | text
+Current District | text
+State* | state
+PIN Code | pincode
+## Professional Summary
+Professional Headline* | text | | e.g. CBSE Mathematics Teacher, Grades 6–10
+About Me* | textarea | | 80–150 words about your teaching philosophy and strengths
+Total Teaching Experience* | radio | Fresher; Less than 1 year; 1–3 years; 3–5 years; 5–10 years; 10–20 years; More than 20 years
+Current Employment Status* | radio | Employed (school); Employed (other education organisation); Freelance / Tutor; Looking for opportunities; Career break; Retired
+Current Designation | text
+Current School / Organisation | text
+## Educational Qualifications
+Highest Qualification* | radio | Diploma; Graduate; Postgraduate; M.Phil.; Ph.D.; Other
+Qualifications | repeat 5 | Degree / Qualification, Subject / Specialisation, University / Institution, Year of Completion:year
+## Teaching Qualifications & Eligibility
+Teaching Qualifications | checkbox | B.Ed.; M.Ed.; D.El.Ed.; NTT / ECCE; Montessori Training; B.P.Ed. / M.P.Ed.; Special Education (RCI); Other; None
+Teacher Eligibility Tests Cleared | checkbox | CTET; State TET; None
+TET / CTET Details | text | | Paper, year and score (optional)
+## Teaching Profile
+Subjects You Teach* | checkbox | Mathematics; Science; Physics; Chemistry; Biology; English; Hindi; Kannada; Tamil; Telugu; Malayalam; Marathi; Sanskrit; French; German; Social Science; History; Geography; Economics; Accountancy; Business Studies; Computer Science; Coding / AI; EVS; General Knowledge; Art & Craft; Music; Dance; Physical Education; Yoga; Life Skills; Other
+Grades / Levels Taught* | checkbox | Pre-primary; Primary (1–5); Middle (6–8); Secondary (9–10); Senior Secondary (11–12)
+Boards / Curricula Experience* | checkbox | $BOARDS
+Languages You Can Teach In* | checkbox | $LANG9
+Teaching Methods | checkbox | Activity-based learning; Experiential learning; Project-based learning; Inquiry-based learning; Flipped classroom; Differentiated instruction; Blended / digital teaching; Inclusive classroom practices
+## Work Experience
+Work Experience | repeat 8 | School / Organisation, Designation, Board, From (year):year, To (year or Present), Subjects & Grades, Key Responsibilities & Achievements:textarea
+## Skills & Certifications
+Digital Skills | checkbox | Google Workspace / Classroom; Microsoft 365 / Teams; Smart board; LMS platforms; Canva / content creation; AI tools for teaching; Online assessment tools; Video lessons
+Additional Responsibilities Handled | checkbox | Class teacher; Subject coordinator; Exam coordinator; Olympiad / competition mentor; Club in-charge; House master / mistress; Admissions support; Parent communication; Event management; Mentoring new teachers
+Certifications & Trainings | repeat 8 | Certification / Training, Issuing Body, Year:year
+## Achievements
+Awards & Recognition | textarea
+Student Outcomes / Results | textarea
+Publications, Workshops or Talks | textarea
+## Job Preferences
+Open to New Opportunities* | yesno
+Preferred Roles | checkbox | Pre-primary Teacher; Primary Teacher (PRT); Trained Graduate Teacher (TGT); Post Graduate Teacher (PGT); Special Educator; Counsellor; Coordinator; Vice Principal; Principal; Online Tutor; Curriculum Developer; Teacher Trainer
+Preferred Job Type | checkbox | Full-time; Part-time; Contract; Online / Remote; Substitute / Visiting
+Preferred Locations | text
+Willing to Relocate | yesno
+Expected Salary (per month) | text | | Kept private; shared only with schools you apply to
+Notice Period | radio | Immediate; 15 days; 1 month; 2 months; 3 months
+## Online Presence & Documents
+LinkedIn Profile | url
+Portfolio / Demo Lesson Link | url
+Upload CV (optional) | file | | You can also generate a CV with AI from your profile
+Qualification Certificates | files
+Experience Letters | files
+## Safeguarding & Verification
+Are you willing to undergo background verification by schools you apply to?* | yesno
+Have you completed child-safeguarding / POCSO awareness training? | radio | Yes; No; Willing to complete
+## Declaration & Consent
+Declaration* | consent | | I confirm that the information provided is true and accurate, and I understand that The School Expert™ may verify the details and documents submitted.
+Profile visibility* | radio | Visible to verified schools only; Visible on the public teacher directory (name, headline, subjects, city); Hidden (I will apply to jobs myself)
+Community guidelines* | consent | | I agree to follow The School Expert™ Teachers Community guidelines, including respectful conduct and never sharing student personal information.

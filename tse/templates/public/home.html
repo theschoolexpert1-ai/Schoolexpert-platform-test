@@ -1,0 +1,102 @@
+{% extends 'base.html' %}{% from '_macros.html' import listing_card %}
+{% block title %}{% endblock %}
+{% block body %}
+<section class="hero"><div class="container">
+  <span class="eyebrow">One Mission. Multiple Revenue Streams. Stronger Education Ecosystem.</span>
+  <h1>India's trusted K-12 education ecosystem — parents, schools, teachers, experts and education partners, stronger together.</h1>
+  <p class="lead">Find verified schools, tutors, hobby classes and experts. Hire great teachers. Reach schools across India. All in one place.</p>
+  <form class="hero-search" action="{{ url_for('public.search') }}" role="search">
+    <input name="q" placeholder="School, board, tutor, subject…" aria-label="What are you looking for?">
+    <select name="grp" aria-label="Category"><option value="">Everything</option><option value="schools">Schools</option><option value="learning">Tutors, courses & classes</option><option value="vendors">Education partners</option></select>
+    <input name="city" placeholder="City (e.g. Bengaluru)" aria-label="City" list="home-cities">
+    <datalist id="home-cities">{% for c in cities %}<option value="{{ c.city }}">{% endfor %}</datalist>
+    <button class="btn btn-accent btn-lg">Search</button>
+  </form>
+  <div class="btn-row" style="margin-top:14px"><a class="btn btn-primary" href="{{ url_for('school_match.index') }}">✨ Try AI School Match — free</a><span class="small" style="opacity:.85">7 questions · neutral, verified shortlist · no child data collected</span></div>
+  <div class="stakeholders">
+    <a href="{{ url_for('school_match.index') }}">👪 I'm a parent</a><a href="{{ url_for('growth.list_school') }}">🏫 I'm a school</a>
+    <a href="{{ url_for('teachers.hub') }}">🧑‍🏫 I'm a teacher</a><a href="{{ url_for('register.index') }}">🧠 I'm an expert</a><a href="{{ url_for('growth.become_vendor') }}">🤝 I'm an education partner</a>
+  </div>
+</div></section>
+
+<section class="section"><div class="container">
+  <div class="grid g4">
+    <a class="card" href="{{ url_for('directory.group', grp='schools') }}"><div class="icon">🏫</div><h3>Schools</h3><p class="muted small">{{ counts.get('schools', 0) }} listed · regular, preschool, alternative, inclusive, special & online</p></a>
+    <a class="card" href="{{ url_for('directory.group', grp='learning') }}"><div class="icon">📚</div><h3>Tutors & classes</h3><p class="muted small">{{ counts.get('learning', 0) }} listed · online tutoring, hobby, courses, consultants</p></a>
+    <a class="card" href="{{ url_for('ask.index') }}"><div class="icon">🧠</div><h3>Ask The School Expert</h3><p class="muted small">Mental health, behaviour, special educators, careers, fee financing — our in-house panel & referrals</p></a>
+    <a class="card" href="{{ url_for('directory.group', grp='vendors') }}"><div class="icon">🤝</div><h3>Education partners</h3><p class="muted small">{{ counts.get('vendors', 0) }} listed · EdTech, publishers, infrastructure, transport, uniforms</p></a>
+  </div>
+</div></section>
+
+<section class="section alt"><div class="container">
+  <div class="grid g2" style="align-items:center">
+    <div>
+      <span class="chip red">For parents</span>
+      <h2 style="margin-top:10px">Verified school details, without the running around</h2>
+      <p>Browse basic details of every school for free. When you are ready, <b>Ask The School Expert</b> to unlock verified, detailed profiles of up to 10 schools in your locality, contact them directly and leave <b>Verified Reviews</b>.</p>
+      <p>Can't visit schools yourself? Our own team — never an outside agency — collects and submits forms, gets fee information, coordinates fee payment and collects TCs. Track every step online.</p>
+      <div class="btn-row"><a class="btn btn-primary" href="{{ url_for('ask.schools') }}">Ask The School Expert</a><a class="btn btn-outline" href="{{ url_for('ask.pa_index') }}">Personal Assistance</a></div>
+    </div>
+    <div class="card"><h3>How it works</h3>
+      <ol class="small" style="padding-left:18px;margin:0">
+        <li>Choose your locality and see how many schools have verified, detailed profiles.</li>
+        <li>Buy a pack ({{ inr(49900) }} + GST) — unlock any 10 schools in that locality for 90 days.</li>
+        <li>See fees, facilities, admissions contacts and more. Contact schools as a verified enquiry.</li>
+        <li>Rate the schools you unlocked — your review is marked <b>Verified</b>.</li>
+      </ol></div>
+  </div>
+</div></section>
+
+{% if featured %}<section class="section"><div class="container">
+  <div class="section-title"><div><h2>Featured on The School Expert™</h2><p>Verified schools and partners</p></div><a class="btn btn-outline btn-sm" href="{{ url_for('public.search', grp='schools') }}">See all</a></div>
+  <div class="grid g3">{% for l in featured %}{{ listing_card(l) }}{% endfor %}</div>
+</div></section>{% endif %}
+
+<section class="section alt"><div class="container">
+  <div class="grid g3">
+    <div class="card"><span class="chip navy">For schools</span><h3 style="margin-top:10px">Be found. Be trusted. Hire well.</h3>
+      <p class="small muted">Detailed verified listing, verified admission leads, unlimited teacher job posts, events, podcasts and Principal Roundtables.</p>
+      <a class="btn btn-primary btn-sm" href="{{ url_for('public.for_schools') }}">School plans</a></div>
+    <div class="card"><span class="chip navy">For teachers</span><h3 style="margin-top:10px">Your profile, an AI-drafted CV, and school jobs</h3>
+      <p class="small muted">Create your profile once, generate a polished CV, apply to jobs from school pages and join a safe Teachers Community.</p>
+      <a class="btn btn-primary btn-sm" href="{{ url_for('teachers.hub') }}">Teachers Hub</a></div>
+    <div class="card"><span class="chip navy">For education partners</span><h3 style="margin-top:10px">Reach schools across India</h3>
+      <p class="small muted">Memberships, Founding Partner Programme, marketplace selling, sponsorships, webinars and the industry newsletter.</p>
+      <a class="btn btn-primary btn-sm" href="{{ url_for('public.for_partners') }}">Partner with us</a></div>
+  </div>
+</div></section>
+
+<section class="section"><div class="container">
+  <div class="grid g2">
+    <div>
+      <div class="section-title"><h2>Upcoming events</h2><a href="{{ url_for('events.index') }}">All events →</a></div>
+      {% for e in events %}<a class="card flat" style="margin-bottom:10px" href="{{ url_for('events.detail', slug=e.slug) }}"><b>{{ e.title }}</b><div class="small muted">{{ e.starts_at | dtt }} · {{ e.mode | capitalize }}{% if e.city %} · {{ e.city }}{% endif %} · {{ inr(e.price_paise) if e.price_paise else 'Free' }}</div></a>{% else %}<div class="empty">New events are announced soon.</div>{% endfor %}
+    </div>
+    <div>
+      <div class="section-title"><h2>Latest teaching jobs</h2><a href="{{ url_for('teachers.jobs') }}">All jobs →</a></div>
+      {% for j in jobs %}<a class="card flat" style="margin-bottom:10px" href="{{ url_for('teachers.job', slug=j.slug) }}"><b>{{ j.title }}</b><div class="small muted">{{ j.org_name }} · {{ j.city }}{% if j.employment_type %} · {{ j.employment_type }}{% endif %}</div></a>{% else %}<div class="empty">Schools post jobs here every week.</div>{% endfor %}
+    </div>
+  </div>
+</div></section>
+
+{% if podcasts %}<section class="section alt"><div class="container">
+  <div class="section-title"><div><h2>Podcasts & webinars</h2><p>Conversations with educators — leave your questions</p></div><a href="{{ url_for('content.podcasts') }}">All episodes →</a></div>
+  <div class="grid g3">{% for p in podcasts %}<a class="card" href="{{ url_for('content.podcast', slug=p.slug) }}"><div class="media-cover {{ loop.cycle('', 'red', 'gold') }}">{% if p.cover_url %}<img src="{{ p.cover_url }}" alt="">{% else %}🎙 {{ p.kind | capitalize }}{% endif %}</div><h3>{{ p.title }}</h3><p class="small muted">{{ p.guest }}{% if p.guest_title %} — {{ p.guest_title }}{% endif %}</p></a>{% endfor %}</div>
+</div></section>{% endif %}
+
+<section class="section"><div class="container">
+  <div class="section-title"><div><h2>The School Expert™ Initiatives</h2><p>Programmes that make the ecosystem stronger</p></div><a href="{{ url_for('public.initiatives') }}">All initiatives →</a></div>
+  <div class="grid g3">{% for i in initiatives %}<a class="card" href="{{ i.cta_url }}"><h3>{{ i.title }}</h3><p class="small" style="color:var(--gold);font-weight:600">{{ i.tagline }}</p><p class="small muted">{{ i.summary }}</p></a>{% endfor %}</div>
+</div></section>
+
+<section class="section alt"><div class="container">
+  <h2 class="center">Our impact</h2>
+  <div class="values" style="margin-top:18px">
+    <div class="v">🛡️<b>Trust</b><span class="small muted">Everything we do</span></div>
+    <div class="v">👥<b>Community</b><span class="small muted">Stronger together</span></div>
+    <div class="v">💡<b>Impact</b><span class="small muted">Better every day</span></div>
+    <div class="v">📈<b>Growth</b><span class="small muted">Sustainable & scalable</span></div>
+  </div>
+  <p class="center muted" style="max-width:760px;margin:22px auto 0"><b>Our goal:</b> to build India's most trusted education ecosystem by connecting, empowering and simplifying parents, schools, experts and education businesses.</p>
+</div></section>
+{% endblock %}

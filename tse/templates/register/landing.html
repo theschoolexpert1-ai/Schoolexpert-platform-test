@@ -1,0 +1,32 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head, status %}
+{% block title %}{{ defn.title }}{% endblock %}
+{% block body %}
+{{ page_head(defn.title, defn._meta.label, [('Registration Centre', url_for('register.index'))]) }}
+<section class="section"><div class="container"><div class="layout right">
+  <div>
+    {% for p in defn.intro %}<p>{{ p }}</p>{% endfor %}
+    <div class="card"><h3>What you'll need</h3>
+      <p class="small muted">{{ defn.sections | length }} sections · fields marked <span class="req">*</span> are required. Your answers save as you go, so you can stop and come back.</p>
+      <ol class="small" style="columns:2;padding-left:18px">{% for s in defn.sections %}<li>{{ s.title }}</li>{% endfor %}</ol>
+      <p class="small"><span class="chip navy">Public</span> fields appear on your free listing · detailed fields appear for entitled viewers once you choose a detailed plan · <span class="chip">🔒 Private</span> fields (IDs, certificates, personal contacts, references) are encrypted and seen only by our verification team.</p>
+    </div>
+    {% if mine %}<h3 style="margin-top:22px">Your registrations for this form</h3>
+      <div class="table-wrap"><table class="t"><tr><th>#</th><th>Status</th><th>Progress</th><th></th></tr>{% for r in mine %}<tr><td>{{ r.id }}</td><td>{{ status(r.status) }}</td><td>{{ r.progress }}%</td><td><a href="{{ url_for('register.step', rid=r.id, si=0) }}">Continue</a></td></tr>{% endfor %}</table></div>{% endif %}
+    {% if plans %}<h2 style="margin-top:26px">Plans after registration</h2>{% set action = None %}{% include '_plan_cards.html' %}{% endif %}
+  </div>
+  <aside class="card sticky">
+    <h3>Start your registration</h3>
+    {% if not current_user %}
+      <p class="small muted">Create a free {{ {'organisation':'School / Organisation / Professional','teacher':'Teacher','parent':'Parent'}[need_type] }} account first — it takes a minute.</p>
+      <a class="btn btn-accent btn-block" href="{{ url_for('auth.signup', type=need_type, next=request.path) }}">Create account</a>
+      <a class="btn btn-outline btn-block" style="margin-top:8px" href="{{ url_for('auth.login', next=request.path) }}">I already have an account</a>
+    {% else %}
+      <form method="post" action="{{ url_for('register.start', slug=slug) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        {% if user_orgs %}<div class="field"><label for="org">Register under</label><select id="org" name="org_id"><option value="">A new organisation / practice</option>{% for o in user_orgs %}<option value="{{ o.id }}">{{ o.name }}</option>{% endfor %}</select><div class="help">Choose your existing organisation to add another campus or category.</div></div>{% endif %}
+        <button class="btn btn-accent btn-block">Start registration</button></form>
+    {% endif %}
+    {% if defn._meta.entity == 'minor' %}<p class="small notice" style="margin-top:12px">For students aged 14–18. A parent or lawful guardian completes this form with the student and confirms consent by OTP.</p>{% endif %}
+    <p class="small muted" style="margin-top:12px">Questions? <a href="mailto:{{ cfg.CONTACT_EMAIL }}">{{ cfg.CONTACT_EMAIL }}</a></p>
+  </aside>
+</div></div></section>
+{% endblock %}

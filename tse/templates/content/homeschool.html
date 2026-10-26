@@ -1,0 +1,17 @@
+{% extends 'base.html' %}{% from '_macros.html' import listing_card %}
+{% block title %}Homeschoolers Hub{% endblock %}
+{% block meta_description %}Homeschooling in India: meetups in your city, curated resources, learning apps, a homeschooling community and access to experts — The School Expert™ Homeschoolers Hub.{% endblock %}
+{% block body %}
+<section class="hero" style="padding:46px 0"><div class="container"><span class="eyebrow">A The School Expert™ initiative</span><h1>🏡 Homeschoolers Hub</h1>
+<p class="lead">Meetups in different places, resources about homeschooling, learning apps (free and paid), a supportive community — and an expert when you need one.</p>
+<div class="btn-row" style="margin-top:14px"><a class="btn btn-accent" href="{{ url_for('ask.index', topic='homeschooling') }}#request">Talk to a homeschooling expert</a><a class="btn btn-outline" style="background:#fff" href="{{ url_for('community.view', slug='homeschoolers') }}">Homeschoolers Circle</a></div></div></section>
+<section class="section"><div class="container">
+  <h2>Meetups</h2><p class="muted">Meetups are paid to cover venue and activity costs.</p>
+  <div class="grid g3" style="margin-bottom:28px">{% for e in meetups %}<a class="card" href="{{ url_for('events.detail', slug=e.slug) }}"><span class="chip navy">{{ e.city or e.mode | capitalize }}</span><h3 style="margin-top:6px">{{ e.title }}</h3><p class="small muted">{{ e.starts_at | dtt }} · {{ inr(e.price_paise) if e.price_paise else 'Free' }}</p></a>{% else %}<div class="empty" style="grid-column:1/-1">New meetups are announced soon.</div>{% endfor %}</div>
+  <div class="grid g2">
+    <div><h2>Resources</h2>{% for r in resources %}<div class="card flat" style="margin-bottom:8px"><b>{{ r.title }}</b><div class="small muted">{{ r.summary or '' }}</div>{% if r.file_url or r.external_url %}<a class="small" href="{{ url_for('content.download', slug=r.slug) }}">Open →</a>{% endif %}</div>{% else %}<div class="empty">Resources coming soon.</div>{% endfor %}</div>
+    <div><h2>Learning apps</h2>{% for a in apps %}<div class="card flat" style="margin-bottom:8px;display:flex;justify-content:space-between;gap:10px;align-items:center"><div><b>{{ a.title }}</b> <span class="chip {{ 'ok' if a.is_free else 'gold' }}">{{ 'Free' if a.is_free else 'Paid' }}</span><div class="small muted">{{ a.summary or '' }}{% if a.platform %} · {{ a.platform }}{% endif %}</div></div>{% if a.external_url %}<a class="btn btn-outline btn-sm" href="{{ a.external_url }}" target="_blank" rel="noopener nofollow">Download</a>{% endif %}</div>{% else %}<div class="empty">Apps coming soon.</div>{% endfor %}</div>
+  </div>
+  {% if alt_schools %}<h2 style="margin-top:28px">Homeschool support centres</h2><div class="grid g3">{% for l in alt_schools %}{{ listing_card(l) }}{% endfor %}</div>{% endif %}
+</div></section>
+{% endblock %}

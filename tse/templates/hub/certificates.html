@@ -1,0 +1,19 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}My certificates — Teachers Hub{% endblock %}
+{% block dash %}
+<h1 style="font-size:1.6rem">My certificates & CPD record</h1>
+<div class="card hub-hero">
+  {% set goal = (hub_member.cpd_goal if hub_member else 50) %}
+  <div class="ring" style="--p:{{ [100, (100 * cpd.total / goal) | round | int] | min }}"><div><b>{{ cpd.total }}</b><small>of {{ goal }} h</small></div></div>
+  <div><h3 style="margin:0">CPD hours in {{ today().year }}</h3><p class="small muted" style="margin:6px 0 0">Courses: {{ cpd.courses }} h · Workshops attended: {{ cpd.workshops }} h. Change your annual goal in <a href="{{ url_for('hub.profile') }}">Hub profile</a>.</p>
+  <p class="small muted">Anyone — for example a school you apply to — can check a certificate at <a href="{{ url_for('hub.verify') }}">{{ cfg.SITE_URL | replace('https://','') }}/teachers/certificates/verify</a>.</p></div>
+</div>
+<h2 style="margin-top:24px">Course certificates</h2>
+<div class="table-wrap"><table><thead><tr><th>Course</th><th>CPD hours</th><th>Completed</th><th>Code</th><th></th></tr></thead><tbody>
+{% for r in rows %}<tr><td><b>{{ r.title }}</b><div class="small muted">{{ r.instructor }}</div></td><td>{{ r.cpd_hours }}</td><td>{{ r.completed_at | dt }}</td><td><code>{{ r.certificate_code }}</code></td><td><a class="btn btn-sm btn-outline" href="{{ url_for('hub.certificate', code=r.certificate_code) }}">View / print</a></td></tr>
+{% else %}<tr><td colspan="5" class="muted">No certificates yet — <a href="{{ url_for('hub.courses') }}">start a course</a>.</td></tr>{% endfor %}</tbody></table></div>
+<h2 style="margin-top:24px">Workshops counted towards CPD</h2>
+<div class="table-wrap"><table><thead><tr><th>Workshop</th><th>Date</th><th>CPD hours</th></tr></thead><tbody>
+{% for e in events %}<tr><td><a href="{{ url_for('events.detail', slug=e.slug) }}">{{ e.title }}</a></td><td>{{ e.starts_at | dt }}</td><td>{{ e.cpd_hours }}</td></tr>
+{% else %}<tr><td colspan="3" class="muted">Attend a <a href="{{ url_for('hub.workshops') }}">CPD workshop</a> and it will appear here.</td></tr>{% endfor %}</tbody></table></div>
+{% endblock %}

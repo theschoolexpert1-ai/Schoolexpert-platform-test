@@ -1,0 +1,25 @@
+{% extends 'base.html' %}{% block title %}Account security{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}<section class="section"><div class="container narrow">
+<h1>Account security</h1>
+{% if required and not u.mfa_enabled %}<div class="flash warning">Staff accounts must use two-step verification. Set it up below to continue to the back office.</div>{% endif %}
+<div class="card pad-lg"><h2 style="font-size:1.2rem">Two-step verification {% if u.mfa_enabled %}<span class="chip ok">On</span>{% else %}<span class="chip">Off</span>{% endif %}</h2>
+{% if codes %}<div class="flash success"><b>Your recovery codes</b> — each works once if you lose your phone. Store them somewhere safe; they won't be shown again.
+<pre style="background:#fff;padding:10px;border-radius:8px;columns:2">{% for c in codes %}{{ c }}
+{% endfor %}</pre></div>{% endif %}
+{% if not u.mfa_enabled and not secret %}
+<p class="muted">Protect your account with a code from an authenticator app (Google Authenticator, Microsoft Authenticator, Authy) in addition to your password. Strongly recommended for school and vendor owners.</p>
+<form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-primary" name="action" value="start">Set up two-step verification</button></form>
+{% elif secret %}
+<ol class="small"><li>Open your authenticator app and add an account.</li><li>On this phone: <a href="{{ uri }}">tap here to add it</a>. On another device: choose “enter a setup key” and type <code style="font-size:1rem;letter-spacing:.1em">{{ secret }}</code> (time-based).</li><li>Enter the 6-digit code the app shows.</li></ol>
+<form method="post" class="btn-row"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input name="code" inputmode="numeric" maxlength="6" placeholder="123456" aria-label="6-digit code" required style="max-width:160px"><button class="btn btn-primary" name="action" value="confirm">Turn on</button></form>
+{% else %}
+<p class="muted">You'll be asked for a code each time you sign in on a new session.{% if (u.mfa_recovery_hashes or []) | length < 3 %} You have {{ (u.mfa_recovery_hashes or []) | length }} recovery codes left.{% endif %}</p>
+{% if not required %}<form method="post" class="btn-row"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="password" name="password" placeholder="Your password" aria-label="Password" required style="max-width:220px"><button class="btn btn-ghost" name="action" value="disable">Turn off</button></form>{% endif %}
+{% endif %}</div>
+<div class="card pad-lg"><div class="section-title" style="margin:0"><h2 style="font-size:1.2rem;margin:0">Where you're signed in</h2>
+<form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-outline btn-sm" name="action" value="signout_others">Sign out all other devices</button></form></div>
+<table class="t">{% for s in sessions %}<tr><td class="small">{{ (s.user_agent or 'Unknown device')[:70] }}{% if s.sid == current_sid %} <span class="chip ok">This device</span>{% endif %}</td><td class="small">{{ s.ip or '' }}</td><td class="small">last active {{ s.last_seen_at | dtt }}</td></tr>{% endfor %}</table></div>
+<div class="card pad-lg"><h2 style="font-size:1.2rem">Recent security activity</h2>
+<table class="t">{% for e in events %}<tr><td class="small">{{ e.action | replace('auth.','') | replace('security.','') | replace('_',' ') }}</td><td class="small">{{ e.ip or '' }}</td><td class="small">{{ e.created_at | dtt }}</td></tr>{% else %}<tr><td class="muted small">Nothing yet.</td></tr>{% endfor %}</table>
+<p class="small muted">See something you don't recognise? <a href="{{ url_for('auth.forgot') }}">Reset your password</a> and sign out other devices, then write to security@schoolexpert.in.</p></div>
+</div></section>{% endblock %}

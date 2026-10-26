@@ -1,0 +1,9 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}Lesson planner — Teachers Hub{% endblock %}
+{% block dash %}
+<div class="section-title"><div><h1 style="font-size:1.6rem;margin:0">Lesson planner</h1><p class="muted" style="margin:4px 0 0">🔒 Private to you. Plan outcomes, materials, activities, assessment and reflection — then print.</p></div><a class="btn btn-accent" href="{{ url_for('hub.plan_edit') }}">+ New lesson plan</a></div>
+<div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Date</th><th>Lesson</th><th>Subject / grade</th><th>Duration</th><th></th></tr></thead><tbody>
+{% for p in rows %}<tr {% if p.plan_date and p.plan_date < today %}class="muted"{% endif %}><td>{{ p.plan_date | dt if p.plan_date else '—' }}</td><td><a href="{{ url_for('hub.plan_edit', pid=p.id) }}"><b>{{ p.title }}</b></a></td><td>{{ p.subject }}{% if p.grade %} · {{ p.grade }}{% endif %}</td><td>{{ p.duration_min }} min</td>
+  <td><a class="btn btn-sm btn-ghost" href="{{ url_for('hub.plan_print', pid=p.id) }}">Print</a></td></tr>
+{% else %}<tr><td colspan="5" class="muted">No lesson plans yet. <a href="{{ url_for('hub.plan_edit') }}">Create your first one</a> — the <a href="{{ url_for('hub.tutorials', q='lesson plan') }}">15-minute lesson plan tutorial</a> helps.</td></tr>{% endfor %}</tbody></table></div>
+{% endblock %}

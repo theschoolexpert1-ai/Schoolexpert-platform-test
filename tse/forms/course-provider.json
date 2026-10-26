@@ -1,0 +1,867 @@
+{
+ "slug": "course-provider",
+ "title": "K–12 Individual Course Providers — Registration Form",
+ "category": "learning",
+ "label": "K-12 Course Providers",
+ "entity": "organisation",
+ "intro": [
+  "Designed for providers offering individual courses to K–12 students, parents, teachers or schools in India. The structure allows one provider account to register multiple courses, with each course receiving a separate Course ID and public listing."
+ ],
+ "outro": [],
+ "sections": [
+  {
+   "title": "Provider Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "provider_name",
+     "label": "Provider / Organisation Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "brand_name",
+     "label": "Brand / Trade Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "legal_entity_name",
+     "label": "Legal Entity Name",
+     "type": "text",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "provider_type",
+     "label": "Provider Type",
+     "type": "radio",
+     "required": true,
+     "other": true,
+     "options": [
+      "Course Provider Company",
+      "Individual Educator",
+      "Training Institute",
+      "EdTech Company",
+      "Academy / Learning Centre",
+      "NGO / Trust / Society",
+      "School-affiliated Provider"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": false,
+     "help": "Year between 1900 and 2026",
+     "visibility": "public"
+    },
+    {
+     "key": "address",
+     "label": "Head Office / Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city_state",
+     "label": "City / State",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "business_email",
+     "label": "Business Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "phone_whatsapp",
+     "label": "Phone / WhatsApp",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "logo_url",
+     "label": "Logo",
+     "type": "file",
+     "required": false,
+     "help": "JPG/PNG",
+     "accept": [
+      "jpg",
+      "png"
+     ],
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "provider_description",
+     "label": "Provider Description",
+     "type": "textarea",
+     "required": true,
+     "help": "Max 1,000 characters",
+     "maxLength": 1000,
+     "visibility": "public",
+     "role": "about"
+    },
+    {
+     "key": "contact_name",
+     "label": "Primary Contact",
+     "type": "text",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "contact_designation",
+     "label": "Designation",
+     "type": "text",
+     "required": true,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Course Details",
+   "description": "Describe one course here. After submitting, use “Add another course” on your dashboard — each course gets its own Course ID and public listing; your provider details are copied automatically.",
+   "fields": [
+    {
+     "key": "course_name",
+     "label": "Course Name",
+     "type": "text",
+     "required": true,
+     "help": "Each course gets a unique Course ID",
+     "visibility": "public"
+    },
+    {
+     "key": "course_categories",
+     "label": "Course Category",
+     "type": "checkbox",
+     "required": true,
+     "other": true,
+     "options": [
+      "Coding & Programming",
+      "AI & Robotics",
+      "STEM",
+      "Mathematics",
+      "Science",
+      "Languages",
+      "Communication",
+      "Public Speaking",
+      "Creative Writing",
+      "Reading & Literacy",
+      "Financial Literacy",
+      "Entrepreneurship",
+      "Life Skills",
+      "Leadership",
+      "Critical Thinking",
+      "Design",
+      "Art & Craft",
+      "Music",
+      "Dance",
+      "Theatre",
+      "Sports & Fitness",
+      "Career Skills",
+      "Mental Wellbeing",
+      "Environmental Education",
+      "Self-Defence & Personal Safety",
+      "Security Awareness & Safety",
+      "Vocational / Skill Development"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "course_short_description",
+     "label": "Course Short Description",
+     "type": "textarea",
+     "required": true,
+     "help": "Max 500 characters",
+     "maxLength": 500,
+     "visibility": "public",
+     "role": "headline"
+    },
+    {
+     "key": "course_description",
+     "label": "Detailed Course Description",
+     "type": "textarea",
+     "required": true,
+     "help": "Max 2,000 characters",
+     "maxLength": 2000,
+     "visibility": "detailed"
+    },
+    {
+     "key": "learning_objectives",
+     "label": "Learning Objectives",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "learning_outcomes",
+     "label": "Learning Outcomes",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "course_modules",
+     "label": "Course Modules / Syllabus",
+     "type": "textarea",
+     "required": true,
+     "help": "Module / topic / duration",
+     "visibility": "detailed"
+    },
+    {
+     "key": "course_level",
+     "label": "Course Level",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Beginner",
+      "Intermediate",
+      "Advanced",
+      "Mixed Level"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "prerequisites",
+     "label": "Prerequisites",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "target_learners",
+     "label": "Target Learners",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Preschool",
+      "Grades 1–2",
+      "Grades 3–5",
+      "Grades 6–8",
+      "Grades 9–10",
+      "Grades 11–12",
+      "K–12",
+      "Parents",
+      "Teachers",
+      "School Leaders"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "age_range",
+     "label": "Age Range",
+     "type": "text",
+     "required": false,
+     "help": "e.g. 8–12 years",
+     "visibility": "public"
+    },
+    {
+     "key": "school_boards",
+     "label": "Suitable School Boards",
+     "type": "checkbox",
+     "required": false,
+     "other": true,
+     "options": [
+      "CBSE",
+      "CISCE / ICSE",
+      "State Boards",
+      "IB",
+      "Cambridge",
+      "NIOS",
+      "All Boards"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "education_alignment",
+     "label": "NEP / Competency Alignment",
+     "type": "checkbox",
+     "required": false,
+     "other": true,
+     "options": [
+      "NEP 2020",
+      "Experiential Learning",
+      "Competency-based Learning",
+      "Foundational Literacy & Numeracy",
+      "21st-century Skills",
+      "Vocational / Skill Education",
+      "Not Applicable"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Delivery",
+   "description": "",
+   "fields": [
+    {
+     "key": "course_duration",
+     "label": "Course Duration",
+     "type": "text",
+     "required": true,
+     "help": "e.g. 12 weeks / 30 hours",
+     "visibility": "detailed"
+    },
+    {
+     "key": "session_count",
+     "label": "Number of Sessions",
+     "type": "number",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "session_duration",
+     "label": "Session Duration",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "30 min",
+      "45 min",
+      "60 min",
+      "90 min",
+      "2 hours",
+      "Custom"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "batch_size",
+     "label": "Recommended Batch Size",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "1–5",
+      "6–10",
+      "11–20",
+      "21–30",
+      "31–50",
+      "50+"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "delivery_mode",
+     "label": "Delivery Mode",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Online",
+      "In-person",
+      "Hybrid",
+      "School-based",
+      "Centre-based",
+      "Home-based"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "teaching_method",
+     "label": "Teaching Method",
+     "type": "checkbox",
+     "required": true,
+     "other": true,
+     "options": [
+      "Live Instructor-led",
+      "Self-paced",
+      "Recorded",
+      "Project-based",
+      "Activity-based",
+      "Experiential",
+      "Blended"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "geographic_availability",
+     "label": "Geographic Availability",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Local",
+      "City",
+      "State",
+      "Multi-State",
+      "Pan India",
+      "International / Online"
+     ],
+     "help": "For in-person delivery, where you serve; for online delivery, choose International / Online.",
+     "visibility": "public"
+    },
+    {
+     "key": "languages_offered",
+     "label": "Languages Offered",
+     "type": "checkbox",
+     "required": true,
+     "other": true,
+     "options": [
+      "English",
+      "Hindi",
+      "Kannada",
+      "Tamil",
+      "Telugu",
+      "Malayalam",
+      "Marathi",
+      "Bengali",
+      "Gujarati",
+      "Punjabi",
+      "Urdu",
+      "Odia",
+      "Assamese"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Assessment & Certification",
+   "description": "",
+   "fields": [
+    {
+     "key": "assessment_methods",
+     "label": "Assessment Methods",
+     "type": "checkbox",
+     "required": false,
+     "other": true,
+     "options": [
+      "Quizzes",
+      "Assignments",
+      "Projects",
+      "Practical Assessment",
+      "Portfolio",
+      "Presentations",
+      "Final Assessment",
+      "No Formal Assessment"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "progress_reporting",
+     "label": "Progress Reporting",
+     "type": "checkbox",
+     "required": false,
+     "other": true,
+     "options": [
+      "Student Report",
+      "Parent Report",
+      "School Report",
+      "Dashboard",
+      "Certificate Only"
+     ],
+     "showIf": {
+      "field": "assessment_methods",
+      "notEmpty": true,
+      "excludes": "No Formal Assessment"
+     },
+     "visibility": "detailed"
+    },
+    {
+     "key": "certificate_provided",
+     "label": "Certificate Provided",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Optional"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "certificate_type",
+     "label": "Certificate Type",
+     "type": "text",
+     "required": false,
+     "help": "Show if certificate = Yes/Optional",
+     "showIf": {
+      "field": "certificate_provided",
+      "in": [
+       "Yes",
+       "Optional"
+      ]
+     },
+     "visibility": "detailed"
+    },
+    {
+     "key": "accreditation_affiliation",
+     "label": "Accreditation / Affiliation",
+     "type": "textarea",
+     "required": false,
+     "help": "Accrediting or affiliating body, if any",
+     "showIf": {
+      "field": "certificate_provided",
+      "in": [
+       "Yes",
+       "Optional"
+      ]
+     },
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Faculty",
+   "description": "",
+   "fields": [
+    {
+     "key": "instructor_count",
+     "label": "Instructor / Faculty Count",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "1",
+      "2–5",
+      "6–10",
+      "11–25",
+      "26–50",
+      "50+"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "instructor_qualifications",
+     "label": "Instructor Qualifications",
+     "type": "textarea",
+     "required": false,
+     "help": "Qualifications, certifications and relevant experience",
+     "visibility": "detailed"
+    },
+    {
+     "key": "instructor_experience",
+     "label": "Teaching / Industry Experience",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "instructor_student_ratio",
+     "label": "Instructor-student Ratio",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Schools & Pricing",
+   "description": "",
+   "fields": [
+    {
+     "key": "school_programme_options",
+     "label": "School Programme Options",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Curriculum Integration",
+      "After-school Programme",
+      "Club Programme",
+      "Workshop",
+      "Annual Programme",
+      "Summer / Holiday Programme",
+      "Career Programme",
+      "Teacher Training",
+      "Parent Programme",
+      "Custom School Programme"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "school_experience",
+     "label": "School Partnership Experience",
+     "type": "textarea",
+     "required": false,
+     "help": "Schools, boards, programme type and years",
+     "showIf": {
+      "field": "school_programme_options",
+      "notEmpty": true
+     },
+     "visibility": "detailed"
+    },
+    {
+     "key": "testimonials",
+     "label": "Student / Parent Testimonials",
+     "type": "textarea",
+     "required": false,
+     "help": "Non-confidential testimonials",
+     "visibility": "detailed"
+    },
+    {
+     "key": "pricing_model",
+     "label": "Pricing Model",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Per Student",
+      "Per Batch",
+      "Per Course",
+      "Monthly",
+      "Annual",
+      "School Contract",
+      "Workshop Fee",
+      "Subscription",
+      "Custom Quote"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "indicative_fee",
+     "label": "Indicative Fee",
+     "type": "text",
+     "required": false,
+     "help": "Currency / amount / pricing basis",
+     "visibility": "detailed"
+    },
+    {
+     "key": "scholarship_availability",
+     "label": "Scholarship / Free Access",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Limited / Need-based"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Documents",
+   "description": "",
+   "fields": [
+    {
+     "key": "course_brochure",
+     "label": "Course Brochure",
+     "type": "file",
+     "required": false,
+     "options": [
+      "PDF",
+      "max 10 MB"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "curriculum_document",
+     "label": "Curriculum / Syllabus Document",
+     "type": "file",
+     "required": false,
+     "help": "PDF/DOCX",
+     "accept": [
+      "pdf",
+      "docx"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "sample_learning_material",
+     "label": "Sample Learning Material",
+     "type": "file",
+     "required": false,
+     "help": "PDF/DOCX/PPT",
+     "accept": [
+      "pdf",
+      "docx",
+      "ppt"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "sample_certificate",
+     "label": "Sample Certificate",
+     "type": "file",
+     "required": false,
+     "help": "PDF/JPG/PNG",
+     "accept": [
+      "pdf",
+      "jpg",
+      "png"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "instructor_credentials",
+     "label": "Instructor Credentials",
+     "type": "file",
+     "required": false,
+     "help": "PDF/JPG/PNG",
+     "accept": [
+      "pdf",
+      "jpg",
+      "png"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "registration_document",
+     "label": "Organisation Registration",
+     "type": "file",
+     "required": true,
+     "help": "PDF/JPG/PNG",
+     "accept": [
+      "pdf",
+      "jpg",
+      "png"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "pan_document",
+     "label": "PAN",
+     "type": "file",
+     "required": true,
+     "help": "PDF/JPG/PNG",
+     "accept": [
+      "pdf",
+      "jpg",
+      "png"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "gst_document",
+     "label": "GST Certificate",
+     "type": "file",
+     "required": false,
+     "help": "PDF/JPG/PNG",
+     "accept": [
+      "pdf",
+      "jpg",
+      "png"
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Partnership & Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "partnership_interests",
+     "label": "Partnership Interests",
+     "type": "checkbox",
+     "required": false,
+     "other": true,
+     "options": [
+      "School Partnerships",
+      "Parent Programmes",
+      "After-school Clubs",
+      "Summer Programmes",
+      "Teacher Training",
+      "EdTech Integration",
+      "CSR",
+      "Franchise / Licensing"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "declaration_accepted",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm that: the information is accurate; I am the authorised representative; course content and credentials are accurately represented; and I agree to The School Expert™ verification and listing terms.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "multi_record": {
+  "shared_sections": [
+   "Provider Details"
+  ],
+  "record_label": "course",
+  "id_prefix": "TSE-C"
+ },
+ "internal": {
+  "id_label": "Provider ID / Course ID",
+  "checks": [
+   "Organisation registration verified",
+   "PAN verified",
+   "GST verified (if applicable)",
+   "Credentials verified",
+   "Course content reviewed",
+   "Contact details verified"
+  ],
+  "fields": [
+   [
+    "credential_verification_status",
+    "Credential Verification Status",
+    [
+     "Pending",
+     "In progress",
+     "Verified",
+     "Not verified"
+    ]
+   ],
+   [
+    "listing_status",
+    "Listing Status",
+    [
+     "Draft",
+     "Pending",
+     "Active",
+     "Paused",
+     "Removed"
+    ]
+   ],
+   [
+    "lead_status",
+    "Lead Status",
+    [
+     "New",
+     "Contacted",
+     "Course Details Requested",
+     "Credentials Requested",
+     "Verification Pending",
+     "Verified",
+     "Listing Active",
+     "Premium Prospect",
+     "Converted",
+     "Not Interested",
+     "Rejected",
+     "Duplicate"
+    ]
+   ],
+   [
+    "lead_score",
+    "Lead Score",
+    null
+   ],
+   [
+    "assigned_salesperson",
+    "Assigned Salesperson",
+    null
+   ],
+   [
+    "last_contacted",
+    "Last Contacted",
+    "date"
+   ],
+   [
+    "next_followup",
+    "Next Follow-up",
+    "date"
+   ]
+  ]
+ }
+}

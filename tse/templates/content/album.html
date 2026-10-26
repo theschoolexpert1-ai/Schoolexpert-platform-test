@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}{{ a.title }} — Gallery{% endblock %}
+{% block body %}
+{{ page_head(a.title, a.description, [('Gallery', url_for('content.gallery'))]) }}
+<section class="section-sm"><div class="container"><div class="gallery">{% for p in photos %}<figure style="margin:0"><a href="{{ p.url }}" target="_blank"><img src="{{ p.url }}" alt="{{ p.caption or a.title }}" loading="lazy"></a>{% if p.caption %}<figcaption class="small muted">{{ p.caption }}</figcaption>{% endif %}</figure>{% else %}<div class="empty">No photos yet.</div>{% endfor %}</div>
+<p class="small muted" style="margin-top:14px">Want a photo of you removed? Write to {{ cfg.CONTACT_EMAIL }}.</p></div></section>
+{% endblock %}

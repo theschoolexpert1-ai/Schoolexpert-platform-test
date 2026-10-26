@@ -1,0 +1,15 @@
+{% extends 'admin/_layout.html' %}{% block title %}{{ title }}{% endblock %}
+{% block admin %}<h1 style="font-size:1.5rem">{{ title }} — {{ 'Edit' if key else 'New' }}</h1>
+<form method="post" enctype="multipart/form-data" class="card pad-lg"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+{% for n, t in fields %}{% set v = row.get(n) %}<div class="field"><label for="f-{{ n }}">{{ n | replace('_paise', '') | replace('_',' ') | capitalize }}{% if t == 'money' %} (₹){% endif %}</label>
+{% if t is not string %}<select id="f-{{ n }}" name="{{ n }}">{% for o in t %}<option {% if v == o %}selected{% endif %}>{{ o }}</option>{% endfor %}</select>
+{% elif t in ('textarea','md') %}<textarea id="f-{{ n }}" name="{{ n }}" style="min-height:{{ '260px' if t == 'md' else '110px' }}">{{ v or '' }}</textarea>{% if t == 'md' %}<div class="help">Markdown supported.</div>{% endif %}
+{% elif t == 'bool' %}<label class="opt"><input type="checkbox" name="{{ n }}" {% if v %}checked{% endif %}> Yes</label>
+{% elif t == 'money' %}<input id="f-{{ n }}" name="{{ n }}" inputmode="decimal" value="{{ (v / 100) if v is number else (v or '') }}">
+{% elif t == 'datetime' %}<input id="f-{{ n }}" type="datetime-local" name="{{ n }}" value="{{ v.astimezone(v.tzinfo).strftime('%Y-%m-%dT%H:%M') if v and v.strftime is defined else (v or '') }}"><div class="help">Times are IST.</div>
+{% elif t == 'date' %}<input id="f-{{ n }}" type="date" name="{{ n }}" value="{{ v or '' }}">
+{% elif t == 'array' %}<input id="f-{{ n }}" name="{{ n }}" value="{{ (v or []) | join(', ') if v is not string else v }}"><div class="help">Comma separated.</div>
+{% elif t == 'json' %}<textarea id="f-{{ n }}" name="{{ n }}" style="font-family:monospace">{{ v | tojson if v is not string else v }}</textarea>
+{% elif t in ('image','file') %}{% if v %}<div class="small"><a href="{{ v }}" target="_blank">{{ v }}</a></div>{% endif %}<input id="f-{{ n }}" type="file" name="{{ n }}"><input name="{{ n }}__url" placeholder="…or paste a URL" value="">
+{% else %}<input id="f-{{ n }}" name="{{ n }}" value="{{ v if v is not none else '' }}">{% if t == 'slug' %}<div class="help">Leave blank to generate from the title.</div>{% endif %}{% endif %}</div>{% endfor %}
+<div class="btn-row"><button class="btn btn-primary">Save</button>{% if key %}<button class="btn btn-danger" name="delete" value="1" data-confirm="Delete permanently?">Delete</button>{% endif %}</div></form>{% endblock %}

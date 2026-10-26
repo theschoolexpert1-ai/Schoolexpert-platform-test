@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% block title %}Confirm it's you{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}<section class="section"><div class="container xnarrow"><div class="card pad-lg">
+<h1 style="font-size:1.5rem">Confirm it's you</h1>
+<p class="muted">This page contains sensitive information. For your security, please confirm your password{% if mfa %} and a two-step code{% endif %}.</p>
+<form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="next" value="{{ nxt }}">
+<div class="field"><label for="pw">Password</label><input id="pw" type="password" name="password" autocomplete="current-password" required autofocus></div>
+{% if mfa %}<div class="field"><label for="code">Two-step code</label><input id="code" name="code" inputmode="numeric" autocomplete="one-time-code" required></div>{% endif %}
+<button class="btn btn-primary btn-block">Continue</button></form></div></div></section>{% endblock %}

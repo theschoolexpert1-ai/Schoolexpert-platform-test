@@ -1,0 +1,369 @@
+{
+ "slug": "principal-roundtable-virtual",
+ "title": "Virtual Roundtable — Delegate Registration Form",
+ "intro": [
+  "PRINCIPAL ROUNDTABLES INDIA",
+  "Registration Form",
+  "The School Expert™ Principals Virtual Roundtable is an exclusive online forum for Principals, Heads of School, Directors and senior school leaders to discuss current challenges, share practical solutions and exchange ideas with peers.",
+  "Format: Interactive Virtual Roundtable",
+  "Platform: Zoom / Google Meet",
+  "Duration: 60–90 minutes",
+  "Participation: By registration / invitation",
+  "Fee: ₹599/-"
+ ],
+ "sections": [
+  {
+   "title": "Participant Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "full_name",
+     "label": "Full Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "designation",
+     "label": "Designation",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Principal",
+      "Vice Principal",
+      "Head of School",
+      "Director",
+      "Academic Director",
+      "School Administrator",
+      "Founder / Promoter"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "name_of_school_institution",
+     "label": "Name of School / Institution",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "official_school_email_id",
+     "label": "Official School Email ID",
+     "type": "email",
+     "required": true,
+     "visibility": "private",
+     "role": "email"
+    },
+    {
+     "key": "mobile_whatsapp_number",
+     "label": "Mobile / WhatsApp Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "private",
+     "role": "phone"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "school_website",
+     "label": "School Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "linkedin_profile",
+     "label": "LinkedIn Profile",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "School Profile",
+   "description": "",
+   "fields": [
+    {
+     "key": "school_board_curriculum",
+     "label": "School Board / Curriculum",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "CBSE",
+      "CISCE / ICSE",
+      "State Board",
+      "IB",
+      "Cambridge",
+      "NIOS",
+      "International / Other"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "school_type",
+     "label": "School Type",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Co-educational",
+      "Boys",
+      "Girls",
+      "Residential / Boarding",
+      "Day School"
+     ],
+     "other": true,
+     "visibility": "public"
+    },
+    {
+     "key": "approximate_student_strength",
+     "label": "Approximate Student Strength",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Below 250",
+      "250–500",
+      "501–1,000",
+      "1,001–2,000",
+      "Above 2,000"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "years_of_experience_in_school_leadership",
+     "label": "Years of Experience in School Leadership",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Less than 3 years",
+      "3–5 years",
+      "6–10 years",
+      "11–20 years",
+      "More than 20 years"
+     ],
+     "visibility": "public"
+    }
+   ]
+  },
+  {
+   "title": "Roundtable Interest",
+   "description": "",
+   "fields": [
+    {
+     "key": "which_areas_would_you_most_like_to_discuss",
+     "label": "Which areas would you most like to discuss?",
+     "type": "checkbox",
+     "required": true,
+     "maxSelect": 3,
+     "options": [
+      "School Leadership & Management",
+      "Teacher Recruitment & Retention",
+      "Teacher Training & Professional Development",
+      "Student Wellbeing & Mental Health",
+      "Parent Engagement",
+      "AI & Technology in Education",
+      "Digital Transformation",
+      "Academic Excellence & Learning Outcomes",
+      "Admissions & Student Enrolment",
+      "School Branding & Visibility",
+      "School Marketing",
+      "Infrastructure & Safety",
+      "NEP 2020 Implementation",
+      "Assessment & Evaluation",
+      "Future Skills & Career Readiness",
+      "Financial & Operational Challenges",
+      "Building a Future-Ready School"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "what_is_the_one_issue_you_would_most_like_the_pr",
+     "label": "What is the ONE issue you would most like the Principals Roundtable to address?",
+     "type": "textarea",
+     "required": true,
+     "visibility": "private"
+    },
+    {
+     "key": "what_is_one_successful_practice_or_innovation_fr",
+     "label": "What is one successful practice or innovation from your school that you would be willing to share with fellow Principals?",
+     "type": "textarea",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "would_you_be_interested_in_presenting_a_short_ca",
+     "label": "Would you be interested in presenting a short case study from your school?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "Maybe",
+      "No"
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Participation & Networking",
+   "description": "",
+   "fields": [
+    {
+     "key": "what_would_you_like_to_gain_from_this_roundtable",
+     "label": "What would you like to gain from this Roundtable?",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "Peer learning",
+      "Practical solutions",
+      "Leadership insights",
+      "New education trends",
+      "Technology / AI insights",
+      "Networking with Principals",
+      "Collaboration opportunities",
+      "Access to experts",
+      "Sharing my school's experience"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "would_you_like_to_join_the_school_expert_princip",
+     "label": "Would you like to join The School Expert™ Principals Community?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "No",
+      "Tell me more"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "would_you_be_interested_in_future_principals_rou",
+     "label": "Would you be interested in future Principals Roundtables?",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Yes",
+      "No",
+      "Maybe"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "preferred_frequency_of_future_roundtables",
+     "label": "Preferred frequency of future Roundtables",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Monthly",
+      "Once every 2 months",
+      "Quarterly",
+      "Only for special topics"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "preferred_session_timing",
+     "label": "Preferred session timing",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Weekday morning",
+      "Weekday afternoon",
+      "Weekday evening",
+      "Saturday morning",
+      "Saturday afternoon"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Confidentiality & Consent",
+   "description": "",
+   "fields": [
+    {
+     "key": "confidentiality_agreement",
+     "label": "Confidentiality Agreement",
+     "type": "consent",
+     "required": true,
+     "text": "I understand that the Principals Virtual Roundtable is intended as a professional peer-learning forum. I agree to respect the confidentiality of discussions and not share personal, school-specific or sensitive information discussed by other participants without permission.",
+     "visibility": "private"
+    },
+    {
+     "key": "recording_consent",
+     "label": "Recording Consent",
+     "type": "radio",
+     "required": true,
+     "visibility": "private",
+     "options": [
+      "I consent to the session being recorded for internal documentation / educational purposes.",
+      "I do not consent to recording of my participation."
+     ]
+    },
+    {
+     "key": "communication_consent",
+     "label": "Communication Consent",
+     "type": "consent",
+     "required": false,
+     "text": "I agree to receive information from The School Expert™ about future Principals Roundtables, leadership initiatives, education events and relevant professional opportunities.",
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Final Confirmation",
+   "description": "",
+   "fields": [
+    {
+     "key": "how_did_you_hear_about_the_school_expert_princip",
+     "label": "How did you hear about The School Expert™ Principals Virtual Roundtable?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "The School Expert™",
+      "LinkedIn",
+      "WhatsApp",
+      "Email",
+      "Referral from another Principal",
+      "School / Education Network"
+     ],
+     "visibility": "private",
+     "other": true
+    },
+    {
+     "key": "any_additional_comments_suggestions_or_questions",
+     "label": "Any additional comments, suggestions or questions?",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [
+  "Thank you for registering for The School Expert™ Principals Virtual Roundtable.",
+  "Your registration will be reviewed and the meeting details will be shared with confirmed participants."
+ ],
+ "category": "events",
+ "label": "Principals Virtual Roundtable",
+ "entity": "individual"
+}

@@ -1,0 +1,34 @@
+@slug edtech-company
+@title EdTech Company Registration Form
+@intro Connect • Collaborate • Grow
+## Company Information
+Company Name* | text
+Brand Name* | text
+Company Logo | file
+Year Established | year
+Company Registration Number* | text
+GST Number (Optional) | text
+Website* | url
+LinkedIn* | url
+Facebook* | url
+Instagram | url
+## Primary Contact
+Contact Person Name* | text
+Designation* | text
+Mobile Number* | tel
+WhatsApp Number | tel
+Official Email* | email
+## Registered Office
+Company Address* | textarea
+City* | text
+State* | state
+PIN Code* | pincode
+Country* | text
+## Business Category
+Business Category* | checkbox | School ERP; Learning Management System (LMS); Student Information System (SIS); School CRM; Admissions Software; Fee Management; AI in Education; Robotics & STEM; Digital Classroom; Other
+## Products & Services
+Brief description of your solution* | textarea
+## Target Audience
+Target Audience* | checkbox | Preschool; K-12 Schools; Colleges; Universities; Parents; Teachers; Students
+## Partnership Interest
+Partnership Interest* | checkbox | School Listings; Featured Listing; Premium Partner; Webinar Partner; Podcast Partner; Advertising; Channel Partnership

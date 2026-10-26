@@ -1,0 +1,505 @@
+{
+ "slug": "parent-ambassador",
+ "title": "Parent Ambassador Registration Form",
+ "intro": [
+  "VOLUNTARY COMMUNITY ROLE",
+  "Parents are among the most important voices in education. The School Expert™ Parent Ambassador Program gives parents an opportunity to help build a stronger, more connected education ecosystem.",
+  "☐ Spread awareness about The School Expert™",
+  "☐ Introduce other parents to our community",
+  "☐ Share The School Expert™ through reels, posts, WhatsApp and word-of-mouth",
+  "☐ Refer schools to The School Expert™ and introduce us to school management",
+  "☐ Help parents discover schools, education providers, courses, experts and services",
+  "☐ Share parent feedback, ideas and local education insights",
+  "This is a voluntary community role. Where a school successfully signs up for a paid listing or service with The School Expert™ through a verified Parent Ambassador referral, a small referral commission will be paid, subject to the applicable referral terms.",
+  "Parents know better. We help them choose the best."
+ ],
+ "sections": [
+  {
+   "title": "About You",
+   "description": "",
+   "fields": [
+    {
+     "key": "full_name",
+     "label": "Full Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "email_address",
+     "label": "Email Address",
+     "type": "email",
+     "required": true,
+     "visibility": "private",
+     "role": "email"
+    },
+    {
+     "key": "mobile_whatsapp_number",
+     "label": "Mobile / WhatsApp Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "private",
+     "role": "phone"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    },
+    {
+     "key": "are_you_a_parent",
+     "label": "Are you a parent?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No - I would like to participate as a community supporter"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "number_of_children",
+     "label": "Number of children",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "1",
+      "2",
+      "3",
+      "4+",
+      "Prefer not to say"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "age_group_s_of_your_child_children",
+     "label": "Age group(s) of your child/children",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Preschool",
+      "Primary School",
+      "Middle School",
+      "High School",
+      "Senior Secondary",
+      "Homeschooling",
+      "College / Higher Education"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "what_best_describes_you",
+     "label": "What best describes you?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Parent",
+      "Homeschooling Parent",
+      "Educator",
+      "School Community Member",
+      "Education Professional",
+      "Entrepreneur",
+      "Community Volunteer"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Your Connection To Education",
+   "description": "",
+   "fields": [
+    {
+     "key": "do_you_currently_have_connections_with_schools",
+     "label": "Do you currently have connections with schools?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes - Strong network",
+      "Yes - Some connections",
+      "A few",
+      "Not currently"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "approximately_how_many_schools_do_you_personally",
+     "label": "Approximately how many schools do you personally know or have access to?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "1-5",
+      "6-10",
+      "11-25",
+      "26-50",
+      "50+"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "what_type_of_schools_do_you_know",
+     "label": "What type of schools do you know?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Preschools",
+      "CBSE schools",
+      "ICSE schools",
+      "State Board schools",
+      "International schools",
+      "Alternative schools",
+      "Homeschooling communities"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_have_direct_contacts_with_school_manageme",
+     "label": "Do you have direct contacts with school management, principals or trustees?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "Some"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "How Would You Like To Contribute?",
+   "description": "Other contribution: ______________________________________________________________________________",
+   "fields": [
+    {
+     "key": "how_would_you_like_to_contribute",
+     "label": "How Would You Like To Contribute?",
+     "type": "checkbox",
+     "options": [
+      "Share The School Expert™ with other parents",
+      "Invite parents to join The School Expert™ community",
+      "Share The School Expert™ posts on WhatsApp",
+      "Create or share reels about The School Expert™",
+      "Create or share social media posts",
+      "Talk about the benefits of The School Expert™ with parents",
+      "Refer schools to The School Expert™",
+      "Introduce The School Expert™ to school management",
+      "Refer education vendors or service providers",
+      "Help spread awareness within my locality",
+      "Organise or support parent/community meetups",
+      "Participate in The School Expert™ events",
+      "Provide feedback and suggestions",
+      "Help identify gaps and opportunities in the education ecosystem"
+     ],
+     "other": true,
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Social Media & Reach",
+   "description": "",
+   "fields": [
+    {
+     "key": "which_platforms_do_you_actively_use",
+     "label": "Which platforms do you actively use?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "WhatsApp",
+      "Instagram",
+      "Facebook",
+      "LinkedIn",
+      "YouTube",
+      "X",
+      "Telegram"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "would_you_be_comfortable_appearing_in_a_reel_vid",
+     "label": "Would you be comfortable appearing in a reel/video about The School Expert™?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "Maybe",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "would_you_be_willing_to_share_the_school_expert_",
+     "label": "Would you be willing to share The School Expert™ content on your social media?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes, regularly",
+      "Occasionally",
+      "When relevant",
+      "Not currently"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_currently_have_a_social_media_audience_co",
+     "label": "Do you currently have a social media audience/community?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "if_yes_approximately_how_many_followers_members",
+     "label": "If yes, approximately how many followers/members?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Under 500",
+      "500-1,000",
+      "1,000-5,000",
+      "5,000-10,000",
+      "10,000+"
+     ],
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "School Referrals",
+   "description": "",
+   "fields": [
+    {
+     "key": "would_you_be_interested_in_referring_schools_to_",
+     "label": "Would you be interested in referring schools to The School Expert™?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "Maybe",
+      "Not currently"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "how_would_you_introduce_the_school_expert_to_a_s",
+     "label": "How would you introduce The School Expert™ to a school?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "WhatsApp",
+      "Email",
+      "Phone call",
+      "Personal introduction",
+      "Meeting with school management",
+      "Social media"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "do_you_currently_know_any_school_that_may_be_int",
+     "label": "Do you currently know any school that may be interested in joining The School Expert™?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "I'm not sure"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "if_yes_please_provide_the_school_name_s_where_ap",
+     "label": "If yes, please provide the school name(s), where appropriate.",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Parent Community Building",
+   "description": "",
+   "fields": [
+    {
+     "key": "would_you_like_to_help_bring_parents_into_the_sc",
+     "label": "Would you like to help bring parents into The School Expert™ community?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "Maybe",
+      "Not currently"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "how_could_you_help",
+     "label": "How could you help?",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Invite parents personally",
+      "Share community link",
+      "Share WhatsApp messages",
+      "Share Instagram posts/reels",
+      "Introduce The School Expert™ at parent groups",
+      "Organise local parent interactions"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "what_parent_communities_groups_are_you_connected",
+     "label": "What parent communities/groups are you connected with?",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Your Motivation",
+   "description": "",
+   "fields": [
+    {
+     "key": "why_would_you_like_to_become_a_parent_ambassador",
+     "label": "Why would you like to become a Parent Ambassador for The School Expert™?",
+     "type": "text",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "what_do_you_think_parents_need_most_when_making_",
+     "label": "What do you think parents need most when making education-related decisions?",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "what_would_you_like_to_see_the_school_expert_off",
+     "label": "What would you like to see The School Expert™ offer parents?",
+     "type": "textarea",
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Referral Programme",
+   "description": "Parent Ambassador Referral Commission\nParent Ambassadors may receive a small referral commission when a school signs up for a paid service or listing with The School Expert™ as a result of a verified referral made by the Parent Ambassador.\nThe referral should be identifiable and registered with The School Expert™ before or during the school's onboarding process.\nCommission eligibility, amount, payment timeline and applicable terms will be communicated separately by The School Expert™ and may be updated from time to time.",
+   "fields": [
+    {
+     "key": "do_you_agree_to_participate_in_the_parent_ambass",
+     "label": "Do you agree to participate in the Parent Ambassador Referral Programme?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No",
+      "I would like more information"
+     ],
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Code Of Conduct & Declaration",
+   "description": "Parent Ambassador Declaration. I understand that the Parent Ambassador role is a voluntary community role. I will represent The School Expert™ responsibly and respectfully. I will not make false claims, guarantee outcomes, misrepresent pricing or services, or make commitments on behalf of The School Expert™ without authorization.",
+   "fields": [
+    {
+     "key": "code_of_conduct_declaration",
+     "label": "Code Of Conduct & Declaration",
+     "type": "checkbox",
+     "options": [
+      "I agree",
+      "Becoming a Parent Ambassador does not constitute employment with The School Expert™.",
+      "The role is voluntary.",
+      "Referral commissions apply only to eligible, verified and successful referrals.",
+      "A referral does not automatically guarantee a commission.",
+      "The School Expert™ may provide guidelines and approved materials for promotional activities.",
+      "I will respect the privacy of parents, schools and other community members.",
+      "I will not use The School Expert™ name or logo for unauthorized purposes.",
+      "I agree to the above"
+     ],
+     "other": false,
+     "required": false,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Final Details",
+   "description": "",
+   "fields": [
+    {
+     "key": "how_did_you_hear_about_the_school_expert",
+     "label": "How did you hear about The School Expert™?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Friend / Parent",
+      "School",
+      "Social Media",
+      "WhatsApp",
+      "Website",
+      "Event",
+      "The School Expert™ team"
+     ],
+     "other": true,
+     "visibility": "private"
+    },
+    {
+     "key": "would_you_like_to_receive_parent_ambassador_upda",
+     "label": "Would you like to receive Parent Ambassador updates and opportunities?",
+     "type": "radio",
+     "required": false,
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "visibility": "private"
+    },
+    {
+     "key": "anything_else_you_d_like_us_to_know_optional",
+     "label": "Anything else you'd like us to know?",
+     "type": "textarea",
+     "required": false,
+     "help": "Note: Information submitted through this form will be used for Parent Ambassador onboarding, communication, community participation and eligible referral tracking.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [
+  "THANK YOU FOR BEING PART OF THE SCHOOL EXPERT™ COMMUNITY",
+  "Join us. Share the vision. Build the ecosystem.",
+  "Parent Ambassador Name",
+  "Date",
+  "Signature",
+  "Mobile / WhatsApp"
+ ],
+ "category": "ambassadors",
+ "label": "Parent Ambassadors",
+ "entity": "individual"
+}

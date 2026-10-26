@@ -1,0 +1,11 @@
+{# expects: tiers (3 plans by level), cmp (entitlements.comparison(tiers)); optional current_level, action, cta_mode ('register'|'activate'|'upgrade'), cta_href #}
+<div class="tier-wrap"><table class="tiers">
+  <thead><tr><th><span class="small muted">Compare plans</span></th>{% for p in tiers %}<th class="{{ 'hl' if p.highlight == 'Most popular' }} {{ 'cur' if current_level == p.level }}">
+    {% if p.highlight %}<span class="ribbon">{{ p.highlight }}</span><br>{% endif %}<span class="tier-name">{{ p.name }}</span>
+    <div class="price">{{ inr(p.price_paise) }}<small> / year + GST</small></div><div class="small muted">{{ p.description }}</div>
+    {% if cta_mode == 'register' %}<a class="btn {{ 'btn-accent' if p.level == 2 else 'btn-primary' }} btn-block" style="margin-top:10px" href="{{ cta_href or url_for('register.index') }}">Get {{ p.name.split(' - ')[-1] }}</a>
+    {% elif cta_mode == 'activate' %}<form method="post" action="{{ action }}" style="margin-top:10px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="action" value="activate"><input type="hidden" name="plan" value="{{ p.code }}"><button class="btn {{ 'btn-accent' if p.level == 2 else 'btn-primary' }} btn-block">Pay & activate {{ p.name.split(' - ')[-1] }}</button></form>
+    {% elif cta_mode == 'upgrade' %}{% if current_level == p.level %}<div class="chip ok" style="margin-top:10px">✓ Your plan</div>{% elif current_level and p.level == current_level + 1 %}<a class="btn btn-accent btn-block" style="margin-top:10px" href="#upgrade">Upgrade</a>{% elif current_level and p.level < current_level %}<div class="small muted" style="margin-top:10px">Included in your plan</div>{% else %}<div class="small muted" style="margin-top:10px">Available after {{ tiers[p.level - 2].name }}</div>{% endif %}{% endif %}
+  </th>{% endfor %}</tr></thead>
+  <tbody>{% for label, cells in cmp %}<tr><td>{{ label }}</td>{% for text, inc in cells %}<td class="{{ 'cur' if current_level == tiers[loop.index0].level }}"><span class="{{ 'yes' if inc and text == '✓' else ('no' if not inc else '') }}">{{ text }}</span></td>{% endfor %}</tr>{% endfor %}</tbody>
+</table></div>

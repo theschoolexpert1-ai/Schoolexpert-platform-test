@@ -1,0 +1,45 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head, status %}
+{% block title %}Teachers Hub — courses with CPD certificates, workshops, network, AI CV & jobs{% endblock %}
+{% block meta_description %}The professional home for teachers in India: free CPD courses with verifiable certificates, workshops, an educator network, mentorship, tutorials, a lesson planner, AI CV and school jobs.{% endblock %}
+{% block body %}
+<section class="hero" style="padding:46px 0"><div class="container">
+  <span class="eyebrow">Teachers Hub · for teachers & educators</span>
+  <h1>Grow, connect and get hired — the professional home for teachers.</h1>
+  <p class="lead">Free courses with CPD certificates, workshops, an educator network with private messaging, mentors, step-by-step tutorials and a lesson planner — plus your profile, an AI-drafted CV and jobs at verified schools. One free account.</p>
+  <div class="btn-row" style="margin-top:18px">
+    {% if current_user and current_user.account_type == 'teacher' %}<a class="btn btn-primary btn-lg" href="{{ url_for('dashboard.home') }}">Open my Teachers Hub</a>{% endif %}
+    {% if not current_user %}<a class="btn btn-accent btn-lg" href="{{ url_for('auth.signup', type='teacher') }}">Create my teacher profile</a>
+    {% elif reg %}<a class="btn btn-accent btn-lg" href="{{ url_for('register.step', rid=reg.id, si=0) }}">{{ 'Update' if reg.status != 'draft' else 'Continue' }} my profile ({{ reg.progress }}%)</a><a class="btn btn-outline btn-lg" style="background:#fff" href="{{ url_for('teachers.cv') }}">AI CV builder</a>
+    {% elif current_user.account_type == 'teacher' %}<form method="post" action="{{ url_for('register.start', slug='teacher-registration') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-accent btn-lg">Create my teacher profile</button></form>{% endif %}
+    <a class="btn btn-outline btn-lg" style="background:#fff" href="{{ url_for('teachers.jobs') }}">Browse jobs</a>
+  </div>
+</div></section>
+<section class="section"><div class="container"><div class="grid g4">
+  {% for icon, title, text, ep in [
+    ('🎓', 'Learn & earn CPD', 'Short practical courses on NEP 2020, classroom management, assessment, inclusion, FLN, AI tools and more. Certificates with a public verification code.', 'hub.courses'),
+    ('🗓️', 'Workshops', 'Online, in-person and hybrid sessions with CPD hours. Register, add to calendar, track attendance.', 'hub.workshops'),
+    ('🤝', 'Educator network', 'Find teachers by subject, city or school, connect, and message privately — only once both of you agree.', 'hub.network'),
+    ('💬', 'Communities', 'Subject and role circles — maths, science, languages, foundational years, EdTech & AI, inclusion, coordinators.', 'hub.communities'),
+    ('🧭', 'Mentorship', 'Request guidance from experienced, approved mentors — or volunteer to mentor others.', 'hub.mentors'),
+    ('📘', 'Tutorials', 'Step-by-step guides: 15-minute lesson plans, Google Forms quizzes, DIKSHA, rubrics, PTMs, HPC, AI safety.', 'hub.tutorials'),
+    ('🗒️', 'Lesson planner', 'Private plans with outcomes, materials, activities, assessment and reflection. Printable.', 'hub.planner'),
+    ('🪪', 'Profile, AI CV & jobs', 'Create your profile once, let AI draft a truthful CV, and apply to verified schools in one click.', 'teachers.jobs'),
+  ] %}
+  <a class="card" style="color:inherit" href="{{ url_for(ep) }}"><div class="icon">{{ icon }}</div><h3>{{ title }}</h3><p class="small muted">{{ text }}</p></a>
+  {% endfor %}
+</div>
+<p class="small muted" style="margin-top:14px">🛡️ Teachers only. Your directory listing is off until you switch it on, messages are encrypted at rest, and we never collect students' or children's information.</p>
+</div></section>
+<section class="section alt"><div class="container"><div class="grid g2">
+  <div><div class="section-title"><h2>Latest jobs</h2><a href="{{ url_for('teachers.jobs') }}">All jobs →</a></div>
+    {% for j in jobs %}<a class="card flat" style="display:block;margin-bottom:8px" href="{{ url_for('teachers.job', slug=j.slug) }}"><b>{{ j.title }}</b>{% if j.featured_until and j.featured_until >= today() %} <span class="chip gold">Featured</span>{% endif %}<div class="small muted">{{ j.org_name }} · {{ j.city }}</div></a>{% else %}<div class="empty">No jobs yet.</div>{% endfor %}</div>
+  <div><div class="section-title"><h2>From the community</h2><a href="{{ url_for('community.view', slug='teachers') }}">Open →</a></div>
+    {% for p in posts %}<a class="card flat" style="display:block;margin-bottom:8px" href="{{ url_for('community.thread', slug='teachers', pid=p.id) }}"><b>{{ p.title }}</b><div class="small muted">{{ p.user_name }} · {{ p.comment_count }} replies</div></a>{% else %}<div class="empty">Start the first discussion.</div>{% endfor %}</div>
+</div></div></section>
+<section class="section"><div class="container"><div class="card pad-lg" style="display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+  <div><h2 style="margin:0">{{ premium.name }} — {{ inr(premium.price_paise) }}/year</h2><p class="muted" style="margin:6px 0 0">{{ premium.features | join(' · ') }}</p></div>
+  {% if current_user and current_user.account_type == 'teacher' %}<form method="post" action="{{ url_for('teachers.premium') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-accent">Go Premium</button></form>{% endif %}
+</div>
+{% if events %}<h2 style="margin-top:30px">Workshops & webinars for teachers</h2><div class="grid g3">{% for e in events %}<a class="card" href="{{ url_for('events.detail', slug=e.slug) }}"><b>{{ e.title }}</b><div class="small muted">{{ e.starts_at | dtt }}</div></a>{% endfor %}</div>{% endif %}
+</div></section>
+{% endblock %}

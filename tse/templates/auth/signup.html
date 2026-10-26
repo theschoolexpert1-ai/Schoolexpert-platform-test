@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Join The School Expert™{% endblock %}
+{% block robots %}noindex{% endblock %}
+{% block body %}
+<section class="section"><div class="container xnarrow" style="max-width:640px">
+  <div class="card pad-lg">
+    <h1 style="font-size:1.6rem">Create your free account</h1>
+    <p class="muted">Accounts are for adults (18+). We do not collect children's information.</p>
+    <form method="post" novalidate>
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}"><div class="hp" aria-hidden="true"><label>Leave this empty<input name="hp_website" tabindex="-1" autocomplete="off"></label></div>{% if nxt %}<input type="hidden" name="next" value="{{ nxt }}">{% endif %}
+      <fieldset><legend>I am a…</legend>
+        {% for k, (label, desc) in types.items() %}<label class="opt" style="padding:10px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px">
+          <input type="radio" name="type" value="{{ k }}" {% if t == k %}checked{% endif %} required><span><b>{{ label }}</b><br><span class="small muted">{{ desc }}</span></span></label>{% endfor %}
+        {% if errors.type %}<div class="err">{{ errors.type }}</div>{% endif %}
+      </fieldset>
+      <div class="field {% if errors.name %}error{% endif %}"><label for="name">Full name</label><input id="name" name="name" value="{{ form.name or '' }}" autocomplete="name" required>{% if errors.name %}<div class="err">{{ errors.name }}</div>{% endif %}</div>
+      <div class="row2">
+        <div class="field {% if errors.email %}error{% endif %}"><label for="email">Email</label><input id="email" type="email" name="email" value="{{ form.email or '' }}" autocomplete="email" required>{% if errors.email %}<div class="err">{{ errors.email }}</div>{% endif %}</div>
+        <div class="field {% if errors.phone %}error{% endif %}"><label for="phone">Mobile</label><input id="phone" type="tel" name="phone" value="{{ form.phone or '' }}" autocomplete="tel">{% if errors.phone %}<div class="err">{{ errors.phone }}</div>{% endif %}</div>
+      </div>
+      <div class="row2">
+        <div class="field {% if errors.password %}error{% endif %}"><label for="pw">Password</label><input id="pw" type="password" name="password" autocomplete="new-password" required minlength="10"><div class="help">At least 10 characters.</div>{% if errors.password %}<div class="err">{{ errors.password }}</div>{% endif %}</div>
+        <div class="field"><label for="city">City</label><input id="city" name="city" value="{{ form.city or '' }}" autocomplete="address-level2"></div>
+      </div>
+      <label class="consent-box {% if errors.adult %}error{% endif %}"><input type="checkbox" name="adult" {% if form.adult %}checked{% endif %}><span>I confirm I am <b>18 years or older</b>.</span></label>
+      {% if errors.adult %}<div class="err">{{ errors.adult }}</div>{% endif %}
+      <div style="height:8px"></div>
+      <label class="consent-box"><input type="checkbox" name="consent_account" {% if form.consent_account %}checked{% endif %}>
+        <span><b>{{ notice.title }}.</b> {{ notice.body }} I have read the <a href="/privacy-policy" target="_blank">Privacy Policy</a> and <a href="/terms" target="_blank">Terms of Use</a>.</span></label>
+      {% if errors.consent_account %}<div class="err">{{ errors.consent_account }}</div>{% endif %}
+      <div style="height:8px"></div>
+      <label class="consent-box"><input type="checkbox" name="consent_marketing" {% if form.consent_marketing %}checked{% endif %}><span><b>Optional:</b> {{ mnotice.body }}</span></label>
+      <button class="btn btn-accent btn-block btn-lg" style="margin-top:16px">Create account</button>
+    </form>
+    <p class="center small" style="margin-top:14px">Already registered? <a href="{{ url_for('auth.login', next=nxt) }}">Log in</a></p>
+  </div>
+</div></section>
+{% endblock %}

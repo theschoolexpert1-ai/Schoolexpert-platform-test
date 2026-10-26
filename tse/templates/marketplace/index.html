@@ -1,0 +1,17 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Marketplace — books, learning materials, stationery & more{% endblock %}
+{% block meta_description %}Quality school supplies — learning materials, books, bags, shoes, stationery, art & craft and The School Expert™ products. Bulk pricing for schools.{% endblock %}
+{% block body %}
+{{ page_head('The School Expert™ Marketplace', 'Quality school stuff — learning materials, books, bags, shoes, stationery, art & craft materials — and our own products. Schools can order in bulk.') }}
+<section class="section-sm"><div class="container"><div class="layout">
+  <aside class="card"><h4>Categories</h4><nav class="steps"><a href="?" class="{{ 'cur' if not a.cat }}">All products</a>{% for c in cats %}<a href="?cat={{ c | urlencode }}" class="{{ 'cur' if a.cat == c }}">{{ c }} <span class="muted small" style="margin-left:auto">{{ counts.get(c, 0) }}</span></a>{% endfor %}</nav></aside>
+  <div>
+    <form class="card flat" style="display:flex;gap:10px;margin-bottom:14px">{% if a.cat %}<input type="hidden" name="cat" value="{{ a.cat }}">{% endif %}<input name="q" value="{{ a.q or '' }}" placeholder="Search products" style="flex:1"><select name="sort"><option value="">Featured</option><option value="price_asc" {% if a.sort == 'price_asc' %}selected{% endif %}>Price: low to high</option><option value="price_desc" {% if a.sort == 'price_desc' %}selected{% endif %}>Price: high to low</option><option value="new" {% if a.sort == 'new' %}selected{% endif %}>Newest</option></select><button class="btn btn-primary">Go</button></form>
+    <div class="grid g3">{% for p in rows %}<a class="card" href="{{ url_for('marketplace.product', slug=p.slug) }}">
+      <div class="media-cover {{ loop.cycle('', 'gold', 'green', 'red') }}">{% if p.images %}<img src="{{ p.images[0] }}" alt="" loading="lazy">{% else %}{{ p.category }}{% endif %}</div>
+      {% if p.is_tse %}<span class="chip red">The School Expert™</span>{% endif %}<h3 style="font-size:1rem;margin-top:6px">{{ p.title }}</h3>
+      <div><span class="price" style="font-size:1.15rem">{{ inr(p.price_paise) }}</span> {% if p.mrp_paise and p.mrp_paise > p.price_paise %}<s class="muted small">{{ inr(p.mrp_paise) }}</s>{% endif %}</div>
+      <div class="small muted">{{ p.seller_name or 'Sold by The School Expert™' }}{% if p.bulk_tiers %} · bulk pricing{% endif %}</div></a>{% else %}<div class="empty" style="grid-column:1/-1">No products here yet.</div>{% endfor %}</div>
+  </div>
+</div></div></section>
+{% endblock %}

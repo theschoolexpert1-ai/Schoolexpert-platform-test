@@ -1,0 +1,222 @@
+# source: https://forms.gle/zKXjh9mEBXwATRg8A
+# title: The School Expert™ – Nursery / Preschool Registration Form (India)
+## Basic Information
+Q|School / Preschool Name|text|req
+Q|Brand / Chain Name (if applicable)|text|
+Q|Year Established|text|req
+Q|School Type|radio|req
+- Nursery
+- Preschool
+- Playschool
+- Montessori School
+- Kindergarten
+- Early Learning Centre
+- Daycare with Preschool
+- Waldorf School
+- Reggio Emilia Preschool
+- Forest School
+- Other
+Q|Management Type|radio|req
+- Private
+- Franchise
+- Trust
+- Society
+- NGO
+## Contact Information
+Q|Address|text|req
+Q|City|text|req
+Q|District|text|req
+Q|State|text|req
+Q|PIN Code|text|req
+Q|Landmark|text|
+Q|Google Maps Link|text|
+Q|Phone Number|text|req
+Q|WhatsApp Number|text|req
+Q|Email|text|req
+Q|Website|text|req
+Q|Social Media Links|text|
+## Contact Person
+Q|Principal / Centre Head|text|req
+Q|Designation|text|
+Q|Mobile Number|text|req
+Q|Email|text|req
+## Age Groups & Programmes
+Q|Age Groups|checkbox|req
+- 6–18 Months
+- 18–24 Months
+- 2–3 Years
+- 3–4 Years
+- 4–5 Years
+- 5–6 Years
+Q|Programmes Offered|checkbox|req
+- Infant Programme
+- Toddler Programme
+- Playgroup
+- Nursery
+- Junior KG (LKG)
+- Senior KG (UKG)
+- Kindergarten
+- School Readiness Programme
+- After-school Programme
+- Holiday Camp
+## Curriculum / Learning Approach
+Q|Curriculum / Learning Approach|checkbox|req
+- Montessori
+- Play-way
+- Reggio Emilia
+- Waldorf / Steiner
+- HighScope
+- Multiple Intelligences
+- Inquiry-based Learning
+- Theme-based Learning
+- Experiential Learning
+- Integrated Curriculum
+- Proprietary Curriculum
+## Languages of Instruction
+Q|Languages of Instruction|checkbox|req
+- English
+- Hindi
+- Kannada
+- Tamil
+- Telugu
+- Malayalam
+- Marathi
+- Gujarati
+- Bengali
+- Other
+## School Timings
+Q|School Timings|checkbox|req
+- Half Day
+- Full Day
+- Flexible Timings
+- Extended Care
+- Daycare Timings
+- Other
+## Daycare Facilities
+Q|Daycare Facilities|checkbox|
+- Minimum Age Accepted
+- Operating Hours
+- Weekend Care
+- Emergency Daycare
+- Meal Facility
+- Nap Room
+- Other
+## Teacher Information
+Q|Number of Teachers|text|
+Q|Teacher–Child Ratio|text|
+Q|ECCE Trained Teachers|text|
+Q|Montessori Trained Teachers|text|
+Q|First Aid Trained Staff|text|
+## Facilities
+Q|Facilities|checkbox|req
+- Air-conditioned Classrooms
+- CCTV
+- Child-safe Furniture
+- Indoor Play Area
+- Outdoor Play Area
+- Sand Pit
+- Splash Pool / Water Play
+- Activity Room
+- Reading Corner
+- Library
+- STEM Corner
+- Music Room
+- Dance Room
+- Art & Craft Room
+- Smart Classrooms
+- Garden / Nature Area
+- Kitchen
+- Sleeping Area
+- Child-friendly Washrooms
+- Drinking Water
+- Transport
+## Activities
+Q|Activities|checkbox|req
+- Storytelling
+- Music & Movement
+- Dance
+- Art & Craft
+- Yoga
+- Phonics
+- STEM Activities
+- Nature Walks
+- Gardening
+- Puppet Shows
+- Field Trips
+- Festival Celebrations
+- Show & Tell
+- Cooking Without Fire
+## Student Support
+Q|Student Support|checkbox|req
+- Child Counselling
+- Developmental Screening
+- Inclusive Education Support
+- Special Educator
+- Speech Therapy Referral
+- Occupational Therapy Referral
+- Parent Counselling
+## Health & Safety
+Q|Health & Safety|checkbox|req
+- CCTV Monitoring
+- Biometric Entry
+- Visitor Management
+- Child-safe Campus
+- Fire Safety Equipment
+- First Aid Room
+- Trained Nurse
+- Child Protection Policy
+- Background Verified Staff
+- Emergency Evacuation Plan
+## Meals
+Q|Meals|checkbox|req
+- Breakfast
+- Lunch
+- Snacks
+- Nutritionist-designed Menu
+- Allergy-aware Meals
+## Admissions
+Q|Admissions|checkbox|req
+- Rolling Admissions
+- Assessment Required
+- Parent Interaction
+- Trial Class Available
+## Parent Engagement
+Q|Parent Engagement|checkbox|req
+- Parent Orientation
+- Parent Workshops
+- PTMs
+- Parent App
+- Daily Activity Updates
+- Live CCTV Access
+- Digital Progress Reports
+## Recognition & Memberships
+Q|Recognition & Memberships|checkbox|req
+- Registered under State Preschool Guidelines
+- Montessori Association Member
+- Early Childhood Association (ECA)
+- Indian Montessori Centre (IMC)
+- Association for Preparatory Education and Research (APER)
+- ISO Certified
+- Other Professional Memberships
+## Awards & Achievements
+Q|Awards & Achievements|checkbox|req
+- Awards
+- Certifications
+- Media Coverage
+- Parent Choice Awards
+## Fee Information
+Q|Fee Information|checkbox|req
+- Registration Fee
+- Annual Fee
+- Tuition Fee Range
+- Daycare Charges
+- Transport Fee
+- Meal Charges
+## Media Uploads
+Q|Media Uploads|checkbox|req
+- School Logo
+- Campus Photos
+- Classroom Photos
+- Activity Photos
+- Video Tour
+- Prospectus (PDF)

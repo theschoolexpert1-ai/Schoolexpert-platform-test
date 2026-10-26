@@ -1,0 +1,272 @@
+[
+ {
+  "slug": "school-registration",
+  "title": "School Registration Form",
+  "category": "schools",
+  "label": "Schools",
+  "entity": "organisation",
+  "fields": 56,
+  "provisional": false
+ },
+ {
+  "slug": "alternative-school",
+  "title": "Alternative School Registration Form",
+  "category": "schools",
+  "label": "Alternative Schools",
+  "entity": "organisation",
+  "fields": 43,
+  "provisional": false
+ },
+ {
+  "slug": "inclusive-school",
+  "title": "Inclusive School Registration Form",
+  "category": "schools",
+  "label": "Inclusive Schools",
+  "entity": "organisation",
+  "fields": 58,
+  "provisional": false
+ },
+ {
+  "slug": "preschool",
+  "title": "Nursery / Preschool Registration Form",
+  "category": "schools",
+  "label": "Nursery / Preschools",
+  "entity": "organisation",
+  "fields": 69,
+  "provisional": false
+ },
+ {
+  "slug": "special-school",
+  "title": "Special School Registration Form",
+  "category": "schools",
+  "label": "Special Schools",
+  "entity": "organisation",
+  "fields": 38,
+  "provisional": false
+ },
+ {
+  "slug": "online-school-registration",
+  "title": "Online School Registration Form",
+  "category": "schools",
+  "label": "Online Schools",
+  "entity": "organisation",
+  "fields": 29,
+  "provisional": true
+ },
+ {
+  "slug": "edtech-company",
+  "title": "EdTech Company Registration Form",
+  "category": "vendors",
+  "label": "EdTech Companies",
+  "entity": "organisation",
+  "fields": 24,
+  "provisional": false
+ },
+ {
+  "slug": "educational-publisher",
+  "title": "Educational Publisher Registration",
+  "category": "vendors",
+  "label": "Educational Publishers",
+  "entity": "organisation",
+  "fields": 39,
+  "provisional": false
+ },
+ {
+  "slug": "infrastructure-vendor",
+  "title": "K-12 School Infrastructure Vendor Registration",
+  "category": "vendors",
+  "label": "School Infrastructure Vendors",
+  "entity": "organisation",
+  "fields": 30,
+  "provisional": true
+ },
+ {
+  "slug": "transport-logistics",
+  "title": "K-12 Transportation & Logistics Providers – Registration",
+  "category": "vendors",
+  "label": "Transportation & Logistics",
+  "entity": "organisation",
+  "fields": 25,
+  "provisional": true
+ },
+ {
+  "slug": "uniform-vendor",
+  "title": "K-12 Uniform, Badge, Bag & Stationery Vendor Registration",
+  "category": "vendors",
+  "label": "Uniform, Badge, Bag & Stationery",
+  "entity": "organisation",
+  "fields": 26,
+  "provisional": true
+ },
+ {
+  "slug": "fee-financing",
+  "title": "Fee Financing Company Registration",
+  "category": "experts",
+  "label": "Fee Financing Companies",
+  "entity": "organisation",
+  "fields": 18,
+  "provisional": true
+ },
+ {
+  "slug": "course-provider",
+  "title": "K-12 Individual Course Providers Registration",
+  "category": "learning",
+  "label": "K-12 Course Providers",
+  "entity": "organisation",
+  "fields": 60,
+  "provisional": false
+ },
+ {
+  "slug": "online-tutoring-support-provider-institution-registration",
+  "title": "Online Tutoring Support Provider Registration Form (Institution)",
+  "category": "learning",
+  "label": "Online Tutoring Institutions",
+  "entity": "organisation",
+  "fields": 67,
+  "provisional": false
+ },
+ {
+  "slug": "individual-online-tutor-registration",
+  "title": "Individual Online Tutor Registration Form",
+  "category": "learning",
+  "label": "Individual Online Tutors",
+  "entity": "individual",
+  "fields": 84,
+  "provisional": false
+ },
+ {
+  "slug": "recreation-hobbies-enrichment-provider",
+  "title": "Recreation, Hobbies & Enrichment Provider Registration Form",
+  "category": "learning",
+  "label": "Hobby & Enrichment Classes",
+  "entity": "organisation",
+  "fields": 73,
+  "provisional": false
+ },
+ {
+  "slug": "skill-development",
+  "title": "K-12 Skill Development Institute Registration",
+  "category": "learning",
+  "label": "Skill Development Institutes",
+  "entity": "organisation",
+  "fields": 28,
+  "provisional": true
+ },
+ {
+  "slug": "teacher-training-institute-registration",
+  "title": "Teacher Training Institute / Teacher Professional Development Provider Registration Form",
+  "category": "learning",
+  "label": "Teacher Training Institutes",
+  "entity": "organisation",
+  "fields": 76,
+  "provisional": false
+ },
+ {
+  "slug": "educational-consultant-registration",
+  "title": "Educational Consultant Registration Form",
+  "category": "learning",
+  "label": "Education Consultants",
+  "entity": "individual",
+  "fields": 53,
+  "provisional": false
+ },
+ {
+  "slug": "behaviour-consultant",
+  "title": "K-12 Behaviour Consultant Registration",
+  "category": "experts",
+  "label": "Behaviour Consultants & Therapists",
+  "entity": "organisation",
+  "fields": 33,
+  "provisional": true
+ },
+ {
+  "slug": "career-guidance",
+  "title": "K-12 Career Guidance & Counselling Provider – Public Listing Profile",
+  "category": "experts",
+  "label": "Career Guidance & Counselling",
+  "entity": "organisation",
+  "fields": 22,
+  "provisional": true
+ },
+ {
+  "slug": "mental-health",
+  "title": "K-12 Mental Health Professionals – Registration",
+  "category": "experts",
+  "label": "Mental Health Professionals",
+  "entity": "organisation",
+  "fields": 27,
+  "provisional": true
+ },
+ {
+  "slug": "special-educator-registration",
+  "title": "Special Educator Registration Form",
+  "category": "experts",
+  "label": "Special Educators",
+  "entity": "individual",
+  "fields": 36,
+  "provisional": false
+ },
+ {
+  "slug": "k12-curriculum-development-expert-registration",
+  "title": "K–12 Curriculum Development Expert Registration Form",
+  "category": "experts",
+  "label": "Curriculum Development Experts",
+  "entity": "individual",
+  "fields": 86,
+  "provisional": false
+ },
+ {
+  "slug": "teacher-registration",
+  "title": "Teacher Registration Form",
+  "category": "teachers",
+  "label": "Teachers",
+  "entity": "individual",
+  "fields": 51,
+  "provisional": true
+ },
+ {
+  "slug": "parent-ambassador",
+  "title": "Parent Ambassador Registration Form",
+  "category": "ambassadors",
+  "label": "Parent Ambassadors",
+  "entity": "individual",
+  "fields": 34,
+  "provisional": false
+ },
+ {
+  "slug": "student-ambassador",
+  "title": "Student Ambassador Registration Form",
+  "category": "ambassadors",
+  "label": "Student Ambassadors",
+  "entity": "minor",
+  "fields": 37,
+  "provisional": false
+ },
+ {
+  "slug": "principal-roundtable-virtual",
+  "title": "Virtual Roundtable — Delegate Registration Form",
+  "category": "events",
+  "label": "Principals Virtual Roundtable",
+  "entity": "individual",
+  "fields": 28,
+  "provisional": false
+ },
+ {
+  "slug": "principal-roundtable-delegate",
+  "title": "Principal Roundtables India — Delegate Registration",
+  "category": "events",
+  "label": "Principal Roundtables – Delegate",
+  "entity": "individual",
+  "fields": 14,
+  "provisional": false
+ },
+ {
+  "slug": "teacher-ambassador",
+  "title": "Teacher Ambassador Registration",
+  "category": "ambassadors",
+  "label": "Teacher Ambassadors",
+  "entity": "individual",
+  "fields": 32,
+  "provisional": false
+ }
+]

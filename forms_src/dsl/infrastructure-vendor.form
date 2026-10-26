@@ -1,0 +1,42 @@
+@slug infrastructure-vendor
+@title K-12 School Infrastructure Vendor Registration
+@provisional Section 1 matches the live form; later sections are provisional until the full form is uploaded.
+## Vendor / Company Name
+Vendor / Company Name* | text
+Legal Entity Name* | text
+## Company Details
+Brand Name | text
+Entity Type* | radio | $ENTITY
+Year Established | year
+Logo | file
+Company Profile* | textarea
+GSTIN | text
+## Contact
+Contact Person* | text
+Designation | text
+Mobile Number* | tel
+Email* | email
+Website | url
+Registered Address* | textarea
+City* | text
+State* | state
+PIN Code | pincode
+## Product & Service Categories
+Categories* | checkbox | Classroom furniture; Laboratory furniture & equipment; Smart classroom / AV; Library furniture; Playground & outdoor play equipment; Sports infrastructure & flooring; Swimming pools; Auditorium & acoustics; CCTV & security systems; Fire safety; Solar & energy; Water purification; Washrooms & sanitation; Construction & civil works; Interior design; Kitchen & cafeteria; Signage & branding; Networking & Wi-Fi; Other
+Product / Service Description* | textarea
+## Capacity & Reach
+Service Areas* | radio | $REACH
+Installation & After-sales Support | checkbox | Installation; AMC; Warranty; On-site training; 24x7 support
+Schools Served (approx.) | radio | 1–25; 26–100; 101–500; 500+
+Key School Clients | textarea
+## Compliance & Certifications
+Certifications | checkbox | ISO 9001; ISO 14001; BIS; Fire NOC compliant products; GreenPro / IGBC; Other
+## Commercial
+Pricing Model | checkbox | Per item; Project-based; Rate contract; Leasing / EMI
+Minimum Order / Project Value | text
+## Media & Documents
+Product Catalogue | file
+Project Photos | files
+Registration / GST Certificate | file
+## Declaration
+Declaration* | consent | | I confirm the information is accurate and agree to verification by The School Expert™.

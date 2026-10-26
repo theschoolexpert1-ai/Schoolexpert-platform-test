@@ -1,0 +1,277 @@
+{
+ "slug": "uniform-vendor",
+ "title": "K-12 Uniform, Badge, Bag & Stationery Vendor Registration",
+ "intro": [],
+ "sections": [
+  {
+   "title": "Company",
+   "description": "",
+   "fields": [
+    {
+     "key": "vendor_company_name",
+     "label": "Vendor / Company Name",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "name"
+    },
+    {
+     "key": "brand_name",
+     "label": "Brand Name",
+     "type": "text",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "legal_entity_name",
+     "label": "Legal Entity Name",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "entity_type",
+     "label": "Entity Type",
+     "type": "radio",
+     "required": true,
+     "options": [
+      "Proprietorship",
+      "Partnership Firm",
+      "LLP",
+      "Private Limited Company",
+      "Public Limited Company",
+      "Trust",
+      "Society",
+      "Section 8 Company",
+      "NGO"
+     ],
+     "other": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "year_established",
+     "label": "Year Established",
+     "type": "year",
+     "required": false,
+     "visibility": "public"
+    },
+    {
+     "key": "logo",
+     "label": "Logo",
+     "type": "file",
+     "required": false,
+     "visibility": "public",
+     "role": "logo"
+    },
+    {
+     "key": "about",
+     "label": "About",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed",
+     "role": "about"
+    }
+   ]
+  },
+  {
+   "title": "Contact",
+   "description": "",
+   "fields": [
+    {
+     "key": "contact_person",
+     "label": "Contact Person",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "mobile_number",
+     "label": "Mobile Number",
+     "type": "tel",
+     "required": true,
+     "visibility": "detailed",
+     "role": "phone"
+    },
+    {
+     "key": "email",
+     "label": "Email",
+     "type": "email",
+     "required": true,
+     "visibility": "detailed",
+     "role": "email"
+    },
+    {
+     "key": "website",
+     "label": "Website",
+     "type": "url",
+     "required": false,
+     "visibility": "detailed",
+     "role": "website"
+    },
+    {
+     "key": "address",
+     "label": "Address",
+     "type": "textarea",
+     "required": true,
+     "visibility": "detailed"
+    },
+    {
+     "key": "city",
+     "label": "City",
+     "type": "text",
+     "required": true,
+     "visibility": "public",
+     "role": "city"
+    },
+    {
+     "key": "state",
+     "label": "State",
+     "type": "state",
+     "required": true,
+     "visibility": "public",
+     "role": "state"
+    }
+   ]
+  },
+  {
+   "title": "Products",
+   "description": "",
+   "fields": [
+    {
+     "key": "product_categories",
+     "label": "Product Categories",
+     "type": "checkbox",
+     "required": true,
+     "options": [
+      "School uniforms",
+      "Sports uniforms",
+      "Shoes & socks",
+      "Ties, belts & badges",
+      "ID cards & lanyards",
+      "School bags",
+      "Water bottles & lunch boxes",
+      "Notebooks & stationery",
+      "Art & craft supplies",
+      "Lab coats",
+      "Raincoats & winter wear",
+      "Customised merchandise"
+     ],
+     "visibility": "public"
+    },
+    {
+     "key": "customisation_offered",
+     "label": "Customisation Offered",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "School logo embroidery",
+      "Printing",
+      "Custom colours",
+      "Custom sizes"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "fabric_material_standards",
+     "label": "Fabric / Material Standards",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Capacity",
+   "description": "",
+   "fields": [
+    {
+     "key": "production_capacity_units_per_month",
+     "label": "Production Capacity (units per month)",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "minimum_order_quantity",
+     "label": "Minimum Order Quantity",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "lead_time",
+     "label": "Lead Time",
+     "type": "text",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "supply_model",
+     "label": "Supply Model",
+     "type": "checkbox",
+     "required": false,
+     "options": [
+      "Direct to school",
+      "School store / counter",
+      "Online store for parents",
+      "Home delivery"
+     ],
+     "visibility": "detailed"
+    },
+    {
+     "key": "cities_states_served",
+     "label": "Cities / States Served",
+     "type": "text",
+     "required": true,
+     "visibility": "detailed"
+    }
+   ]
+  },
+  {
+   "title": "Marketplace",
+   "description": "",
+   "fields": [
+    {
+     "key": "would_you_like_to_sell_on_the_school_expert_mark",
+     "label": "Would you like to sell on The School Expert™ Marketplace?",
+     "type": "yesno",
+     "required": true,
+     "visibility": "private"
+    }
+   ]
+  },
+  {
+   "title": "Documents & Declaration",
+   "description": "",
+   "fields": [
+    {
+     "key": "product_catalogue",
+     "label": "Product Catalogue",
+     "type": "file",
+     "required": false,
+     "visibility": "detailed"
+    },
+    {
+     "key": "gst_certificate",
+     "label": "GST Certificate",
+     "type": "file",
+     "required": false,
+     "visibility": "private"
+    },
+    {
+     "key": "declaration",
+     "label": "Declaration",
+     "type": "consent",
+     "required": true,
+     "text": "I confirm the information is accurate and agree to verification by The School Expert™.",
+     "visibility": "private"
+    }
+   ]
+  }
+ ],
+ "outro": [],
+ "provisional": "Section 1 matches the live form; later sections are provisional until the full form is uploaded.",
+ "category": "vendors",
+ "label": "Uniform, Badge, Bag & Stationery",
+ "entity": "organisation"
+}

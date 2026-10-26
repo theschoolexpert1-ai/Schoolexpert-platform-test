@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Teacher directory{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}
+{{ page_head('Teacher directory', 'Teachers who are open to opportunities and visible to verified schools.') }}
+<section class="section-sm"><div class="container">
+{% if not ok %}<div class="card pad-lg"><h2>{{ plan.name }}</h2><p>{{ plan.features | join(' · ') }}</p><a class="btn btn-accent" href="{{ url_for('dashboard.plans') }}">Upgrade</a></div>
+{% else %}<form class="card flat" style="display:flex;gap:10px;margin-bottom:14px"><input name="q" value="{{ request.args.q or '' }}" placeholder="Subject, board, city, name"><button class="btn btn-primary">Search</button></form>
+<div class="grid g3">{% for t in rows %}<a class="card" href="{{ url_for('teachers.profile', slug=t.slug) }}"><b>{{ t.name }}</b><div class="small muted">{{ t.headline or '' }}</div><div class="chips">{% for s in (t.answers.get('subjects_you_teach') or [])[:4] %}<span class="chip">{{ s }}</span>{% endfor %}</div></a>{% else %}<div class="empty">No teachers match.</div>{% endfor %}</div>{% endif %}
+</div></section>
+{% endblock %}

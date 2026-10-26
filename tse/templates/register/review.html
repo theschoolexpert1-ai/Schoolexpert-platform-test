@@ -1,0 +1,34 @@
+{% extends 'base.html' %}{% from '_macros.html' import status, consent_line %}
+{% block title %}Review & submit — {{ defn.title }}{% endblock %}
+{% block robots %}noindex{% endblock %}
+{% block body %}
+<section class="section-sm"><div class="container narrow">
+  <h1>Review & submit</h1><p class="muted">{{ defn.title }} · Registration #{{ reg.id }} · {{ status(reg.status) }}</p>
+  {% if missing %}<div class="flash warning"><b>{{ missing | length }} required field(s) still missing.</b> Use the "Edit" links to complete them.</div>{% endif %}
+  {% for s, items in sections %}{% set si = loop.index0 %}
+  <div class="card" style="margin-bottom:12px"><div class="section-title" style="margin-bottom:8px"><h3 style="margin:0">{{ s.title }}</h3><a class="btn btn-sm btn-outline" href="{{ url_for('register.step', rid=reg.id, si=si) }}">Edit</a></div>
+    <dl class="kv">{% for f, v in items %}<dt>{{ f.label }}{% if f.required %} <span class="req">*</span>{% endif %}{% if f.visibility == 'private' %} 🔒{% endif %}</dt><dd>
+      {% if f.key in missing %}<span class="chip red">Missing</span>
+      {% elif f.type in ('file','files') %}{% for x in (v or []) %}📎 {{ x.name }}{% if not loop.last %}, {% endif %}{% else %}<span class="muted">—</span>{% endfor %}
+      {% elif f.type == 'repeat' %}{% for it in (v or []) %}<div class="small">• {{ it.values() | select | join(' · ') }}</div>{% else %}<span class="muted">—</span>{% endfor %}
+      {% elif f.type == 'consent' %}{{ '✔ Agreed' if v else '—' }}
+      {% else %}{{ v if v else '—' }}{% endif %}</dd>{% endfor %}</dl></div>
+  {% endfor %}
+  <form method="post" class="card pad-lg" style="margin-top:18px"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+    <h3>Consent</h3>
+    {{ consent_line(n_reg, 'consent_registration') }}<div style="height:8px"></div>
+    {% if listed %}{{ consent_line(n_list, 'consent_listing') }}{% endif %}
+    {% if is_minor %}
+      <div class="notice" style="margin-top:12px"><b>Verifiable parent / guardian consent.</b> {{ n_guard.body }}
+      {% if reg.checks.get('guardian_verified') %}<div class="chip ok" style="margin-top:8px">✔ Verified by OTP (mobile ending {{ reg.checks.get('guardian_phone') }})</div>{% endif %}</div>
+    {% endif %}
+    <button class="btn btn-accent btn-lg" style="margin-top:16px" {% if missing %}disabled{% endif %}>Submit registration</button>
+    {% if reg.status not in ('draft','changes_requested') %}<p class="small muted">Already submitted — resubmitting updates your answers for review.</p>{% endif %}
+  </form>
+  {% if is_minor and not reg.checks.get('guardian_verified') %}
+  <div class="card" style="margin-top:12px"><h3>Parent / guardian OTP</h3><p class="small muted">We send a one-time code to the parent/guardian mobile number entered in the form ({{ (answers.get('parent_guardian_mobile_number') or 'not entered yet')[-4:] }}).</p>
+    <div class="btn-row"><form method="post" action="{{ url_for('register.guardian_otp', rid=reg.id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn btn-outline">Send OTP</button></form>
+    <form method="post" action="{{ url_for('register.guardian_otp', rid=reg.id) }}" class="btn-row"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input name="code" inputmode="numeric" maxlength="6" placeholder="6-digit code" style="width:150px"><button class="btn btn-primary">Verify</button></form></div></div>
+  {% endif %}
+</div></section>
+{% endblock %}

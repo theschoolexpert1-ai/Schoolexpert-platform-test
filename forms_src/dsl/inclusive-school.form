@@ -1,0 +1,71 @@
+@slug inclusive-school
+@title Inclusive School Registration Form
+## School Information
+School Name* | text
+Management Name* | text
+School Logo | file
+School Motto | text
+Year Established* | year
+School Type* | radio | Private; Government; Government-Aided; International; Trust; Society
+Affiliated Boards* | checkbox | CBSE; ICSE; State Board; IB; IGCSE; Other
+Affiliation Number | text
+## School Statistics
+Total Students* | number
+Teaching Staff* | number
+Non-Teaching Staff | number
+Campus Area* | text
+Number of Campuses* | number
+Annual Fee Range (per annum) | text
+Admission Fee | text
+Transport Available | yesno
+Hostel Available | yesno
+School Timings | text
+Student–Teacher Ratio | text
+Co-ed / Boys / Girls | radio | Co-ed; Boys; Girls
+Inclusive Education Support | yesno
+Scholarships Available | text
+## Inclusive Admission
+Inclusive Admission | checkbox | Inclusive Admissions Policy; Children with Disabilities Admitted; Individual Education Plans (IEPs); Reasonable Accommodations
+## Support Available
+Support Available | checkbox | Resource Room; Special Educators; School Counsellor; Occupational Therapist; Speech Therapist; Physiotherapist; Clinical Psychologist; Behaviour Therapist; Shadow Teacher Support; Learning Support Teacher; Remedial Education
+## Learner Needs Supported
+Learner Needs Supported | checkbox | Autism Spectrum Disorder (ASD); ADHD; Dyslexia; Dysgraphia; Dyscalculia; Intellectual Disability; Down Syndrome; Cerebral Palsy; Hearing Impairment; Visual Impairment; Speech & Language Disorders; Gifted Learners; Multiple Disabilities; Other
+## Student Wellbeing
+Student Wellbeing | checkbox | Mental Health Programme; Child Protection Policy; Anti-Bullying Policy; Health Check-ups; Career Counselling; Parent Counselling; Inclusive Classroom Practices; Social-Emotional Learning (SEL)
+## Academics
+Curriculum Highlights | textarea
+Teaching Methodology | textarea
+Languages Offered (summary) | text
+Foreign Languages Offered | text
+STEM Programmes | text
+Coding / AI | text
+Robotics | text
+Career Guidance | text
+Olympiad Preparation | text
+Competitive Exam Support | text
+Grades Offered | checkbox | $GRADES
+Medium of Instruction | checkbox | $MEDIUM
+Languages Offered | checkbox | $LANGS23
+## Facilities, Sports & Activities
+Facilities | checkbox | $SCHOOL_FAC
+Sports & Activities | checkbox | $SPORTS
+Co-Curricular Activities | checkbox | $COCURR
+Student Support | checkbox | $STUSUP
+## Achievements & Recognition
+Achievements | textarea
+Recognition & Certifications | textarea
+## Contact Information
+Address* | textarea
+City* | text
+District* | text
+State* | state
+PIN Code* | pincode
+Landmark | text
+Google Maps Link | url
+Website | url
+Admissions Email* | email
+School Email* | email
+Phone Number* | tel
+WhatsApp Number | tel
+## The School Expert™ Features
+The School Expert™ Features that you would like to avail* | checkbox | School Listing; Featured School; Admission Leads; Virtual Tour; Podcasts; Webinars; Newsletters; Principal Roundtables; Brand Partnerships; All of the above

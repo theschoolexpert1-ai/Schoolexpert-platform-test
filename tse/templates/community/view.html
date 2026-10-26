@@ -1,0 +1,23 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head, status %}
+{% block title %}{{ c.name }}{% endblock %}
+{% block body %}
+{{ page_head(c.name, c.description, [('Communities', url_for('community.index'))]) }}
+<section class="section-sm"><div class="container"><div class="layout right">
+  <div class="card">
+    <form class="btn-row" style="margin-bottom:10px"><input name="q" value="{{ q }}" placeholder="Search discussions" style="flex:1"><button class="btn btn-outline">Search</button></form>
+    {% for p in posts %}<div class="post">{% if p.pinned %}<span class="chip gold">Pinned</span> {% endif %}{% if p.status != 'published' %}{{ status(p.status) }} {% endif %}
+      <h3 style="margin:4px 0"><a href="{{ url_for('community.thread', slug=c.slug, pid=p.id) }}">{{ p.title }}</a></h3>
+      <div class="by">{{ p.user_name or 'Member' }} · {{ p.created_at | dt }} · {{ p.comment_count }} repl{{ 'y' if p.comment_count == 1 else 'ies' }}{% if p.kind != 'discussion' %} · <span class="chip">{{ p.kind | capitalize }}</span>{% endif %}</div></div>
+    {% else %}<div class="empty">No discussions yet.</div>{% endfor %}
+  </div>
+  <aside>{% if can_post %}<form method="post" action="{{ url_for('community.post', slug=c.slug) }}" enctype="multipart/form-data" class="card"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+    <h3>Start a discussion</h3>
+    <div class="field"><label for="kd">Type</label><select id="kd" name="kind"><option value="discussion">Discussion</option><option value="question">Question</option><option value="resource">Share a resource</option></select></div>
+    <div class="field"><label for="ti">Title</label><input id="ti" name="title" required minlength="5"></div>
+    <div class="field"><label for="bo">Details</label><textarea id="bo" name="body" required></textarea><div class="help">Never share children's names, photos or personal details, or anyone's phone/email.</div></div>
+    <div class="field"><label for="at">Attachment (optional)</label><input id="at" type="file" name="attachment" accept="image/*,.pdf,.doc,.docx,.ppt,.pptx"></div>
+    <label class="consent-box"><input type="checkbox" name="guidelines" required><span>I follow the <a href="/community-guidelines" target="_blank">Community Guidelines</a>. {{ notice.body }}</span></label>
+    <button class="btn btn-primary btn-block" style="margin-top:10px">Post</button></form>
+  {% elif current_user %}<div class="card small muted">{% if c.slug == 'teachers' %}You can read this community. To participate, <a href="{{ url_for('auth.signup', type='teacher') }}">register as a teacher</a>.{% else %}Your account type can read but not post here.{% endif %}</div>{% endif %}</aside>
+</div></div></section>
+{% endblock %}

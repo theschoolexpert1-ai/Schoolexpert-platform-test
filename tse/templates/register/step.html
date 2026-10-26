@@ -1,0 +1,28 @@
+{% extends 'base.html' %}{% from '_macros.html' import field, status %}
+{% block title %}{{ defn.title }} — {{ sec.title }}{% endblock %}
+{% block robots %}noindex{% endblock %}
+{% block body %}
+<section class="section-sm"><div class="container"><div class="layout">
+  <aside class="side sticky">
+    <div style="padding:6px 8px"><b>{{ defn.title }}</b><div class="small muted">Registration #{{ reg.id }} · {{ status(reg.status) }}</div>
+      <div class="progress" style="margin:10px 0 4px"><span style="width:{{ reg.progress }}%"></span></div><div class="small muted">{{ reg.progress }}% complete</div></div>
+    <nav class="steps" aria-label="Sections">{% for s in defn.sections %}<a href="{{ url_for('register.step', rid=reg.id, si=loop.index0) }}" class="{{ 'cur' if loop.index0 == si else ('done' if done[loop.index0] else '') }}" {% if s.showIf %}data-show-if='{{ s.showIf | json }}'{% endif %}><span class="n">{{ '✓' if done[loop.index0] and loop.index0 != si else loop.index }}</span>{{ s.title }}</a>{% endfor %}
+      <a href="{{ url_for('register.review', rid=reg.id) }}"><span class="n">✔</span>Review & submit</a></nav>
+  </aside>
+  <div>
+    {% if si == 0 and defn.intro %}<div class="card flat" style="margin-bottom:14px">{% for p in defn.intro %}<p class="small" style="margin:0 0 6px">{{ p }}</p>{% endfor %}</div>{% endif %}
+    {% if locked %}<div class="flash info">Your profile is verified. Basic details are locked to protect parents — you can update photos, videos, the Principal's name and the Contact Person's name. <a href="{{ url_for('dashboard.support', subject='Change request: registration #' ~ reg.id) }}">Request other changes</a>.</div>{% endif %}
+    <form method="post" enctype="multipart/form-data" class="card pad-lg" data-autosave novalidate>
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <div class="small muted">Section {{ si + 1 }} of {{ defn.sections | length }}</div>
+      <h1 style="font-size:1.5rem">{{ sec.title }}</h1>
+      {% if sec.description %}<div class="small muted" style="margin-bottom:14px">{{ sec.description | nl2br }}</div>{% endif %}
+      {% for f in sec.fields %}{{ field(f, answers.get(f.key), files.get(f.key), errors.get(f.key), f.key in locked, states) }}{% endfor %}
+      <div class="btn-row" style="justify-content:space-between;margin-top:10px">
+        <div class="btn-row">{% if si > 0 %}<button class="btn btn-outline" name="action" value="prev">← Back</button>{% endif %}<button class="btn btn-ghost" name="action" value="exit">Save & exit</button></div>
+        <div class="btn-row"><button class="btn btn-outline" name="action" value="review">Save & review</button><button class="btn btn-primary" name="action" value="next">Save & continue →</button></div>
+      </div>
+    </form>
+  </div>
+</div></div></section>
+{% endblock %}

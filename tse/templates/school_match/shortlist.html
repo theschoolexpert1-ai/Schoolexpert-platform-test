@@ -1,0 +1,21 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}My school shortlist{% endblock %}
+{% block head %}<meta name="robots" content="noindex">{% endblock %}
+{% block body %}
+{{ page_head('My school shortlist', 'Save schools, compare them side by side and unlock verified details.') }}
+<section class="section"><div class="container">
+<div class="layout right"><div>
+<form method="get" action="{{ url_for('school_match.compare') }}">
+{% for l in rows %}<div class="card match"><div style="flex:1;min-width:0"><h3 style="margin:0"><a href="{{ url_for('directory.listing', slug=l.slug) }}">{{ l.name }}</a></h3>
+  <div class="small muted">{{ l.category_label }} · {{ l.city }}{% if l.unlocked %} · <span class="chip ok">Unlocked</span>{% endif %}</div></div>
+  <label class="opt"><input type="checkbox" name="id" value="{{ l.id }}"> Compare</label>
+  <button class="btn btn-ghost btn-sm" form="rm-{{ l.id }}" aria-label="Remove {{ l.name }}">Remove</button></div>
+{% else %}<div class="card"><p>Your shortlist is empty.</p><a class="btn btn-accent" href="{{ url_for('school_match.index') }}">Start AI School Match</a></div>{% endfor %}
+{% if rows | length > 1 %}<button class="btn btn-primary" type="submit">Compare selected (2–4)</button>{% endif %}
+</form>
+{% for l in rows %}<form id="rm-{{ l.id }}" method="post" hidden><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="listing_id" value="{{ l.id }}"><input type="hidden" name="remove" value="1"></form>{% endfor %}
+</div>
+<aside><div class="card"><h3>Your recent matches</h3>{% for r in runs %}<div class="post"><a href="{{ url_for('school_match.result', sid=r.public_id) }}">{{ ((describe(r.prefs)[:1] | upper) ~ describe(r.prefs)[1:]) or 'Match' }}</a><div class="small muted">{{ r.created_at | dt }}</div></div>{% else %}<p class="small muted">None yet.</p>{% endfor %}
+<a class="btn btn-outline btn-sm" href="{{ url_for('school_match.index') }}">New match</a></div></aside>
+</div></div></section>
+{% endblock %}

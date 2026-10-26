@@ -1,0 +1,8 @@
+{% extends 'admin/_layout.html' %}{% block title %}Platform Health{% endblock %}
+{% block admin %}<h1 style="font-size:1.5rem">Platform Health</h1>
+<div class="kpis"><div class="kpi"><b>{{ size }}</b><span>Database size</span></div><div class="kpi"><b>{{ sessions }}</b><span>Active sessions</span></div>
+{% for o in outbox %}<a class="kpi" href="{{ url_for('admin.outbox') }}"><b>{{ o.n }}</b><span>Outbox {{ o.status }}</span></a>{% endfor %}</div>
+<div class="grid g2"><div class="card"><h3>Largest tables</h3><table class="t">{% for t in tables %}<tr><td>{{ t.t }}</td><td>{{ t.n }}</td></tr>{% endfor %}</table></div>
+<div class="card"><h3>Activity, last 24 hours</h3><table class="t">{% for s in slow %}<tr><td class="small">{{ s.action }}</td><td>{{ s.n }}</td></tr>{% else %}<tr><td class="muted">Quiet.</td></tr>{% endfor %}</table>
+<h3 style="margin-top:14px">Migrations</h3><table class="t">{% for m in mig %}<tr><td>{{ m.version }}</td><td class="small">{{ m.applied_at | dtt }}</td></tr>{% endfor %}</table></div></div>
+{% endblock %}

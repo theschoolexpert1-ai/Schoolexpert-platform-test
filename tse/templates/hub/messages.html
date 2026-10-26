@@ -1,0 +1,11 @@
+{% extends 'dashboard/_layout.html' %}
+{% block title %}Messages — Teachers Hub{% endblock %}
+{% block dash %}
+<h1 style="font-size:1.6rem">Messages</h1>
+<p class="small muted">🔒 Private between you and educators you're connected with (or your mentor). Messages are encrypted when stored. Never share students' personal details.</p>
+<div class="card">
+{% for r in rows %}<a class="post" style="display:flex;justify-content:space-between;gap:10px;color:inherit" href="{{ url_for('hub.thread', other=r.id) }}">
+  <div><b>{{ r.name }}</b>{% if r.unread %} <span class="status new">{{ r.unread }} new</span>{% endif %}<div class="small muted">{{ 'You: ' if r.sender_id == current_user.id }}{{ r.preview }}</div></div><span class="small muted">{{ r.created_at | dt }}</span></a>
+{% else %}<p class="muted">No conversations yet. Connect with educators in the <a href="{{ url_for('hub.network') }}">network</a>, then message them.</p>{% endfor %}
+</div>
+{% endblock %}

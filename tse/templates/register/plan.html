@@ -1,0 +1,20 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Choose your plan{% endblock %}{% block robots %}noindex{% endblock %}
+{% block body %}
+{{ page_head('Choose your ' ~ ('School' if fam == 'school' else 'Vendor') ~ ' plan', 'Your registration is complete. Pay to activate your verified listing and dashboard — or save and pay later. You can upgrade Basic → Plus → Pro any time; you only pay the difference.') }}
+<section class="section-sm"><div class="container">
+  <form method="post" id="pick"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <div class="grid g3" style="margin-bottom:22px">{% for p in plans %}
+    <label class="card plan {{ 'best' if p.level == 2 }}" style="cursor:pointer">{% if p.highlight %}<span class="ribbon">{{ p.highlight }}</span>{% endif %}
+      <span class="tier-pill t{{ p.level }}">{{ p.badge }}</span><h3 style="margin-top:8px">{{ p.name }}</h3>
+      <div class="price">{{ inr(p.price_paise) }} <small>/ year + GST</small></div><p class="small muted">{{ p.description }}</p>
+      <ul>{% for f in p.features[:7] %}<li>{{ f }}</li>{% endfor %}</ul>
+      <span class="btn-row"><input type="radio" name="plan" value="{{ p.code }}" {% if p.level == 2 %}checked{% endif %} style="width:18px;height:18px;accent-color:var(--navy)"> <b>Choose {{ p.badge }}</b></span></label>{% endfor %}</div>
+  <div class="btn-row"><button class="btn btn-accent btn-lg">Continue to secure payment</button><a class="btn btn-outline btn-lg" href="{{ url_for('dashboard.home') }}">Save & pay later</a></div>
+  </form>
+  <h2 style="margin-top:34px">Compare every feature</h2>
+  {% set tiers = plans %}{% set cmp = compare(plans) %}{% include '_tier_table.html' %}
+  {% if founding %}<div class="notice" style="margin-top:20px">🏅 <b>{{ founding[0].name }}</b> — {{ inr(founding[0].price_paise) }} one-time: {{ founding[0].features | join(' · ') }}. {{ founding[0].description }}
+    <form method="post" style="display:inline"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><input type="hidden" name="plan" value="{{ founding[0].code }}"><button class="btn btn-sm btn-primary">Become a Founding Partner</button></form></div>{% endif %}
+</div></section>
+{% endblock %}

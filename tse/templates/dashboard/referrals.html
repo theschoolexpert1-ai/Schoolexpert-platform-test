@@ -1,0 +1,16 @@
+{% extends 'dashboard/_layout.html' %}{% from '_macros.html' import status %}
+{% block title %}Refer & earn{% endblock %}
+{% block dash %}
+<h1 style="font-size:1.5rem">Refer & earn</h1>
+<p class="muted">Invite schools, education partners, teachers and parents to The School Expert™. When someone you refer pays for a plan, a service or a marketplace order, you earn <b>{{ rc.commission_pct | int }}%</b> of the order value (before GST).</p>
+<div class="card"><label class="small muted" for="reflink">Your referral link</label>
+  <div class="btn-row" style="margin-top:6px"><input id="reflink" readonly value="{{ cfg.SITE_URL }}/?ref={{ rc.code }}" style="flex:1;min-width:220px">
+  <button class="btn btn-primary btn-sm" data-copy="{{ cfg.SITE_URL }}/?ref={{ rc.code }}">Copy link</button>
+  <a class="btn btn-outline btn-sm" target="_blank" rel="noopener" href="https://wa.me/?text={{ ('I use The School Expert™ — join here: ' ~ cfg.SITE_URL ~ '/?ref=' ~ rc.code) | urlencode }}">Share on WhatsApp</a></div>
+  <p class="small muted" style="margin:8px 0 0">Code: <b>{{ rc.code }}</b> · Programme: {{ rc.kind | capitalize }} · Referrals are tracked for 90 days after the click.</p></div>
+<div class="kpis" style="margin-top:14px"><div class="kpi"><b>{{ totals.n }}</b><span>Paid referrals</span></div><div class="kpi"><b>{{ inr(totals.due) }}</b><span>Commission due</span></div><div class="kpi"><b>{{ inr(totals.paid) }}</b><span>Commission paid</span></div></div>
+<div class="card"><h3>Referral history</h3><table class="t"><tr><th>Date</th><th>Purchase</th><th>Commission</th><th>Status</th></tr>
+{% for r in rows %}<tr><td>{{ r.created_at | dt }}</td><td>{{ (r.order_kind or '') | replace('_',' ') | capitalize }}</td><td>{{ inr(r.commission_paise) }}</td><td>{{ status(r.status) }}</td></tr>
+{% else %}<tr><td colspan="4" class="muted">No referrals yet — share your link to start earning.</td></tr>{% endfor %}</table>
+<p class="small muted">Commissions are approved after the refund window and paid monthly to the bank account in your settings. Self-referrals are not eligible. Personal details of people you refer are never shown to you.</p></div>
+{% endblock %}

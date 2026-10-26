@@ -1,0 +1,35 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head, consent_line %}
+{% block title %}Ask The School Expert{% endblock %}
+{% block meta_description %}Ask The School Expert for verified school details, or get matched with mental-health professionals, behaviour therapists, special educators, career counsellors, fee-financing partners and education consultants.{% endblock %}
+{% block body %}
+{{ page_head('Ask The School Expert', 'Verified school details, and trusted experts from our in-house panel or referral network.') }}
+<section class="section"><div class="container">
+  <div class="grid g2" style="margin-bottom:26px">
+    <a class="card pad-lg" href="{{ url_for('ask.schools') }}"><div class="icon">🏫</div><h2>Verified school details</h2><p class="muted">See how many schools in your locality have verified, detailed profiles — and unlock up to 10 of them.</p><span class="btn btn-accent">Choose locality →</span></a>
+    <a class="card pad-lg" href="{{ url_for('ask.pa_index') }}"><div class="icon">🚗</div><h2>Personal Assistance</h2><p class="muted">Our own team visits schools for you — forms, submissions, fee information, TC collection. Track every step.</p><span class="btn btn-primary">See services →</span></a>
+  </div>
+  <div class="layout right">
+    <div class="card pad-lg" id="request">
+      <h2>Request an expert</h2>
+      <p class="small muted">For mental-health professionals, behaviour therapists, special educators, fee-financing companies and career counsellors, The School Expert™ has an <b>in-house panel</b> and trusted <b>referral partners</b>. Tell us what you need — we reply with options and the fee.</p>
+      {% if current_user %}
+      <form method="post" action="{{ url_for('ask.request_expert') }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <div class="field"><label for="tp">I need help with</label><select id="tp" name="topic" required>{% for k, v in topics.items() %}<option value="{{ k }}" {% if topic == k %}selected{% endif %}>{{ v }}</option>{% endfor %}</select></div>
+        <div class="field"><label for="ms">Describe your need</label><textarea id="ms" name="message" required placeholder="Share only what is necessary — e.g. 'Looking for a career counsellor for stream selection after Class 10, online sessions preferred.'"></textarea>
+          <div class="help">Please do not upload medical reports or identity documents. Our team will ask if anything more is needed.</div></div>
+        <div class="row3"><div class="field"><label for="md">Preferred mode</label><select id="md" name="mode"><option>Online</option><option>In person</option><option>Either</option></select></div>
+          <div class="field"><label for="ct">City</label><input id="ct" name="city" value="{{ current_user.city or '' }}"></div>
+          <div class="field"><label for="pn">Preference</label><select id="pn" name="panel"><option value="">No preference</option><option value="in_house">In-house panel</option><option value="referral">Referral partner</option></select></div></div>
+        <label class="consent-box"><input type="checkbox" name="child_consent"><span><b>Optional:</b> I am the parent / lawful guardian and I consent to share limited information about my child's need, only for this request.</span></label><div style="height:8px"></div>
+        {{ consent_line(notice) }}
+        <button class="btn btn-accent" style="margin-top:12px">Send to The School Expert</button></form>
+      {% else %}<a class="btn btn-accent" href="{{ url_for('auth.signup', next=request.path) }}">Create a free account to ask</a> <a class="btn btn-outline" href="{{ url_for('auth.login', next=request.path) }}">Log in</a>{% endif %}
+    </div>
+    <aside class="card"><h3>Typical fees</h3>
+      <table class="t"><tr><th></th><th>Parents</th><th>Schools</th></tr>
+        <tr><td>In-house panel consultation</td><td>{{ inr(fees[0].parent * 100) }}</td><td>{{ inr(fees[0].organisation * 100) }}</td></tr>
+        <tr><td>Referral matching</td><td>{{ inr(fees[1].parent * 100) }}</td><td>{{ inr(fees[1].organisation * 100) }}</td></tr></table>
+      <p class="small muted">+ GST. Final quote depends on the expert and the number of sessions. Homeschooling guidance and publishing your child's writing are handled the same way.</p></aside>
+  </div>
+</div></section>
+{% endblock %}

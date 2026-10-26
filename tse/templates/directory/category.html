@@ -1,0 +1,26 @@
+{% extends 'base.html' %}{% from '_macros.html' import listing_card, pager, page_head %}
+{% block title %}{{ cat.label }}{% if args.city %} in {{ args.city }}{% endif %}{% endblock %}
+{% block meta_description %}Find verified {{ cat.label | lower }}{% if args.city %} in {{ args.city }}{% endif %} on The School Expert™ — compare boards, facilities, ratings and more.{% endblock %}
+{% block body %}
+{{ page_head(cat.label ~ (' in ' ~ args.city if args.city else ''), None, [('Directory', url_for('directory.group', grp=cat.grp))]) }}
+<section class="section-sm"><div class="container"><div class="layout">
+  <aside><form class="card filters" method="get">
+    <div class="field"><label for="q">Keyword</label><input id="q" name="q" value="{{ args.q or '' }}"></div>
+    <div class="field"><label for="city">City</label><select id="city" name="city"><option value="">Any</option>{% for c in cities %}<option {% if c == args.city %}selected{% endif %}>{{ c }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="state">State</label><select id="state" name="state"><option value="">Any</option>{% for s in states %}<option {% if s == args.state %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></div>
+    {% if boards %}<div class="field"><label for="board">Board / curriculum</label><select id="board" name="board"><option value="">Any</option>{% for b in boards %}<option {% if b == args.board %}selected{% endif %}>{{ b }}</option>{% endfor %}</select></div>{% endif %}
+    {% for f in facets %}<div class="field"><label for="t{{ loop.index }}">{{ f.label }}</label><select id="t{{ loop.index }}" name="tag" data-autosubmit><option value="">Any</option>{% for o in f.options %}<option {% if o == args.tag %}selected{% endif %}>{{ o }}</option>{% endfor %}</select></div>{% endfor %}
+    <label class="opt"><input type="checkbox" name="verified" value="1" {% if args.verified %}checked{% endif %}> Verified only</label>
+    <div class="field"><label for="sort">Sort</label><select id="sort" name="sort"><option value="">Recommended</option><option value="rating" {% if args.sort == 'rating' %}selected{% endif %}>Rating</option><option value="name" {% if args.sort == 'name' %}selected{% endif %}>Name</option><option value="new" {% if args.sort == 'new' %}selected{% endif %}>Newest</option></select></div>
+    <button class="btn btn-primary btn-block">Apply filters</button>
+  </form></aside>
+  <div>
+    {% if cat.grp == 'schools' %}<div class="card flat" style="margin-bottom:14px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+      <span><b>{{ detailed_count }}</b> {{ cat.label | lower }} have verified, detailed profiles. Basic details are free.</span><a class="btn btn-accent btn-sm" href="{{ url_for('ask.schools', city=args.city) }}">Ask The School Expert</a></div>{% endif %}
+    {% if not browse_ok %}<div class="notice" style="margin-bottom:14px">This category is mainly for schools. Detailed profiles are available to registered schools.</div>{% endif %}
+    <p class="muted small">{{ total }} result{{ 's' if total != 1 }}</p>
+    <div class="grid g2">{% for l in rows %}{{ listing_card(l, False) }}{% else %}<div class="empty" style="grid-column:1/-1">No listings match these filters yet.</div>{% endfor %}</div>
+    {{ pager(page, total, 24, args) }}
+  </div>
+</div></div></section>
+{% endblock %}

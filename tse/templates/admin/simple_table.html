@@ -1,0 +1,2 @@
+{% extends 'admin/_layout.html' %}{% block title %}{{ title }}{% endblock %}
+{% block admin %}<h1 style="font-size:1.5rem">{{ title }}</h1><div class="table-wrap"><table class="t"><tr>{% for c in cols %}<th>{{ c | replace('_',' ') }}</th>{% endfor %}</tr>{% for r in rows %}<tr>{% for c in cols %}<td class="small">{{ r[c] | dtt if c.endswith('_at') else (r[c] or '') }}</td>{% endfor %}</tr>{% else %}<tr><td class="muted">Nothing yet.</td></tr>{% endfor %}</table></div>{% endblock %}

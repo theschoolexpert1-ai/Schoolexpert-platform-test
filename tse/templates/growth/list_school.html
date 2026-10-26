@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}List your school{% if city %} in {{ city }}{% endif %} — verified admission leads from parents{% endblock %}
+{% block meta_description %}Get your school listed on The School Expert™{% if city %} in {{ city }}{% endif %}. Verified profile, admission leads from parents who unlock your school, teacher recruitment and featured placement. Plans from {{ inr(tiers[0].price_paise) if tiers else '' }}/year.{% endblock %}
+{% block head %}<link rel="canonical" href="{{ cfg.SITE_URL }}{{ request.path }}">{% endblock %}
+{% block body %}
+<section class="hero"><div class="container">
+  <span class="eyebrow">For schools{% if city %} in {{ city }}{% endif %}</span>
+  <h1>Reach parents who are choosing a school{% if city %} in {{ city }}{% endif %} — right now.</h1>
+  <p class="lead">A verified profile on The School Expert™, admission leads from parents who have paid to see verified details, teacher recruitment and a dashboard to track it all.</p>
+  <div class="btn-row"><a class="btn btn-accent btn-lg" href="{{ url_for('register.landing', slug='school-registration') }}">List your school</a><a class="btn btn-outline btn-lg" href="{{ url_for('public.pricing', for='school') }}">See plans</a></div>
+  <div class="stakeholders" style="margin-top:18px"><span>✔ Verified badge</span><span>✔ Save the form & pay later</span><span>✔ Upgrade any time — pay only the difference</span></div>
+</div></section>
+<section class="section"><div class="container">
+  <div class="kpis">{% if demand %}<div class="kpi"><b>{{ demand }}</b><span>parents used AI School Match{% if city %} in {{ city }}{% endif %} in the last 90 days</span></div>{% endif %}
+    {% if counts %}<div class="kpi"><b>{{ counts.total }}</b><span>schools already listed in {{ city }}</span></div><div class="kpi"><b>{{ counts.reviews }}</b><span>verified parent reviews</span></div>{% endif %}</div>
+  <div class="grid g3">
+    <div class="card"><div class="icon">🎯</div><h3>Verified admission leads</h3><p class="small muted">Parents unlock your detailed profile and contact your admissions team directly. No cold lists — every lead is a real family. (Plus & Pro)</p></div>
+    <div class="card"><div class="icon">✨</div><h3>Found by AI School Match</h3><p class="small muted">Our AI matches families to schools by board, grade, budget, location and priorities. A complete verified profile helps parents find you.</p></div>
+    <div class="card"><div class="icon">⭐</div><h3>Verified reviews</h3><p class="small muted">Only parents who unlocked your school can review it — and you can reply. Ratings parents trust.</p></div>
+    <div class="card"><div class="icon">🧑‍🏫</div><h3>Hire teachers</h3><p class="small muted">Post jobs from your dashboard; teachers apply with AI-built CVs. Pro schools search the verified teacher directory.</p></div>
+    <div class="card"><div class="icon">📣</div><h3>Featured & sponsored</h3><p class="small muted">Pro schools appear first in their city and category, with sponsored banners and newsletter & podcast features.</p></div>
+    <div class="card"><div class="icon">📊</div><h3>Your dashboard</h3><p class="small muted">Views, unlocks, leads and AI Match appearances every day. Update photos, videos and contacts any time.</p></div>
+  </div>
+  <h2 style="margin-top:30px">School plans</h2>
+  {% set cmp = compare(tiers) %}{% set cta_mode = 'register' %}{% set cta_href = url_for('register.landing', slug='school-registration') %}{% include '_tier_table.html' %}
+  <div class="card pad-lg founding" style="margin-top:20px"><span class="chip gold">🏅 Founding Partner Programme</span><h3 style="margin-top:8px">Be one of our founding schools</h3><p class="small muted">One-time registration fee, Pro benefits, three-year renewal waiver and a lifetime Founding Partner badge.</p><a class="btn btn-primary btn-sm" href="{{ url_for('public.founding') }}">Learn more</a></div>
+  {% if not city %}<h2 style="margin-top:30px">List your school in your city</h2><div class="chips">{% for c in cities %}<a class="chip" href="{{ url_for('growth.list_school', city=city_slug(c)) }}">{{ c }}</a>{% endfor %}</div>{% endif %}
+</div></section>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"School listing and admission leads{% if city %} in {{ city }}{% endif %}","provider":{"@type":"Organization","name":"The School Expert™"},"areaServed":{{ (city or 'India') | tojson }},"offers":[{% for p in tiers %}{"@type":"Offer","name":{{ p.name | tojson }},"price":"{{ (p.price_paise / 100) | int }}","priceCurrency":"INR"}{{ ',' if not loop.last }}{% endfor %}]}</script>
+{% endblock %}

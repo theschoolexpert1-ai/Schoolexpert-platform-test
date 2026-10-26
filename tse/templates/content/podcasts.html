@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}Podcasts & Webinars{% endblock %}
+{% block meta_description %}Watch and listen to educators and experts on The School Expert™ — and leave your questions to be answered.{% endblock %}
+{% block body %}
+{{ page_head('Podcasts & Webinars', 'Conversations with educators, principals and experts. Watch, listen and leave your questions.') }}
+<section class="section-sm"><div class="container">
+  <div class="tabs"><a href="?" class="{{ 'on' if not kind }}">All</a><a href="?kind=podcast" class="{{ 'on' if kind == 'podcast' }}">Podcasts</a><a href="?kind=webinar" class="{{ 'on' if kind == 'webinar' }}">Webinars</a><a href="{{ url_for('events.index', kind='webinar') }}">Upcoming live webinars →</a></div>
+  <div class="grid g3">{% for p in rows %}<a class="card" href="{{ url_for('content.podcast', slug=p.slug) }}"><div class="media-cover {{ loop.cycle('', 'red', 'gold') }}">{% if p.cover_url %}<img src="{{ p.cover_url }}" alt="">{% else %}{{ '🎙' if p.kind == 'podcast' else '🖥' }} {{ p.kind | capitalize }}{% endif %}</div>
+    <h3>{{ p.title }}</h3><p class="small muted">{{ p.guest }}{% if p.guest_title %} — {{ p.guest_title }}{% endif %}<br>{{ p.published_at | dt }}{% if p.duration_min %} · {{ p.duration_min }} min{% endif %}</p></a>{% else %}<div class="empty" style="grid-column:1/-1">Episodes coming soon.</div>{% endfor %}</div>
+</div></section>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% from '_macros.html' import page_head %}
+{% block title %}How The School Expert™ works{% endblock %}
+{% block robots %}noindex{% endblock %}
+{% block body %}
+{{ page_head('One Mission. Multiple Revenue Streams.', 'Every programme on the platform, and where it lives.') }}
+<section class="section"><div class="container"><div class="grid g3">
+{% for n, t, url in [(1,'School Subscription Plans','/for-schools'),(2,'Verified School Leads','/ask/schools'),(4,'Featured / Sponsored Placement','/for-schools'),(5,'Education Partner Memberships','/for-partners'),(6,'Founding Partner Programme','/founding-partners'),(7,'Teacher Memberships','/teachers'),(8,'Podcasts & Webinars','/podcasts'),(10,'Workshops','/events?kind=workshop'),(10,'The School Expert Product Marketplace','/marketplace'),(11,'Events & Sponsorships','/events'),(12,'Recruitment Marketplace','/jobs'),(14,'Affiliate / Referral Revenue','/register/parent-ambassador'),(15,'Product / Service Subscriptions','/newsworms'),(16,'Homeschoolers Meetups','/homeschoolers-hub')] %}
+<a class="card" href="{{ url }}"><span class="chip navy">{{ n }}</span><h3 style="margin-top:8px">{{ t }}</h3></a>{% endfor %}
+</div></div></section>
+{% endblock %}

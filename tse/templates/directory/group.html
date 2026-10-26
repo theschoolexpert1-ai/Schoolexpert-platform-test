@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% from '_macros.html' import listing_card, pager, page_head %}
+{% block title %}{{ title }}{% if city %} in {{ city }}{% endif %}{% endblock %}
+{% block meta_description %}{{ sub }}{% endblock %}
+{% block body %}
+{{ page_head(title ~ (' in ' ~ city if city else ''), sub) }}
+<section class="section-sm"><div class="container">
+  {% if restricted %}<div class="notice" style="margin-bottom:16px">Education partners and vendors serve schools. Detailed vendor profiles are available to registered schools. <a href="{{ url_for('public.for_schools') }}">For schools →</a></div>{% endif %}
+  <div class="grid g4" style="margin-bottom:22px">{% for c in cats %}<a class="card flat" href="{{ url_for('directory.category', slug=c.slug) }}"><b>{{ c.label }}</b><div class="small muted">{{ c.n }} listed</div></a>{% endfor %}</div>
+  <form class="card flat" style="display:grid;grid-template-columns:2fr 1fr auto;gap:10px;margin-bottom:16px">
+    <input name="q" value="{{ q }}" placeholder="Name, board, activity…" aria-label="Search"><select name="city" aria-label="City"><option value="">All cities</option>{% for c in cities %}<option {% if c == city %}selected{% endif %}>{{ c }}</option>{% endfor %}</select><button class="btn btn-primary">Filter</button></form>
+  <p class="muted small">{{ total }} result{{ 's' if total != 1 }}</p>
+  <div class="grid g3">{% for l in rows %}{{ listing_card(l) }}{% else %}<div class="empty" style="grid-column:1/-1">No listings yet here. <a href="{{ url_for('register.index') }}">Register</a> or <a href="{{ url_for('ask.index') }}">Ask The School Expert</a>.</div>{% endfor %}</div>
+  {{ pager(page, total, 24, {'q': q, 'city': city}) }}
+</div></section>
+{% endblock %}

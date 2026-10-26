@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}{{ p.title }} — {{ p.kind | capitalize }}{% endblock %}
+{% block meta_description %}{{ (p.summary or p.title)[:155] }}{% endblock %}
+{% block body %}
+<section class="section-sm"><div class="container"><div class="layout right">
+  <div><a class="small" href="{{ url_for('content.podcasts') }}">← Podcasts & Webinars</a>
+    <h1 style="margin-top:8px">{{ p.title }}</h1><p class="muted">{{ p.guest }}{% if p.guest_title %} — {{ p.guest_title }}{% endif %} · {{ p.published_at | dt }}</p>
+    {% if embed %}<div class="embed"><iframe src="{{ embed }}" title="{{ p.title }}" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>{% elif p.media_url %}<a class="btn btn-primary" href="{{ p.media_url }}" target="_blank" rel="noopener">▶ Watch / listen</a>{% endif %}
+    {% if p.summary %}<p style="margin-top:14px">{{ p.summary }}</p>{% endif %}{% if p.body %}<div class="prose card">{{ p.body | md }}</div>{% endif %}
+    <h2 style="margin-top:24px">Questions & answers</h2>
+    {% for q in qs %}<div class="card flat" style="margin-bottom:8px"><b>Q:</b> {{ q.question }}<div class="small muted">— {{ (q.user_name or 'Listener').split(' ')[0] }}</div>{% if q.answer %}<div class="comment"><b>A:</b> {{ q.answer }}</div>{% endif %}</div>{% else %}<p class="muted">No questions yet — be the first.</p>{% endfor %}
+  </div>
+  <aside><div class="card sticky"><h3>Leave a question</h3>
+    {% if current_user %}<form method="post" action="{{ url_for('content.podcast_ask', slug=p.slug) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><textarea name="question" required placeholder="Your question for the guest or a future episode"></textarea><button class="btn btn-primary btn-block" style="margin-top:8px">Send question</button></form>
+    {% else %}<a class="btn btn-accent btn-block" href="{{ url_for('auth.login', next=request.path) }}">Log in to ask</a>{% endif %}
+    {% if more %}<h4 style="margin-top:18px">More episodes</h4>{% for m in more %}<a href="{{ url_for('content.podcast', slug=m.slug) }}">{{ m.title }}</a><br>{% endfor %}{% endif %}</div></aside>
+</div></div></section>
+{% endblock %}
